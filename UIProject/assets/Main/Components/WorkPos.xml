@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,125">
+  <controller name="img" exported="true" pages="0,,1,,2,,3,,4,,5,,6,,7," selected="0"/>
+  <controller name="hasMeeple" pages="0,,1," selected="0"/>
+  <controller name="upgradePage" pages="0,,1," selected="1"/>
+  <controller name="upgradeState" pages="0,未升级已满级,1,未升级未满级,2,已升级可再次升级,3,已升级不可再次升级" selected="1"/>
+  <displayList>
+    <loader id="n53_rd08" name="n53" xy="0,0" size="120,125" url="ui://zqdehm1vrd08f" align="center" fill="scale">
+      <gearIcon controller="img" pages="1,2,3,4,5,6,7" values="ui://zqdehm1vrd08e|ui://zqdehm1vrd08d|ui://zqdehm1vrd08c|ui://zqdehm1vrd08b|ui://zqdehm1vrd08a|ui://zqdehm1vrd08n|ui://zqdehm1vrd0813" default="ui://zqdehm1vrd08f"/>
+    </loader>
+    <image id="n54_rd08" name="n54" src="rd08j" fileName="Images/meeple.png" xy="54,90" size="22,20">
+      <gearDisplay controller="hasMeeple" pages="1"/>
+    </image>
+    <text id="n55_rd08" name="txtInfo" xy="66,99" size="54,24" fontSize="14" align="center" vars="true" autoSize="none" text="{curNum=01}/{limit=11}"/>
+    <loader id="n56_pz64" name="n56" xy="0,0" size="120,125" alpha="0.904" url="ui://zqdehm1vpz6425" align="center" fill="scale" color="#000000">
+      <gearDisplay controller="upgradePage" pages="1"/>
+      <gearIcon controller="img" pages="0,1,2,3,4,5,6,7" values="ui://zqdehm1vpz6425|ui://zqdehm1vpz6426|ui://zqdehm1vpz6427|ui://zqdehm1vpz6428|ui://zqdehm1vpz6429|ui://zqdehm1vpz642a|ui://zqdehm1vpz642b|ui://zqdehm1vpz6424"/>
+    </loader>
+    <text id="n57_pz64" name="n57" xy="23,98" size="81,19" fontSize="12" color="#ffffff" align="center" autoSize="none" text="Max Level">
+      <gearDisplay controller="upgradePage" pages="1"/>
+      <gearDisplay2 controller="upgradeState" pages="0" condition="0"/>
+    </text>
+    <component id="n58_pz64" name="btnAddLv" src="rd0816" fileName="Components/ButtonNormal.xml" xy="20,30" size="97,48" scale="0.7,0.7">
+      <gearDisplay controller="upgradePage" pages="1"/>
+      <gearXY controller="upgradeState" pages="1" values="20,30" default="11,3"/>
+      <gearDisplay2 controller="upgradeState" pages="1,2" condition="0"/>
+      <Button title="+1" titleFontSize="27"/>
+    </component>
+    <component id="n60_pz64" name="btnMinusLv" src="rd0816" fileName="Components/ButtonNormal.xml" xy="13,43" size="97,48" scale="0.7,0.7">
+      <gearDisplay controller="upgradePage" pages="1"/>
+      <gearXY controller="upgradeState" pages="3" values="14,35" default="13,43"/>
+      <gearDisplay2 controller="upgradeState" pages="2,3" condition="0"/>
+      <Button title="-1" titleFontSize="27"/>
+    </component>
+    <text id="n61_pz64" name="txtUpgrade" xy="29,99" size="81,19" fontSize="12" color="#ffffff" align="center" vars="true" autoSize="none" text="+{num=2}">
+      <gearDisplay controller="upgradePage" pages="1"/>
+      <gearDisplay2 controller="upgradeState" pages="1,2,3" condition="0"/>
+    </text>
+  </displayList>
+</component>

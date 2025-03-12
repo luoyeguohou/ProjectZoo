@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImage="ui://zqdehm1vrd0814" designImageAlpha="0" designImageLayer="1">
+  <displayList>
+    <image id="n50_rd08" name="n50" src="rd0811" fileName="Images/back.png" xy="0,0" size="1920,1080">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n43_rd08" name="n43" src="rd089" fileName="Images/zooBack.png" xy="21,164"/>
+    <list id="n45_rd08" name="lstItem" xy="76,24" size="803,133" layout="row" defaultItem="ui://zqdehm1vg9th1c">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n47_rd08" name="btnInfo" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1548,21" size="187,76">
+      <Button title="信息"/>
+    </component>
+    <component id="n48_rd08" name="btnEndTurn" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1694,762" size="187,76">
+      <Button title="结束本季"/>
+    </component>
+    <loader id="n51_rd08" name="btnDrawPile" xy="44,874" size="128,187" url="ui://zqdehm1vrd08u"/>
+    <loader id="n52_rd08" name="btnDiscardPile" xy="1727,868" size="128,187" url="ui://zqdehm1vrd08u"/>
+    <list id="n55_rd08" name="lstWorkPos" xy="985,292" size="617,378" scale="1.2,1.2" layout="flow_hz" defaultItem="ui://zqdehm1vrd0817">
+      <item controllers="img,0"/>
+      <item controllers="img,1"/>
+      <item controllers="img,2"/>
+      <item controllers="img,3"/>
+      <item controllers="img,4"/>
+      <item controllers="img,5"/>
+      <item controllers="img,6"/>
+      <item controllers="img,7"/>
+    </list>
+    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="993,218"/>
+    <list id="n58_rd08" name="lstMap" xy="44,190" size="903,643" layout="flow_hz" lineGap="-45" colGap="52" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n61_g9th" name="txtWorker" xy="1078,229" size="110,52" fontSize="38" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
+    <list id="n73_z141" name="lstSpecWorker" xy="1191,216" size="641,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
+      <item controllers="type,1"/>
+      <item controllers="type,1"/>
+      <item controllers="type,2"/>
+      <item controllers="type,3"/>
+      <item controllers="type,3"/>
+      <item controllers="type,4"/>
+      <item controllers="type,4"/>
+      <item controllers="type,4"/>
+    </list>
+    <text id="n76_z141" name="n76" xy="951,36" size="523,92" fontSize="31" align="center" vAlign="middle" vars="true" autoSize="none" text="本季目标：{aim=1000}"/>
+  </displayList>
+</component>

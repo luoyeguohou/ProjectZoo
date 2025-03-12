@@ -1,0 +1,170 @@
+{
+  "chineseBuilding": [
+    {
+      "className": "monkey",
+      "cont": "monkeymonkey",
+      "landType": 1,
+      "name": "monkey",
+      "uid": "monkley"
+    }
+  ],
+  "chineseCard": [
+    {
+      "cardType": 1,
+      "className": "monkey",
+      "cont": "monkeymonkey",
+      "goldCost": 1,
+      "landType": 1,
+      "module": 1,
+      "name": "monkey",
+      "repeatNum": 3,
+      "timeCost": 1,
+      "uid": "monkey"
+    },
+    {
+      "cardType": 1,
+      "className": "elephent",
+      "cont": "elephentelephent",
+      "goldCost": 1,
+      "landType": 1,
+      "module": 2,
+      "name": "elephent",
+      "repeatNum": 2,
+      "timeCost": 1,
+      "uid": "elephent"
+    }
+  ],
+  "chineseEvent": [
+    {
+      "choose_1": "monkey1",
+      "choose_2": "monkey2",
+      "choose_3": 0,
+      "choose_4": 0,
+      "cont": "monkeymonkey",
+      "title": "monkey",
+      "uid": "monkey"
+    }
+  ],
+  "chineseItem": [
+    {
+      "cont": "spadespade",
+      "name": "spade",
+      "uid": "spade"
+    }
+  ],
+  "chineseWorkPos": [
+    {
+      "name": "研发部",
+      "uid": 0,
+      "val_1_1": 3,
+      "val_1_2": 4,
+      "val_1_3": 4,
+      "val_1_4": 5,
+      "val_1_5": 5,
+      "val_2_1": 1,
+      "val_2_2": 1,
+      "val_2_3": 2,
+      "val_2_4": 2,
+      "val_2_5": 3
+    },
+    {
+      "name": "建设部",
+      "uid": 1,
+      "val_1_1": 5,
+      "val_1_2": 6,
+      "val_1_3": 7,
+      "val_1_4": 8,
+      "val_1_5": 10,
+      "val_2_1": 0,
+      "val_2_2": 0,
+      "val_2_3": 0,
+      "val_2_4": 0,
+      "val_2_5": 0
+    },
+    {
+      "name": "宣传部",
+      "uid": 2,
+      "val_1_1": 5,
+      "val_1_2": 6,
+      "val_1_3": 8,
+      "val_1_4": 11,
+      "val_1_5": 15,
+      "val_2_1": 5,
+      "val_2_2": 6,
+      "val_2_3": 8,
+      "val_2_4": 11,
+      "val_2_5": 15
+    },
+    {
+      "name": "人力部",
+      "uid": 3,
+      "val_1_1": 1,
+      "val_1_2": 1,
+      "val_1_3": 1,
+      "val_1_4": 1,
+      "val_1_5": 2,
+      "val_2_1": 10,
+      "val_2_2": 9,
+      "val_2_3": 8,
+      "val_2_4": 7,
+      "val_2_5": 7
+    },
+    {
+      "name": "采购部",
+      "uid": 4,
+      "val_1_1": 1,
+      "val_1_2": 0.9,
+      "val_1_3": 0.8,
+      "val_1_4": 0.7,
+      "val_1_5": 0.6,
+      "val_2_1": 0,
+      "val_2_2": 0,
+      "val_2_3": 0,
+      "val_2_4": 0,
+      "val_2_5": 0
+    },
+    {
+      "name": "培训部",
+      "uid": 5,
+      "val_1_1": 3,
+      "val_1_2": 3,
+      "val_1_3": 4,
+      "val_1_4": 4,
+      "val_1_5": 5,
+      "val_2_1": 10,
+      "val_2_2": 12,
+      "val_2_3": 12,
+      "val_2_4": 14,
+      "val_2_5": 15
+    },
+    {
+      "name": "清理部门",
+      "uid": 6,
+      "val_1_1": 0.5,
+      "val_1_2": 0.4,
+      "val_1_3": 0.3,
+      "val_1_4": 0.2,
+      "val_1_5": 0,
+      "val_2_1": 0,
+      "val_2_2": 0,
+      "val_2_3": 0,
+      "val_2_4": 0,
+      "val_2_5": 0
+    },
+    {
+      "name": "扩建部门",
+      "uid": 7,
+      "val_1_1": 5,
+      "val_1_2": 7,
+      "val_1_3": 9,
+      "val_1_4": 7,
+      "val_1_5": 9,
+      "val_2_1": 2,
+      "val_2_2": 3,
+      "val_2_3": 4,
+      "val_2_4": 4,
+      "val_2_5": 5
+    }
+  ]
+}
+

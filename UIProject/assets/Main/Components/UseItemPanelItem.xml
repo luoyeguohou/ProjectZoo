@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="254,252">
+  <displayList>
+    <image id="n46_witr" name="n46" src="witr1y" fileName="Images/itemUsePanel.png" xy="0,0" size="254,252"/>
+    <component id="n47_witr" name="btnSell" src="rd0816" fileName="Components/ButtonNormal.xml" xy="41,73" size="166,55">
+      <Button title="Sell" titleFontSize="34"/>
+    </component>
+    <component id="n56_witr" name="btnUse" src="rd0816" fileName="Components/ButtonNormal.xml" xy="45,186" size="166,55">
+      <Button title="Use" titleFontSize="34"/>
+    </component>
+    <component id="n57_witr" name="btnDiscard" src="rd0816" fileName="Components/ButtonNormal.xml" xy="44,131" size="166,55">
+      <Button title="Discard" titleFontSize="34"/>
+    </component>
+  </displayList>
+</component>

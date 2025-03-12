@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n77_z141" name="bg" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#33000000"/>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="124,43" size="1696,991"/>
+    <list id="n71_z141" name="lstCard" xy="262,174" size="1762,951" scale="0.8,0.8" layout="flow_hz" overflow="scroll" lineGap="20" colGap="38" lineItemCount="5" defaultItem="ui://zqdehm1vrd081a" align="center" vAlign="middle" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n74_z141" name="txtTitle" xy="304,75" size="1302,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="选择{num=5}弃置。"/>
+    <component id="n78_pz64" name="btnFinish" src="rd0816" fileName="Components/ButtonNormal.xml" xy="815,870" size="300,104">
+      <Button title="finish" titleFontSize="53"/>
+    </component>
+  </displayList>
+</component>

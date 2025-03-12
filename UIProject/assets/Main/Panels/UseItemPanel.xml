@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n59_witr" name="bg" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#00ffffff"/>
+    <component id="n58_witr" name="item" src="witr20" fileName="Components/UseItemPanelItem.xml" xy="421,243" pivot="0.5,0.06" anchor="true"/>
+  </displayList>
+</component>

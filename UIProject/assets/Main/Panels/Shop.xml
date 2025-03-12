@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n71_z141" name="bg" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#33000000"/>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="216,75" size="1497,930"/>
+    <list id="n63_g9th" name="lstItem" xy="327,153" size="803,222" layout="row" overflow="scroll" defaultItem="ui://zqdehm1vrd0815">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n67_g9th" name="lstCard" xy="312,405" size="1279,524" layout="row" overflow="scroll" defaultItem="ui://zqdehm1vg9th1d">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n68_g9th" name="n68" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1229,159" size="314,94" touchable="false">
+      <Button title="废除创意" titleFontSize="48"/>
+    </component>
+    <component id="n69_g9th" name="btnDelete" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1299,260" size="174,69" scale="0.7,0.7">
+      <Button title="     58"/>
+    </component>
+    <image id="n70_g9th" name="n70" src="rd08r" fileName="Images/goldIcon.png" xy="1343,277" size="33,32"/>
+  </displayList>
+</component>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="zqdehm1v">
+  <resources>
+    <component id="pjwc0" name="Main.xml" path="/" exported="true"/>
+    <image id="rd089" name="zooBack.png" path="/Images/" exported="true"/>
+    <image id="rd08a" name="workPos6.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08b" name="workPos5.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08c" name="workPos4.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08d" name="workPos3.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08e" name="workPos2.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08f" name="workPos1.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08g" name="timeIcon.png" path="/Images/" exported="true"/>
+    <image id="rd08h" name="testCard.png" path="/Images/" exported="true"/>
+    <image id="rd08i" name="panel.png" path="/Images/" exported="true"/>
+    <image id="rd08j" name="meeple.png" path="/Images/" exported="true"/>
+    <image id="rd08k" name="mapBonus.png" path="/Images/" exported="true" scale="9grid" scale9grid="39,23,78,46"/>
+    <image id="rd08l" name="itemBg.png" path="/Images/" exported="true"/>
+    <image id="rd08m" name="item1.png" path="/Images/" exported="true"/>
+    <image id="rd08n" name="workPos7.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd08o" name="ground4.png" path="/Images/" exported="true"/>
+    <image id="rd08p" name="ground2.png" path="/Images/" exported="true"/>
+    <image id="rd08q" name="ground1.png" path="/Images/" exported="true"/>
+    <image id="rd08r" name="goldIcon.png" path="/Images/" exported="true"/>
+    <image id="rd08s" name="cardTop.png" path="/Images/Cards/" exported="true" scale="9grid" scale9grid="37,16,74,32"/>
+    <image id="rd08t" name="cardBg.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08u" name="cardBack.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08v" name="card5.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08w" name="card4.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08x" name="card3.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08y" name="card2.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08z" name="card1.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd0810" name="button.png" path="/Images/" exported="true" scale="9grid" scale9grid="49,19,98,38"/>
+    <image id="rd0811" name="back.png" path="/Images/" exported="true"/>
+    <image id="rd0812" name="ground3.png" path="/Images/" exported="true"/>
+    <image id="rd0813" name="workPos8.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="rd0814" name="reference.png" path="/Images/" exported="true"/>
+    <component id="rd0815" name="ItemWithPrice.xml" path="/Components/"/>
+    <component id="rd0816" name="ButtonNormal.xml" path="/Components/"/>
+    <component id="rd0817" name="WorkPos.xml" path="/Components/"/>
+    <component id="rd0818" name="MapPoint.xml" path="/Components/"/>
+    <component id="rd0819" name="MapBonus.xml" path="/Components/"/>
+    <component id="rd081a" name="Card.xml" path="/Components/"/>
+    <image id="g9th1b" name="cardBlock.png" path="/Images/Cards/" exported="true"/>
+    <component id="g9th1c" name="Item.xml" path="/Components/"/>
+    <component id="g9th1d" name="CardWithPrice.xml" path="/Components/"/>
+    <component id="g9th1e" name="Shop.xml" path="/Panels/" exported="true"/>
+    <image id="g9th1f" name="test2.png" path="/Images/" exported="true"/>
+    <component id="g9th1g" name="EventPanel.xml" path="/Panels/" exported="true"/>
+    <component id="z1411h" name="Worker.xml" path="/Components/"/>
+    <image id="z1411i" name="meeple2.png" path="/Images/"/>
+    <component id="z1411j" name="MapPointEmp.xml" path="/Components/" exported="true"/>
+    <component id="z1411k" name="CardOverview.xml" path="/Panels/" exported="true"/>
+    <image id="z1411l" name="planCur.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411m" name="planWinter.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411n" name="planAugust.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411o" name="planSpring.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411p" name="planSummer.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411q" name="planLineV.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411r" name="planLineH.png" path="/Images/Plans/" exported="true"/>
+    <image id="z1411s" name="planFInished.png" path="/Images/Plans/" exported="true"/>
+    <component id="z1411t" name="SeasonInfo.xml" path="/Panels/" exported="true"/>
+    <component id="z1411u" name="PlanItem.xml" path="/Components/"/>
+    <component id="z1411v" name="Building.xml" path="/Components/"/>
+    <component id="z1411w" name="EndSeason.xml" path="/Panels/" exported="true"/>
+    <component id="z1411x" name="BuildingSmall.xml" path="/Components/"/>
+    <image id="witr1y" name="itemUsePanel.png" path="/Images/" exported="true" scale9grid="0,80,177,25"/>
+    <component id="witr1z" name="UseItemPanel.xml" path="/Panels/" exported="true"/>
+    <component id="witr20" name="UseItemPanelItem.xml" path="/Components/"/>
+    <component id="pz6421" name="DrawCards.xml" path="/Panels/" exported="true"/>
+    <component id="pz6422" name="ExpandGround.xml" path="/Panels/" exported="true"/>
+    <component id="pz6423" name="UpgradeWorkPos.xml" path="/Panels/" exported="true"/>
+    <image id="pz6424" name="workPos8(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz6425" name="workPos1(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz6426" name="workPos2(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz6427" name="workPos3(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz6428" name="workPos4(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz6429" name="workPos5(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz642a" name="workPos6(1).png" path="/Images/WorkPos/" exported="true"/>
+    <image id="pz642b" name="workPos7(1).png" path="/Images/WorkPos/" exported="true"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

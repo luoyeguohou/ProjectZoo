@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n83_z141" name="bg" xy="-9,4" size="1920,1080" type="rect" lineSize="0" fillColor="#33000000"/>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="230,63" size="1497,930"/>
+    <list id="n79_z141" name="lstBuilding" xy="326,199" size="1878,578" scale="0.7,0.7" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vz1411v" align="center">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n80_z141" name="n80" xy="322,97" size="558,98" fontSize="64" vAlign="middle" autoSize="none" text="指定观光路线"/>
+    <component id="n81_z141" name="btnSettle" src="rd0816" fileName="Components/ButtonNormal.xml" xy="903,795">
+      <Button title="结算"/>
+    </component>
+    <text id="n82_z141" name="txtPopRating" xy="753,703" size="496,69" fontSize="44" vars="true" autoSize="none" text="人气值：{hot=100}/{aim=500}"/>
+  </displayList>
+</component>
