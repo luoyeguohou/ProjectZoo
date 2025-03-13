@@ -12,7 +12,7 @@ public class Cfg
     public static Dictionary<string, EventCfg> events = new Dictionary<string, EventCfg>();
     public static Dictionary<string, ItemCfg> items= new Dictionary<string, ItemCfg>();
     public static Dictionary<int,WorkPosCfg> workPoses = new Dictionary<int,WorkPosCfg>();
-
+    public static List<string> itemUids = new List<string>();
     public static void Init()
     {
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
@@ -36,6 +36,7 @@ public class Cfg
         {
             ItemCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(ItemCfg)) as ItemCfg;
             items[cfg.uid] = cfg;
+            itemUids.Add(cfg.uid);
         }
 
         // building

@@ -11,6 +11,7 @@ public class CardCfg {
     public int landType;
     public int module;
     public int repeatNum;
+    public int rare;
 }
 
 public class BuildingCfg {

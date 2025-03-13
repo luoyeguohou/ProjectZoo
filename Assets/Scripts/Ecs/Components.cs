@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Numerics;
 using TinyECS;
 
 public class GoldComp : IComponent {
@@ -72,11 +73,21 @@ public class ShopItem
 {
     public ZooItem item;
     public int price;
+    public ShopItem(ZooItem item, int price)
+    {
+        this.item = item;
+        this.price = price;
+    }
 }
 public class ShopCard
 {
     public Card card;
     public int price;
+    public ShopCard(Card card, int price)
+    {
+        this.card = card;
+        this.price = price;
+    }
 }
 
 public enum Season
@@ -110,6 +121,7 @@ public class ZooGround
     public bool isTouchedLand = false;
     public bool hasBuilt = false;
     public string builtUrl = "";
+    public int buildIdx;
 }
 
 public enum GroundStatus { 

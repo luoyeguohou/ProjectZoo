@@ -77,6 +77,9 @@
     <image id="pz6429" name="workPos5(1).png" path="/Images/WorkPos/" exported="true"/>
     <image id="pz642a" name="workPos6(1).png" path="/Images/WorkPos/" exported="true"/>
     <image id="pz642b" name="workPos7(1).png" path="/Images/WorkPos/" exported="true"/>
+    <component id="ehbe2c" name="PlayHands.xml" path="/Panels/" exported="true"/>
+    <component id="ehbe2d" name="DemolitionBuilding.xml" path="/Panels/" exported="true"/>
+    <component id="ehbe2e" name="DealBuilding.xml" path="/Panels/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

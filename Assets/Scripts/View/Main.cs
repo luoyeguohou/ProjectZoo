@@ -20,6 +20,8 @@ namespace Main
             m_lstSpecWorker.itemRenderer = WorkerIR;
             m_btnDrawPile.onClick.Add(OnClickDrawPile);
             m_btnDiscardPile.onClick.Add(OnClickDiscardPile);
+            m_btnInfo.onClick.Add(OnClickInfo);
+            m_btnEndTurn.onClick.Add(OnClickEndSesson);
 
             m_worker.draggable = true;
             m_worker.onDragStart.Add((EventContext context) =>
@@ -142,5 +144,13 @@ namespace Main
             ui.Init(zg);
         }
 
+        private void OnClickInfo() {
+            FGUIUtil.CreateWindow<UI_SeasonInfo>("SeasonInfo").Init();
+        }
+
+        private void OnClickEndSesson() { 
+            FGUIUtil.CreateWindow<UI_EndSeason>("EndSeason").Init();
+
+        }
     }
 }

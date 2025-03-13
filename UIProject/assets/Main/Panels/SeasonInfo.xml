@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="927,666">
+<component size="1920,1080">
   <displayList>
-    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="927,666"/>
-    <image id="n71_z141" name="n71" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,221" scale="0.7,0.7"/>
-    <image id="n72_z141" name="n72" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,410" scale="0.7,0.7"/>
-    <image id="n73_z141" name="n73" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,347" scale="0.7,0.7"/>
-    <image id="n74_z141" name="n74" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,284" scale="0.7,0.7"/>
-    <image id="n75_z141" name="n75" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,473" scale="0.7,0.7"/>
-    <image id="n76_z141" name="n76" src="z1411q" fileName="Images/Plans/planLineV.png" xy="312,180" size="31,513" scale="0.7,0.7"/>
-    <image id="n77_z141" name="n77" src="z1411q" fileName="Images/Plans/planLineV.png" xy="488,181" size="31,513" scale="0.7,0.7"/>
-    <image id="n78_z141" name="n78" src="z1411q" fileName="Images/Plans/planLineV.png" xy="664,181" size="31,513" scale="0.7,0.7"/>
-    <list id="n80_z141" name="lstInfo" xy="160,171" size="666,406" layout="flow_hz" overflow="scroll" lineGap="11" lineItemCount="4" defaultItem="ui://zqdehm1vz1411u">
+    <graph id="n86_ehbe" name="bg" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#00000000"/>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="821,143" size="927,666"/>
+    <image id="n71_z141" name="n71" src="z1411r" fileName="Images/Plans/planLineH.png" xy="1000,364" scale="0.7,0.7"/>
+    <image id="n72_z141" name="n72" src="z1411r" fileName="Images/Plans/planLineH.png" xy="1000,553" scale="0.7,0.7"/>
+    <image id="n73_z141" name="n73" src="z1411r" fileName="Images/Plans/planLineH.png" xy="1000,490" scale="0.7,0.7"/>
+    <image id="n74_z141" name="n74" src="z1411r" fileName="Images/Plans/planLineH.png" xy="1000,427" scale="0.7,0.7"/>
+    <image id="n75_z141" name="n75" src="z1411r" fileName="Images/Plans/planLineH.png" xy="1000,616" scale="0.7,0.7"/>
+    <image id="n76_z141" name="n76" src="z1411q" fileName="Images/Plans/planLineV.png" xy="1133,323" size="31,513" scale="0.7,0.7"/>
+    <image id="n77_z141" name="n77" src="z1411q" fileName="Images/Plans/planLineV.png" xy="1309,324" size="31,513" scale="0.7,0.7"/>
+    <image id="n78_z141" name="n78" src="z1411q" fileName="Images/Plans/planLineV.png" xy="1485,324" size="31,513" scale="0.7,0.7"/>
+    <list id="n80_z141" name="lstInfo" xy="981,314" size="666,406" layout="flow_hz" overflow="scroll" lineGap="11" lineItemCount="4" defaultItem="ui://zqdehm1vz1411u">
       <item/>
       <item/>
       <item/>
@@ -36,10 +37,10 @@
       <item/>
       <item/>
     </list>
-    <image id="n81_z141" name="n81" src="z1411n" fileName="Images/Plans/planAugust.png" xy="541,81" size="76,82"/>
-    <image id="n82_z141" name="n82" src="z1411o" fileName="Images/Plans/planSpring.png" xy="214,71" size="54,91"/>
-    <image id="n83_z141" name="n83" src="z1411p" fileName="Images/Plans/planSummer.png" xy="365,86" size="79,75"/>
-    <image id="n84_z141" name="n84" src="z1411m" fileName="Images/Plans/planWinter.png" xy="706,85" size="80,75"/>
-    <text id="n85_z141" name="n85" xy="109,176" size="98,397" fontSize="38" leading="16" autoSize="none" text="1st&#xA;2nd&#xA;3rd&#xA;4th&#xA;5th&#xA;6th"/>
+    <image id="n81_z141" name="n81" src="z1411n" fileName="Images/Plans/planAugust.png" xy="1362,224" size="76,82"/>
+    <image id="n82_z141" name="n82" src="z1411o" fileName="Images/Plans/planSpring.png" xy="1035,214" size="54,91"/>
+    <image id="n83_z141" name="n83" src="z1411p" fileName="Images/Plans/planSummer.png" xy="1186,229" size="79,75"/>
+    <image id="n84_z141" name="n84" src="z1411m" fileName="Images/Plans/planWinter.png" xy="1527,228" size="80,75"/>
+    <text id="n85_z141" name="n85" xy="930,319" size="98,397" fontSize="38" leading="16" autoSize="none" text="1st&#xA;2nd&#xA;3rd&#xA;4th&#xA;5th&#xA;6th"/>
   </displayList>
 </component>

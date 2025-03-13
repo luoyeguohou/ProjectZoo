@@ -8,6 +8,9 @@ namespace Main
     {
         public static void BindAll()
         {
+            UIObjectFactory.SetPackageItemExtension(UI_PlayHands.URL, typeof(UI_PlayHands));
+            UIObjectFactory.SetPackageItemExtension(UI_DemolitionBuilding.URL, typeof(UI_DemolitionBuilding));
+            UIObjectFactory.SetPackageItemExtension(UI_DealBuilding.URL, typeof(UI_DealBuilding));
             UIObjectFactory.SetPackageItemExtension(UI_Item.URL, typeof(UI_Item));
             UIObjectFactory.SetPackageItemExtension(UI_CardWithPrice.URL, typeof(UI_CardWithPrice));
             UIObjectFactory.SetPackageItemExtension(UI_Shop.URL, typeof(UI_Shop));

@@ -4,7 +4,7 @@ using UnityEngine;
 using TinyECS;
 using System.Runtime.ConstrainedExecution;
 using UnityEditor;
-public class StartGameSystem : ISystem
+public class StartGameSys: ISystem
 {
     public override void OnAddToEngine()
     {

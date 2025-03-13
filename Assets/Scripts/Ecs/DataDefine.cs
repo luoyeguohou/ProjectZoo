@@ -39,7 +39,12 @@ public class ZooEventChoice {
 
 public class ZooItem
 {
-    public int uid;
+    public string uid;
     public ItemCfg cfg;
     public string url;
+    public ZooItem(string uid, ItemCfg cfg)
+    {
+        this.uid = uid;
+        this.cfg = cfg;
+    }
 }

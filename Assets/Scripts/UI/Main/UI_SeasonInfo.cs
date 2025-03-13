@@ -7,6 +7,7 @@ namespace Main
 {
     public partial class UI_SeasonInfo : GComponent
     {
+        public GGraph m_bg;
         public GList m_lstInfo;
         public const string URL = "ui://zqdehm1vz1411t";
 
@@ -19,7 +20,8 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_lstInfo = (GList)GetChildAt(9);
+            m_bg = (GGraph)GetChildAt(0);
+            m_lstInfo = (GList)GetChildAt(10);
         }
     }
 }

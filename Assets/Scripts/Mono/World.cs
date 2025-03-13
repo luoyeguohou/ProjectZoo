@@ -24,9 +24,10 @@ public class World
         e.sharedConfig.AddComp(new EventComp());
         e.sharedConfig.AddComp(new ModuleComp());
         // add system
-        e.AddSystem(new StartGameSystem());
-        e.AddSystem(new DrawCardSystem());
-        e.AddSystem(new UseWorkerSystem());
-        e.AddSystem(new WorkPosSystem());
+        e.AddSystem(new StartGameSys());
+        e.AddSystem(new DrawCardSys());
+        e.AddSystem(new UseWorkerSys());
+        e.AddSystem(new WorkPosSys());
+        e.AddSystem(new GoShopSys());
     }
 }

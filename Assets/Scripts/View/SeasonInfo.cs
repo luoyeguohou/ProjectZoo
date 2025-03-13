@@ -11,6 +11,7 @@ namespace Main
         {
             base.ConstructFromResource();
             m_lstInfo.itemRenderer = ItemIR;
+            m_bg.onClick.Add(Dispose);
         }
 
         // must be called when this GComponent is created

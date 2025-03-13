@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
   <displayList>
-    <graph id="n83_z141" name="bg" xy="-9,4" size="1920,1080" type="rect" lineSize="0" fillColor="#33000000"/>
+    <graph id="n83_z141" name="bg" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#33000000"/>
     <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="230,63" size="1497,930"/>
     <list id="n79_z141" name="lstBuilding" xy="326,199" size="1878,578" scale="0.7,0.7" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vz1411v" align="center">
       <item/>

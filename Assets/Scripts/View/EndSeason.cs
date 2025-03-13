@@ -12,9 +12,9 @@ namespace Main
         {
             base.ConstructFromResource();
             m_lstBuilding.itemRenderer = BuildingIR;
+            m_bg.onClick.Add(Dispose);
         }
 
-        // must be called when this GComponent is created
         public void Init() { 
             ZooBuildingComp zbComp = World.e.sharedConfig.GetComp<ZooBuildingComp>();
             m_lstBuilding.numItems = zbComp.buildings.Count;

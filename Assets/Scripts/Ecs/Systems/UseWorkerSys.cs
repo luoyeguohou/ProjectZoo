@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TinyECS;
 using UnityEngine;
 
-public class UseWorkerSystem : ISystem
+public class UseWorkerSys : ISystem
 {
     public override void OnAddToEngine()
     {
@@ -26,10 +26,10 @@ public class UseWorkerSystem : ISystem
         else{
             int worker = wComp.specialWorker[workerIdx];
             wComp.specialWorker.RemoveAt(workerIdx);
-            switch (worker)
-            { 
-                // todo            
-            }
+            //switch (worker)
+            //{ 
+            //    // todo            
+            //}
         }
         // put on pos
         WorkPos wp = wpComp.workPoses[workPosIdx];

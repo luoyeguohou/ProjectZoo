@@ -17,6 +17,7 @@ namespace Main
         {
             base.ConstructFromResource();
             m_lstWorkPos.itemRenderer = WorkPosIR;
+            m_btnFinish.onClick.Add(OnClickFinish);
         }
 
         public void Init(int upgradeNum, Action<List<int>> handler)
@@ -24,12 +25,14 @@ namespace Main
             this.handler = handler;
             upgradeNums.Clear();
             WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-            for (int i = 0; i < upgradeNums.Count; i++)
+            for (int i = 0; i < wComp.workPoses.Count; i++)
             {
                 upgradeNums.Add(0);
             }
             aimNum = upgradeNum;
             currNum = 0;
+            m_lstWorkPos.numItems = wComp.workPoses.Count;
+            m_txtTitle.SetVar("num", (aimNum - currNum).ToString()).FlushVars();
         }
 
         private void WorkPosIR(int index, GObject g)
@@ -45,6 +48,7 @@ namespace Main
                 currNum++;
                 upgradeNums[index]++;
                 UpdateView(ui, index);
+                m_txtTitle.SetVar("num", (aimNum - currNum).ToString()).FlushVars();
             });
             ui.m_btnMinusLv.onClick.Add(() =>
             {
@@ -52,6 +56,7 @@ namespace Main
                 currNum--;
                 upgradeNums[index]--;
                 UpdateView(ui, index);
+                m_txtTitle.SetVar("num", (aimNum - currNum).ToString()).FlushVars();
             });
         }
 
