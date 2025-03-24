@@ -5,7 +5,14 @@
       "cont": "monkeymonkey",
       "landType": 1,
       "name": "monkey",
-      "uid": "monkley"
+      "uid": "monkey"
+    },
+    {
+      "className": "elephent",
+      "cont": "elephentelephent",
+      "landType": 1,
+      "name": "elephent",
+      "uid": "elephent"
     }
   ],
   "chineseCard": [
@@ -17,7 +24,8 @@
       "landType": 1,
       "module": 1,
       "name": "monkey",
-      "repeatNum": 3,
+      "rare": 0,
+      "repeatNum": 30,
       "timeCost": 1,
       "uid": "monkey"
     },
@@ -29,7 +37,8 @@
       "landType": 1,
       "module": 2,
       "name": "elephent",
-      "repeatNum": 2,
+      "rare": 1,
+      "repeatNum": 20,
       "timeCost": 1,
       "uid": "elephent"
     }
@@ -61,8 +70,8 @@
       "val_1_3": 4,
       "val_1_4": 5,
       "val_1_5": 5,
-      "val_2_1": 1,
-      "val_2_2": 1,
+      "val_2_1": 2,
+      "val_2_2": 2,
       "val_2_3": 2,
       "val_2_4": 2,
       "val_2_5": 3
@@ -112,11 +121,11 @@
     {
       "name": "采购部",
       "uid": 4,
-      "val_1_1": 1,
-      "val_1_2": 0.9,
-      "val_1_3": 0.8,
-      "val_1_4": 0.7,
-      "val_1_5": 0.6,
+      "val_1_1": 100,
+      "val_1_2": 90,
+      "val_1_3": 80,
+      "val_1_4": 70,
+      "val_1_5": 60,
       "val_2_1": 0,
       "val_2_2": 0,
       "val_2_3": 0,
@@ -140,10 +149,10 @@
     {
       "name": "清理部门",
       "uid": 6,
-      "val_1_1": 0.5,
-      "val_1_2": 0.4,
-      "val_1_3": 0.3,
-      "val_1_4": 0.2,
+      "val_1_1": 50,
+      "val_1_2": 40,
+      "val_1_3": 30,
+      "val_1_4": 20,
       "val_1_5": 0,
       "val_2_1": 0,
       "val_2_2": 0,

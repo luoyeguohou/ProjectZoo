@@ -1,15 +1,24 @@
 UI与system交互部分
 
-	去商店	1
-	查看信息	1
-	事件
-	结束季节
-	手牌
-	出牌
-	
-商店 随机五个物品
-抽牌
-价格怎么定？
+
+
+	物品美术
+			1
+
+	卡牌美术
+		dongwu	1
+		workpos	1
+		achievement	
+		DECORATE
+		event
+		onetime
+		
+	字体
+	UI细调
+
+	卡牌效果
+	使用物品
+	扣钱
 
 
 UI

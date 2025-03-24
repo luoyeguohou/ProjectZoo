@@ -102,13 +102,15 @@ public class StartGameSys: ISystem
             EcsUtil.GetGroundByPos(groundPos.x,groundPos.y).isTouchedLand = true;
         }
 
-
+        // 初始化人气值
+        PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
+        prComp.popRating = 0;
         // 初始化建筑
         ZooBuildingComp zbComp = World.e.sharedConfig.GetComp<ZooBuildingComp>();
         zbComp.buildings.Clear();
         // 初始化工人
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        wComp.normalWorkerNum = 0;
+        wComp.normalWorkerNum = 3;
         wComp.specialWorker.Clear();
         wComp.specialWorker.Add(2);
         wComp.specialWorker.Add(3);
@@ -130,6 +132,7 @@ public class StartGameSys: ISystem
         // 初始化金币
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         gComp.gold = 5;
+        gComp.income = 0;
         // 初始化工位
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         wpComp.workPoses.Clear();
@@ -155,6 +158,7 @@ public class StartGameSys: ISystem
 
         // 初始化事件
         EventComp eComp = World.e.sharedConfig.GetComp<EventComp>();
-        eComp.eventID = "";
+        eComp.eventIDs = new List<string>(Cfg.eventList);
+        Util.Shuffle(eComp.eventIDs,new System.Random());
     }
 }

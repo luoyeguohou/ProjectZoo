@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1345,110">
+  <displayList>
+    <graph id="n84_gie4" name="handBegin" xy="0,10" pivot="0.5,0.5" anchor="true" size="100,100" visible="false" type="rect"/>
+    <graph id="n85_gie4" name="handsEnd" xy="1245,0" pivot="0.5,0.5" anchor="true" size="100,100" visible="false" type="rect"/>
+  </displayList>
+</component>

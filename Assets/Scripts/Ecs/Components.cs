@@ -1,9 +1,16 @@
 using System.Collections.Generic;
 using System.Numerics;
+using System.Reflection;
 using TinyECS;
 
 public class GoldComp : IComponent {
     public int gold = 0;
+    public int income = 0;
+}
+
+public class  PopRatingComp:IComponent
+{
+    public int popRating;
 }
 
 public class ZooGroundComp : IComponent
@@ -16,6 +23,7 @@ public class CardManageComp : IComponent
     public List<Card> drawPile = new List<Card>();
     public List<Card> hands = new List<Card>();
     public List<Card> discardPile = new List<Card>();
+    public int handsLimit = 3;
 }
 
 public class ZooBuildingComp : IComponent
@@ -38,6 +46,8 @@ public class WorkerComp : IComponent
 { 
     public List<int> specialWorker = new List<int>();
     public int normalWorkerNum = 5;
+    public int normalWorkerNumLimit = 5;
+    public int tempWorkerNum = 0;
 }
 
 public class AimComp : IComponent
@@ -61,7 +71,8 @@ public class ShopComp : IComponent
 
 public class EventComp : IComponent
 {
-    public string eventID;
+    public ZooEvent currEvent;
+    public List<string> eventIDs = new List<string>();
 }
 
 public class ModuleComp : IComponent

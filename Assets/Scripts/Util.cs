@@ -58,6 +58,26 @@ class Util
             list[n] = value;
         }
     }
+
+    public static T BiggerOne<T>(T a,T b) where T : IComparable<T>
+    {
+        return a.CompareTo(b) > 0 ? a : b;
+    }
+
+    public static T SmallOne<T>(T a, T b) where T : IComparable<T>
+    {
+        return a.CompareTo(b) > 0 ? b : a;
+    }
+
+    public static bool Any<T>(List<T> lst, Func<T,bool> action) 
+    {
+        foreach (T t in lst) {
+            if (action(t)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 public static class ListExtensions

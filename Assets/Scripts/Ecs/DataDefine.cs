@@ -32,9 +32,14 @@ public class ZooEvent {
     public string url;
 }
 
-public class ZooEventChoice {
+public class ZooEventChoice
+{
     public string cont;
     public Action onChoosen;
+    public ZooEventChoice(string cont)
+    {
+        this.cont = cont;
+    }
 }
 
 public class ZooItem

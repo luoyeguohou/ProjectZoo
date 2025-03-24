@@ -17,6 +17,11 @@ namespace Main
         public GList m_lstMap;
         public GTextField m_txtWorker;
         public GList m_lstSpecWorker;
+        public GTextField m_txtGold;
+        public GTextField m_txtAim;
+        public GTextField m_txtDrawPile;
+        public GTextField m_txtDiscardPile;
+        public UI_MainHand m_hand;
         public const string URL = "ui://zqdehm1vpjwc0";
 
         public static UI_Main CreateInstance()
@@ -38,6 +43,11 @@ namespace Main
             m_lstMap = (GList)GetChildAt(9);
             m_txtWorker = (GTextField)GetChildAt(10);
             m_lstSpecWorker = (GList)GetChildAt(11);
+            m_txtGold = (GTextField)GetChildAt(14);
+            m_txtAim = (GTextField)GetChildAt(16);
+            m_txtDrawPile = (GTextField)GetChildAt(17);
+            m_txtDiscardPile = (GTextField)GetChildAt(18);
+            m_hand = (UI_MainHand)GetChildAt(19);
         }
     }
 }

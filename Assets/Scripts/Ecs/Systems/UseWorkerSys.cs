@@ -23,7 +23,8 @@ public class UseWorkerSys : ISystem
         int workPosIdx = (int)p[1];
         // remove worker
         if (workerIdx == -1) wComp.normalWorkerNum--;
-        else{
+        else
+        {
             int worker = wComp.specialWorker[workerIdx];
             wComp.specialWorker.RemoveAt(workerIdx);
             //switch (worker)
@@ -34,11 +35,14 @@ public class UseWorkerSys : ISystem
         // put on pos
         WorkPos wp = wpComp.workPoses[workPosIdx];
         wp.currNum++;
-        if (wp.currNum >= wp.needNum) {
+        if (wp.currNum >= wp.needNum)
+        {
             // take effect
             wp.currNum = 0;
             wp.needNum++;
             Msg.Dispatch("OnPutOnWorkPos", new object[] { workPosIdx });
         }
+        Msg.Dispatch("UpdateWorkPosView");
+        Msg.Dispatch("UpdateWorkerView");
     }
 }

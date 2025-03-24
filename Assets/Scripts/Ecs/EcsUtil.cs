@@ -16,6 +16,11 @@ public class EcsUtil
         return null;
     }
 
+    public static ZooGround GetGroundByPos(Vector2Int pos)
+    {
+        return GetGroundByPos(pos.x, pos.y);
+    }
+
     public static List<Card> GetCardsFromDrawPile(int num)
     {
         CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
@@ -32,5 +37,13 @@ public class EcsUtil
             ret.Add(cmComp.drawPile.Shift());
         }
         return ret;
+    }
+
+    public static WorkPos GetWorkPosByUid(int uid)
+    {
+        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        foreach (WorkPos wp in wpComp.workPoses)
+            if (wp.uid == uid) return wp;
+        return null;
     }
 }

@@ -12,7 +12,7 @@
       <item/>
       <item/>
     </list>
-    <component id="n47_rd08" name="btnInfo" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1548,21" size="187,76">
+    <component id="n47_rd08" name="btnInfo" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1705,10" size="187,76">
       <Button title="信息"/>
     </component>
     <component id="n48_rd08" name="btnEndTurn" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1694,762" size="187,76">
@@ -22,13 +22,13 @@
     <loader id="n52_rd08" name="btnDiscardPile" xy="1727,868" size="128,187" url="ui://zqdehm1vrd08u"/>
     <list id="n55_rd08" name="lstWorkPos" xy="985,292" size="617,378" scale="1.2,1.2" layout="flow_hz" defaultItem="ui://zqdehm1vrd0817">
       <item controllers="img,0"/>
-      <item controllers="img,1"/>
-      <item controllers="img,2"/>
-      <item controllers="img,3"/>
-      <item controllers="img,4"/>
-      <item controllers="img,5"/>
       <item controllers="img,6"/>
+      <item controllers="img,5"/>
+      <item controllers="img,2"/>
+      <item controllers="img,4"/>
       <item controllers="img,7"/>
+      <item controllers="img,1"/>
+      <item controllers="img,3"/>
     </list>
     <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="993,218"/>
     <list id="n58_rd08" name="lstMap" xy="44,190" size="903,643" layout="flow_hz" lineGap="-45" colGap="52" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
@@ -60,6 +60,13 @@
       <item controllers="type,4"/>
       <item controllers="type,4"/>
     </list>
-    <text id="n76_z141" name="n76" xy="951,36" size="523,92" fontSize="31" align="center" vAlign="middle" vars="true" autoSize="none" text="本季目标：{aim=1000}"/>
+    <image id="n77_gie4" name="n77" src="rd08k" fileName="Images/mapBonus.png" xy="1648,110" size="226,65"/>
+    <image id="n78_gie4" name="n78" src="rd08r" fileName="Images/goldIcon.png" xy="1667,115" size="55,53"/>
+    <text id="n79_gie4" name="txtGold" xy="1731,119" size="123,47" fontSize="27" vAlign="middle" autoSize="none" text="100"/>
+    <image id="n80_gie4" name="n80" src="rd08k" fileName="Images/mapBonus.png" xy="1249,110" size="360,65"/>
+    <text id="n76_z141" name="txtAim" xy="1261,120" size="339,46" fontSize="27" align="center" vAlign="middle" vars="true" autoSize="shrink" text="人气值：{cur=1000}/{aim=1000000}"/>
+    <text id="n81_gie4" name="txtDrawPile" xy="71,909" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="none" text="26"/>
+    <text id="n82_gie4" name="txtDiscardPile" xy="1751,906" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="none" text="26"/>
+    <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="324,1032"/>
   </displayList>
 </component>

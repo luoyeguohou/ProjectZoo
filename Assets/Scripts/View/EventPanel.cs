@@ -43,8 +43,13 @@ namespace Main
         }
 
 
-        private void OnClickEvent(int index) { 
+
+        private void OnClickEvent(int index)
+        {
             // todo
+            Msg.Dispatch("DealEventChoice");
+            // go next turn
+            Msg.Dispatch("GoNextTurn");
         }
     }
 }

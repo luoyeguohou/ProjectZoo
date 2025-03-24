@@ -26,8 +26,16 @@ namespace Main
             imgs.Add(m_img13);
         }
 
-        public void SetBuilding(ZooBuilding building) { 
-            // todo
+        public void SetBuilding(ZooBuilding building)
+        {
+            m_type.selectedIndex = building.cfg.landType;
+        }
+
+        public void SetFaded(bool faded) {
+            foreach (GLoader loader in imgs)
+            {
+                loader.alpha = faded ? 0.3f : 1f;
+            }
         }
     }
 }

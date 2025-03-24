@@ -30,37 +30,81 @@ namespace Main
                 WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
                 if (wComp.normalWorkerNum == 0) return;
                 DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", -1, (int)context.data);
-                UI_Worker ui =  (UI_Worker)DragDropManager.inst.dragAgent.component;
+                UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
             });
+
+            Msg.Bind("UpdateZooBlockView", UpdateZooBlockView);
+            Msg.Bind("UpdateItemView", UpdateItemView);
+            Msg.Bind("UpdateWorkPosView", UpdateWorkPosView);
+            Msg.Bind("UpdateWorkerView", UpdateWorkerView);
+            Msg.Bind("UpdatePopRatingView", UpdatePopRatingView);
+            Msg.Bind("UpdateGoldView", UpdateGoldView);
+            Msg.Bind("OnDrawPileChanged", UpdateDrawPileView);
+            Msg.Bind("OnDiscardPileChanged", UpdateDiscardPileView);
         }
 
-        public void Init() {
+        public void Init()
+        {
             UpdateZooBlockView();
             UpdateItemView();
             UpdateWorkPosView();
             UpdateWorkerView();
+            UpdatePopRatingView();
+            UpdateGoldView();
+            UpdateDrawPileView();
+            UpdateDiscardPileView();
+            m_hand.Init();
         }
 
-        public void UpdateZooBlockView() {
+        private void UpdateDrawPileView(object[] p = null) 
+        {
+            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+            m_txtDrawPile.text = cmComp.drawPile.Count.ToString();
+        }
+
+        private void UpdateDiscardPileView(object[] p = null)
+        {
+            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+            m_txtDiscardPile.text = cmComp.discardPile.Count.ToString();
+        }
+
+        private void UpdateZooBlockView(object[] p = null)
+        {
             m_lstMap.numItems = 72;
         }
 
-        public void UpdateItemView()
+        private void UpdateItemView(object[] p = null)
         {
             ItemsComp iComp = World.e.sharedConfig.GetComp<ItemsComp>();
             m_lstItem.numItems = iComp.itemLimit;
         }
 
-        public void UpdateWorkPosView()
+        private void UpdateWorkPosView(object[] p = null)
         {
             WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             m_lstWorkPos.numItems = wComp.workPoses.Count;
         }
-        public void UpdateWorkerView()
+        private void UpdateWorkerView(object[] p = null)
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
             m_txtWorker.SetVar("num", wComp.normalWorkerNum.ToString()).FlushVars();
             m_lstSpecWorker.numItems = wComp.specialWorker.Count;
+        }
+
+        private void UpdatePopRatingView(object[] p = null)
+        {
+            PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
+            TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
+            AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
+            m_txtAim.SetVar("cur", prComp.popRating.ToString());
+            m_txtAim.SetVar("aim", aComp.aims[tComp.turn - 1].ToString());
+            m_txtAim.FlushVars();
+        }
+
+        private void UpdateGoldView(object[] p = null)
+        {
+            GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+            m_txtGold.text = gComp.gold.ToString();
         }
 
         private void OnClickDrawPile()
@@ -99,7 +143,7 @@ namespace Main
                 gcom.MakeFullScreen();
                 UI_UseItemPanel win = (UI_UseItemPanel)gcom;
                 win.SetIdx(index);
-                FGUIUtil.SetSamePos(win.m_item,ui.m_img);
+                FGUIUtil.SetSamePos(win.m_item, ui.m_img);
 
             });
         }
@@ -109,7 +153,8 @@ namespace Main
             WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             UI_WorkPos ui = (UI_WorkPos)g;
             ui.SetWorkPos(wComp.workPoses[index]);
-            ui.onDrop.Add((EventContext context) => Msg.Dispatch("OnUseWorker",new object[] { context.data,index })  );
+            ui.onDrop.Clear();
+            ui.onDrop.Add((EventContext context) => Msg.Dispatch("OnUseWorker", new object[] { context.data, index }));
         }
 
         private void WorkerIR(int index, GObject g)
@@ -131,7 +176,7 @@ namespace Main
 
         private string ZooBlockProvider(int index)
         {
-            return index % 12 == 6? "ui://Main/MapPointEmp": "ui://Main/MapPoint";
+            return index % 12 == 6 ? "ui://Main/MapPointEmp" : "ui://Main/MapPoint";
         }
 
         private void ZooBlockIR(int index, GObject g)
@@ -139,18 +184,19 @@ namespace Main
             if (index % 12 == 6) return;
             int y = index / 6;
             int x = index % 6;
-            ZooGround zg = EcsUtil.GetGroundByPos(x,y);
+            ZooGround zg = EcsUtil.GetGroundByPos(x, y);
             UI_MapPoint ui = (UI_MapPoint)g;
             ui.Init(zg);
         }
 
-        private void OnClickInfo() {
+        private void OnClickInfo()
+        {
             FGUIUtil.CreateWindow<UI_SeasonInfo>("SeasonInfo").Init();
         }
 
-        private void OnClickEndSesson() { 
+        private void OnClickEndSesson()
+        {
             FGUIUtil.CreateWindow<UI_EndSeason>("EndSeason").Init();
-
         }
     }
 }

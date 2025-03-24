@@ -1,7 +1,6 @@
 using Main;
 using System.Collections.Generic;
 using TinyECS;
-using UnityEngine;
 
 public class WorkPosSys : ISystem
 {
@@ -19,7 +18,6 @@ public class WorkPosSys : ISystem
     {
         int index = (int)p[0];
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
         WorkPos wp = wpComp.workPoses[index];
         WorkPosCfg cfg = Cfg.workPoses[wp.uid];
         int val1 = cfg.val1[wp.level];
@@ -28,40 +26,36 @@ public class WorkPosSys : ISystem
         {
             // 抽牌
             case 0:
-                Msg.Dispatch("DrawCards", new object[] { val1, val2 });
+                Msg.Dispatch("ActionDrawCardAndChoose", new object[] { val1, val2 });
                 break;
-            // 升级建筑
+            // 建造
             case 1:
-                UI_UpgradeWorkPos uwpWin = FGUIUtil.CreateWindow<UI_UpgradeWorkPos>("UpgradeWorkPos");
-                uwpWin.Init(val1, (List<int> val) => Msg.Dispatch("UpgradeWorkPos", new object[] { val }));
+                Msg.Dispatch("ActionPlayHands", new object[] { val1 });
                 break;
-            // 扩地
+            // 开展
             case 2:
-                UI_ExpandGround exWin = FGUIUtil.CreateWindow<UI_ExpandGround>("ExpandGround");
-                exWin.Init(val1,(List<Vector2Int> poses)=> Msg.Dispatch("ExpandGround", new object[] { poses }));
+                Msg.Dispatch("ActionGainGold", new object[] { val1 });
+                Msg.Dispatch("ActionGainPopR", new object[] { val1 });
                 break;
             // 加人
             case 3:
-                Msg.Dispatch("AddWorker", new object[] {val1});
-                break;
-            // 开展
-            case 4:
-                Msg.Dispatch("AddGold", new object[] {val1});
-                Msg.Dispatch("AddPopRating", new object[] {val1});
+                Msg.Dispatch("ActionGainWorker", new object[] { val1 });
                 break;
             // 去商店
-            case 5:
+            case 4:
                 Msg.Dispatch("GoShop", new object[] { val1 });
+                break;
+            // 升级建筑
+            case 5:
+                Msg.Dispatch("ActionTraining", new object[] { val1 });
                 break;
             // 清理
             case 6:
-                UI_DemolitionBuilding dbWin = FGUIUtil.CreateWindow<UI_DemolitionBuilding>("DemolitionBuilding");
-                dbWin.Init((ZooBuilding zb) => Msg.Dispatch("DemolitionBuilding", new object[] { zb,val1 }));
+                Msg.Dispatch("ActionDemolitionBuilding", new object[] { val1 });
                 break;
-            // 建造
+            // 扩地
             case 7:
-                UI_PlayHands phWin = FGUIUtil.CreateWindow<UI_PlayHands>("DrawCards");
-                phWin.Init(cmComp.hands, val1, (List<Card> results) => Msg.Dispatch("PlayCards", new object[] { results }));
+                Msg.Dispatch("ActionExpandGround", new object[] { val1 });
                 break;
         }
     }

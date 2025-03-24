@@ -29,7 +29,7 @@ namespace Main
             this.cards = cards;
             cardsLeft = new List<Card>(cards);
             cardsChosen = new List<Card>();
-
+            m_lstCard.numItems = cards.Count;
         }
 
         private void CardIR(int index, GObject g)
@@ -52,7 +52,9 @@ namespace Main
 
         private void OnClickFinish() 
         {
-            if (currDuration < aimDuration)
+            //且还有牌可以打
+            bool haveCardsToPlay = cardsLeft.Count != 0 && Util.Any(cardsLeft, c => c.cfg.timeCost < aimDuration - currDuration);
+            if (currDuration < aimDuration && haveCardsToPlay)
             {
                 // todo 提示还有没用的牌
                 return;

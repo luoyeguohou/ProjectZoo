@@ -10,6 +10,8 @@ public class Cfg
     public static List<int> modules = new List<int>();
     public static Dictionary<string, BuildingCfg> buildings = new Dictionary<string, BuildingCfg>();
     public static Dictionary<string, EventCfg> events = new Dictionary<string, EventCfg>();
+    public static List<string> eventList = new List<string>();
+
     public static Dictionary<string, ItemCfg> items= new Dictionary<string, ItemCfg>();
     public static Dictionary<int,WorkPosCfg> workPoses = new Dictionary<int,WorkPosCfg>();
     public static List<string> itemUids = new List<string>();
@@ -61,6 +63,7 @@ public class Cfg
             if (rawCfg.choose_3 != "") cfg.choices.Add(rawCfg.choose_3);
             if (rawCfg.choose_4 != "") cfg.choices.Add(rawCfg.choose_4);
             events[cfg.uid] = cfg;
+            eventList.Add(cfg.uid);
         }
 
         // building

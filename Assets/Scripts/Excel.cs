@@ -45,6 +45,8 @@ public class ItemCfg {
     public string uid;
     public string name;
     public string cont;
+    public int val1;
+    public int val2;
 }
 
 public class RawWorkPosCfg {

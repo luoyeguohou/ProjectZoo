@@ -80,6 +80,32 @@
     <component id="ehbe2c" name="PlayHands.xml" path="/Panels/" exported="true"/>
     <component id="ehbe2d" name="DemolitionBuilding.xml" path="/Panels/" exported="true"/>
     <component id="ehbe2e" name="DealBuilding.xml" path="/Panels/" exported="true"/>
+    <component id="c0b72f" name="MainHand.xml" path="/Components/"/>
+    <image id="qff22g" name="book24.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22h" name="book21.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22i" name="book20.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22j" name="book19.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22k" name="book18.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22l" name="book17.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22m" name="book16.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22n" name="book15.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22o" name="book14.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22p" name="book13.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22q" name="book12.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22r" name="book22.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22s" name="book11.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22t" name="book9.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22u" name="book8.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22v" name="book7.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22w" name="book6.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22x" name="book5.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22y" name="book4.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22z" name="book3.png" path="/Images/Books/" exported="true"/>
+    <image id="qff230" name="book2.png" path="/Images/Books/" exported="true"/>
+    <image id="qff231" name="book1.png" path="/Images/Books/" exported="true"/>
+    <image id="qff232" name="book25.png" path="/Images/Books/" exported="true"/>
+    <image id="qff233" name="book10.png" path="/Images/Books/" exported="true"/>
+    <image id="qff234" name="book23.png" path="/Images/Books/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

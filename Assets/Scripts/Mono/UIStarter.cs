@@ -12,7 +12,6 @@ public class UIStarter
         UIPackage.AddPackage("UI/Main");
         MainBinder.BindAll();
         mainWin = FGUIUtil.CreateWindow<UI_Main>("Main");
-        mainWin.UpdateZooBlockView();
         mainWin.Init();
     }
 }
