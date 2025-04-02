@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="319,462">
-  <controller name="color" pages="0,,1,,2,,3,,4," selected="0"/>
+  <controller name="color" pages="0,,1,,2,,3,,4," selected="4"/>
   <controller name="status" pages="0,all3,1,gold&amp;time,2,time" selected="0"/>
   <controller name="discarded" pages="0,,1," selected="0"/>
   <displayList>
@@ -9,7 +9,7 @@
     <image id="n63_rd08" name="n63" src="rd08s" fileName="Images/Cards/cardTop.png" xy="4,1" size="161,51">
       <gearSize controller="status" pages="0,1,2" values="161,51,1,1|123,51,1,1|65,51,1,1"/>
     </image>
-    <loader id="n60_rd08" name="n60" xy="0,0" size="319,462" url="ui://zqdehm1vrd08z">
+    <loader id="n60_rd08" name="n60" xy="0,0" size="319,462" url="ui://zqdehm1vrd08v">
       <gearIcon controller="color" pages="1,2,3,4" values="ui://zqdehm1vrd08y|ui://zqdehm1vrd08x|ui://zqdehm1vrd08w|ui://zqdehm1vrd08v" default="ui://zqdehm1vrd08z"/>
     </loader>
     <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/goldIcon.png" xy="60,17" size="26,25">
@@ -25,7 +25,7 @@
     <text id="n73_g9th" name="txtGoldCost" xy="84,16" size="37,25" fontSize="14" align="center" vAlign="middle" autoSize="none" text="100">
       <gearDisplay controller="status" pages="0,1"/>
     </text>
-    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/BuildingSmall.xml" xy="126,11" scale="0.12,0.12">
+    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/BuildingSmall.xml" xy="126,10" scale="0.12,0.12">
       <gearDisplay controller="status" pages="0"/>
     </component>
     <graph id="n75_pz64" name="n75" xy="0,0" size="319,462" type="rect" lineSize="0" fillColor="#b5000000">

@@ -7,16 +7,16 @@ namespace Main
 {
     public partial class UI_CardOverview : GComponent
     {
+        private List<Card> cards;
+
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            // init
             m_lstCard.itemRenderer = CardIR;
             m_bg.onClick.Add(Dispose);
         }
 
-        private List<Card> cards;
-        public void SetCards(List<Card> cards, string title)
+        public void Init(List<Card> cards, string title)
         {
             this.cards = cards;
             m_lstCard.numItems = cards.Count;
@@ -25,7 +25,6 @@ namespace Main
 
         private void CardIR(int index, GObject g)
         {
-            Debug.Log(index + " " + cards.Count);
             UI_Card card = (UI_Card)g;
             card.SetCard(cards[index]);
         }

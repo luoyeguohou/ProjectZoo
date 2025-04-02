@@ -13,7 +13,7 @@ namespace Main
         {
             base.ConstructFromResource();
             // init
-            m_lstItem.itemRenderer = ItemIR;
+            m_lstBook.itemRenderer = BookIR;
             m_lstWorkPos.itemRenderer = WorkPosIR;
             m_lstMap.itemProvider = ZooBlockProvider;
             m_lstMap.itemRenderer = ZooBlockIR;
@@ -33,20 +33,20 @@ namespace Main
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
             });
 
-            Msg.Bind("UpdateZooBlockView", UpdateZooBlockView);
-            Msg.Bind("UpdateItemView", UpdateItemView);
-            Msg.Bind("UpdateWorkPosView", UpdateWorkPosView);
-            Msg.Bind("UpdateWorkerView", UpdateWorkerView);
-            Msg.Bind("UpdatePopRatingView", UpdatePopRatingView);
-            Msg.Bind("UpdateGoldView", UpdateGoldView);
-            Msg.Bind("OnDrawPileChanged", UpdateDrawPileView);
-            Msg.Bind("OnDiscardPileChanged", UpdateDiscardPileView);
+            Msg.Bind(MsgID.AfterMapChanged, UpdateZooBlockView);
+            Msg.Bind(MsgID.AfterBookChanged, UpdateBookView);
+            Msg.Bind(MsgID.AfterWorkPosChanged, UpdateWorkPosView);
+            Msg.Bind(MsgID.AfterWorkerChanged, UpdateWorkerView);
+            Msg.Bind(MsgID.AfterPopRatingChanged, UpdatePopRatingView);
+            Msg.Bind(MsgID.AfterGoldChanged, UpdateGoldView);
+            Msg.Bind(MsgID.AfterCardChanged, UpdateDrawPileView);
+            Msg.Bind(MsgID.AfterCardChanged, UpdateDiscardPileView);
         }
 
         public void Init()
         {
             UpdateZooBlockView();
-            UpdateItemView();
+            UpdateBookView();
             UpdateWorkPosView();
             UpdateWorkerView();
             UpdatePopRatingView();
@@ -73,10 +73,10 @@ namespace Main
             m_lstMap.numItems = 72;
         }
 
-        private void UpdateItemView(object[] p = null)
+        private void UpdateBookView(object[] p = null)
         {
-            ItemsComp iComp = World.e.sharedConfig.GetComp<ItemsComp>();
-            m_lstItem.numItems = iComp.itemLimit;
+            BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
+            m_lstBook.numItems = iComp.bookLimit;
         }
 
         private void UpdateWorkPosView(object[] p = null)
@@ -115,7 +115,7 @@ namespace Main
             gcom.MakeFullScreen();
             UI_CardOverview win = (UI_CardOverview)gcom;
             // todo i18n
-            win.SetCards(cComp.drawPile, "³éÅÆ¶Ñ");
+            win.Init(cComp.drawPile, "³éÅÆ¶Ñ");
         }
 
         private void OnClickDiscardPile()
@@ -123,27 +123,27 @@ namespace Main
             CardManageComp cComp = World.e.sharedConfig.GetComp<CardManageComp>();
             UI_CardOverview win = FGUIUtil.CreateWindow<UI_CardOverview>("CardOverview");
             // todo i18n
-            win.SetCards(cComp.discardPile, "ÆúÅÆ¶Ñ");
+            win.Init(cComp.discardPile, "ÆúÅÆ¶Ñ");
         }
 
-        private void ItemIR(int index, GObject g)
+        private void BookIR(int index, GObject g)
         {
-            ItemsComp iComp = World.e.sharedConfig.GetComp<ItemsComp>();
-            UI_Item ui = (UI_Item)g;
-            bool isEmp = index >= iComp.items.Count;
-            ui.SetItem(isEmp ? null : iComp.items[index], isEmp);
+            BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
+            UI_Book ui = (UI_Book)g;
+            bool isEmp = index >= iComp.books.Count;
+            ui.Init(isEmp ? null : iComp.books[index], isEmp);
 
             if (isEmp) return;
             ui.onClick.Clear();
             ui.onClick.Add(() =>
             {
-                ItemsComp iComp = World.e.sharedConfig.GetComp<ItemsComp>();
+                BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
                 GComponent gcom = UIPackage.CreateObject("Main", "UseItemPanel").asCom;
                 GRoot.inst.AddChild(gcom);
                 gcom.MakeFullScreen();
-                UI_UseItemPanel win = (UI_UseItemPanel)gcom;
+                UI_UseBookPanel win = (UI_UseBookPanel)gcom;
                 win.SetIdx(index);
-                FGUIUtil.SetSamePos(win.m_item, ui.m_img);
+                FGUIUtil.SetSamePos(win.m_book, ui.m_img);
 
             });
         }
@@ -154,7 +154,7 @@ namespace Main
             UI_WorkPos ui = (UI_WorkPos)g;
             ui.SetWorkPos(wComp.workPoses[index]);
             ui.onDrop.Clear();
-            ui.onDrop.Add((EventContext context) => Msg.Dispatch("OnUseWorker", new object[] { context.data, index }));
+            ui.onDrop.Add((EventContext context) => Msg.Dispatch(MsgID.UseWorker, new object[] { context.data, index }));
         }
 
         private void WorkerIR(int index, GObject g)

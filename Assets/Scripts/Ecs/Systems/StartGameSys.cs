@@ -8,12 +8,12 @@ public class StartGameSys: ISystem
 {
     public override void OnAddToEngine()
     {
-        Msg.Bind("StartGame", StartGame);
+        Msg.Bind(MsgID.StartGame, StartGame);
     }
 
     public override void OnRemoveFromEngine()
     {
-        Msg.UnBind("StartGame", StartGame);
+        Msg.UnBind(MsgID.StartGame, StartGame);
     }
 
     private void StartGame(object[] p)
@@ -31,15 +31,10 @@ public class StartGameSys: ISystem
         cComp.drawPile.Clear();
         cComp.hands.Clear();
         foreach (int module in mComp.modules)
-        {
             foreach (CardCfg cCfg in Cfg.cardByModule[module])
-            {
                 for (int cnt = 1; cnt <= cCfg.repeatNum; cnt++)
-                {
-                    cComp.drawPile.Add(CardUtil.GenCardByUid(cCfg.uid));
-                }
-            }
-        }
+                    cComp.drawPile.Add(new Card(cCfg.uid));
+
         // 初始化地图
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         for (int x = 0; x < 6; x++)
@@ -78,8 +73,8 @@ public class StartGameSys: ISystem
             new MapBonus(MapBonusType.TmpWorker,3),
             new MapBonus(MapBonusType.Income,2),
             new MapBonus(MapBonusType.Income,1),
-            new MapBonus(MapBonusType.RandomItem,1),
-            new MapBonus(MapBonusType.RandomItem,1),
+            new MapBonus(MapBonusType.RandomBook,1),
+            new MapBonus(MapBonusType.RandomBook,1),
             new MapBonus(MapBonusType.DrawCard,2),
             new MapBonus(MapBonusType.DrawCard,1),
         };
@@ -106,8 +101,8 @@ public class StartGameSys: ISystem
         PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
         prComp.popRating = 0;
         // 初始化建筑
-        ZooBuildingComp zbComp = World.e.sharedConfig.GetComp<ZooBuildingComp>();
-        zbComp.buildings.Clear();
+        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
+        vComp.venues.Clear();
         // 初始化工人
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         wComp.normalWorkerNum = 3;
@@ -116,9 +111,9 @@ public class StartGameSys: ISystem
         wComp.specialWorker.Add(3);
         wComp.specialWorker.Add(4);
         // 初始化物品
-        ItemsComp iComp = World.e.sharedConfig.GetComp<ItemsComp>();
-        iComp.items.Clear();
-        iComp.itemLimit = 3;
+        BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
+        iComp.books.Clear();
+        iComp.bookLimit = 3;
         // 初始化目标
         AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
         aComp.aims = new List<int> {
@@ -151,7 +146,7 @@ public class StartGameSys: ISystem
 
         // 初始化 Shop
         ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
-        sComp.items.Clear();
+        sComp.books.Clear();
         sComp.cards.Clear();
         sComp.DeleteCost = 5;
         sComp.DeleteCostAddon = 5;

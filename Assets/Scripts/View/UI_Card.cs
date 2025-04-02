@@ -7,12 +7,14 @@ namespace Main
 {
     public partial class UI_Card : GComponent
     {
+        public Card c;
         public void SetCard(Card c)
         {
+            this.c = c;
             CardCfg cfg = c.cfg;
             m_color.selectedIndex = cfg.cardType;
-            m_status.selectedIndex = cfg.cardType == (int)CardType.Building ? 0 : (cfg.goldCost > 0 ? 1 : 2);
-            if (cfg.cardType == (int)CardType.Building)
+            m_status.selectedIndex = cfg.cardType == (int)CardType.Venue ? 0 : (cfg.goldCost > 0 ? 1 : 2);
+            if (cfg.cardType == (int)CardType.Venue)
             {
                 m_txtAttr.text = cfg.className;
                 m_buildCost.m_type.selectedIndex = cfg.landType;

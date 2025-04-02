@@ -15,7 +15,7 @@ namespace Main
         public GTextField m_txtAttr;
         public GTextField m_txtTimeCost;
         public GTextField m_txtGoldCost;
-        public UI_BuildingSmall m_buildCost;
+        public UI_VenueSmall m_buildCost;
         public const string URL = "ui://zqdehm1vrd081a";
 
         public static UI_Card CreateInstance()
@@ -35,7 +35,7 @@ namespace Main
             m_txtAttr = (GTextField)GetChildAt(8);
             m_txtTimeCost = (GTextField)GetChildAt(9);
             m_txtGoldCost = (GTextField)GetChildAt(10);
-            m_buildCost = (UI_BuildingSmall)GetChildAt(11);
+            m_buildCost = (UI_VenueSmall)GetChildAt(11);
         }
     }
 }

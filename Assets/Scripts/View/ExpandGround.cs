@@ -8,6 +8,12 @@ namespace Main
 {
     public partial class UI_ExpandGround : GComponent
     {
+
+        private int currNum;
+        private int aimNum;
+        private Action<List<Vector2Int>> handler;
+        private List<Vector2Int> selectedList = new List<Vector2Int>();
+
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
@@ -16,18 +22,13 @@ namespace Main
             m_btnFinish.onClick.Add(OnClickFinish);
         }
 
-        private int currNum;
-        private int aimNum;
-        Action<List<Vector2Int>> handler;
-        List<Vector2Int> selectedList = new List<Vector2Int>();
-
-        public void Init(int chosenNum,Action<List<Vector2Int>> handler)
+        public void Init(int chosenNum, Action<List<Vector2Int>> handler)
         {
             m_lstMap.numItems = 72;
             aimNum = chosenNum;
             currNum = 0;
             this.handler = handler;
-            m_txtTitle.SetVar("num",chosenNum.ToString()).FlushVars();
+            m_txtTitle.SetVar("num", chosenNum.ToString()).FlushVars();
             selectedList.Clear();
         }
 
@@ -56,7 +57,7 @@ namespace Main
                 if (oriSelected)
                     Util.RemoveValue(selectedList, new Vector2Int(x, y));
                 else
-                    selectedList.Add(new Vector2Int(x,y));
+                    selectedList.Add(new Vector2Int(x, y));
             });
         }
 
@@ -66,6 +67,5 @@ namespace Main
             Dispose();
             handler(selectedList);
         }
-
     }
 }

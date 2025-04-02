@@ -7,8 +7,8 @@
 		<tableinfo default_key="id,idx" invalid_col="index,default">
 			<file name="excel/chinese.xlsx">
 				<chineseCard name="card" firstcol="uid" key="uid" />
-				<chineseItem name="item" firstcol="uid" key="uid" />
-				<chineseBuilding name="building" firstcol="uid" key="uid" />
+				<chineseBook name="book" firstcol="uid" key="uid" />
+				<chineseVenue name="venue" firstcol="uid" key="uid" />
 				<chineseEvent name="event" firstcol="uid" key="uid" />
 				<chineseWorkPos name="workPos" firstcol="uid" key="uid" />
 			</file>

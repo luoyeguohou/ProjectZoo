@@ -5,7 +5,7 @@
       <relation target="" sidePair="width-width,height-height"/>
     </image>
     <image id="n43_rd08" name="n43" src="rd089" fileName="Images/zooBack.png" xy="21,164"/>
-    <list id="n45_rd08" name="lstItem" xy="76,24" size="803,133" layout="row" defaultItem="ui://zqdehm1vg9th1c">
+    <list id="n45_rd08" name="lstBook" xy="76,24" size="803,133" layout="row" defaultItem="ui://zqdehm1vg9th1c">
       <item/>
       <item/>
       <item/>
@@ -65,8 +65,11 @@
     <text id="n79_gie4" name="txtGold" xy="1731,119" size="123,47" fontSize="27" vAlign="middle" autoSize="none" text="100"/>
     <image id="n80_gie4" name="n80" src="rd08k" fileName="Images/mapBonus.png" xy="1249,110" size="360,65"/>
     <text id="n76_z141" name="txtAim" xy="1261,120" size="339,46" fontSize="27" align="center" vAlign="middle" vars="true" autoSize="shrink" text="人气值：{cur=1000}/{aim=1000000}"/>
-    <text id="n81_gie4" name="txtDrawPile" xy="71,909" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="none" text="26"/>
-    <text id="n82_gie4" name="txtDiscardPile" xy="1751,906" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="none" text="26"/>
+    <text id="n81_gie4" name="txtDrawPile" xy="71,909" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="261"/>
+    <text id="n82_gie4" name="txtDiscardPile" xy="1751,906" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="26"/>
     <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="324,1032"/>
+    <image id="n86_sr8r" name="n86" src="rd08k" fileName="Images/mapBonus.png" xy="1481,757" size="185,95"/>
+    <image id="n85_sr8r" name="n85" src="rd08g" fileName="Images/timeIcon.png" xy="1506,781" size="32,46"/>
+    <text id="n87_sr8r" name="n87" xy="1556,778" size="80,49" fontSize="35" vAlign="middle" autoSize="none" text="15"/>
   </displayList>
 </component>

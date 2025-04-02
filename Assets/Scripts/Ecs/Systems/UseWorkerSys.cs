@@ -7,12 +7,12 @@ public class UseWorkerSys : ISystem
 {
     public override void OnAddToEngine()
     {
-        Msg.Bind("OnUseWorker", OnUseWorker);
+        Msg.Bind(MsgID.UseWorker, OnUseWorker);
     }
 
     public override void OnRemoveFromEngine()
     {
-        Msg.UnBind("OnUseWorker", OnUseWorker);
+        Msg.UnBind(MsgID.UseWorker, OnUseWorker);
     }
 
     private void OnUseWorker(object[] p)
@@ -40,9 +40,9 @@ public class UseWorkerSys : ISystem
             // take effect
             wp.currNum = 0;
             wp.needNum++;
-            Msg.Dispatch("OnPutOnWorkPos", new object[] { workPosIdx });
+            Msg.Dispatch(MsgID.ResolveWorkPosEffect, new object[] { workPosIdx });
         }
-        Msg.Dispatch("UpdateWorkPosView");
-        Msg.Dispatch("UpdateWorkerView");
+        Msg.Dispatch(MsgID.AfterWorkPosChanged);
+        Msg.Dispatch(MsgID.AfterWorkerChanged);
     }
 }

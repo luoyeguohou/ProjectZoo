@@ -8,7 +8,7 @@ public class Initer : MonoBehaviour
     {
         Cfg.Init();
         World.Init();
-        Msg.Dispatch("StartGame");
+        Msg.Dispatch(MsgID.StartGame);
         UIStarter.Init();
     }
 }

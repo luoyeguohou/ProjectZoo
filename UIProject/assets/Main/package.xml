@@ -34,14 +34,14 @@
     <image id="rd0812" name="ground3.png" path="/Images/" exported="true"/>
     <image id="rd0813" name="workPos8.png" path="/Images/WorkPos/" exported="true"/>
     <image id="rd0814" name="reference.png" path="/Images/" exported="true"/>
-    <component id="rd0815" name="ItemWithPrice.xml" path="/Components/"/>
+    <component id="rd0815" name="BookWithPrice.xml" path="/Components/"/>
     <component id="rd0816" name="ButtonNormal.xml" path="/Components/"/>
     <component id="rd0817" name="WorkPos.xml" path="/Components/"/>
     <component id="rd0818" name="MapPoint.xml" path="/Components/"/>
     <component id="rd0819" name="MapBonus.xml" path="/Components/"/>
     <component id="rd081a" name="Card.xml" path="/Components/"/>
     <image id="g9th1b" name="cardBlock.png" path="/Images/Cards/" exported="true"/>
-    <component id="g9th1c" name="Item.xml" path="/Components/"/>
+    <component id="g9th1c" name="Book.xml" path="/Components/"/>
     <component id="g9th1d" name="CardWithPrice.xml" path="/Components/"/>
     <component id="g9th1e" name="Shop.xml" path="/Panels/" exported="true"/>
     <image id="g9th1f" name="test2.png" path="/Images/" exported="true"/>
@@ -60,13 +60,13 @@
     <image id="z1411s" name="planFInished.png" path="/Images/Plans/" exported="true"/>
     <component id="z1411t" name="SeasonInfo.xml" path="/Panels/" exported="true"/>
     <component id="z1411u" name="PlanItem.xml" path="/Components/"/>
-    <component id="z1411v" name="Building.xml" path="/Components/"/>
+    <component id="z1411v" name="Venue.xml" path="/Components/"/>
     <component id="z1411w" name="EndSeason.xml" path="/Panels/" exported="true"/>
-    <component id="z1411x" name="BuildingSmall.xml" path="/Components/"/>
+    <component id="z1411x" name="VenueSmall.xml" path="/Components/"/>
     <image id="witr1y" name="itemUsePanel.png" path="/Images/" exported="true" scale9grid="0,80,177,25"/>
-    <component id="witr1z" name="UseItemPanel.xml" path="/Panels/" exported="true"/>
-    <component id="witr20" name="UseItemPanelItem.xml" path="/Components/"/>
-    <component id="pz6421" name="DrawCards.xml" path="/Panels/" exported="true"/>
+    <component id="witr1z" name="UseBookPanel.xml" path="/Panels/" exported="true"/>
+    <component id="witr20" name="UseBookPanelItem.xml" path="/Components/"/>
+    <component id="pz6421" name="SelectCards.xml" path="/Panels/" exported="true"/>
     <component id="pz6422" name="ExpandGround.xml" path="/Panels/" exported="true"/>
     <component id="pz6423" name="UpgradeWorkPos.xml" path="/Panels/" exported="true"/>
     <image id="pz6424" name="workPos8(1).png" path="/Images/WorkPos/" exported="true"/>
@@ -78,8 +78,8 @@
     <image id="pz642a" name="workPos6(1).png" path="/Images/WorkPos/" exported="true"/>
     <image id="pz642b" name="workPos7(1).png" path="/Images/WorkPos/" exported="true"/>
     <component id="ehbe2c" name="PlayHands.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2d" name="DemolitionBuilding.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2e" name="DealBuilding.xml" path="/Panels/" exported="true"/>
+    <component id="ehbe2d" name="SelectVenue.xml" path="/Panels/" exported="true"/>
+    <component id="ehbe2e" name="DealVenue.xml" path="/Panels/" exported="true"/>
     <component id="c0b72f" name="MainHand.xml" path="/Components/"/>
     <image id="qff22g" name="book24.png" path="/Images/Books/" exported="true"/>
     <image id="qff22h" name="book21.png" path="/Images/Books/" exported="true"/>

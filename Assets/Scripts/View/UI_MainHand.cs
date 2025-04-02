@@ -1,4 +1,5 @@
 using FairyGUI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Main
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            Msg.Bind("OnHandChanged", OnHandChanged);
+            Msg.Bind(MsgID.AfterCardChanged, OnHandChanged);
         }
 
         public void Init()
@@ -35,7 +36,9 @@ namespace Main
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
             for (int i = 0; i < cmComp.hands.Count; i++)
             {
-                active.Add(GetFromPool());
+                UI_Card ui = GetFromPool();
+                ui.SetCard(cmComp.hands[i]);
+                active.Add(ui);
             }
             Relocate();
         }
@@ -61,6 +64,19 @@ namespace Main
             {
                 if (focusCard != ui) return;
                 focusCard = null;
+                Relocate();
+            });
+
+            ui.draggable = true;
+            ui.onDragEnd.Add(() =>
+            {
+                Debug.Log(ui.position.y + " " + GRoot.inst.height);
+                if (ui.position.y < -0.33f * GRoot.inst.height)
+                {
+                    CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+                    Msg.Dispatch(MsgID.ActionTryToPlayHand, new object[] { cmComp.hands.IndexOf(ui.c) });
+                    return;
+                }
                 Relocate();
             });
             return ui;

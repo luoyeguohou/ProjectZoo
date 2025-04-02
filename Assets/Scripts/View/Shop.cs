@@ -13,15 +13,14 @@ namespace Main
             m_btnDelete.onClick.Add(OnClickDelete);
             m_bg.onClick.Add(Dispose);
             m_lstCard.itemRenderer = CardIR;
-            m_lstItem.itemRenderer = ItemIR;
+            m_lstBook.itemRenderer = BookIR;
         }
 
-        // must be called when this GComponent is created
         public void Init()
         {
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             m_lstCard.numItems = sComp.cards.Count;
-            m_lstItem.numItems = sComp.items.Count;
+            m_lstBook.numItems = sComp.books.Count;
         }
 
         private void OnClickDelete()
@@ -36,11 +35,11 @@ namespace Main
             ui.Init(sComp.cards[index]);
         }
 
-        private void ItemIR(int index, GObject g)
+        private void BookIR(int index, GObject g)
         {
-            UI_ItemWithPrice ui = (UI_ItemWithPrice)g;
+            UI_BookWithPrice ui = (UI_BookWithPrice)g;
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
-            ui.Init(sComp.items[index]);
+            ui.Init(sComp.books[index]);
         }
     }
 }

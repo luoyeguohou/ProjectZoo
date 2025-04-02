@@ -9,8 +9,8 @@
 	<tables>
 		<!-- monsterGen.xlsx -->
 		<table name="chineseCard">*</table>
-		<table name="chineseItem">*</table>
-		<table name="chineseBuilding">*</table>
+		<table name="chineseBook">*</table>
+		<table name="chineseVenue">*</table>
 		<table name="chineseEvent">*</table>
 		<table name="chineseWorkPos">*</table>
 	</tables>

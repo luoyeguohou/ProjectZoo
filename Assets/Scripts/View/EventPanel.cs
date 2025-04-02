@@ -1,4 +1,5 @@
 using FairyGUI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Main
     {
         private List<GButton> choices = new List<GButton>();
         private ZooEvent e;
+        private Action endHandler;
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
@@ -23,10 +25,10 @@ namespace Main
             m_btnChoose4.onClick.Add(() => OnClickEvent(3));
         }
 
-        // must be called when this GComponent is created
-        public void Init(ZooEvent e)
+        public void Init(ZooEvent e,Action endHandler)
         {
             this.e = e;
+            this.endHandler = endHandler;
             m_img.url = e.url;
             m_txtTitle.text = e.cfg.title;
             m_txtContent.text = e.cfg.cont;
@@ -42,14 +44,10 @@ namespace Main
             }
         }
 
-
-
         private void OnClickEvent(int index)
         {
-            // todo
-            Msg.Dispatch("DealEventChoice");
-            // go next turn
-            Msg.Dispatch("GoNextTurn");
+            Msg.Dispatch(MsgID.ResolveEventChoiceEffect,new object[] { e.zooEventChoices[index].uid });
+            endHandler();
         }
     }
 }

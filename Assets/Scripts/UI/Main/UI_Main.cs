@@ -7,7 +7,7 @@ namespace Main
 {
     public partial class UI_Main : GComponent
     {
-        public GList m_lstItem;
+        public GList m_lstBook;
         public GButton m_btnInfo;
         public GButton m_btnEndTurn;
         public GLoader m_btnDrawPile;
@@ -33,7 +33,7 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_lstItem = (GList)GetChildAt(2);
+            m_lstBook = (GList)GetChildAt(2);
             m_btnInfo = (GButton)GetChildAt(3);
             m_btnEndTurn = (GButton)GetChildAt(4);
             m_btnDrawPile = (GLoader)GetChildAt(5);

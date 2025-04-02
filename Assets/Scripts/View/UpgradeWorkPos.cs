@@ -11,7 +11,7 @@ namespace Main
     {
         private int aimNum;
         private List<int> upgradeNums = new List<int>();
-        Action<List<int>> handler;
+        private Action<List<int>> handler;
         private int currNum;
         public override void ConstructFromResource()
         {

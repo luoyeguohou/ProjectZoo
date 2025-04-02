@@ -8,7 +8,7 @@ namespace Main
     public partial class UI_EndSeason : GComponent
     {
         public GGraph m_bg;
-        public GList m_lstBuilding;
+        public GList m_lstVenue;
         public GButton m_btnSettle;
         public GTextField m_txtPopRating;
         public const string URL = "ui://zqdehm1vz1411w";
@@ -23,7 +23,7 @@ namespace Main
             base.ConstructFromXML(xml);
 
             m_bg = (GGraph)GetChildAt(0);
-            m_lstBuilding = (GList)GetChildAt(2);
+            m_lstVenue = (GList)GetChildAt(2);
             m_btnSettle = (GButton)GetChildAt(4);
             m_txtPopRating = (GTextField)GetChildAt(5);
         }

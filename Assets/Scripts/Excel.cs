@@ -4,7 +4,9 @@ public class CardCfg {
     public string uid;
     public string name;
     public string className;
+    public string aniName;
     public string cont;
+    public string condition;
     public int cardType;
     public int timeCost;
     public int goldCost;
@@ -14,13 +16,17 @@ public class CardCfg {
     public int rare;
 }
 
-public class BuildingCfg {
+public class VenueCfg {
 
     public string uid;
     public string name;
     public string className;
+    public string aniName;
     public string cont;
     public int landType;
+    public string aniType;
+    public int aniModule;
+    public int isX;
 }
 
 public class RawEventCfg {
@@ -31,6 +37,10 @@ public class RawEventCfg {
     public string choose_2;
     public string choose_3;
     public string choose_4;
+    public string choose_uid_1;
+    public string choose_uid_2;
+    public string choose_uid_3;
+    public string choose_uid_4;
 }
 
 public class EventCfg
@@ -39,9 +49,11 @@ public class EventCfg
     public string title;
     public string cont;
     public List<string> choices = new List<string>();
+    public List<string> choiceUids = new List<string>();
 }
 
-public class ItemCfg { 
+public class BookCfg
+{ 
     public string uid;
     public string name;
     public string cont;

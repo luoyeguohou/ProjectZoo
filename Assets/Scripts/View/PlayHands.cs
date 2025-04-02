@@ -14,6 +14,7 @@ namespace Main
         private List<Card> cards;
         private List<Card> cardsLeft;
         private List<Card> cardsChosen;
+
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();

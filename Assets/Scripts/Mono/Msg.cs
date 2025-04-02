@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Msg 
 {
-    private static Dictionary<string, Dictionary<int, List<Action<object[]>>>> messages = new Dictionary<string, Dictionary<int, List<Action<object[]>>>>();
+    private static Dictionary<MsgID, Dictionary<int, List<Action<object[]>>>> messages = new Dictionary<MsgID, Dictionary<int, List<Action<object[]>>>>();
 
-    public static void Bind(string name, Action<object[]> f, int id = -1)
+    public static void Bind(MsgID name, Action<object[]> f, int id = -1)
     {
         if (!messages.ContainsKey(name))
             messages[name] = new Dictionary<int, List<Action<object[]>>>();
@@ -18,7 +18,7 @@ public class Msg
         messages[name][id].Add(f);
     }
 
-    public static void UnBind(string name, Action<object[]> f, int id = -1)
+    public static void UnBind(MsgID name, Action<object[]> f, int id = -1)
     {
         if (!messages.ContainsKey(name)) return;
         if (!messages[name].ContainsKey(id)) return;
@@ -29,7 +29,7 @@ public class Msg
             messages[name][id].Clear();
     }
 
-    public static void UnBind(string name, int id = -1)
+    public static void UnBind(MsgID name, int id = -1)
     {
         if (!messages.ContainsKey(name)) return;
         if (!messages[name].ContainsKey(id)) return;
@@ -37,7 +37,7 @@ public class Msg
         messages[name][id].Clear();
     }
 
-    public static void Dispatch(string name, object[] param = null)
+    public static void Dispatch(MsgID name, object[] param = null)
     {
         if (!messages.ContainsKey(name))
             return;
@@ -45,18 +45,4 @@ public class Msg
         foreach (KeyValuePair<int, List<Action<object[]>>> itemKV in messages[name])
             itemKV.Value.ForEach((Action<object[]> f) => f(param));
     }
-}
-
-public class MsgString
-{
-    public const string DealAttackMsg = "DealAttackMsg";
-    public const string OnColliderEnter = "OnColliderEnter";
-    public const string OnTriggerEnter = "OnTriggerEnter";
-}
-
-public class MsgID
-{
-    public const int DealAttackMsg = 1;
-    public const int OnColliderEnter = 2;
-    public const int OnTriggerEnter = 3;
 }

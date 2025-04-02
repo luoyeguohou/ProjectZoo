@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.UIElements;
 
 class Util
 {
@@ -78,6 +79,52 @@ class Util
         }
         return false;
     }
+
+    public static bool All<T>(List<T> lst, Func<T, bool> action)
+    {
+        foreach (T t in lst)
+        {
+            if (!action(t))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int Count<T>(List<T> lst, Func<T, bool> action)
+    {
+        int cnt = 0;
+        foreach (T t in lst)
+        {
+            if (action(t))
+            {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
+    public static int SetBit(int num,int pos) { 
+        return num | (1 << pos);
+    }
+
+    public static int GetMax(int[] vals) {
+        int[] des = new int[vals.Length];
+        Array.Copy(vals, des, vals.Length);
+        Array.Sort(des);
+        return des[0];
+    }
+
+    public static int GetSecondMax(int[] vals)
+    {
+        if (vals.Length == 1) return vals[0];
+        int[] des = new int[vals.Length];
+        Array.Copy(vals, des, vals.Length);
+        Array.Sort(des);
+        return des[1];
+    }
+
 }
 
 public static class ListExtensions

@@ -14,7 +14,6 @@ namespace Main
             m_bg.onClick.Add(Dispose);
         }
 
-        // must be called when this GComponent is created
         public void Init() {
             m_lstInfo.numItems = 24;
         }

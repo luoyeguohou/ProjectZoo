@@ -8,13 +8,16 @@ public class Cfg
     public static Dictionary<string, CardCfg> cards = new Dictionary<string, CardCfg>();
     public static Dictionary<int, List<CardCfg>> cardByModule = new Dictionary<int, List<CardCfg>>();
     public static List<int> modules = new List<int>();
-    public static Dictionary<string, BuildingCfg> buildings = new Dictionary<string, BuildingCfg>();
+    public static Dictionary<string, CardCfg> badIdea = new Dictionary<string, CardCfg>();
+    public static List<string> badIdeaUids = new List<string>();
+
+    public static Dictionary<string, VenueCfg> venues = new Dictionary<string, VenueCfg>();
     public static Dictionary<string, EventCfg> events = new Dictionary<string, EventCfg>();
     public static List<string> eventList = new List<string>();
 
-    public static Dictionary<string, ItemCfg> items= new Dictionary<string, ItemCfg>();
-    public static Dictionary<int,WorkPosCfg> workPoses = new Dictionary<int,WorkPosCfg>();
-    public static List<string> itemUids = new List<string>();
+    public static Dictionary<string, BookCfg> books = new Dictionary<string, BookCfg>();
+    public static Dictionary<int, WorkPosCfg> workPoses = new Dictionary<int, WorkPosCfg>();
+    public static List<string> bookUids = new List<string>();
     public static void Init()
     {
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
@@ -22,31 +25,35 @@ public class Cfg
         string language = "chinese";
 
         // cards
-        JsonData cardData = jd[language+"Card"];
+        JsonData cardData = jd[language + "Card"];
         foreach (JsonData d in cardData)
         {
             CardCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(CardCfg)) as CardCfg;
             cards[cfg.uid] = cfg;
-            if (!modules.Contains(cfg.module)) modules.Add(cfg.module);
+            if (cfg.module == -1) {
+                badIdea[cfg.uid] = cfg;
+                badIdeaUids.Add(cfg.uid);
+            }
+            if (!modules.Contains(cfg.module) && cfg.module!= -1) modules.Add(cfg.module);
             if (!cardByModule.ContainsKey(cfg.module)) cardByModule.Add(cfg.module, new List<CardCfg>());
             cardByModule[cfg.module].Add(cfg);
         }
 
-        // items
-        JsonData itemData = jd[language + "Item"];
-        foreach (JsonData d in itemData)
+        // books
+        JsonData bookData = jd[language + "Book"];
+        foreach (JsonData d in bookData)
         {
-            ItemCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(ItemCfg)) as ItemCfg;
-            items[cfg.uid] = cfg;
-            itemUids.Add(cfg.uid);
+            BookCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(BookCfg)) as BookCfg;
+            books[cfg.uid] = cfg;
+            bookUids.Add(cfg.uid);
         }
 
-        // building
-        JsonData buildingData = jd[language + "Building"];
-        foreach (JsonData d in buildingData)
+        // venues
+        JsonData venueData = jd[language + "Venue"];
+        foreach (JsonData d in venueData)
         {
-            BuildingCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(BuildingCfg)) as BuildingCfg;
-            buildings[cfg.uid] = cfg;
+            VenueCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(VenueCfg)) as VenueCfg;
+            venues[cfg.uid] = cfg;
         }
 
         // events
@@ -62,11 +69,16 @@ public class Cfg
             if (rawCfg.choose_2 != "") cfg.choices.Add(rawCfg.choose_2);
             if (rawCfg.choose_3 != "") cfg.choices.Add(rawCfg.choose_3);
             if (rawCfg.choose_4 != "") cfg.choices.Add(rawCfg.choose_4);
+
+            if (rawCfg.choose_uid_1 != "") cfg.choiceUids.Add(rawCfg.choose_uid_1);
+            if (rawCfg.choose_uid_2 != "") cfg.choiceUids.Add(rawCfg.choose_uid_2);
+            if (rawCfg.choose_uid_3 != "") cfg.choiceUids.Add(rawCfg.choose_uid_3);
+            if (rawCfg.choose_uid_4 != "") cfg.choiceUids.Add(rawCfg.choose_uid_4);
             events[cfg.uid] = cfg;
             eventList.Add(cfg.uid);
         }
 
-        // building
+        // workPos
         JsonData workPosData = jd[language + "WorkPos"];
         foreach (JsonData d in workPosData)
         {
@@ -74,7 +86,7 @@ public class Cfg
             WorkPosCfg cfg = new WorkPosCfg();
             cfg.uid = rawCfg.uid;
             cfg.name = rawCfg.name;
-            cfg.val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 }; 
+            cfg.val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 };
             cfg.val2 = new int[] { rawCfg.val_2_1, rawCfg.val_2_2, rawCfg.val_2_3, rawCfg.val_2_4, rawCfg.val_2_5 };
             workPoses[cfg.uid] = cfg;
         }
