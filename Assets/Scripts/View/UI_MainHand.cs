@@ -70,7 +70,6 @@ namespace Main
             ui.draggable = true;
             ui.onDragEnd.Add(() =>
             {
-                Debug.Log(ui.position.y + " " + GRoot.inst.height);
                 if (ui.position.y < -0.33f * GRoot.inst.height)
                 {
                     CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
@@ -99,6 +98,7 @@ namespace Main
             for (int i = 0; i < handNum; i++)
             {
                 UI_Card ui = active[i];
+                ui.parent.SetChildIndex(ui,i);
                 ui.SetPivot(0.5f, 0.5f, true);
                 ui.scale = focusCard == ui ? new Vector3(1, 1, 1) : new Vector3(0.8f, 0.8f, 0.8f);
                 ui.rotation = focusCard == ui ? 0 : startRot + rotEach * i;

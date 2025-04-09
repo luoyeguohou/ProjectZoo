@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n92_qev6" name="bg" xy="0,0" size="1920,1080" alpha="0.05" type="rect"/>
+    <image id="n88_qev6" name="n88" src="rd08i" fileName="Images/panel.png" xy="384,136" size="1169,784"/>
+    <list id="n91_qev6" name="lstLog" xy="435,175" size="1076,704" overflow="scroll" scrollBar="visible" scrollBarRes="ui://zqdehm1vqev639," lineGap="8" defaultItem="ui://zqdehm1vqev635">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

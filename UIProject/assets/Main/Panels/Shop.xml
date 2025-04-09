@@ -2,7 +2,7 @@
 <component size="1920,1080">
   <displayList>
     <graph id="n71_z141" name="bg" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#33000000"/>
-    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="216,75" size="1497,930"/>
+    <loader id="n62_g9th" name="n62" xy="216,75" size="1497,930" url="ui://zqdehm1vrd08i" fill="scaleFree"/>
     <list id="n63_g9th" name="lstBook" xy="327,153" size="803,222" layout="row" overflow="scroll" defaultItem="ui://zqdehm1vrd0815">
       <item/>
       <item/>

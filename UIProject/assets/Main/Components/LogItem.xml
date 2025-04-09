@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1061,60">
+  <displayList>
+    <graph id="n89_qev6" name="n89" xy="0,0" size="1061,60" alpha="0.565" type="rect" lineColor="#73000000" fillColor="#ff000000">
+      <relation target="" sidePair="height-height"/>
+    </graph>
+    <text id="n90_qev6" name="txtCont" xy="10,6" size="1034,45" fontSize="33" color="#ffffff" vAlign="middle" autoSize="height" text=""/>
+  </displayList>
+  <relation target="n90_qev6" sidePair="height-height"/>
+</component>

@@ -20,6 +20,8 @@ namespace Main
             UIObjectFactory.SetPackageItemExtension(UI_SelectCards.URL, typeof(UI_SelectCards));
             UIObjectFactory.SetPackageItemExtension(UI_ExpandGround.URL, typeof(UI_ExpandGround));
             UIObjectFactory.SetPackageItemExtension(UI_UpgradeWorkPos.URL, typeof(UI_UpgradeWorkPos));
+            UIObjectFactory.SetPackageItemExtension(UI_LogItem.URL, typeof(UI_LogItem));
+            UIObjectFactory.SetPackageItemExtension(UI_Logger.URL, typeof(UI_Logger));
             UIObjectFactory.SetPackageItemExtension(UI_BookWithPrice.URL, typeof(UI_BookWithPrice));
             UIObjectFactory.SetPackageItemExtension(UI_WorkPos.URL, typeof(UI_WorkPos));
             UIObjectFactory.SetPackageItemExtension(UI_MapPoint.URL, typeof(UI_MapPoint));

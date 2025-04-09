@@ -34,7 +34,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 gComp.income *= 2;
                 break;
             case "event_4":
-                bComp.popRExtraTime++;
+                bComp.extraPercPopRThisTurn+=100;
                 bComp.only5VenueEffected++;
                 break;
             case "event_5":
@@ -43,7 +43,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 break;
             case "event_6":
                 bComp.drawCardStartOfTurn+=2;
-                bComp.extraGoldCostOnCard+=50;
+                bComp.extraPercGoldCostOnCard+=50;
                 break;
             case "event_7":
                 bComp.randomMapBonusStartOfTurn += 2;
@@ -54,7 +54,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 bComp.extraExpandCostTime ++;
                 break;
             case "event_9":
-                bComp.randomGift++;
+                bComp.randomGiftStartOfTurn++;
                 break;
             case "event_10":
                 bComp.extraBookTime++;
@@ -62,7 +62,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 break;
             case "event_11":
                 EcsUtil.RandomlyDoSth(50,()=>Msg.Dispatch(MsgID.ActionGainGold, new object[] { 50}));
-                EcsUtil.RandomlyDoSth(50,()=>Msg.Dispatch(MsgID.ActionPayGold, new object[] { 50}));
+                EcsUtil.RandomlyDoSth(50,()=>Msg.Dispatch(MsgID.ActionPayGold, new object[] { 50}), false);
                 break;
             case "event_12":
                  Msg.Dispatch(MsgID.ActionGainGold, new object[] { 200 });
@@ -85,7 +85,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 bComp.extraPriceOnCard++;
                 break;
             case "event_17":
-                bComp.gain10GoldStartOfTurnHalfChance++;
+                bComp.halfPropGainGoldStartOfTurn+=10;
                 bComp.propBadMinus += 5;
                 break;
             case "event_18":

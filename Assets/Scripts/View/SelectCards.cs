@@ -1,8 +1,6 @@
 using FairyGUI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Main
 {
@@ -31,7 +29,7 @@ namespace Main
             cardsOther = new List<Card>();
             currNum = 0;
             m_lstCard.numItems = cards.Count;
-            m_txtTitle.SetVar("num", chooseNum .ToString()).FlushVars();
+            m_txtTitle.SetVar("num", chooseNum.ToString()).FlushVars();
         }
 
         private void CardIR(int index, GObject g)
@@ -44,19 +42,19 @@ namespace Main
             {
                 bool oriIsDiscarded = ui.m_discarded.selectedIndex == 1;
                 if (!oriIsDiscarded && currNum >= chooseAimNum) return;
-                currNum+= oriIsDiscarded ? -1 : 1;
-                ui.m_discarded.selectedIndex = oriIsDiscarded ? 0 :1;
+                currNum += oriIsDiscarded ? -1 : 1;
+                ui.m_discarded.selectedIndex = oriIsDiscarded ? 0 : 1;
                 (oriIsDiscarded ? cardsHave : cardsOther).Add(c);
                 (oriIsDiscarded ? cardsOther : cardsHave).Remove(c);
                 m_txtTitle.SetVar("num", (chooseAimNum - currNum).ToString()).FlushVars();
             });
         }
 
-        private void OnClickFinish() 
-        { 
-            if(currNum != chooseAimNum && chooseAimNum != -1) return ;
+        private void OnClickFinish()
+        {
+            if (currNum != chooseAimNum && chooseAimNum != -1) return;
             Dispose();
-            onFinished(cardsHave,cardsOther);
+            onFinished(cardsOther, cardsHave);
         }
     }
 }

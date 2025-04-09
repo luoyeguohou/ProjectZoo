@@ -10,5 +10,11 @@ public class Initer : MonoBehaviour
         World.Init();
         Msg.Dispatch(MsgID.StartGame);
         UIStarter.Init();
+        DontDestroyOnLoad(this);
+    }
+
+    private void Update()
+    {
+        World.e.Update(Time.deltaTime);
     }
 }

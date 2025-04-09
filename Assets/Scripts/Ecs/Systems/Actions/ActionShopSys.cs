@@ -2,38 +2,66 @@ using System.Collections.Generic;
 using TinyECS;
 using System;
 using Main;
+using System.Threading.Tasks;
 
 public class ActionShopSys : ISystem
 {
     public override void OnAddToEngine()
     {
         Msg.Bind(MsgID.ActionGoShop, GoShop);
+        Msg.Bind(MsgID.ActionBuyBook, BuyBook);
+        Msg.Bind(MsgID.ActionBuyCard, BuyCard);
+        Msg.Bind(MsgID.ActionDiscardCardInShop, DiscardCardInShop);
     }
 
     public override void OnRemoveFromEngine()
     {
         Msg.UnBind(MsgID.ActionGoShop, GoShop);
+        Msg.UnBind(MsgID.ActionBuyBook, BuyBook);
+        Msg.UnBind(MsgID.ActionDiscardCardInShop, DiscardCardInShop);
     }
 
     private void GoShop(object[] p)
     {
-        List<string> books = EcsUtil.GetRandomBooks(5);
-        List<Card> cards = EcsUtil.GetCardsFromDrawPile(4);
-        ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
-        sComp.cards.Clear();
-        sComp.books.Clear();
-        foreach (Card card in cards)
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
         {
-            sComp.cards.Add(new ShopCard(card, GetCardPrice(card.cfg.rare)));
-        }
-        foreach (string book in books)
-        {
-            Random r = new Random();
-            int priceFlow = r.Next(10) - 5;
-            sComp.books.Add(new ShopBook(new Book(book), 10 + priceFlow));
-        }
-        UI_Shop win = FGUIUtil.CreateWindow<UI_Shop>("Shop");
-        win.Init();
+            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
+            sComp.deleteThisTime = false;
+            sComp.cards.Clear();
+            sComp.books.Clear();
+            for (int i = 1; i <= 5 + bComp.storeExtraPos; i++)
+            {
+                sComp.books.Add(GeneABook());
+            }
+            for (int i = 1; i <= 4 + bComp.storeExtraPos; i++)
+            {
+                sComp.cards.Add(GeneACard());
+            }
+            UI_Shop win = FGUIUtil.CreateWindow<UI_Shop>("Shop");
+            win.Init();
+            await Task.CompletedTask;
+        });
+    }
+
+    private ShopBook GeneABook()
+    {
+        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        string book = EcsUtil.GetRandomBook();
+        Random r = new Random();
+        int basePrice = r.Next(10) + 5;
+        int price = basePrice - (bComp.randomMinusPriceOnBook == 1 ? r.Next(5) : 0);
+        return new ShopBook(new Book(book, price), price);
+    }
+
+    private ShopCard GeneACard()
+    {
+        Card c = EcsUtil.GetCardsFromDrawPile(1)[0];
+        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        int basePrice = GetCardPrice(c.cfg.rare);
+        int price = (basePrice + bComp.extraPriceOnCard) * (100 - bComp.discountInStore) / 100;
+        return new ShopCard(c, price);
     }
 
     private int GetCardPrice(int rare)
@@ -50,5 +78,75 @@ public class ActionShopSys : ISystem
                 return 30 + priceFlow;
         }
         return 0;
+    }
+
+    private void BuyBook(object[] p)
+    {
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
+            ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
+            ShopBook book = (ShopBook)p[0];
+            if (!EcsUtil.HaveEnoughGold(book.price)) return;
+            if (bookComp.books.Count >= bookComp.bookLimit) return;
+            Msg.Dispatch(MsgID.ActionPayGold, new object[] { book.price });
+            Msg.Dispatch(MsgID.ActionGainBook, new object[] { book.book.uid });
+            if (bComp.restock == 1)
+            {
+                int index = sComp.books.IndexOf(book);
+                sComp.books.Insert(index, GeneABook());
+            }
+            sComp.books.Remove(book);
+
+            if (bComp.popRGainedAfterBuy > 0)
+                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { bComp.popRGainedAfterBuy });
+
+            Msg.Dispatch(MsgID.AfterShopChanged);
+            await Task.CompletedTask;
+        });
+    }
+    private void BuyCard(object[] p)
+    {
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
+            ShopCard card = (ShopCard)p[0];
+            if (!EcsUtil.HaveEnoughGold(card.price)) return;
+            Msg.Dispatch(MsgID.ActionPayGold, new object[] { card.price });
+            Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { card.card.uid });
+            if (bComp.restock == 1)
+            {
+                int index = sComp.cards.IndexOf(card);
+                sComp.cards.Insert(index, GeneACard());
+            }
+            sComp.cards.Remove(card);
+
+            if (bComp.popRGainedAfterBuy > 0)
+                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { bComp.popRGainedAfterBuy });
+            Msg.Dispatch(MsgID.AfterShopChanged);
+            await Task.CompletedTask;
+        });
+    }
+
+    private void DiscardCardInShop(object[] p)
+    {
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+            ShopComp shopComp = World.e.sharedConfig.GetComp<ShopComp>();
+            if (shopComp.deleteThisTime) return;
+            if (!EcsUtil.HaveEnoughGold(shopComp.DeleteCost)) return;
+            Msg.Dispatch(MsgID.ActionPayGold, new object[] { shopComp.DeleteCost });
+            shopComp.DeleteCost += shopComp.DeleteCostAddon;
+            Msg.Dispatch(MsgID.ActionDiscardCardFromDrawPile, new object[] { 5 });
+            shopComp.deleteThisTime = true;
+            Msg.Dispatch(MsgID.AfterShopChanged);
+            await Task.CompletedTask;
+        });
     }
 }

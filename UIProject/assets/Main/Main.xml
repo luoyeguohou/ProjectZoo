@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImage="ui://zqdehm1vrd0814" designImageAlpha="0" designImageLayer="1">
+  <controller name="hasTmpWorker" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n50_rd08" name="n50" src="rd0811" fileName="Images/back.png" xy="0,0" size="1920,1080">
       <relation target="" sidePair="width-width,height-height"/>
@@ -30,7 +31,7 @@
       <item controllers="img,1"/>
       <item controllers="img,3"/>
     </list>
-    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="993,218"/>
+    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="953,217"/>
     <list id="n58_rd08" name="lstMap" xy="44,190" size="903,643" layout="flow_hz" lineGap="-45" colGap="52" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
       <item/>
       <item/>
@@ -49,8 +50,9 @@
       <item/>
       <item/>
     </list>
-    <text id="n61_g9th" name="txtWorker" xy="1078,229" size="110,52" fontSize="38" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
-    <list id="n73_z141" name="lstSpecWorker" xy="1191,216" size="641,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
+    <text id="n61_g9th" name="txtWorker" xy="1036,228" size="110,52" fontSize="38" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
+    <list id="n73_z141" name="lstSpecWorker" xy="1155,219" size="641,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
+      <relation target="n93_qev6" sidePair="left-left"/>
       <item controllers="type,1"/>
       <item controllers="type,1"/>
       <item controllers="type,2"/>
@@ -70,6 +72,16 @@
     <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="324,1032"/>
     <image id="n86_sr8r" name="n86" src="rd08k" fileName="Images/mapBonus.png" xy="1481,757" size="185,95"/>
     <image id="n85_sr8r" name="n85" src="rd08g" fileName="Images/timeIcon.png" xy="1506,781" size="32,46"/>
-    <text id="n87_sr8r" name="n87" xy="1556,778" size="80,49" fontSize="35" vAlign="middle" autoSize="none" text="15"/>
+    <text id="n87_sr8r" name="txtTimeRes" xy="1556,778" size="80,49" fontSize="35" vAlign="middle" autoSize="none" text="15"/>
+    <component id="n92_qev6" name="btnLog" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1498,9" size="187,76">
+      <Button title="log"/>
+    </component>
+    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="1007,217" controller="type,5">
+      <gearDisplay controller="hasTmpWorker" pages="1"/>
+      <gearXY controller="hasTmpWorker" pages="0" values="1007,217" default="1120,217"/>
+    </component>
+    <text id="n94_qev6" name="txtTmpWorker" xy="1195,230" size="110,52" fontSize="38" vAlign="middle" vars="true" autoSize="none" text="X{num=10}">
+      <gearDisplay controller="hasTmpWorker" pages="1"/>
+    </text>
   </displayList>
 </component>

@@ -23,6 +23,8 @@ public class World
         e.sharedConfig.AddComp(new TimeResComp());
         e.sharedConfig.AddComp(new BuffComp());
         e.sharedConfig.AddComp(new StatisticComp());
+        e.sharedConfig.AddComp(new WorldIDComp());
+        e.sharedConfig.AddComp(new ActionComp());
         // add system
         e.AddSystem(new ActionCardSys());
         e.AddSystem(new ActionGoldSys());

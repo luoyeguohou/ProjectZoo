@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TinyECS;
 using Main;
+using System.Threading.Tasks;
 
 public class ActionWorkPosSys : ISystem
 {
@@ -22,31 +23,49 @@ public class ActionWorkPosSys : ISystem
 
     private void Training(object[] p)
     {
-        int gainNum = (int)p[0];
-        UI_UpgradeWorkPos uwpWin = FGUIUtil.CreateWindow<UI_UpgradeWorkPos>("UpgradeWorkPos");
-        uwpWin.Init(gainNum, (List<int> val) => {
-            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-            for (int i = 0; i < wpComp.workPoses.Count; i++)
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            int gainNum = (int)p[0];
+            UI_UpgradeWorkPos uwpWin = FGUIUtil.CreateWindow<UI_UpgradeWorkPos>("UpgradeWorkPos");
+            uwpWin.Init(gainNum, (List<int> val) =>
             {
-                wpComp.workPoses[i].level += val[i];
-            }
+                WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+                for (int i = 0; i < wpComp.workPoses.Count; i++)
+                {
+                    wpComp.workPoses[i].level += val[i];
+                }
+                tcs.SetResult(true);
+            Msg.Dispatch(MsgID.AfterWorkPosChanged);
+            });
+            await tcs.Task;
         });
-        Msg.Dispatch(MsgID.AfterWorkPosChanged);
     }
 
     private void TrainingPromotionDep(object[] p)
     {
-        int gainNum = (int)p[0];
-        WorkPos wp = EcsUtil.GetWorkPosByUid(2);
-        wp.level += gainNum;
-        Msg.Dispatch(MsgID.AfterWorkPosChanged);
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            int gainNum = (int)p[0];
+            WorkPos wp = EcsUtil.GetWorkPosByUid(2);
+            wp.level += gainNum;
+            Msg.Dispatch(MsgID.AfterWorkPosChanged);
+            await Task.CompletedTask;
+        });
     }
 
     private void GainWorkPos(object[] p)
     {
-        int uid = (int)p[0];
-        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-        wpComp.workPoses.Add(new WorkPos(uid));
-        Msg.Dispatch(MsgID.AfterWorkPosChanged);
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            int uid = (int)p[0];
+            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+            wpComp.workPoses.Add(new WorkPos(uid));
+            Msg.Dispatch(MsgID.AfterWorkPosChanged);
+            await Task.CompletedTask;
+        });
     }
 }

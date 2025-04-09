@@ -16,7 +16,9 @@ public class WorkPosSys : ISystem
     {
         int index = (int)p[0];
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
+        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         WorkPos wp = wpComp.workPoses[index];
         WorkPosCfg cfg = Cfg.workPoses[wp.uid];
@@ -36,6 +38,9 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { val1 });
                 break;
             case 3:
+                if (gComp.gold < wComp.workerPrice) return;
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { wComp.workerPrice });
+                wComp.workerPrice += wComp.workerPriceAddon;
                 Msg.Dispatch(MsgID.ActionGainWorker, new object[] { val1 });
                 break;
             case 4:
@@ -48,7 +53,9 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionDemolitionVenue, new object[] { val1 });
                 break;
             case 7:
-                Msg.Dispatch(MsgID.ActionExpand, new object[] { val1 });
+                if (gComp.gold < val1 * (1+bComp.extraExpandCostTime)) return;
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { val1 * (1 + bComp.extraExpandCostTime) });
+                Msg.Dispatch(MsgID.ActionExpand, new object[] { val2 });
                 break;
             case 8:
                 if (tComp.season == Season.Spring)

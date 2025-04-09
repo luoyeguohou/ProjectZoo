@@ -36,13 +36,13 @@ namespace Main
             VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
             int y = index / 6;
             int x = index % 6;
-            ZooGround zg = EcsUtil.GetGroundByPos(x, y);
+            Vector2Int pos = EcsUtil.PolarToCartesian(x, y);
+            ZooGround zg = EcsUtil.GetGroundByPos(pos.x, pos.y);
             UI_MapPoint ui = (UI_MapPoint)g;
             ui.Init(zg);
             ui.m_selected.selectedIndex = zg.hasBuilt && vComp.venues[zg.buildIdx] == chosenOne ? 1 : 0;
             ui.onClick.Add(() =>
             {
-                ZooGround zg = EcsUtil.GetGroundByPos(x, y);
                 if (ui.m_type.selectedIndex != 4) return;
                 if (chosenOne != null && vComp.venues[zg.buildIdx] != chosenOne || chosenOne == null)
                 {

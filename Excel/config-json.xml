@@ -13,5 +13,6 @@
 		<table name="chineseVenue">*</table>
 		<table name="chineseEvent">*</table>
 		<table name="chineseWorkPos">*</table>
+		<table name="chineseSpecWorker">*</table>
 	</tables>
 </config>

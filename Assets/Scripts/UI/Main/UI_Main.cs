@@ -7,6 +7,7 @@ namespace Main
 {
     public partial class UI_Main : GComponent
     {
+        public Controller m_hasTmpWorker;
         public GList m_lstBook;
         public GButton m_btnInfo;
         public GButton m_btnEndTurn;
@@ -22,6 +23,10 @@ namespace Main
         public GTextField m_txtDrawPile;
         public GTextField m_txtDiscardPile;
         public UI_MainHand m_hand;
+        public GTextField m_txtTimeRes;
+        public GButton m_btnLog;
+        public UI_Worker m_tmpWorker;
+        public GTextField m_txtTmpWorker;
         public const string URL = "ui://zqdehm1vpjwc0";
 
         public static UI_Main CreateInstance()
@@ -33,6 +38,7 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
+            m_hasTmpWorker = GetControllerAt(0);
             m_lstBook = (GList)GetChildAt(2);
             m_btnInfo = (GButton)GetChildAt(3);
             m_btnEndTurn = (GButton)GetChildAt(4);
@@ -48,6 +54,10 @@ namespace Main
             m_txtDrawPile = (GTextField)GetChildAt(17);
             m_txtDiscardPile = (GTextField)GetChildAt(18);
             m_hand = (UI_MainHand)GetChildAt(19);
+            m_txtTimeRes = (GTextField)GetChildAt(22);
+            m_btnLog = (GButton)GetChildAt(23);
+            m_tmpWorker = (UI_Worker)GetChildAt(24);
+            m_txtTmpWorker = (GTextField)GetChildAt(25);
         }
     }
 }

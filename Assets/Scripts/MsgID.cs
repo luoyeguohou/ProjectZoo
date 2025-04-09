@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public enum MsgID
 {
     // card
@@ -46,28 +42,39 @@ public enum MsgID
     // book
     ActionGainRandomBook,
     ActionUseBook,
+    ActionGainBook,
+    ActionDiscardBook,
+    ActionSellBook,
     // zoo land
     ActionClearRock,
     ActionClearLake,
+    ActionGainMapBonus,
     // zoo
     ActionPlayAHandFreely,
     ActionBuildBigVenueFreely,
     ActionBuildMonkeyVenue,
     ActionDemolitionVenueWithCost,
     ActionExpand,
+    ActionExpandRandomly,
     ActionExpandFreely,
     ActionDemolitionVenue,
     // shop
     ActionGoShop,
+    ActionBuyBook,
+    ActionBuyCard,
+    ActionDiscardCardInShop,
     // internal msg
     ResolveEventChoiceEffect,
     ResolveCardEffect,
     ResolveWorkPosEffect,
     ResolveEndSeason,
+    ResolveStartSeason,
     ResolveNextEvent,
     UseWorker,
     AddVenue,
     RemoveVenue,
+    DiscardACard,
+    GainACard,
     // used to update view
     AfterMapChanged,
     AfterBookChanged,
@@ -77,6 +84,7 @@ public enum MsgID
     AfterGoldChanged,
     AfterTimeResChanged,
     AfterCardChanged,
+    AfterShopChanged,
     // outside the game
     StartGame,
 }

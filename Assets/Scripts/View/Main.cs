@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using UnityEngine;
 
 namespace Main
@@ -22,15 +23,26 @@ namespace Main
             m_btnDiscardPile.onClick.Add(OnClickDiscardPile);
             m_btnInfo.onClick.Add(OnClickInfo);
             m_btnEndTurn.onClick.Add(OnClickEndSesson);
+            m_btnLog.onClick.Add(OnClickLog);
 
             m_worker.draggable = true;
             m_worker.onDragStart.Add((EventContext context) =>
             {
                 context.PreventDefault();
                 WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-                if (wComp.normalWorkerNum == 0) return;
-                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", -1, (int)context.data);
+                if (wComp.normalWorkers.Count == 0) return;
+                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", wComp.normalWorkers[0], (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
+                ui.m_type.selectedIndex = 0;
+            });
+            m_tmpWorker.draggable = true;
+            m_tmpWorker.onDragStart.Add((EventContext context) =>
+            {
+                context.PreventDefault();
+                WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
+                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", wComp.tempWorkers[0], (int)context.data);
+                UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
+                ui.m_type.selectedIndex = 1;
             });
 
             Msg.Bind(MsgID.AfterMapChanged, UpdateZooBlockView);
@@ -41,10 +53,12 @@ namespace Main
             Msg.Bind(MsgID.AfterGoldChanged, UpdateGoldView);
             Msg.Bind(MsgID.AfterCardChanged, UpdateDrawPileView);
             Msg.Bind(MsgID.AfterCardChanged, UpdateDiscardPileView);
+            Msg.Bind(MsgID.AfterTimeResChanged, UpdateTimeResView);
         }
 
         public void Init()
         {
+            UpdateTimeResView();
             UpdateZooBlockView();
             UpdateBookView();
             UpdateWorkPosView();
@@ -55,6 +69,12 @@ namespace Main
             UpdateDiscardPileView();
             m_hand.Init();
         }
+
+        private void UpdateTimeResView(object[] p = null)
+        {
+            TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
+            m_txtTimeRes.text = trComp.time.ToString();
+        }   
 
         private void UpdateDrawPileView(object[] p = null) 
         {
@@ -87,7 +107,10 @@ namespace Main
         private void UpdateWorkerView(object[] p = null)
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-            m_txtWorker.SetVar("num", wComp.normalWorkerNum.ToString()).FlushVars();
+
+            m_hasTmpWorker.selectedIndex = wComp.tempWorkers.Count > 0 ? 1 : 0;
+            m_txtWorker.SetVar("num", wComp.normalWorkers.Count.ToString()).FlushVars();
+            m_txtTmpWorker.SetVar("num", wComp.tempWorkers.Count.ToString()).FlushVars();
             m_lstSpecWorker.numItems = wComp.specialWorker.Count;
         }
 
@@ -110,11 +133,15 @@ namespace Main
         private void OnClickDrawPile()
         {
             CardManageComp cComp = World.e.sharedConfig.GetComp<CardManageComp>();
+            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
             GComponent gcom = UIPackage.CreateObject("Main", "CardOverview").asCom;
             GRoot.inst.AddChild(gcom);
             gcom.MakeFullScreen();
             UI_CardOverview win = (UI_CardOverview)gcom;
             // todo i18n
+            List<Card> pile = new(cComp.drawPile);
+            if (bComp.checkCardInOrder == 0)
+                pile.Sort((a, b) => string.Compare(a.uid, b.uid, StringComparison.OrdinalIgnoreCase));
             win.Init(cComp.drawPile, "³éÅÆ¶Ñ");
         }
 
@@ -124,6 +151,12 @@ namespace Main
             UI_CardOverview win = FGUIUtil.CreateWindow<UI_CardOverview>("CardOverview");
             // todo i18n
             win.Init(cComp.discardPile, "ÆúÅÆ¶Ñ");
+        }
+
+        private void OnClickLog()
+        {
+            UI_Logger win = FGUIUtil.CreateWindow<UI_Logger>("Logger");
+            win.Init();
         }
 
         private void BookIR(int index, GObject g)
@@ -138,7 +171,7 @@ namespace Main
             ui.onClick.Add(() =>
             {
                 BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
-                GComponent gcom = UIPackage.CreateObject("Main", "UseItemPanel").asCom;
+                GComponent gcom = UIPackage.CreateObject("Main", "UseBookPanel").asCom;
                 GRoot.inst.AddChild(gcom);
                 gcom.MakeFullScreen();
                 UI_UseBookPanel win = (UI_UseBookPanel)gcom;
@@ -161,16 +194,16 @@ namespace Main
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
             UI_Worker ui = (UI_Worker)g;
-            ui.m_type.selectedIndex = wComp.specialWorker[index];
+            ui.m_type.selectedIndex = wComp.specialWorker[index].id+1;
 
             ui.draggable = true;
             ui.onDragStart.Clear();
             ui.onDragStart.Add((EventContext context) =>
             {
                 context.PreventDefault();
-                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", index, (int)context.data);
+                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", wComp.specialWorker[index], (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
-                ui.m_type.selectedIndex = wComp.specialWorker[index];
+                ui.m_type.selectedIndex = wComp.specialWorker[index].id+1;
             });
         }
 
@@ -184,7 +217,8 @@ namespace Main
             if (index % 12 == 6) return;
             int y = index / 6;
             int x = index % 6;
-            ZooGround zg = EcsUtil.GetGroundByPos(x, y);
+            Vector2Int pos = EcsUtil.PolarToCartesian(x,y);
+            ZooGround zg = EcsUtil.GetGroundByPos(pos.x, pos.y);
             UI_MapPoint ui = (UI_MapPoint)g;
             ui.Init(zg);
         }

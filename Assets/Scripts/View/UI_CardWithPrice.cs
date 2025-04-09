@@ -7,6 +7,8 @@ namespace Main
 {
     public partial class UI_CardWithPrice : GComponent
     {
+        private ShopCard card;
+
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
@@ -15,13 +17,14 @@ namespace Main
 
         public void Init(ShopCard c)
         {
+            card = c;
             m_card.SetCard(c.card);
             m_btnBuy.title = c.price.ToString();
         }
 
         private void OnClickBuy()
         {
-            // todo
+            Msg.Dispatch(MsgID.ActionBuyCard,new object[] { card });
         }
     }
 }

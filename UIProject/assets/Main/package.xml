@@ -106,6 +106,12 @@
     <image id="qff232" name="book25.png" path="/Images/Books/" exported="true"/>
     <image id="qff233" name="book10.png" path="/Images/Books/" exported="true"/>
     <image id="qff234" name="book23.png" path="/Images/Books/" exported="true"/>
+    <component id="qev635" name="LogItem.xml" path="/Components/"/>
+    <component id="qev636" name="ScrollBar_arrow1.xml" path="/Components/"/>
+    <component id="qev637" name="ScrollBar_arrow2.xml" path="/Components/"/>
+    <component id="qev638" name="ScrollBar_grip.xml" path="/Components/"/>
+    <component id="qev639" name="ScrollBar.xml" path="/Components/" exported="true"/>
+    <component id="qev63a" name="Logger.xml" path="/Panels/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

@@ -55,6 +55,7 @@ public class EventCfg
 public class BookCfg
 { 
     public string uid;
+    public int order;
     public string name;
     public string cont;
     public int val1;
@@ -81,4 +82,10 @@ public class WorkPosCfg {
     public string name;
     public int[] val1;
     public int[] val2;
+}
+
+public class SpecWorkerCfg
+{
+    public int uid;
+    public string cont;
 }

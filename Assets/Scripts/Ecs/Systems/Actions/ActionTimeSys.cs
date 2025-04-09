@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TinyECS;
 using Main;
+using System.Threading.Tasks;
 
 public class ActionGainTimeSys : ISystem
 {
@@ -19,17 +20,27 @@ public class ActionGainTimeSys : ISystem
 
     private void GainTime(object[] p)
     {
-        int gainNum = (int)p[0];
-        TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
-        trComp.time += gainNum;
-        Msg.Dispatch(MsgID.AfterTimeResChanged);
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            int gainNum = (int)p[0];
+            TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
+            trComp.time += gainNum;
+            Msg.Dispatch(MsgID.AfterTimeResChanged);
+            await Task.CompletedTask;
+        });
     }
 
     private void PayTime(object[] p)
     {
-        int gainNum = (int)p[0];
-        TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
-        trComp.time -= gainNum;
-        Msg.Dispatch(MsgID.AfterTimeResChanged);
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            int gainNum = (int)p[0];
+            TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
+            trComp.time -= gainNum;
+            Msg.Dispatch(MsgID.AfterTimeResChanged);
+            await Task.CompletedTask;
+        });
     }
 }

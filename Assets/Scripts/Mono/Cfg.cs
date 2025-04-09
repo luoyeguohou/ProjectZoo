@@ -5,19 +5,20 @@ using LitJson;
 
 public class Cfg
 {
-    public static Dictionary<string, CardCfg> cards = new Dictionary<string, CardCfg>();
-    public static Dictionary<int, List<CardCfg>> cardByModule = new Dictionary<int, List<CardCfg>>();
-    public static List<int> modules = new List<int>();
-    public static Dictionary<string, CardCfg> badIdea = new Dictionary<string, CardCfg>();
-    public static List<string> badIdeaUids = new List<string>();
+    public static Dictionary<string, CardCfg> cards = new();
+    public static Dictionary<int, List<CardCfg>> cardByModule = new();
+    public static List<int> modules = new();
+    public static Dictionary<string, CardCfg> badIdea = new();
+    public static List<string> badIdeaUids = new();
 
-    public static Dictionary<string, VenueCfg> venues = new Dictionary<string, VenueCfg>();
-    public static Dictionary<string, EventCfg> events = new Dictionary<string, EventCfg>();
-    public static List<string> eventList = new List<string>();
+    public static Dictionary<string, VenueCfg> venues = new();
+    public static Dictionary<string, EventCfg> events = new();
+    public static List<string> eventList = new();
 
-    public static Dictionary<string, BookCfg> books = new Dictionary<string, BookCfg>();
-    public static Dictionary<int, WorkPosCfg> workPoses = new Dictionary<int, WorkPosCfg>();
-    public static List<string> bookUids = new List<string>();
+    public static Dictionary<string, BookCfg> books = new();
+    public static Dictionary<int, WorkPosCfg> workPoses = new();
+    public static List<string> bookUids = new();
+    public static Dictionary<int, SpecWorkerCfg> specWorkers = new();
     public static void Init()
     {
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
@@ -89,6 +90,14 @@ public class Cfg
             cfg.val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 };
             cfg.val2 = new int[] { rawCfg.val_2_1, rawCfg.val_2_2, rawCfg.val_2_3, rawCfg.val_2_4, rawCfg.val_2_5 };
             workPoses[cfg.uid] = cfg;
+        }
+
+        // specWorker
+        JsonData specWorkerData = jd[language + "SpecWorker"];
+        foreach (JsonData d in specWorkerData)
+        {
+            SpecWorkerCfg swCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(SpecWorkerCfg)) as SpecWorkerCfg;
+            specWorkers[swCfg.uid] = swCfg;
         }
     }
 }

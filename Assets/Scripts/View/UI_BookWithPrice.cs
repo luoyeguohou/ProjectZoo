@@ -7,6 +7,7 @@ namespace Main
 {
     public partial class UI_BookWithPrice : GComponent
     {
+        private ShopBook i;
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
@@ -15,13 +16,14 @@ namespace Main
 
         public void Init(ShopBook i)
         {
+            this.i = i;
             m_book.Init(i.book);
             m_btnBuy.title = i.price.ToString();
         }
 
         private void OnClickBuy()
         {
-            // todo
+            Msg.Dispatch(MsgID.ActionBuyBook, new object[] { i });
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Main
     public partial class UI_DealVenue : GComponent
     {
         private Action<List<Vector2Int>> handler;
+        private Card c;
         private List<Vector2Int> selectedList = new List<Vector2Int>();
 
         public override void ConstructFromResource()
@@ -21,13 +22,15 @@ namespace Main
 
         public void Init(Card c, Action<List<Vector2Int>> handler)
         {
+            this.c = c;
             this.handler = handler;
             m_lstMap.numItems = 72;
+            m_card.SetCard(c);
         }
 
         private void OnClickConfirm()
         {
-            // todo ¼ì²éºÏ·¨
+            if (!EcsUtil.IsValidGround(selectedList, c.cfg.landType)) return;
             Dispose();
             handler(selectedList);
         }
@@ -42,7 +45,8 @@ namespace Main
             if (index % 12 == 6) return;
             int y = index / 6;
             int x = index % 6;
-            ZooGround zg = EcsUtil.GetGroundByPos(x, y);
+            Vector2Int pos = EcsUtil.PolarToCartesian(x,y);
+            ZooGround zg = EcsUtil.GetGroundByPos(pos.x, pos.y);
             UI_MapPoint ui = (UI_MapPoint)g;
             ui.Init(zg);
 
@@ -52,9 +56,9 @@ namespace Main
                 bool oriSelected = ui.m_selected.selectedIndex == 1;
                 ui.m_selected.selectedIndex = oriSelected ? 0 : 1;
                 if (oriSelected)
-                    Util.RemoveValue(selectedList, new Vector2Int(x, y));
+                    Util.RemoveValue(selectedList, new Vector2Int(pos.x, pos.y));
                 else
-                    selectedList.Add(new Vector2Int(x, y));
+                    selectedList.Add(new Vector2Int(pos.x, pos.y));
             });
         }
     }

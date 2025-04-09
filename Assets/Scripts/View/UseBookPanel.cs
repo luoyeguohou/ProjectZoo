@@ -24,16 +24,19 @@ namespace Main
 
         private void OnClickSell()
         {
-            // todo
+            Msg.Dispatch(MsgID.ActionSellBook, new object[] { bookIndex });
+            Dispose();
         }
         private void OnClickDiscard()
         {
-            // todo
+            Msg.Dispatch(MsgID.ActionDiscardBook, new object[] { bookIndex });
+            Dispose();
         }
 
         private void OnClickUse()
         {
-            // todo
+            Msg.Dispatch(MsgID.ActionUseBook, new object[] { bookIndex });
+            Dispose();
         }
     }
 }

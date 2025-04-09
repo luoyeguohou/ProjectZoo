@@ -34,9 +34,10 @@ public class StartGameSys: ISystem
             foreach (CardCfg cCfg in Cfg.cardByModule[module])
                 for (int cnt = 1; cnt <= cCfg.repeatNum; cnt++)
                     cComp.drawPile.Add(new Card(cCfg.uid));
+        Util.Shuffle(cComp.drawPile, new System.Random());
 
-        // 初始化地图
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+       // 初始化地图
+       ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         for (int x = 0; x < 6; x++)
         {
             for (int y = 0; y < 12; y++)
@@ -44,7 +45,9 @@ public class StartGameSys: ISystem
                 // 因为是六边形地图，所以从零开始算的奇数行首个位置不会有数据
                 if (x == 0 && y % 2 == 1) continue;
                 ZooGround g = new ZooGround();
-                g.posX = x; g.posY = y;
+                Vector2Int pos = EcsUtil.PolarToCartesian(new Vector2Int(x, y));
+                g.posX = pos.x;
+                g.posY = pos.y;
                 zgComp.grounds.Add(g);
             }
         }
@@ -84,14 +87,14 @@ public class StartGameSys: ISystem
         }
         // 布置初始勘探过土地
         Vector2Int[] initGround = new Vector2Int[] {
-            new Vector2Int(2,4),
-            new Vector2Int(3,4),
-            new Vector2Int(3,5),
-            new Vector2Int(3,6),
-            new Vector2Int(3,7),
-            new Vector2Int(3,8),
-            new Vector2Int(2,6),
-            new Vector2Int(2,8),
+            new Vector2Int(4,0),
+            new Vector2Int(5,0),
+            new Vector2Int(6,0),
+            new Vector2Int(4,1),
+            new Vector2Int(4,2),
+            new Vector2Int(5,1),
+            new Vector2Int(6,1),
+            new Vector2Int(6,-1),
         };
         foreach (Vector2Int groundPos in initGround) { 
             EcsUtil.GetGroundByPos(groundPos.x,groundPos.y).isTouchedLand = true;
@@ -105,11 +108,14 @@ public class StartGameSys: ISystem
         vComp.venues.Clear();
         // 初始化工人
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        wComp.normalWorkerNum = 3;
+        for (int i = 0; i < 10; i++)
+        {
+            wComp.normalWorkers .Add(new Worker(-1));
+        }
         wComp.specialWorker.Clear();
-        wComp.specialWorker.Add(2);
-        wComp.specialWorker.Add(3);
-        wComp.specialWorker.Add(4);
+        wComp.specialWorker.Add(new Worker(2));
+        wComp.specialWorker.Add(new Worker(3));
+        wComp.specialWorker.Add(new Worker(4));
         // 初始化物品
         BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
         iComp.books.Clear();
@@ -126,7 +132,7 @@ public class StartGameSys: ISystem
         };
         // 初始化金币
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        gComp.gold = 5;
+        gComp.gold = 999;
         gComp.income = 0;
         // 初始化工位
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
@@ -155,5 +161,7 @@ public class StartGameSys: ISystem
         EventComp eComp = World.e.sharedConfig.GetComp<EventComp>();
         eComp.eventIDs = new List<string>(Cfg.eventList);
         Util.Shuffle(eComp.eventIDs,new System.Random());
+
+        Msg.Dispatch(MsgID.ResolveStartSeason);
     }
 }

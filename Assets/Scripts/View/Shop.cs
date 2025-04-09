@@ -14,10 +14,21 @@ namespace Main
             m_bg.onClick.Add(Dispose);
             m_lstCard.itemRenderer = CardIR;
             m_lstBook.itemRenderer = BookIR;
+            Msg.Bind(MsgID.AfterShopChanged, UpdateView);
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            Msg.UnBind(MsgID.AfterShopChanged, UpdateView);
         }
 
         public void Init()
         {
+            UpdateView();
+        }
+
+        private void UpdateView(object[] param = null) {
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             m_lstCard.numItems = sComp.cards.Count;
             m_lstBook.numItems = sComp.books.Count;
@@ -25,7 +36,8 @@ namespace Main
 
         private void OnClickDelete()
         {
-            // todo
+            ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
+            Msg.Dispatch(MsgID.ActionDiscardCardInShop);
         }
 
         private void CardIR(int index, GObject g)
@@ -37,7 +49,8 @@ namespace Main
 
         private void BookIR(int index, GObject g)
         {
-            UI_BookWithPrice ui = (UI_BookWithPrice)g;
+            UI_BookWithPrice
+                ui = (UI_BookWithPrice)g;
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             ui.Init(sComp.books[index]);
         }

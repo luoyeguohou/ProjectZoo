@@ -19,6 +19,7 @@ public class VenueSys : ISystem
 
     private void AddVenue(object[] p)
     {
+        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         Venue addOne = (Venue)p[0];
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         foreach (Venue b in vComp.venues)
@@ -28,6 +29,10 @@ public class VenueSys : ISystem
                 addOne.adjacents.Add(b);
                 b.adjacents.Add(addOne);
             }
+        }
+        if (bComp.venueRegardedAsAdj > 0) 
+        {
+            addOne.adjacents.Add(new Venue());
         }
         vComp.venues.Add(addOne);
     }

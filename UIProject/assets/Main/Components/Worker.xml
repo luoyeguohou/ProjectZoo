@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="79,72">
-  <controller name="type" exported="true" pages="0,,1,,2,,3,,4," selected="4"/>
+  <controller name="type" exported="true" pages="0,normal,5,tmp,1,,2,,3,,4,,6," selected="6"/>
   <displayList>
-    <loader id="n56_rd08" name="worker" xy="0,0" size="79,72" url="ui://zqdehm1vz1411i" align="center" vAlign="middle" fill="scale" color="#0506cc">
-      <gearColor controller="type" pages="1,2,3,4" values="#116221|#a50517|#dfc200|#0506cc" default="#000000"/>
+    <loader id="n56_rd08" name="worker" xy="0,0" size="79,72" url="ui://zqdehm1vz1411i" align="center" vAlign="middle" fill="scale" color="#cc00ff">
+      <gearColor controller="type" pages="5,1,2,3,4,6" values="#999999|#116221|#a50517|#dfc200|#0506cc|#cc00ff" default="#000000"/>
     </loader>
   </displayList>
 </component>
