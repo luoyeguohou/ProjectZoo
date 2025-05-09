@@ -23,6 +23,8 @@ public class ActionMapBonusSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
+            int num = (int)p[0];
+            int goldNum = (int)p[1];
             ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
             List<ZooGround> valids = new List<ZooGround>();
             foreach (ZooGround g in zgComp.grounds)
@@ -32,7 +34,8 @@ public class ActionMapBonusSys : ISystem
             if (valids.Count == 0) return;
 
             Util.Shuffle(valids, new System.Random());
-            valids[0].bonus = new MapBonus(MapBonusType.Gold, 5);
+            for(int i = 0;i<Mathf.Min(valids.Count,num);i++)
+                valids[0].bonus = new MapBonus(MapBonusType.Gold, goldNum);
 
             Msg.Dispatch(MsgID.AfterMapChanged);
             await Task.CompletedTask;

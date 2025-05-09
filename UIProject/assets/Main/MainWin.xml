@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImage="ui://zqdehm1vrd0814" designImageAlpha="0" designImageLayer="1">
+  <controller name="hasTmpWorker" pages="0,,1," selected="0"/>
+  <displayList>
+    <image id="n104_ea44" name="n104" src="rd0811" fileName="Images/back.png" xy="0,0" size="1920,1080">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n43_rd08" name="n43" src="rd089" fileName="Images/zooBack.png" xy="26,192"/>
+    <list id="n45_rd08" name="lstBook" xy="36,9" size="803,133" layout="row" defaultItem="ui://zqdehm1vg9th1c">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n47_rd08" name="btnInfo" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1705,10" size="187,76">
+      <Button title="信息"/>
+    </component>
+    <component id="n48_rd08" name="btnEndTurn" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1694,762" size="187,76">
+      <Button title="结束本季"/>
+    </component>
+    <loader id="n51_rd08" name="btnDrawPile" xy="34,887" size="128,187" url="ui://zqdehm1vrd08u"/>
+    <loader id="n52_rd08" name="btnDiscardPile" xy="1727,868" size="128,187" url="ui://zqdehm1vrd08u"/>
+    <list id="n55_rd08" name="lstWorkPos" xy="990,323" size="617,378" scale="1.2,1.2" layout="flow_hz" defaultItem="ui://zqdehm1vrd0817">
+      <item controllers="img,0"/>
+      <item controllers="img,6"/>
+      <item controllers="img,5"/>
+      <item controllers="img,2"/>
+      <item controllers="img,4"/>
+      <item controllers="img,7"/>
+      <item controllers="img,1"/>
+      <item controllers="img,3"/>
+    </list>
+    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="953,217"/>
+    <text id="n61_g9th" name="txtWorker" xy="1036,228" size="110,52" fontSize="38" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
+    <list id="n73_z141" name="lstSpecWorker" xy="1155,219" size="641,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
+      <relation target="n93_qev6" sidePair="left-left"/>
+      <item controllers="type,1"/>
+      <item controllers="type,1"/>
+      <item controllers="type,2"/>
+      <item controllers="type,3"/>
+      <item controllers="type,3"/>
+      <item controllers="type,4"/>
+      <item controllers="type,4"/>
+      <item controllers="type,4"/>
+    </list>
+    <image id="n77_gie4" name="n77" src="rd08k" fileName="Images/mapBonus.png" xy="1648,110" size="226,65"/>
+    <image id="n78_gie4" name="n78" src="rd08r" fileName="Images/goldIcon.png" xy="1667,115" size="55,53"/>
+    <text id="n79_gie4" name="txtGold" xy="1731,119" size="123,47" fontSize="27" vAlign="middle" autoSize="none" text="100"/>
+    <image id="n80_gie4" name="n80" src="rd08k" fileName="Images/mapBonus.png" xy="1249,110" size="360,65"/>
+    <text id="n76_z141" name="txtAim" xy="1261,120" size="339,46" fontSize="27" align="center" vAlign="middle" vars="true" autoSize="shrink" text="人气值：{cur=1000}/{aim=1000000}"/>
+    <text id="n81_gie4" name="txtDrawPile" xy="60,950" size="74,79" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="261"/>
+    <text id="n82_gie4" name="txtDiscardPile" xy="1751,906" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="26"/>
+    <image id="n86_sr8r" name="n86" src="rd08k" fileName="Images/mapBonus.png" xy="1481,757" size="185,95"/>
+    <image id="n85_sr8r" name="n85" src="rd08g" fileName="Images/timeIcon.png" xy="1506,781" size="32,46"/>
+    <text id="n87_sr8r" name="txtTimeRes" xy="1556,778" size="80,49" fontSize="35" vAlign="middle" autoSize="none" text="15"/>
+    <component id="n92_qev6" name="btnLog" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1498,9" size="187,76">
+      <Button title="log"/>
+    </component>
+    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="1007,217" controller="type,5">
+      <gearDisplay controller="hasTmpWorker" pages="1"/>
+      <gearXY controller="hasTmpWorker" pages="0" values="1007,217" default="1120,217"/>
+    </component>
+    <text id="n94_qev6" name="txtTmpWorker" xy="1195,230" size="110,52" fontSize="38" vAlign="middle" vars="true" autoSize="none" text="X{num=10}">
+      <gearDisplay controller="hasTmpWorker" pages="1"/>
+    </text>
+    <component id="n99_d2b2" name="btnConsole" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1289,20" size="187,76">
+      <Button title="console"/>
+    </component>
+    <list id="n103_ea44" name="lstMap" xy="52,218" size="886,636" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-45" colGap="52" lineItemCount="8" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n105_ea44" name="lstBuff" xy="50,144" size="837,53" layout="row" overflow="scroll" colGap="15" defaultItem="ui://zqdehm1vea443u">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="324,1032"/>
+  </displayList>
+</component>

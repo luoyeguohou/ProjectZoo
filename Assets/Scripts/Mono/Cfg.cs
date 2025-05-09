@@ -16,9 +16,10 @@ public class Cfg
     public static List<string> eventList = new();
 
     public static Dictionary<string, BookCfg> books = new();
-    public static Dictionary<int, WorkPosCfg> workPoses = new();
+    public static Dictionary<string, WorkPosCfg> workPoses = new();
     public static List<string> bookUids = new();
     public static Dictionary<int, SpecWorkerCfg> specWorkers = new();
+    public static Dictionary<int, BuffCfg> buffCfgs= new();
     public static void Init()
     {
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
@@ -87,9 +88,12 @@ public class Cfg
             WorkPosCfg cfg = new WorkPosCfg();
             cfg.uid = rawCfg.uid;
             cfg.name = rawCfg.name;
+            cfg.cont = rawCfg.cont;
+            cfg.limitTime = rawCfg.limitTime;
             cfg.val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 };
             cfg.val2 = new int[] { rawCfg.val_2_1, rawCfg.val_2_2, rawCfg.val_2_3, rawCfg.val_2_4, rawCfg.val_2_5 };
             workPoses[cfg.uid] = cfg;
+            Debug.Log(cfg.uid +" " +cfg.limitTime);
         }
 
         // specWorker
@@ -98,6 +102,14 @@ public class Cfg
         {
             SpecWorkerCfg swCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(SpecWorkerCfg)) as SpecWorkerCfg;
             specWorkers[swCfg.uid] = swCfg;
+        }
+
+        // buff
+        JsonData buffData = jd[language + "Buff"];
+        foreach (JsonData d in buffData)
+        {
+            BuffCfg bCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(BuffCfg)) as BuffCfg;
+            buffCfgs[bCfg.uid] = bCfg;
         }
     }
 }

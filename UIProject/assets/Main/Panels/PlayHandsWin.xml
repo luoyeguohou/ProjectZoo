@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" opaque="false">
+  <displayList>
+    <component id="n62_g9th" name="cont" src="d2b23i" fileName="Panels/PlayHandsCont.xml" xy="124,43" size="1694,989"/>
+    <component id="n79_d2b2" name="btnHide" src="rd0816" fileName="Components/ButtonNormal.xml" xy="23,91">
+      <Button title="Hide"/>
+    </component>
+  </displayList>
+</component>

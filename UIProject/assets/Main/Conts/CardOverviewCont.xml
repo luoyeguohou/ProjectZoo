@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1858,1004">
+  <displayList>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,16" size="1696,991"/>
+    <list id="n71_z141" name="lstCard" xy="96,62" size="1762,1055" scale="0.85,0.85" layout="flow_hz" overflow="scroll" lineGap="20" colGap="38" lineItemCount="5" defaultItem="ui://zqdehm1vrd081a" align="center">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <image id="n76_z141" name="n76" src="rd08k" fileName="Images/mapBonus.png" xy="699,0" size="298,63"/>
+    <text id="n74_z141" name="txtTitle" xy="703,4" size="291,59" fontSize="39" align="center" vAlign="middle" autoSize="none" text="抽牌堆"/>
+  </displayList>
+</component>

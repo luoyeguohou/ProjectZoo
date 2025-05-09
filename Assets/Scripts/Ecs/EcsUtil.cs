@@ -1,4 +1,5 @@
 
+using Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ public class EcsUtil
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         foreach (ZooGround g in zgComp.grounds)
         {
-            if (g.posX == x && g.posY == y)
+            if (g.pos.x == x && g.pos.y == y)
             {
                 return g;
             }
@@ -49,7 +50,6 @@ public class EcsUtil
     public static List<Card> GetCardsFromDrawPile(int num)
     {
         CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         List<Card> ret = new List<Card>();
         for (int i = 1; i <= num; i++)
         {
@@ -61,7 +61,7 @@ public class EcsUtil
                 Util.Shuffle(cmComp.drawPile, new System.Random());
             }
 
-            if (bComp.nextNumMustBeMonkeyCard > 0)
+            if (EcsUtil.GetBuffNum(57) > 0)
             {
                 bool hasMonkey = false;
                 foreach (Card c in cmComp.drawPile)
@@ -69,6 +69,7 @@ public class EcsUtil
                     if (c.cfg.module == 0)
                     {
                         hasMonkey = true;
+                        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57,-1});
                         cmComp.drawPile.Remove(c);
                         ret.Add(c);
                         break;
@@ -86,7 +87,7 @@ public class EcsUtil
         return ret;
     }
 
-    public static WorkPos GetWorkPosByUid(int uid)
+    public static WorkPos GetWorkPosByUid(string uid)
     {
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         foreach (WorkPos wp in wpComp.workPoses)
@@ -96,9 +97,10 @@ public class EcsUtil
 
     public static bool RandomlyDoSth(int prop, Action handler, bool isGood = true)
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
-        prop = prop + (isGood ? bComp.propBenefit : bComp.propBadMinus);
-        if (new System.Random().Next(100) <= prop)
+        prop = prop + (isGood ? EcsUtil.GetBuffNum(7) : -EcsUtil.GetBuffNum(8));
+        ConsoleComp cComp = World.e.sharedConfig.GetComp<ConsoleComp>();
+        int randomNum = cComp.luckPoint >= 0 ? cComp.luckPoint : new System.Random().Next(100);
+        if (randomNum <= prop)
         {
             handler();
             return true;
@@ -128,39 +130,41 @@ public class EcsUtil
         new()
         {
             new() { new(0, 0), new(0, 1) },
-            new() { new(0, 0), new(1, 0) }
+            new() { new(0, 0), new(1, 0) },
+            new() { new(0, 0), new(-1, 1) },
         },
         new()
         {
             new() { new(0, 0), new(0, 1), new(0, 2) },
-            new() { new(0, 0), new(1, 0), new(2, 0) }
+            new() { new(0, 0), new(1, 0), new(2, 0) },
+            new() { new(0, 0), new(-1, 1), new(-2, 2) },
         },
         new()
         {
             new() { new(0, 0), new(0, 1), new(1, 0), new(1,1) },
             new() { new(0, 0), new(0,1), new(-1, 1), new(-1,2) },
-            new() { new(0, 0), new(1, 0), new(0, 1), new(1, -1) },
+            new() { new(0, 0), new(1, 0), new(0, 1), new(-1, 1) },
         },
         new()
         {
-            new() { new(0, 0), new(1, 0), new(0, 1), new(2,0), new(2,-1) },
-            new() { new(0, 0), new(1, 0), new(0, 1), new(0, 2), new(-1, 2) },
-            new() { new(0, 0), new(1, 0), new(0, 1), new(2, 0), new(2, 1) },
+            new() { new(0, 0), new(-2, 1), new(-1, 1), new(0,1), new(-2,2) },
+            new() { new(0, 0), new(-1, 1), new(0, 1), new(1,1), new(0, 2) },
+            new() { new(0, 0), new(1, 0), new(0, 1), new(0,2), new(-1,2) },
         },
         new()
         {
             new() { new(0, 0), new(0, 1), new(0, 2), new(1, 1), new(-1, 2) },
-            new() { new(0, 0), new(1, 0), new(1, 1), new(2, 0), new(2, 1) },
+            new() { new(0, 0), new(-2,1), new(-1,1), new(0,1), new(-1,2) },
             new() { new(0, 0), new(1, 0), new(1, 1), new(0,1), new(-1,2) },
             new() { new(0, 0), new(0, 1), new(0, 2), new(-1, 1), new(1,0) },
             new() { new(0, 0), new(0, 1), new(-1, 1), new(-1, 2), new(1, 1) },
-            new() { new(0, 0), new(0, 1), new(1,0), new(1, 1), new(2, -1) },
+            new() { new(0, 0), new(-2,1), new(-1,1), new(-2,2), new( -1,2) },
         },
         new()
         {
-            new() { new(0, 0),  new(0,2), new(1,0), new(1,1), new(-1,1), new(-1,2) },
+            new() { new(0, 0),  new(-2,1), new(-1,1), new(0,1), new(-2,2), new(-1,2) },
             new() { new(0, 0), new(0, 1),new(1,0), new(1,1), new(-1,1), new(-1,2) },
-            new() { new(0, 0), new(0, 1), new(0,2),  new(1,1),new(-1,1), new(-1,2) },
+            new() { new(0, 0), new(0, 1), new(0,2), new(1,1),new(-1,1), new(-1,2) },
             new() { new(0, 0), new(0, 1), new(0,2), new(1,0),new(-1,1), new(-1,2) },
             new() { new(0, 0), new(0, 1), new(0,2), new(1,0), new(1,1), new(-1,2) },
             new() { new(0, 0), new(0, 1), new(0,2), new(1,0), new(1,1), new(-1,1) },
@@ -194,9 +198,9 @@ public class EcsUtil
         {
             List<Vector2Int> relativeCoor = new();
             foreach (ZooGround zg1 in canBuild)
-                relativeCoor.Add(new(zg1.posX - zg.posX, zg1.posY - zg.posY));
+                relativeCoor.Add(new(zg1.pos.x - zg.pos.x, zg1.pos.y - zg.pos.y));
 
-            Logger.AddOpe(OpeType.CheckHasValidGround, new object[] { new Vector2Int(zg.posX, zg.posY), relativeCoor, landType });
+            Logger.AddOpe(OpeType.CheckHasValidGround, new object[] { zg.pos, relativeCoor, landType });
             if (Util.Any(matchList[landType], lst => TwoListPartMatch(relativeCoor, lst)))
                 return true;
         };
@@ -225,6 +229,7 @@ public class EcsUtil
         int largeVenue = 0;
         int smallVenue = 0;
         int xVenue = 0;
+        int nearLakeVenue = 0;
         foreach (Venue b in vComp.venues)
         {
             moduleNum[b.cfg.aniModule]++;
@@ -246,6 +251,7 @@ public class EcsUtil
             if (b.cfg.landType >= 4) largeVenue++;
             if (b.cfg.landType <= 1) smallVenue++;
             if (b.cfg.isX == 1) xVenue++;
+            if (IsAdjacentWater(b)) nearLakeVenue++;
         }
 
         switch (uid)
@@ -279,12 +285,41 @@ public class EcsUtil
             case "achi_weizhi":
                 return xVenue >= 10;
             case "achi_heliu":
-                // todo
-                break;
+                return nearLakeVenue >= 10;
             case "achi_xiaoxing":
                 return smallVenue >= 15;
         }
         return false;
+    }
+
+    public static int GetDistance(Vector2Int a, Vector2Int b)
+    {
+        if(a.x == b.x) return Mathf.Abs(a.y - b.y);
+        if(a.y == b.y) return Mathf.Abs(a.x - b.x);
+        Vector2Int biggerXOne;
+        Vector2Int smallerXOne;
+        if (a.x > b.x)
+        {
+            biggerXOne = a; smallerXOne = b;
+        }
+        else { 
+            biggerXOne = b; smallerXOne = a;
+        }
+        float prop = (biggerXOne.x - smallerXOne.x) / (biggerXOne.y - smallerXOne.y);
+        if (prop<= -1)
+        {
+            return biggerXOne.x - smallerXOne.x;
+        }
+        else if (prop > 0)
+        {
+            return biggerXOne.x - smallerXOne.x + Mathf.Abs(biggerXOne.y - smallerXOne.y) ;
+        }
+        else if(prop > -1 && prop <= 0)
+        {
+            return Mathf.Abs(biggerXOne.y - smallerXOne.y);
+        }
+
+        return 0;
     }
 
     public static bool IsAdjacent(Venue a, Venue b)
@@ -292,10 +327,11 @@ public class EcsUtil
         if (a.uid == "changbi_monkey" || b.uid == "changbi_monkey")
             return true;
 
+
         foreach (Vector2Int posA in a.location)
-            foreach (Vector2Int posB in b.location)
-                if (posA.y != posB.y && Math.Abs(posA.x - posB.x) + Math.Abs(posA.y - posB.y) <= 2)
-                    return true;
+            foreach (Vector2Int posB in b.location) {
+                if (GetDistance(posA, posB) <= 1) return true;
+            }
         return false;
     }
 
@@ -308,7 +344,7 @@ public class EcsUtil
             if (b1.cfg.aniModule != 0) continue;
             foreach (Venue b2 in vComp.venues)
             {
-                if (b2.cfg.aniModule != 0) continue;
+                if (b2.cfg.aniModule != 0 || b1 == b2) continue;
                 if (IsAdjacent(b1, b2)) cnt++;
             }
         }
@@ -317,31 +353,11 @@ public class EcsUtil
 
     public static bool IsAdjacent(Venue a, Vector2Int pos)
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         foreach (Vector2Int posA in a.location)
         {
-            if (bComp.distanceRegardedAsAd == 0 && posA.y != pos.y && Math.Abs(posA.x - pos.x) + Math.Abs(posA.y - pos.y) <= 2)
+            if (GetDistance(posA, pos) <= (GetBuffNum(65) == 0 ? 1 : 2))
                 return true;
-            if (bComp.distanceRegardedAsAd == 1)
-            {
-                switch (Math.Abs(posA.y - pos.y))
-                {
-                    case 0:
-                    case 2:
-                        if (Math.Abs(posA.x - pos.x) < 1) return true;
-                        break;
-                    case 1:
-                    case 3:
-                        if (posA.y % 2 == 0 && (posA.x == pos.x || posA.x + 1 == pos.x)) return true;
-                        if (posA.y % 2 == 1 && (posA.x == pos.x || posA.x - 1 == pos.x)) return true;
-                        break;
-                    case 4:
-                        if (Math.Abs(posA.x - pos.x) == 0) return true;
-                        break;
-                }
-            }
         }
-
         return false;
     }
 
@@ -350,7 +366,7 @@ public class EcsUtil
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         foreach (ZooGround g in zgComp.grounds)
         {
-            if (g.state == GroundStatus.Water && IsAdjacent(b, new Vector2Int(g.posX, g.posY)))
+            if (g.state == GroundStatus.Water && IsAdjacent(b, g.pos))
             {
                 return true;
             }
@@ -363,7 +379,7 @@ public class EcsUtil
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         foreach (ZooGround g in zgComp.grounds)
         {
-            if (g.state == GroundStatus.Rock && IsAdjacent(b, new Vector2Int(g.posX, g.posY)))
+            if (g.state == GroundStatus.Rock && IsAdjacent(b, new Vector2Int(g.pos.x, g.pos.y)))
             {
                 return true;
             }
@@ -392,5 +408,22 @@ public class EcsUtil
         WorldIDComp wiComp = World.e.sharedConfig.GetComp<WorldIDComp>();
         wiComp.worldID++;
         return wiComp.worldID;
+    }
+
+    public static ZooGround GetGroundByIndex(int index)
+    {
+        MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
+        if (index % (msComp.width * 2) == msComp.width) return null;
+        int y = index / msComp.width;
+        int x = index % msComp.width;
+        Vector2Int pos = PolarToCartesian(x, y);
+        return GetGroundByPos(pos.x, pos.y);
+    }
+
+    public static int GetBuffNum(int buff)
+    {
+        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        if (!bComp.buffs.ContainsKey(buff)) return 0;
+        return bComp.buffs[buff];
     }
 }

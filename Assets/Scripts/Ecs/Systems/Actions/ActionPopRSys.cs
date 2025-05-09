@@ -41,20 +41,21 @@ public class ActionPopRSys : ISystem
             Venue b = (Venue)p[1];
             StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
             PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            
 
             gainNum = gainNum * b.timePopR + b.extraPopRPerm;
-            if (bComp.xVenusExtraPopR > 0 && b.cfg.isX == 1)
-                gainNum += bComp.xVenusExtraPopR;
-            if (bComp.extraPopRFromAdjLakeVenue > 0 && EcsUtil.IsAdjacentWater(b))
-                gainNum += bComp.extraPopRFromAdjLakeVenue;
-            if (bComp.extraPopRFromLargeVenue > 0 && b.cfg.landType >= 4)
-                gainNum += bComp.extraPopRFromLargeVenue;
-            if (bComp.extraPopRPropFromMonkeyVenue > 0 && b.cfg.aniModule == 0)
-                gainNum += bComp.extraPopRPropFromMonkeyVenue;
-            gainNum = gainNum * (100 + bComp.extraPercPopRThisTurn) / 100 + bComp.extraPopRFromVenue;
+            if (EcsUtil.GetBuffNum(19) > 0 && b.cfg.isX == 1)
+                gainNum += EcsUtil.GetBuffNum(19);
+            if (EcsUtil.GetBuffNum(22) > 0 && EcsUtil.IsAdjacentWater(b))
+                gainNum += EcsUtil.GetBuffNum(22);
+            if (EcsUtil.GetBuffNum(21) > 0 && b.cfg.landType >= 4)
+                gainNum += EcsUtil.GetBuffNum(21);
+            if (EcsUtil.GetBuffNum(23) > 0 && b.cfg.aniModule == 0)
+                gainNum = gainNum*(100+EcsUtil.GetBuffNum(23))/100;
+            gainNum = gainNum * (100 + EcsUtil.GetBuffNum(18) + EcsUtil.GetBuffNum(66)) / 100 + EcsUtil.GetBuffNum(17);
 
-            if (bComp.nextVenueChangeToGainGold > 0)
+            Debug.Log("buff 20 value: "+EcsUtil.GetBuffNum(20));
+            if (EcsUtil.GetBuffNum(20) > 0)
                 Msg.Dispatch(MsgID.ActionGainGold, new object[] { gainNum });
             else
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { gainNum });

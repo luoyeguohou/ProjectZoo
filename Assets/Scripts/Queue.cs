@@ -4,20 +4,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class QueueHandler : MonoBehaviour
+public class QueueHandler
 {
 
-    private Queue<Func<Task>> handlers = new();
+    private Queue<Func<Task>> handlers = new Queue<Func<Task>>();
     private bool isHandling = false;
-
-    // 向队列中添加数据
     public void PushData(Func<Task> data)
     {
         handlers.Enqueue(data);
         if (!isHandling)
         {
-            // 开始处理数据
-            DoHandle();
+            _ = DoHandle();
         }
     }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="994,638">
+  <controller name="HasPopR" exported="true" pages="0,,1," selected="0"/>
+  <displayList>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,-79" size="994,802">
+      <gearXY controller="HasPopR" pages="0,1" values="0,-79|-1,-38"/>
+      <gearSize controller="HasPopR" default="994,802,1,1"/>
+    </image>
+    <text id="n74_z141" name="txtTitle" xy="109,30" size="721,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="获得利息"/>
+    <component id="n78_pz64" name="btnFinish" src="rd0816" fileName="Components/ButtonNormal.xml" xy="348,532" size="300,104">
+      <gearXY controller="HasPopR" pages="0" values="348,532" default="349,622"/>
+      <Button title="Get" titleFontSize="53"/>
+    </component>
+    <text id="n84_rr6n" name="txtCurr" xy="87,125" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="当前金额：{num=5}"/>
+    <text id="n81_rr6n" name="txtRange" xy="84,221" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="可以获得利息的规模：{num=5}"/>
+    <text id="n82_rr6n" name="txtRate" xy="88,316" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="利息倍率：{num=5}%"/>
+    <text id="n83_rr6n" name="txtGet" xy="87,409" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="获得的利息：{num=5}"/>
+    <text id="n85_rr6n" name="txtPopR" xy="83,504" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="利息转化的人气值：{num=5}">
+      <gearDisplay controller="HasPopR" pages="1"/>
+    </text>
+  </displayList>
+</component>

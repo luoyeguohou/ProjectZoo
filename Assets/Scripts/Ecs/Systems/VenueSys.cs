@@ -19,7 +19,7 @@ public class VenueSys : ISystem
 
     private void AddVenue(object[] p)
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         Venue addOne = (Venue)p[0];
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         foreach (Venue b in vComp.venues)
@@ -30,7 +30,7 @@ public class VenueSys : ISystem
                 b.adjacents.Add(addOne);
             }
         }
-        if (bComp.venueRegardedAsAdj > 0) 
+        if (EcsUtil.GetBuffNum(64) > 0) 
         {
             addOne.adjacents.Add(new Venue());
         }
@@ -45,8 +45,8 @@ public class VenueSys : ISystem
         {
             if (EcsUtil.IsAdjacent(removeOne, b) && b!= removeOne)
             {
-                removeOne.adjacents.Add(b);
-                b.adjacents.Add(removeOne);
+                removeOne.adjacents.Remove(b);
+                b.adjacents.Remove(removeOne);
             }
         }
         vComp.venues.Remove(removeOne);

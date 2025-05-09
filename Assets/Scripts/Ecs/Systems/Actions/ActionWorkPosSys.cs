@@ -28,7 +28,7 @@ public class ActionWorkPosSys : ISystem
         {
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
-            UI_UpgradeWorkPos uwpWin = FGUIUtil.CreateWindow<UI_UpgradeWorkPos>("UpgradeWorkPos");
+            UI_UpgradeWorkPosWin uwpWin = FGUIUtil.CreateWindow<UI_UpgradeWorkPosWin>("UpgradeWorkPosWin");
             uwpWin.Init(gainNum, (List<int> val) =>
             {
                 WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
@@ -49,7 +49,7 @@ public class ActionWorkPosSys : ISystem
         aComp.queue.PushData(async () =>
         {
             int gainNum = (int)p[0];
-            WorkPos wp = EcsUtil.GetWorkPosByUid(2);
+            WorkPos wp = EcsUtil.GetWorkPosByUid("dep_2");
             wp.level += gainNum;
             Msg.Dispatch(MsgID.AfterWorkPosChanged);
             await Task.CompletedTask;
@@ -61,7 +61,7 @@ public class ActionWorkPosSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            int uid = (int)p[0];
+            string uid = (string)p[0];
             WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             wpComp.workPoses.Add(new WorkPos(uid));
             Msg.Dispatch(MsgID.AfterWorkPosChanged);

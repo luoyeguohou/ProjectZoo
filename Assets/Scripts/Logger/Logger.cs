@@ -39,6 +39,20 @@ public class Logger
             case OpeType.CheckHasValidGround:
                 AddMsg("check has valid ground. start with " + GetJsonStr(param[0]) + " the relative coor is " + GetJsonStr(param[1]) + " landType: " + param[2]);
                 break;
+            case OpeType.GainCard:
+                AddMsg("gain card " + GetJsonStr(param[0]));
+                break;
+            case OpeType.BuffChanged:
+                BuffCfg cfg = Cfg.buffCfgs[(int)param[0]];
+                BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+                AddMsg("change buff " + cfg.cont + " from "+ (bComp.buffs[(int)param[0]] - (int)param[1]) + " to " + bComp.buffs[(int)param[0]]);
+                break;
+            case OpeType.ExpandChoose:
+                AddMsg("choosing expand ground");
+                break;
+            case OpeType.Expand:
+                AddMsg("do expand");
+                break;
         }
     }
 
@@ -57,7 +71,7 @@ public class Logger
             string s = "[";
             foreach (ZooGround item in zooGrounds)
             {
-                s += "[" + item.posX + "," + item.posY + "]";
+                s += "[" + item.pos.x + "," + item.pos.y + "]";
             }
             s += "]";
             return s;
@@ -87,6 +101,10 @@ public enum OpeType
     PayGold,
     DoubleGold,
     GainIncome,
+    GainCard,
+    BuffChanged,
+    Expand,
+    ExpandChoose,
 
     CheckIsValidGround,
     StartCheckHasValidGround,

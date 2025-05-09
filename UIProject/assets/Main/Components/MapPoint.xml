@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="104,90">
   <controller name="hasBonus" pages="0,,1," selected="0"/>
-  <controller name="type" pages="1,canBuild,2,water,3,rock,0,?,6," selected="3"/>
+  <controller name="type" pages="1,canBuild,2,water,3,rock,0,?,6," selected="4"/>
   <controller name="selected" pages="0,,1," selected="0"/>
   <displayList>
     <loader id="n57_rd08" name="img" xy="0,0" size="103,90" url="ui://zqdehm1vrd08q" align="center" vAlign="middle" fill="scale">
@@ -20,5 +20,8 @@
     <text id="n66_pz64" name="n66" xy="19,22" size="65,42" fontSize="21" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="select">
       <gearDisplay controller="selected" pages="1"/>
     </text>
+    <loader id="n67_blnq" name="img_anim" xy="10,5" size="82,83" url="ui://zqdehm1vblnq69" fill="scale">
+      <gearDisplay controller="type" pages="6"/>
+    </loader>
   </displayList>
 </component>

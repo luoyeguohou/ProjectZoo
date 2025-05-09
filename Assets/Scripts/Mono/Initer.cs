@@ -9,7 +9,8 @@ public class Initer : MonoBehaviour
         Cfg.Init();
         World.Init();
         Msg.Dispatch(MsgID.StartGame);
-        UIStarter.Init();
+        UIManager.Init();
+        Msg.Dispatch(MsgID.ResolveStartSeason);
         DontDestroyOnLoad(this);
     }
 

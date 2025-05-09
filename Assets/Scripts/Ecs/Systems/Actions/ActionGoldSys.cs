@@ -54,9 +54,9 @@ public class ActionGoldSys : ISystem
             int gainNum = (int)p[0];
             GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
             gComp.gold += gainNum;
-
             Logger.AddOpe(OpeType.AddGold, new object[] { gainNum, gComp.gold });
             Msg.Dispatch(MsgID.AfterGoldChanged);
+            FGUIUtil.ShowMsg("get gold " + gainNum.ToString());
             await Task.CompletedTask;
         });
     }

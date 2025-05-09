@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1023,87">
+  <displayList>
+    <image id="n96_qev6" name="n96" src="rd08k" fileName="Images/mapBonus.png" xy="5,0" size="1018,87" alpha="0.756"/>
+    <text id="n95_qev6" name="txtMsg" xy="0,6" size="1023,74" fontSize="50" align="center" vAlign="middle" autoSize="none" text="获得5金币"/>
+  </displayList>
+  <transition name="idle">
+    <item time="22" type="Alpha" target="n95_qev6" tween="true" startValue="1" endValue="0" duration="32"/>
+    <item time="22" type="Alpha" target="n96_qev6" tween="true" startValue="0.756" endValue="0" duration="32"/>
+    <item time="22" type="XY" target="n95_qev6" tween="true" startValue="0,6" endValue="0,-496" duration="32" ease="Sine.Out"/>
+    <item time="22" type="XY" target="n96_qev6" tween="true" startValue="5,0" endValue="5,-500" duration="32" ease="Sine.Out"/>
+  </transition>
+</component>

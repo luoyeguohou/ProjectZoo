@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1497,930">
+  <displayList>
+    <image id="n71_g9th" name="n71" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1497,930"/>
+    <loader id="n72_g9th" name="img" xy="110,102" size="528,740" url="ui://zqdehm1vg9th1f" align="center" vAlign="middle" fill="scale"/>
+    <text id="n73_g9th" name="txtTitle" xy="740,103" size="566,105" fontSize="74" autoSize="none" text="棕熊失踪！！！"/>
+    <text id="n74_g9th" name="txtContent" xy="686,242" size="725,301" fontSize="47" autoSize="none" text="最近你的动物园里面有很多人恶意破坏，有一天你发现园内的一头棕熊失踪了，你决定："/>
+    <component id="n75_g9th" name="btnChoose1" src="rd0816" fileName="Components/ButtonNormal.xml" xy="683,593" size="716,124">
+      <Button title="找回来&#xA;（+20%好概率，但是不能抽牌了）"/>
+    </component>
+    <component id="n76_g9th" name="btnChoose2" src="rd0816" fileName="Components/ButtonNormal.xml" xy="688,719" size="708,78">
+      <Button title="什么也不做"/>
+    </component>
+  </displayList>
+</component>

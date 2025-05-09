@@ -26,20 +26,20 @@ public class ActionShopSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             sComp.deleteThisTime = false;
             sComp.cards.Clear();
             sComp.books.Clear();
-            for (int i = 1; i <= 5 + bComp.storeExtraPos; i++)
+            for (int i = 1; i <= 5 + EcsUtil.GetBuffNum(13); i++)
             {
                 sComp.books.Add(GeneABook());
             }
-            for (int i = 1; i <= 4 + bComp.storeExtraPos; i++)
+            for (int i = 1; i <= 4 + EcsUtil.GetBuffNum(13); i++)
             {
                 sComp.cards.Add(GeneACard());
             }
-            UI_Shop win = FGUIUtil.CreateWindow<UI_Shop>("Shop");
+            UI_ShopWin win = FGUIUtil.CreateWindow<UI_ShopWin>("ShopWin");
             win.Init();
             await Task.CompletedTask;
         });
@@ -47,20 +47,20 @@ public class ActionShopSys : ISystem
 
     private ShopBook GeneABook()
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         string book = EcsUtil.GetRandomBook();
         Random r = new Random();
         int basePrice = r.Next(10) + 5;
-        int price = basePrice - (bComp.randomMinusPriceOnBook == 1 ? r.Next(5) : 0);
+        int price = (basePrice - (EcsUtil.GetBuffNum(10) == 1 ? r.Next(5) : 0)) * (100 - EcsUtil.GetBuffNum(9)) / 100;
         return new ShopBook(new Book(book, price), price);
     }
 
     private ShopCard GeneACard()
     {
         Card c = EcsUtil.GetCardsFromDrawPile(1)[0];
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         int basePrice = GetCardPrice(c.cfg.rare);
-        int price = (basePrice + bComp.extraPriceOnCard) * (100 - bComp.discountInStore) / 100;
+        int price = (basePrice + EcsUtil.GetBuffNum(11)) * (100 - EcsUtil.GetBuffNum(9)) / 100;
         return new ShopCard(c, price);
     }
 
@@ -85,23 +85,23 @@ public class ActionShopSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            
             BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             ShopBook book = (ShopBook)p[0];
             if (!EcsUtil.HaveEnoughGold(book.price)) return;
             if (bookComp.books.Count >= bookComp.bookLimit) return;
             Msg.Dispatch(MsgID.ActionPayGold, new object[] { book.price });
-            Msg.Dispatch(MsgID.ActionGainBook, new object[] { book.book.uid });
-            if (bComp.restock == 1)
+            Msg.Dispatch(MsgID.ActionGainBook, new object[] { book.book.uid ,book.book.price});
+            if (EcsUtil.GetBuffNum(12) == 1)
             {
                 int index = sComp.books.IndexOf(book);
                 sComp.books.Insert(index, GeneABook());
             }
             sComp.books.Remove(book);
 
-            if (bComp.popRGainedAfterBuy > 0)
-                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { bComp.popRGainedAfterBuy });
+            if (EcsUtil.GetBuffNum(42) > 0)
+                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { EcsUtil.GetBuffNum(42) });
 
             Msg.Dispatch(MsgID.AfterShopChanged);
             await Task.CompletedTask;
@@ -112,21 +112,21 @@ public class ActionShopSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             ShopCard card = (ShopCard)p[0];
             if (!EcsUtil.HaveEnoughGold(card.price)) return;
             Msg.Dispatch(MsgID.ActionPayGold, new object[] { card.price });
             Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { card.card.uid });
-            if (bComp.restock == 1)
+            if (EcsUtil.GetBuffNum(12) == 1)
             {
                 int index = sComp.cards.IndexOf(card);
                 sComp.cards.Insert(index, GeneACard());
             }
             sComp.cards.Remove(card);
 
-            if (bComp.popRGainedAfterBuy > 0)
-                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { bComp.popRGainedAfterBuy });
+            if (EcsUtil.GetBuffNum(42) > 0)
+                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { EcsUtil.GetBuffNum(42) });
             Msg.Dispatch(MsgID.AfterShopChanged);
             await Task.CompletedTask;
         });

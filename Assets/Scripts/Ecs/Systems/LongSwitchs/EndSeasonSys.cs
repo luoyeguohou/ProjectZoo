@@ -2,59 +2,69 @@ using TinyECS;
 using Main;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Threading;
 public class EndSeasonSys : ISystem
 {
     public override void OnAddToEngine()
     {
         Msg.Bind(MsgID.ResolveEndSeason, EndSeason);
+        Msg.Bind(MsgID.ResolveEvent, DoSpecificEvent);
+        
     }
 
     public override void OnRemoveFromEngine()
     {
         Msg.UnBind(MsgID.ResolveEndSeason, EndSeason);
+        Msg.UnBind(MsgID.ResolveEvent, DoSpecificEvent);
     }
 
-    private void EndSeason(object[] p)
+    private async void EndSeason(object[] p)
     {
-        UI_EndSeason win = (UI_EndSeason)p[0];
-        GainInterest();
+        // todo windowManager
+        UI_EndSeasonWin win = (UI_EndSeasonWin)p[0];
+        await GainInterest();
+
 
         // end of turn effect
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        if (bComp.goldGainedEachWorkerUnusedEndOfTurn > 0)
+        if (EcsUtil.GetBuffNum(28) > 0)
         {
             int workerNumUnused = wComp.specialWorker.Count + wComp.tempWorkers.Count + wComp.normalWorkers.Count;
             if (workerNumUnused > 0)
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { bComp.goldGainedEachWorkerUnusedEndOfTurn * workerNumUnused });
+                Msg.Dispatch(MsgID.ActionGainGold, new object[] { EcsUtil.GetBuffNum(28) * workerNumUnused });
         }
-        if (bComp.goldLostHalfEndOfTurn > 0)
+        if (EcsUtil.GetBuffNum(29) > 0)
         {
             Msg.Dispatch(MsgID.ActionPayGold, new object[] { gComp.gold / 2 });
         }
 
-        DealEveryVenue();
-        CheckAim();
-        DiscardCard();
+        await DealEveryVenue();
+        bool end = CheckAim();
+        if (end) return;
+        await DiscardCard();
         win.Dispose();
-        DealEvent();
+        await GoNextEvent();
+        GoNextTurn();
     }
 
-    private void GainInterest()
+    private async Task GainInterest()
     {
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
 
-        if (bComp.noAnyInterest > 0) return;
-        int interestPart = Mathf.Min(gComp.gold, gComp.interestPart + bComp.interestExtraTime);
-        int interest = interestPart * (gComp.interestRate + bComp.partExtraInterest) / 100;
+        if (EcsUtil.GetBuffNum(27) > 0) return;
 
-        if (bComp.propInterestTurnToPopR > 0)
+        await FGUIUtil.CreateWindow<UI_InterestWin>("InterestWin").Init();
+
+        int interestPart = Mathf.Min(gComp.gold,  gComp.interestPart * (100 + EcsUtil.GetBuffNum(24)) / 100);
+        int interest = interestPart * (gComp.interestRate * (100 + EcsUtil.GetBuffNum(25)) / 100) / 100;
+
+        if (EcsUtil.GetBuffNum(26) > 0)
         {
-            Msg.Dispatch(MsgID.ActionGainGold, new object[] { interest * (100 - bComp.propInterestTurnToPopR) / 100 });
-            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { interest * bComp.propInterestTurnToPopR / 100 });
+            Msg.Dispatch(MsgID.ActionGainGold, new object[] { interest * (100 - EcsUtil.GetBuffNum(26)) / 100 });
+            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { interest * EcsUtil.GetBuffNum(26) / 100 });
         }
         else
         {
@@ -62,52 +72,53 @@ public class EndSeasonSys : ISystem
         }
     }
 
-    private void DealEveryVenue()
+    private async Task DealEveryVenue()
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        foreach (Venue b in new List<Venue>(vComp.venues)) 
+        foreach (Venue b in new List<Venue>(vComp.venues))
         {
-            if (bComp.only5VenueEffected > 0 && vComp.venues.IndexOf(b) >= 5)
+            if (EcsUtil.GetBuffNum(48) > 0 && vComp.venues.IndexOf(b) >= 5)
                 continue;
 
 
-            TakeEffectVenue(b);
-            if (bComp.nextVenuesEffectTwice>0) {
-                bComp.nextVenuesEffectTwice--;
-                TakeEffectVenue(b);
+            if (EcsUtil.GetBuffNum(15) > 0)
+            {
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 15, -1 });
+                await TakeEffectVenue(b);
             }
-            if (bComp.propReptileTakeEffectAgain > 0 && b.cfg.aniModule == 2) {
-                EcsUtil.RandomlyDoSth(bComp.propReptileTakeEffectAgain, () =>
-                {
-                    TakeEffectVenue(b);
-                });
+            await TakeEffectVenue(b);
+            if (EcsUtil.GetBuffNum(14) > 0 && b.cfg.aniModule == 2)
+            {
+                if (EcsUtil.RandomlyDoSth(EcsUtil.GetBuffNum(14), () => { }))
+                    await TakeEffectVenue(b);
             }
-            if (bComp.extraEffectTimeFirstVenue > 0 && vComp.venues.IndexOf(b) == 0) {
-                for (int i = 0; i < bComp.extraEffectTimeFirstVenue-1; i++)
+            if (EcsUtil.GetBuffNum(16) > 0 && vComp.venues.IndexOf(b) == 0)
+            {
+                for (int i = 0; i < EcsUtil.GetBuffNum(16); i++)
                 {
-                    TakeEffectVenue(b);
+                    await TakeEffectVenue(b);
                 }
             }
 
             sComp.numEffectedVenuesThisTurn++;
-            if(b.cfg.aniModule == 2)
-                sComp.numEffectedPaChongVenuesThisTurn++;
-
         }
     }
 
-    private void TakeEffectVenue(Venue b)
+    private async Task TakeEffectVenue(Venue b)
     {
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
 
         sComp.popRLastVenue = sComp.popRThisVenue;
         sComp.popRThisVenue = 0;
+
+        if (b.cfg.aniModule == 2)
+            sComp.numEffectedPaChongVenuesThisTurn++;
 
         switch (b.uid)
         {
@@ -116,7 +127,7 @@ public class EndSeasonSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { b.adjacents.Count * 2 + extra, b });
                 break;
             case "mi_monkey":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { EcsUtil.GetAdjacentMonkeyVenueNum(), b });
+                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 2 * EcsUtil.GetAdjacentMonkeyVenueNum(), b });
                 break;
             case "changbi_monkey":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 3, b });
@@ -139,7 +150,7 @@ public class EndSeasonSys : ISystem
                 break;
             case "huiye_monkey":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 3, b });
-                Msg.Dispatch(MsgID.ActionDrawCard, new object[] { 1 });
+                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { 1 });
                 break;
             case "yuan_monkey":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 25, b });
@@ -175,7 +186,7 @@ public class EndSeasonSys : ISystem
                 break;
             case "dongbeihu":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 3, b });
-                bComp.nextVenueChangeToGainGold++;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 20, 2 });
                 break;
             case "huananhu":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 1, b });
@@ -189,7 +200,7 @@ public class EndSeasonSys : ISystem
                 b.extraPopRPerm++;
                 break;
             case "ouzhouguan":
-                bComp.nextVenuesEffectTwice++;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 15, 1 });
                 break;
             case "guowangbsl":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { sComp.numEffectedPaChongVenuesThisTurn, b });
@@ -233,10 +244,10 @@ public class EndSeasonSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { sComp.badIdeaNumTotally, b });
                 break;
             case "yanshiyu":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { Util.Count(vComp.venues, b => EcsUtil.IsAdjacentRock(b)), b });
+                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 3* Util.Count(vComp.venues, b => EcsUtil.IsAdjacentRock(b)), b });
                 break;
             case "shenhaiyu":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { Util.Count(vComp.venues, b => EcsUtil.IsAdjacentWater(b)), b });
+                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { 3*Util.Count(vComp.venues, b => EcsUtil.IsAdjacentWater(b)), b });
                 break;
             case "jinli":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { Util.Count(vComp.venues, b => b.cfg.aniModule == 3), b });
@@ -267,8 +278,6 @@ public class EndSeasonSys : ISystem
                 break;
         }
         sComp.numEffectedVenuesThisTurn++;
-        if (b.cfg.aniModule == 2)
-            sComp.numEffectedPaChongVenuesThisTurn++;
 
         if (b.cfg.aniModule == 0 && sComp.popRThisVenue > sComp.highestPopRFromMonkeyVenue)
         {
@@ -283,56 +292,88 @@ public class EndSeasonSys : ISystem
         {
             sComp.threeVenuesPopRMoreThat20 = 0;
         }
+
+        if (EcsUtil.GetBuffNum(20) > 0)
+            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 20, -1 });
+        Msg.Dispatch(MsgID.VenueTakeEffectAni, new object[] { b });
+        await Task.Delay(2000);
     }
 
-    private void CheckAim()
+    private bool CheckAim()
     {
         AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
         PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
 
-        int aim = aComp.aims[tComp.turn];
+        int aim = aComp.aims[tComp.turn-1];
 
-        if (bComp.timeAddHalfWhenNotReachAim > 0 && prComp.popRating < aim)
+        if (EcsUtil.GetBuffNum(47) > 0 && prComp.popRating < aim)
         {
             Msg.Dispatch(MsgID.ActionGainPopR, new object[] { prComp.popRating / 2 });
-            bComp.timeAddHalfWhenNotReachAim--;
+            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 47, -1 });
         }
+
 
         if (prComp.popRating < aim)
         {
-            Debug.Log("Game Over!!!");
+            Debug.Log("Game Over!!! curr: "+prComp.popRating + " aim: "+aim );
+            FGUIUtil.CreateWindow<UI_EndWin>("EndWin");
+            return true;
         }
+        return false;
     }
 
-    private void DealEvent()
-    {
+    private Task GoNextEvent() {
         EventComp eComp = World.e.sharedConfig.GetComp<EventComp>();
         string curEventUid = eComp.eventIDs.Shift();
         // 这一步是避免事件太少导致的报错，这样子直接循环轮播
         eComp.eventIDs.Add(curEventUid);
-        UI_EventPanel ui = FGUIUtil.CreateWindow<UI_EventPanel>("EventPanel");
+        return DealEvent(curEventUid);
+    }
+
+    private void DoSpecificEvent(object[] p) {
+        string eventID = (string)p[0];
+        Debug.Log("DoSpecificEvent "+eventID);
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+            Debug.Log(eventID);
+            await DealEvent(eventID);
+        });
+    }
+
+    private Task DealEvent(string curEventUid)
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        UI_EventPanelWin ui = FGUIUtil.CreateWindow<UI_EventPanelWin>("EventPanelWin");
         ZooEvent curEvent = new ZooEvent();
         curEvent.uid = curEventUid;
         curEvent.cfg = Cfg.events[curEventUid];
         curEvent.zooEventChoices = new List<ZooEventChoice>();
-        for (int i = 0; i < curEvent.cfg.choices.Count; i++) 
+        for (int i = 0; i < curEvent.cfg.choices.Count; i++)
         {
             curEvent.zooEventChoices.Add(new ZooEventChoice(curEvent.cfg.choices[i], curEvent.cfg.choiceUids[i]));
         }
-        ui.Init(curEvent,()=>GoNextTurn());
+        ui.Init(curEvent, () =>
+        {
+            tcs.SetResult(true);
+        });
+        return tcs.Task;
     }
 
     private void GoNextTurn()
     {
+        Debug.Log("Go Next Turn");
         PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
 
+        foreach (Venue v in vComp.venues)
+            v.timePopR = 1;
         sComp.numEffectedVenuesThisTurn = 0;
         sComp.numEffectedPaChongVenuesThisTurn = 0;
         sComp.workerUsedThisTurn = 0;
@@ -340,18 +381,23 @@ public class EndSeasonSys : ISystem
         prComp.popRating = 0;
         tComp.turn++;
         tComp.season = (Season)(tComp.turn % 4);
-        if (bComp.turnSprintIntoWinter > 0 && tComp.season == Season.Spring)
+        if (EcsUtil.GetBuffNum(35) > 0 && tComp.season == Season.Spring)
             tComp.season = Season.Winter;
+        if (EcsUtil.GetBuffNum(20) > 0)
+            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 20, -EcsUtil.GetBuffNum(20) });
+        if (EcsUtil.GetBuffNum(66) > 0)
+            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 66, -EcsUtil.GetBuffNum(66) });
 
         foreach (WorkPos wp in wpComp.workPoses)
         {
             wp.currNum = 0;
             wp.needNum = 1;
+            wp.workTimeThisTurn = 0;
         }
 
         wComp.tempWorkers.Clear();
-        wComp.normalWorkers =  new(wComp.normalWorkerLimit);
-        wComp.specialWorker = new (wComp.specialWorkerLimit);
+        wComp.normalWorkers = new(wComp.normalWorkerLimit);
+        wComp.specialWorker = new(wComp.specialWorkerLimit);
         foreach (Worker w in wComp.normalWorkers)
         {
             w.age++;
@@ -361,29 +407,23 @@ public class EndSeasonSys : ISystem
             w.age++;
         }
 
+        Msg.Dispatch(MsgID.AfterTurnChanged);
         // start turn
         Msg.Dispatch(MsgID.ResolveStartSeason);
     }
 
-    private void DiscardCard()
+    private async Task DiscardCard()
     {
+        if (EcsUtil.GetBuffNum(46) > 0) return;
         CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         if (cmComp.hands.Count <= cmComp.handsLimit) return;
         List<Card> pool = new List<Card>();
         foreach (Card c in cmComp.hands)
-            if (c.cfg.module != -1 && bComp.canDiscardBadIdeaCard == 0)
+            if (c.cfg.module != -1 && EcsUtil.GetBuffNum(36) == 0)
                 pool.Add(c);
 
-        UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-        win.Init(pool, cmComp.hands.Count - cmComp.handsLimit, (List<Card> discarded, List<Card> held) =>
-        {
-            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            foreach (Card c in held)
-            {
-                Msg.Dispatch(MsgID.DiscardACard, new object[] { c });
-            }
-            Msg.Dispatch(MsgID.AfterCardChanged);
-        });
+        (List<Card> discards, List<Card> _) = await FGUIUtil.SelectCardsNeedTheOthers(pool, cmComp.hands.Count - cmComp.handsLimit);
+        Msg.Dispatch(MsgID.DiscardCard, new object[] { discards });
+        Msg.Dispatch(MsgID.AfterCardChanged);
     }
 }

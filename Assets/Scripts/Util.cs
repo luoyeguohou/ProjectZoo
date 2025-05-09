@@ -24,10 +24,23 @@ class Util
         return null;
     }
 
-    public static void RemoveValue<T>(List<T> lst, T val) where T: IEquatable<T>
+    public static List<T2> Map<T1,T2>(List<T1> list, Func<T1,T2> handler)
     {
-        for (int i = 0; i < lst.Count; i++) {
-            if (lst[i] .Equals(val)) { 
+        List<T2> ret = new();
+        foreach (T1 t in list)
+        {
+            ret.Add(handler(t));
+        }
+        return ret;
+    }
+
+
+    public static void RemoveValue<T>(List<T> lst, T val) where T : IEquatable<T>
+    {
+        for (int i = 0; i < lst.Count; i++)
+        {
+            if (lst[i].Equals(val))
+            {
                 lst.RemoveAt(i);
                 return;
             }
@@ -60,7 +73,7 @@ class Util
         }
     }
 
-    public static T BiggerOne<T>(T a,T b) where T : IComparable<T>
+    public static T BiggerOne<T>(T a, T b) where T : IComparable<T>
     {
         return a.CompareTo(b) > 0 ? a : b;
     }
@@ -70,10 +83,12 @@ class Util
         return a.CompareTo(b) > 0 ? b : a;
     }
 
-    public static bool Any<T>(List<T> lst, Func<T,bool> action) 
+    public static bool Any<T>(List<T> lst, Func<T, bool> action)
     {
-        foreach (T t in lst) {
-            if (action(t)) {
+        foreach (T t in lst)
+        {
+            if (action(t))
+            {
                 return true;
             }
         }
@@ -92,6 +107,24 @@ class Util
         return true;
     }
 
+    public static List<T> Filter<T>(List<T> lst, Func<T, bool> action, int limitNum = -1)
+    {
+        List<T> ret = new List<T>();
+        foreach (T t in lst)
+        {
+            if (action(t))
+            {
+                ret.Add(t);
+                if (limitNum != -1 && ret.Count >= limitNum)
+                {
+
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+
     public static int Count<T>(List<T> lst, Func<T, bool> action)
     {
         int cnt = 0;
@@ -105,11 +138,13 @@ class Util
         return cnt;
     }
 
-    public static int SetBit(int num,int pos) { 
+    public static int SetBit(int num, int pos)
+    {
         return num | (1 << pos);
     }
 
-    public static int GetMax(int[] vals) {
+    public static int GetMax(int[] vals)
+    {
         int[] des = new int[vals.Length];
         Array.Copy(vals, des, vals.Length);
         Array.Sort(des);
@@ -124,7 +159,6 @@ class Util
         Array.Sort(des);
         return des[1];
     }
-
 }
 
 public static class ListExtensions

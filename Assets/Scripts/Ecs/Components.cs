@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Numerics;
-using System.Reflection;
 using TinyECS;
 using UnityEngine;
 
@@ -11,7 +9,7 @@ public class GoldComp : IComponent {
     public int interestRate = 25;
 }
 
-public class  PopRatingComp:IComponent
+public class PopRatingComp:IComponent
 {
     public int popRating;
 }
@@ -89,7 +87,7 @@ public class ModuleComp : IComponent
 
 public class TimeResComp : IComponent
 {
-    public int time = 100;
+    public int time = 0;
 }
 
 public class WorldIDComp : IComponent 
@@ -99,138 +97,7 @@ public class WorldIDComp : IComponent
 
 public class BuffComp : IComponent
 {
-    // start of turn
-
-    //季度开始时获得的人气
-    public int popRGainedStartOfTurn = 0;
-    // 季度开始时获得的书籍数
-    public int bookGainedStartOfTurn = 0;
-    // 季度开始有50%概率获得的金钱数。
-    public int halfPropGainGoldStartOfTurn = 0;
-    // 每季度开始时地图上出现随机奖励
-    public int randomMapBonusStartOfTurn = 0;
-    // 每季度开始时会增加一张坏点子
-    public int randomBadIdeaStartOfTurn = 0;
-    // 每季度开始随机大礼包
-    public int randomGiftStartOfTurn = 0;
-    // 正面概率加成
-    public int propBenefit = 0;
-    // 负面概率加成
-    public int propBadMinus = 0;
-    // 商店折扣
-    public int discountInStore = 0;
-    // 购买书籍随机减免1-5
-    public int randomMinusPriceOnBook = 0;
-    // 商店项目牌额外的钱
-    public int extraPriceOnCard = 0;
-    // 商店是不是会补货
-    public int restock = 0;
-    // 商店歌曲额外的位置
-    public int storeExtraPos = 0;
-    // 爬虫场馆再次结算概率
-    public int propReptileTakeEffectAgain = 0;
-    // 下一个场馆结算两次
-    public int nextVenuesEffectTwice = 0;
-    // 第一个场馆会额外结算几次
-    public int extraEffectTimeFirstVenue = 0;
-    // 从动物场馆额外获得的人气值
-    public int extraPopRFromVenue = 0;
-    // 人气值百分比额外提升
-    public int extraPercPopRThisTurn = 0;
-    // X场馆额外值
-    public int xVenusExtraPopR = 0;
-    // 下一个场馆获得人气时，改为获得等量金钱
-    public int nextVenueChangeToGainGold = 0;
-    // 大型场馆的额外人气
-    public int extraPopRFromLargeVenue = 0;
-    // 临河场馆额外人气
-    public int extraPopRFromAdjLakeVenue = 0;
-    // 从猿猴动物场馆额外获得的人气值
-    public int extraPopRPropFromMonkeyVenue = 0;
-    // 利息倍率 
-    public int interestExtraTime = 0;
-    // 可以获得利息的规模
-    public int partExtraInterest = 0;
-    // 利息的多少部分转化为额外的人气值
-    public int propInterestTurnToPopR = 0;
-    // 没有任何利息
-    public int noAnyInterest = 0;
-    // 季度结束时，你每有一个未派遣的工人就获得的金钱数
-    public int goldGainedEachWorkerUnusedEndOfTurn = 0;
-    // 回合结束金钱减半
-    public int goldLostHalfEndOfTurn = 0;
-    // 回合开始抽牌数
-    public int drawCardStartOfTurn = 0;
-    // X场馆建设费用折扣
-    public int discountInBuildXVenue = 0;
-    // 建设场馆时间减少花费
-    public int discountVenueTime = 0;
-    // 建设场馆金钱减少花费
-    public int discountVenueGold = 0;
-    // 额外牌的费用
-    public int extraPercGoldCostOnCard = 0;
-    // 春季变成冬季
-    public int turnSprintIntoWinter = 0;
-    // 是否可以直接弃掉坏点子牌
-    public int canDiscardBadIdeaCard = 0;
-    // 每弃掉一个项目获得的金钱
-    public int goldGainedWhenDiscardCard = 0;
-    // 不能拆除场馆
-    public int canNotDemolition = 0;
-    // 临时工人额外当几个工人
-    public int extraNumTWorkerValue = 0;
-    // 执行部门需要的员工数减少量
-    public int discountWorkerNeed = 0;
-    // 重复派遣工人也只需要一个
-    public int only1NeedOnRepeatSend = 0;
-    // 每次购买后获得的人气值
-    public int popRGainedAfterBuy = 0;
-    // 使用书籍后，本季度获得的人气值
-    public int popRGainedAfterBook = 0;
-    // 使用书籍时获得另一个书籍的概率
-    public int propGainBookAfterBook = 0;
-    // 接下来几张牌双倍打出
-    public int numProjCardDoublePlayed = 0;
-    // 不会再弃牌
-    public int noDiscard = 0;
-    // 接下来多少次达不到目标加50%
-    public int timeAddHalfWhenNotReachAim = 0;
-    // 只结算前五个场馆
-    public int only5VenueEffected = 0;
-    // 建造奖励额外倍数
-    public int extraMapBonusTime = 0;
-    // 不能获得场地奖励
-    public int canNotGetMapBonus = 0;
-    // 坏点子牌都会转化成随机项目牌
-    public int badIdeaExchangeToNextCard = 0;
-    // 拿到牌之后立即弃掉的概率
-    public int propDiscardWhenGainCard = 0;
-    // 不能打出成就牌
-    public int canNotPlayAchi = 0;
-    // 拆除一个场馆的时候招募几个员工
-    public int gainWorkerWhenDestoryVenue = 0;
-    // 扩建时招募临时员工
-    public int gainTWorkerWhenExpand = 0;
-    // 书籍效果
-    public int extraBookTime = 0;
-    // 接下来几张牌均为猴类牌
-    public int nextNumMustBeMonkeyCard = 0;
-    // 特殊员工派遣效果翻倍
-    public int specWorkerExtraEffectTimes = 0;
-    // 特殊工人没有效果
-    public int noEffectOnSpecWorker = 0;
-    // 工人在被招募的前两个回合不能行动
-    public int canNotUseWorkerUntil2Turn = 0;
-    // 售出书籍的价格比例
-    public int sellBookProp = 0;
-    // 按顺序查看牌
-    public int checkCardInOrder = 0;
-    // 扩建的费用翻倍
-    public int extraExpandCostTime = 0;
-    // 视为与所有场馆相邻的场馆数
-    public int venueRegardedAsAdj = 0;
-    // 多少距离以内视作相邻
-    public int distanceRegardedAsAd = 0;
+    public Dictionary<int, int> buffs = new();
 }
 
 public class StatisticComp : IComponent
@@ -240,6 +107,7 @@ public class StatisticComp : IComponent
     public int badIdeaNumTotally = 0;
     public int groundBonusCntTotally = 0;
     public int achiNumTotally = 0;
+    public int permanentProjectCard = 0;
 
     public int numEffectedVenuesThisTurn = 0;
     public int numEffectedPaChongVenuesThisTurn = 0;
@@ -255,7 +123,18 @@ public class StatisticComp : IComponent
 
 public class ActionComp : IComponent
 { 
-   public  QueueHandler queue = new();
+   public QueueHandler queue = new();
+}
+
+public class ConsoleComp : IComponent
+{
+    public List<string> histories = new();
+    public int luckPoint = -1;
+}
+
+public class MapSizeComp : IComponent {
+    public int width;
+    public int height;
 }
 
 public class ShopBook
@@ -289,29 +168,38 @@ public enum Season
 
 public class WorkPos
 {
-    public int uid = 0;
+    public string uid = "";
     public int currNum = 0;
     public int needNum = 1;
     public int level = 1;
     public int workTime = 0;
-    public WorkPos(int uid)
+    public int workTimeThisTurn = 0;
+    public WorkPosCfg cfg;
+    public WorkPos(string uid)
     {
         this.uid = uid;
+        cfg = Cfg.workPoses[uid];
+    }
+
+    public string GetCont()
+    {
+        string s = cfg.cont;
+        s = s.Replace("$1", cfg.val1[level - 1].ToString());
+        s = s.Replace("$2", cfg.val2[level - 1].ToString());
+        return s;
     }
 }
 
 public class ZooGround
 {
-    public int posX = 0;
-    public int posY = 0;
+    public Vector2Int pos;
     // reward
     public MapBonus bonus = null;
     // states  0 ? 1 rock 2 water 3 can build 4 built
     public GroundStatus state = GroundStatus.CanBuild;
     public bool isTouchedLand = false;
     public bool hasBuilt = false;
-    public string builtUrl = "";
-    public int buildIdx;
+    public Venue venue;
 }
 
 public enum GroundStatus { 
@@ -400,7 +288,7 @@ public class Book
     public BookCfg cfg;
     public string url;
     public int price;
-    public Book(string uid, int price)
+    public Book(string uid, int price = 5)
     {
         this.uid = uid;
         cfg = Cfg.books[uid];

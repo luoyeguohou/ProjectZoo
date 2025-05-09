@@ -21,10 +21,13 @@ public class World
         e.sharedConfig.AddComp(new ModuleComp());
         e.sharedConfig.AddComp(new PopRatingComp());
         e.sharedConfig.AddComp(new TimeResComp());
-        e.sharedConfig.AddComp(new BuffComp());
         e.sharedConfig.AddComp(new StatisticComp());
         e.sharedConfig.AddComp(new WorldIDComp());
         e.sharedConfig.AddComp(new ActionComp());
+        e.sharedConfig.AddComp(new ConsoleComp());
+        e.sharedConfig.AddComp(new MapSizeComp());
+        e.sharedConfig.AddComp(new BuffComp());
+
         // add system
         e.AddSystem(new ActionCardSys());
         e.AddSystem(new ActionGoldSys());
@@ -37,6 +40,7 @@ public class World
         e.AddSystem(new ActionZooLandSys());
         e.AddSystem(new ActionZooSys());
         e.AddSystem(new ActionShopSys());
+        e.AddSystem(new ActionBuffSys());
 
         e.AddSystem(new StartGameSys());
         e.AddSystem(new UseWorkerSys());
@@ -46,5 +50,8 @@ public class World
         e.AddSystem(new ResolveCardEffectSys());
         e.AddSystem(new ResolveEventChoiceEffectSys());
         e.AddSystem(new VenueSys());
+        e.AddSystem(new ConsoleSys());
+        e.AddSystem(new StartSeasonSys());
+
     }
 }

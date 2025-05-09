@@ -29,8 +29,8 @@
       "name": "投资",
       "order": 4,
       "uid": "investment",
-      "val1": 20,
-      "val2": 0
+      "val1": 1,
+      "val2": 20
     },
     {
       "cont": "抽2张牌",
@@ -141,7 +141,7 @@
       "name": "内部清洗",
       "order": 18,
       "uid": "internalPurge",
-      "val1": 0,
+      "val1": 1,
       "val2": 0
     },
     {
@@ -193,6 +193,272 @@
       "val2": 0
     }
   ],
+  "chineseBuff": [
+    {
+      "cont": "每季度开始时获得人气",
+      "uid": 1
+    },
+    {
+      "cont": "每季度开始时获得书籍",
+      "uid": 2
+    },
+    {
+      "cont": "每季度开始时有50%概率获得金钱",
+      "uid": 3
+    },
+    {
+      "cont": "每季度开始时随机出现地图奖励",
+      "uid": 4
+    },
+    {
+      "cont": "每季度开始时获得随机坏点子",
+      "uid": 5
+    },
+    {
+      "cont": "每季度开始时随机获得一些东西",
+      "uid": 6
+    },
+    {
+      "cont": "正面概率加成",
+      "uid": 7
+    },
+    {
+      "cont": "负面概率加成",
+      "uid": 8
+    },
+    {
+      "cont": "商店折扣",
+      "uid": 9
+    },
+    {
+      "cont": "购买书籍随机减免1-5金币",
+      "uid": 10
+    },
+    {
+      "cont": "商店项目牌价格额外增加",
+      "uid": 11
+    },
+    {
+      "cont": "商店会补货",
+      "uid": 12
+    },
+    {
+      "cont": "增加商店的售卖数量",
+      "uid": 13
+    },
+    {
+      "cont": "爬虫场馆再次结算的概率",
+      "uid": 14
+    },
+    {
+      "cont": "下一个场馆额外结算两次",
+      "uid": 15
+    },
+    {
+      "cont": "第一个场馆会多次结算",
+      "uid": 16
+    },
+    {
+      "cont": "动物场馆中获得人气增加",
+      "uid": 17
+    },
+    {
+      "cont": "人气值额外获得百分比",
+      "uid": 18
+    },
+    {
+      "cont": "X场馆额外获得的人气值",
+      "uid": 19
+    },
+    {
+      "cont": "下一个场馆获得人气时，改为获得金币",
+      "uid": 20
+    },
+    {
+      "cont": "大型场馆额外获得的人气",
+      "uid": 21
+    },
+    {
+      "cont": "临河场馆额外获得的人气",
+      "uid": 22
+    },
+    {
+      "cont": "猿猴场馆额外获得的人气",
+      "uid": 23
+    },
+    {
+      "cont": "利息额外倍率",
+      "uid": 24
+    },
+    {
+      "cont": "额外可以获得利息的规模",
+      "uid": 25
+    },
+    {
+      "cont": "利息的多少部分转为额外的人气值",
+      "uid": 26
+    },
+    {
+      "cont": "没有任何利息",
+      "uid": 27
+    },
+    {
+      "cont": "季度结束时，每个未派遣的工人获得的金钱",
+      "uid": 28
+    },
+    {
+      "cont": "回合结束时金钱减半",
+      "uid": 29
+    },
+    {
+      "cont": "回合开始抽牌数",
+      "uid": 30
+    },
+    {
+      "cont": "X场馆建设折扣",
+      "uid": 31
+    },
+    {
+      "cont": "建设场馆减少花费的时间",
+      "uid": 32
+    },
+    {
+      "cont": "建设场馆减少花费的金钱",
+      "uid": 33
+    },
+    {
+      "cont": "卡牌的额外金币花费",
+      "uid": 34
+    },
+    {
+      "cont": "春季变成冬季",
+      "uid": 35
+    },
+    {
+      "cont": "可以直接弃置坏点子牌",
+      "uid": 36
+    },
+    {
+      "cont": "每弃掉一张牌就获得金钱",
+      "uid": 37
+    },
+    {
+      "cont": "不能拆除场馆",
+      "uid": 38
+    },
+    {
+      "cont": "临时工人可以当作两个工人",
+      "uid": 39
+    },
+    {
+      "cont": "执行部门效果较少需要的员工",
+      "uid": 40
+    },
+    {
+      "cont": "重复执行部门效果只需要一个工人",
+      "uid": 41
+    },
+    {
+      "cont": "商店购买物品后获得人气值",
+      "uid": 42
+    },
+    {
+      "cont": "使用书籍后获得人气值",
+      "uid": 43
+    },
+    {
+      "cont": "使用书籍有概率获得另一本书籍",
+      "uid": 44
+    },
+    {
+      "cont": "下一张牌打出两次",
+      "uid": 45
+    },
+    {
+      "cont": "不会再弃牌",
+      "uid": 46
+    },
+    {
+      "cont": "下次未达到目标人气时，增加50%人气",
+      "uid": 47
+    },
+    {
+      "cont": "只能结算前五个场馆",
+      "uid": 48
+    },
+    {
+      "cont": "地图奖励效果翻倍",
+      "uid": 49
+    },
+    {
+      "cont": "不能获得任何地图奖励",
+      "uid": 50
+    },
+    {
+      "cont": "坏点子牌会转化为随机项目牌",
+      "uid": 51
+    },
+    {
+      "cont": "拿到牌后有概率直接弃掉",
+      "uid": 52
+    },
+    {
+      "cont": "不能打出成就牌",
+      "uid": 53
+    },
+    {
+      "cont": "拆除场馆时招聘员工",
+      "uid": 54
+    },
+    {
+      "cont": "扩建时招募临时员工",
+      "uid": 55
+    },
+    {
+      "cont": "书籍效果翻倍",
+      "uid": 56
+    },
+    {
+      "cont": "接下来从牌堆获取牌时，必定为猿猴模组的牌",
+      "uid": 57
+    },
+    {
+      "cont": "特殊员工派遣效果翻倍",
+      "uid": 58
+    },
+    {
+      "cont": "特殊员工没有任何效果",
+      "uid": 59
+    },
+    {
+      "cont": "工人在被招募两个回合内不能行动",
+      "uid": 60
+    },
+    {
+      "cont": "售出书籍的价格比例",
+      "uid": 61
+    },
+    {
+      "cont": "查看抽牌堆时，按照顺序查看",
+      "uid": 62
+    },
+    {
+      "cont": "扩建的费用翻倍",
+      "uid": 63
+    },
+    {
+      "cont": "视为你有一个与所有场馆都相邻的场馆",
+      "uid": 64
+    },
+    {
+      "cont": "计算相邻时，可以额外计算的距离",
+      "uid": 65
+    },
+    {
+      "cont": "仅本回合人气值提升百分比",
+      "uid": 66
+    }
+  ],
   "chineseCard": [
     {
       "aniName": "猿猴",
@@ -204,6 +470,7 @@
       "landType": 3,
       "module": 0,
       "name": "金丝猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -219,6 +486,7 @@
       "landType": 1,
       "module": 0,
       "name": "猕猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -234,6 +502,7 @@
       "landType": 0,
       "module": 0,
       "name": "长鼻猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -249,6 +518,7 @@
       "landType": 2,
       "module": 0,
       "name": "绒猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -264,6 +534,7 @@
       "landType": 5,
       "module": 0,
       "name": "蜘蛛猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -279,6 +550,7 @@
       "landType": 1,
       "module": 0,
       "name": "卷尾猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -294,6 +566,7 @@
       "landType": 2,
       "module": 0,
       "name": "吼猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -309,6 +582,7 @@
       "landType": 6,
       "module": 0,
       "name": "巴西夜猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -324,6 +598,7 @@
       "landType": 2,
       "module": 0,
       "name": "印度灰叶猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -339,6 +614,7 @@
       "landType": 7,
       "module": 0,
       "name": "猿猴",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -354,6 +630,7 @@
       "landType": 0,
       "module": 0,
       "name": "单一生态成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -362,13 +639,14 @@
     {
       "aniName": "",
       "cardType": 1,
-      "className": "",
+      "className": "22 16",
       "condition": "园区内至少拥有10个猿猴场馆。",
       "cont": "计算相邻时视为你拥有一个与全部场馆相邻的猴类场馆。",
       "goldCost": 5,
       "landType": 0,
       "module": 0,
       "name": "猿猴类成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -384,6 +662,7 @@
       "landType": 0,
       "module": 0,
       "name": "责任成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -399,6 +678,7 @@
       "landType": 0,
       "module": 0,
       "name": "猿猴宣传成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -414,6 +694,7 @@
       "landType": 0,
       "module": 0,
       "name": "春日装扮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -429,6 +710,7 @@
       "landType": 0,
       "module": 0,
       "name": "猿猴研究部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -444,6 +726,7 @@
       "landType": 0,
       "module": 0,
       "name": "后勤部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -459,6 +742,7 @@
       "landType": 0,
       "module": 0,
       "name": "研究部分部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -474,6 +758,7 @@
       "landType": 0,
       "module": 0,
       "name": "猿猴场馆建设部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -489,6 +774,7 @@
       "landType": 0,
       "module": 0,
       "name": "一招鲜",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -504,6 +790,7 @@
       "landType": 0,
       "module": 0,
       "name": "猴子泛滥",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -519,6 +806,7 @@
       "landType": 0,
       "module": 0,
       "name": "猿猴主题",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -534,6 +822,7 @@
       "landType": 0,
       "module": 0,
       "name": "招募专职研究人员",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -549,6 +838,7 @@
       "landType": 0,
       "module": 0,
       "name": "招募专职建设人员",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -564,6 +854,7 @@
       "landType": 0,
       "module": 0,
       "name": "身兼数职",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -579,6 +870,7 @@
       "landType": 0,
       "module": 0,
       "name": "管理大师",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -594,6 +886,7 @@
       "landType": 0,
       "module": 0,
       "name": "废案利用",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -609,6 +902,7 @@
       "landType": 0,
       "module": 0,
       "name": "讨价还价",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -624,6 +918,7 @@
       "landType": 0,
       "module": 0,
       "name": "业界大亨",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -639,6 +934,7 @@
       "landType": 0,
       "module": 0,
       "name": "六六六",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 6,
@@ -654,6 +950,7 @@
       "landType": 0,
       "module": 0,
       "name": "研发之眼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -669,6 +966,7 @@
       "landType": 1,
       "module": 1,
       "name": "短面熊",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -683,7 +981,8 @@
       "goldCost": 15,
       "landType": 3,
       "module": 1,
-      "name": "灰熊",
+      "name": "北极熊",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -699,6 +998,7 @@
       "landType": 7,
       "module": 1,
       "name": "非洲狮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -714,6 +1014,7 @@
       "landType": 4,
       "module": 1,
       "name": "美洲狮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -724,11 +1025,12 @@
       "cardType": 0,
       "className": "哺乳类场馆",
       "condition": "",
-      "cont": "获得1人气值。获得1张美洲狮场馆牌。",
+      "cont": "获得1人气值。获得1张亚洲狮场馆牌。",
       "goldCost": 4,
       "landType": 0,
       "module": 1,
       "name": "亚洲狮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -743,7 +1045,8 @@
       "goldCost": 14,
       "landType": 2,
       "module": 1,
-      "name": "古中华豹",
+      "name": "雪豹",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -759,10 +1062,11 @@
       "landType": 3,
       "module": 1,
       "name": "美洲豹",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
-      "uid": "meizhoushi"
+      "uid": "meizhoubao"
     },
     {
       "aniName": "虎",
@@ -774,6 +1078,7 @@
       "landType": 1,
       "module": 1,
       "name": "东北虎",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -789,6 +1094,7 @@
       "landType": 5,
       "module": 1,
       "name": "华南虎",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -804,6 +1110,7 @@
       "landType": 3,
       "module": 1,
       "name": "澳洲野犬",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -819,6 +1126,7 @@
       "landType": 2,
       "module": 1,
       "name": "欧洲獾",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -834,6 +1142,7 @@
       "landType": 0,
       "module": 1,
       "name": "人气爆满成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -849,6 +1158,7 @@
       "landType": 0,
       "module": 1,
       "name": "大型哺乳动物成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -864,6 +1174,7 @@
       "landType": 0,
       "module": 1,
       "name": "多种类保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -879,6 +1190,7 @@
       "landType": 0,
       "module": 1,
       "name": "虎豹熊狮成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -894,6 +1206,7 @@
       "landType": 0,
       "module": 1,
       "name": "夏日装扮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -909,6 +1222,7 @@
       "landType": 0,
       "module": 1,
       "name": "哺乳类研究部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -924,6 +1238,7 @@
       "landType": 0,
       "module": 1,
       "name": "清理部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -939,6 +1254,7 @@
       "landType": 0,
       "module": 1,
       "name": "人才市场",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -954,6 +1270,7 @@
       "landType": 0,
       "module": 1,
       "name": "黑市",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -969,6 +1286,7 @@
       "landType": 0,
       "module": 1,
       "name": "人气爆棚",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -984,6 +1302,7 @@
       "landType": 0,
       "module": 1,
       "name": "人满为福",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -999,6 +1318,7 @@
       "landType": 0,
       "module": 1,
       "name": "人满为安",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1014,6 +1334,7 @@
       "landType": 0,
       "module": 1,
       "name": "赌博",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1029,6 +1350,7 @@
       "landType": 0,
       "module": 1,
       "name": "购物大亨",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1044,6 +1366,7 @@
       "landType": 0,
       "module": 1,
       "name": "爆仓",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1059,6 +1382,7 @@
       "landType": 0,
       "module": 1,
       "name": "敏捷开发",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1074,6 +1398,7 @@
       "landType": 0,
       "module": 1,
       "name": "多快好省",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1089,6 +1414,7 @@
       "landType": 0,
       "module": 1,
       "name": "彩票",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1104,6 +1430,7 @@
       "landType": 0,
       "module": 1,
       "name": "买量",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1119,6 +1446,7 @@
       "landType": 0,
       "module": 1,
       "name": "利息翻倍",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1134,6 +1462,7 @@
       "landType": 0,
       "module": 1,
       "name": "均衡投资",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1149,6 +1478,7 @@
       "landType": 0,
       "module": 1,
       "name": "招募专职扩建人员",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1164,6 +1494,7 @@
       "landType": 3,
       "module": 2,
       "name": "国王变色龙",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1179,6 +1510,7 @@
       "landType": 3,
       "module": 2,
       "name": "高冠变色龙",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1194,6 +1526,7 @@
       "landType": 6,
       "module": 2,
       "name": "杰克森变色龙",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1209,6 +1542,7 @@
       "landType": 0,
       "module": 2,
       "name": "科摩多巨蜥",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1224,6 +1558,7 @@
       "landType": 7,
       "module": 2,
       "name": "巨型环尾蜥",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1239,6 +1574,7 @@
       "landType": 6,
       "module": 2,
       "name": "角蜥",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1249,11 +1585,12 @@
       "cardType": 0,
       "className": "爬虫类场馆",
       "condition": "",
-      "cont": "每有3块可建造的空地，获得1人气值。",
+      "cont": "每有可建造的空地，获得1人气值。",
       "goldCost": 13,
       "landType": 1,
       "module": 2,
       "name": "亚瓜拉壁虎",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1269,6 +1606,7 @@
       "landType": 3,
       "module": 2,
       "name": "金钱龟",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1284,6 +1622,7 @@
       "landType": 1,
       "module": 2,
       "name": "头侧颈龟",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1299,6 +1638,7 @@
       "landType": 2,
       "module": 2,
       "name": "巴西海龟",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1314,6 +1654,7 @@
       "landType": 0,
       "module": 2,
       "name": "爬虫类保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1329,6 +1670,7 @@
       "landType": 0,
       "module": 2,
       "name": "多样性保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1344,6 +1686,7 @@
       "landType": 0,
       "module": 2,
       "name": "空间供给成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1359,6 +1702,7 @@
       "landType": 0,
       "module": 2,
       "name": "大型动物保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1374,6 +1718,7 @@
       "landType": 0,
       "module": 2,
       "name": "秋季装扮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1389,6 +1734,7 @@
       "landType": 0,
       "module": 2,
       "name": "大型场馆建设部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1404,6 +1750,7 @@
       "landType": 0,
       "module": 2,
       "name": "投资部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1419,6 +1766,7 @@
       "landType": 0,
       "module": 2,
       "name": "爬虫类研究部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1434,6 +1782,7 @@
       "landType": 0,
       "module": 2,
       "name": "扩建部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1449,6 +1798,7 @@
       "landType": 0,
       "module": 2,
       "name": "战略家",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1464,6 +1814,7 @@
       "landType": 0,
       "module": 2,
       "name": "概率大师",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1479,6 +1830,7 @@
       "landType": 0,
       "module": 2,
       "name": "招商引资",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1494,6 +1846,7 @@
       "landType": 0,
       "module": 2,
       "name": "特殊招募",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1509,6 +1862,7 @@
       "landType": 0,
       "module": 2,
       "name": "坏点子",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1524,6 +1878,7 @@
       "landType": 0,
       "module": 2,
       "name": "扩张地盘",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1539,6 +1894,7 @@
       "landType": 0,
       "module": 2,
       "name": "双倍",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1554,6 +1910,7 @@
       "landType": 0,
       "module": 2,
       "name": "好运来",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1569,6 +1926,7 @@
       "landType": 0,
       "module": 2,
       "name": "免死金牌",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1584,6 +1942,7 @@
       "landType": 0,
       "module": 2,
       "name": "开山",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1599,6 +1958,7 @@
       "landType": 0,
       "module": 2,
       "name": "长久之计",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1614,6 +1974,7 @@
       "landType": 0,
       "module": 2,
       "name": "临时雇佣",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1629,6 +1990,7 @@
       "landType": 0,
       "module": 2,
       "name": "招募专职雇佣人员",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1644,6 +2006,7 @@
       "landType": 2,
       "module": 3,
       "name": "鲨鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1659,6 +2022,7 @@
       "landType": 1,
       "module": 3,
       "name": "食人鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1674,6 +2038,7 @@
       "landType": 3,
       "module": 3,
       "name": "岩石鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1689,6 +2054,7 @@
       "landType": 3,
       "module": 3,
       "name": "深海鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1699,11 +2065,12 @@
       "cardType": 0,
       "className": "海洋场馆",
       "condition": "",
-      "cont": "获得X人气值，X为海洋场馆数*2。",
+      "cont": "获得X人气值，X为海洋场馆数*3。",
       "goldCost": 18,
       "landType": 0,
       "module": 3,
       "name": "锦鲤",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1719,6 +2086,7 @@
       "landType": 3,
       "module": 3,
       "name": "斗鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1734,6 +2102,7 @@
       "landType": 2,
       "module": 3,
       "name": "鲢鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1749,6 +2118,7 @@
       "landType": 0,
       "module": 3,
       "name": "群居鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1764,6 +2134,7 @@
       "landType": 3,
       "module": 3,
       "name": "灯笼鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1779,6 +2150,7 @@
       "landType": 1,
       "module": 3,
       "name": "虾米",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1794,6 +2166,7 @@
       "landType": 2,
       "module": 3,
       "name": "小型鱼类",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1809,6 +2182,7 @@
       "landType": 6,
       "module": 3,
       "name": "大型鱼类",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -1821,9 +2195,10 @@
       "condition": "",
       "cont": "获得X人气值，X为完成过的成就数*10。",
       "goldCost": 4,
-      "landType": 12,
+      "landType": 2,
       "module": 1,
       "name": "金鱼",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1839,6 +2214,7 @@
       "landType": 0,
       "module": 3,
       "name": "鱼类保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1854,6 +2230,7 @@
       "landType": 0,
       "module": 3,
       "name": "未知保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1869,6 +2246,7 @@
       "landType": 0,
       "module": 3,
       "name": "河流利用成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1884,6 +2262,7 @@
       "landType": 0,
       "module": 3,
       "name": "小型动物保护成就",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1899,6 +2278,7 @@
       "landType": 0,
       "module": 3,
       "name": "冬季装扮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1914,6 +2294,7 @@
       "landType": 0,
       "module": 3,
       "name": "鱼类研究部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -1929,6 +2310,7 @@
       "landType": 0,
       "module": 3,
       "name": "项目研发部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1944,6 +2326,7 @@
       "landType": 0,
       "module": 3,
       "name": "项目优化部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 1,
@@ -1959,6 +2342,7 @@
       "landType": 0,
       "module": 3,
       "name": "书籍出版部门",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -1974,6 +2358,7 @@
       "landType": 0,
       "module": 3,
       "name": "海洋之心",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -1989,6 +2374,7 @@
       "landType": 0,
       "module": 3,
       "name": "地下矿脉",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -2004,6 +2390,7 @@
       "landType": 0,
       "module": 3,
       "name": "勘探高手",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -2019,6 +2406,7 @@
       "landType": 0,
       "module": 3,
       "name": "废案利用",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -2034,6 +2422,7 @@
       "landType": 0,
       "module": 3,
       "name": "偏好",
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 2,
@@ -2049,6 +2438,7 @@
       "landType": 0,
       "module": 3,
       "name": "补货",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -2064,6 +2454,7 @@
       "landType": 0,
       "module": 3,
       "name": "大甩卖",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -2079,6 +2470,7 @@
       "landType": 0,
       "module": 3,
       "name": "深层古物",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -2094,6 +2486,7 @@
       "landType": 0,
       "module": 3,
       "name": "开门红",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -2109,6 +2502,7 @@
       "landType": 0,
       "module": 3,
       "name": "拆门大吉",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -2124,6 +2518,7 @@
       "landType": 0,
       "module": 3,
       "name": "疯狂扩建",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 3,
@@ -2139,6 +2534,7 @@
       "landType": 0,
       "module": 3,
       "name": "人才引进",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 4,
@@ -2153,7 +2549,8 @@
       "goldCost": 9,
       "landType": 0,
       "module": 3,
-      "name": "招募专职扩建人员",
+      "name": "招募专职项目研究人员",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -2161,7 +2558,7 @@
     },
     {
       "aniName": "",
-      "cardType": 0,
+      "cardType": -1,
       "className": "",
       "condition": "",
       "cont": "不能被弃置。",
@@ -2169,6 +2566,7 @@
       "landType": 0,
       "module": -1,
       "name": "懈怠",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 0,
       "timeCost": 5,
@@ -2176,7 +2574,7 @@
     },
     {
       "aniName": "",
-      "cardType": 0,
+      "cardType": -1,
       "className": "",
       "condition": "",
       "cont": "不能被弃置。尽可在春季打出。",
@@ -2184,6 +2582,7 @@
       "landType": 0,
       "module": -1,
       "name": "寒潮",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 0,
       "timeCost": 2,
@@ -2191,7 +2590,7 @@
     },
     {
       "aniName": "",
-      "cardType": 0,
+      "cardType": -1,
       "className": "",
       "condition": "",
       "cont": "不能被弃置。",
@@ -2199,6 +2598,7 @@
       "landType": 0,
       "module": -1,
       "name": "通货膨胀",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 0,
       "timeCost": 3,
@@ -2206,7 +2606,7 @@
     },
     {
       "aniName": "",
-      "cardType": 0,
+      "cardType": -1,
       "className": "",
       "condition": "",
       "cont": "不能被弃置。",
@@ -2214,6 +2614,7 @@
       "landType": 0,
       "module": -1,
       "name": "恶意收购",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 0,
       "timeCost": 6,
@@ -2221,7 +2622,7 @@
     },
     {
       "aniName": "",
-      "cardType": 0,
+      "cardType": -1,
       "className": "",
       "condition": "",
       "cont": "不能被弃置。收入减半。",
@@ -2229,6 +2630,7 @@
       "landType": 0,
       "module": -1,
       "name": "假币",
+      "oneTime": 0,
       "rare": 0,
       "repeatNum": 0,
       "timeCost": 3,
@@ -2985,22 +3387,26 @@
   ],
   "chineseWorkPos": [
     {
+      "cont": "抽牌堆展示$1张牌，保留$2张牌。",
+      "limitTime": 0,
       "name": "研发部",
-      "uid": 0,
-      "val_1_1": 3,
-      "val_1_2": 4,
-      "val_1_3": 4,
-      "val_1_4": 5,
-      "val_1_5": 5,
-      "val_2_1": 2,
-      "val_2_2": 2,
-      "val_2_3": 2,
-      "val_2_4": 2,
-      "val_2_5": 3
+      "uid": "dep_0",
+      "val_1_1": 5,
+      "val_1_2": 6,
+      "val_1_3": 7,
+      "val_1_4": 8,
+      "val_1_5": 10,
+      "val_2_1": 1,
+      "val_2_2": 1,
+      "val_2_3": 1,
+      "val_2_4": 1,
+      "val_2_5": 2
     },
     {
+      "cont": "获得$1点时间。",
+      "limitTime": 0,
       "name": "建设部",
-      "uid": 1,
+      "uid": "dep_1",
       "val_1_1": 5,
       "val_1_2": 6,
       "val_1_3": 7,
@@ -3013,22 +3419,26 @@
       "val_2_5": 0
     },
     {
+      "cont": "获得$1金钱，获得$2人气值。",
+      "limitTime": 0,
       "name": "宣传部",
-      "uid": 2,
+      "uid": "dep_2",
       "val_1_1": 5,
       "val_1_2": 6,
       "val_1_3": 8,
       "val_1_4": 11,
       "val_1_5": 15,
-      "val_2_1": 5,
-      "val_2_2": 6,
-      "val_2_3": 8,
-      "val_2_4": 11,
-      "val_2_5": 15
+      "val_2_1": 1,
+      "val_2_2": 1,
+      "val_2_3": 2,
+      "val_2_4": 2,
+      "val_2_5": 3
     },
     {
+      "cont": "招募$1名新员工，花费5+招募次数*5的金币。",
+      "limitTime": 0,
       "name": "人力部",
-      "uid": 3,
+      "uid": "dep_3",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3041,8 +3451,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "去一次商店，价格变为的$1%。",
+      "limitTime": 0,
       "name": "采购部",
-      "uid": 4,
+      "uid": "dep_4",
       "val_1_1": 100,
       "val_1_2": 90,
       "val_1_3": 80,
@@ -3055,13 +3467,15 @@
       "val_2_5": 0
     },
     {
+      "cont": "花费$2金钱，升级部门$1次。",
+      "limitTime": 0,
       "name": "培训部",
-      "uid": 5,
-      "val_1_1": 3,
-      "val_1_2": 3,
-      "val_1_3": 4,
-      "val_1_4": 4,
-      "val_1_5": 5,
+      "uid": "dep_5",
+      "val_1_1": 1,
+      "val_1_2": 1,
+      "val_1_3": 2,
+      "val_1_4": 2,
+      "val_1_5": 3,
       "val_2_1": 10,
       "val_2_2": 12,
       "val_2_3": 12,
@@ -3069,8 +3483,10 @@
       "val_2_5": 15
     },
     {
+      "cont": "支付$1%的建造金钱，拆除一个场馆。",
+      "limitTime": 0,
       "name": "清理部门",
-      "uid": 6,
+      "uid": "dep_6",
       "val_1_1": 50,
       "val_1_2": 40,
       "val_1_3": 30,
@@ -3083,8 +3499,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "花费$1金钱，开扩$2块未知地块。",
+      "limitTime": 0,
       "name": "扩建部门",
-      "uid": 7,
+      "uid": "dep_7",
       "val_1_1": 5,
       "val_1_2": 7,
       "val_1_3": 9,
@@ -3097,13 +3515,15 @@
       "val_2_5": 5
     },
     {
+      "cont": "仅春季可用，结算所有场馆后，人气值翻倍。",
+      "limitTime": 1,
       "name": "春日装扮",
-      "uid": 8,
-      "val_1_1": 200,
-      "val_1_2": 210,
-      "val_1_3": 220,
-      "val_1_4": 230,
-      "val_1_5": 240,
+      "uid": "dep_spring",
+      "val_1_1": 100,
+      "val_1_2": 110,
+      "val_1_3": 120,
+      "val_1_4": 130,
+      "val_1_5": 140,
       "val_2_1": 0,
       "val_2_2": 0,
       "val_2_3": 0,
@@ -3111,8 +3531,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "获得抽牌堆中的下一张猿猴场馆牌。",
+      "limitTime": 0,
       "name": "猿猴研究部门",
-      "uid": 9,
+      "uid": "dep_devmonkey",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3125,8 +3547,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "删除手上的一张坏点子牌。",
+      "limitTime": 0,
       "name": "后勤部门",
-      "uid": 10,
+      "uid": "dep_houqin",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3139,8 +3563,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "该部门效果始终为当前等级的研究部门。",
+      "limitTime": 0,
       "name": "研究部分部门",
-      "uid": 11,
+      "uid": "dep_yanjiu",
       "val_1_1": 0,
       "val_1_2": 0,
       "val_1_3": 0,
@@ -3153,13 +3579,15 @@
       "val_2_5": 0
     },
     {
+      "cont": "打出手牌中$1张猿猴场馆。",
+      "limitTime": 0,
       "name": "猿猴场馆建设部门",
-      "uid": 12,
-      "val_1_1": 5,
-      "val_1_2": 6,
-      "val_1_3": 7,
-      "val_1_4": 8,
-      "val_1_5": 10,
+      "uid": "dep_conmonkey",
+      "val_1_1": 1,
+      "val_1_2": 1,
+      "val_1_3": 2,
+      "val_1_4": 2,
+      "val_1_5": 3,
       "val_2_1": 0,
       "val_2_2": 0,
       "val_2_3": 0,
@@ -3167,8 +3595,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "仅夏季可用，结算所有场馆后，人气值提升50%。",
+      "limitTime": 1,
       "name": "夏日装扮",
-      "uid": 13,
+      "uid": "dep_summer",
       "val_1_1": 50,
       "val_1_2": 55,
       "val_1_3": 60,
@@ -3181,8 +3611,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "获得抽牌堆中的下一张哺乳类场馆牌。",
+      "limitTime": 0,
       "name": "哺乳类研究部门",
-      "uid": 14,
+      "uid": "dep_devburu",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3195,8 +3627,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "清理一个场馆，返还建造成本50%的金钱。",
+      "limitTime": 0,
       "name": "清理部门",
-      "uid": 15,
+      "uid": "dep_qingli",
       "val_1_1": 50,
       "val_1_2": 70,
       "val_1_3": 90,
@@ -3209,8 +3643,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "雇佣两名临时员工。",
+      "limitTime": 0,
       "name": "人才市场",
-      "uid": 16,
+      "uid": "dep_rencai",
       "val_1_1": 2,
       "val_1_2": 2,
       "val_1_3": 3,
@@ -3223,8 +3659,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "仅秋季可用，结算所有场馆后，人气值提升20%。",
+      "limitTime": 1,
       "name": "秋季装扮",
-      "uid": 17,
+      "uid": "dep_august",
       "val_1_1": 20,
       "val_1_2": 25,
       "val_1_3": 30,
@@ -3237,8 +3675,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "免费建造一个大型场馆。",
+      "limitTime": 0,
       "name": "大型场馆建设部门",
-      "uid": 18,
+      "uid": "dep_daxing",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3251,8 +3691,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "获得10金钱。每次执行都会永久提升该数值$1点。",
+      "limitTime": 0,
       "name": "投资部门",
-      "uid": 19,
+      "uid": "dep_investment",
       "val_1_1": 10,
       "val_1_2": 10,
       "val_1_3": 10,
@@ -3265,8 +3707,10 @@
       "val_2_5": 11
     },
     {
+      "cont": "获得抽牌堆中的下一张爬虫类场馆牌。",
+      "limitTime": 0,
       "name": "爬虫类研究部门",
-      "uid": 20,
+      "uid": "dep_pachong",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3279,11 +3723,13 @@
       "val_2_5": 0
     },
     {
+      "cont": "免费扩建$1块地。",
+      "limitTime": 0,
       "name": "扩建部门",
-      "uid": 21,
-      "val_1_1": 2,
-      "val_1_2": 2,
-      "val_1_3": 3,
+      "uid": "dep_kuojian",
+      "val_1_1": 1,
+      "val_1_2": 1,
+      "val_1_3": 2,
       "val_1_4": 3,
       "val_1_5": 4,
       "val_2_1": 0,
@@ -3293,8 +3739,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "仅冬季可用，结算所有场馆后，人气值提升10%。",
+      "limitTime": 1,
       "name": "冬季装扮",
-      "uid": 22,
+      "uid": "dep_winter",
       "val_1_1": 10,
       "val_1_2": 12,
       "val_1_3": 14,
@@ -3307,8 +3755,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "获得抽牌堆中的下一张海洋场馆牌。",
+      "limitTime": 0,
       "name": "鱼类研究部门",
-      "uid": 23,
+      "uid": "dep_yu",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,
@@ -3321,8 +3771,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "抽$1张牌。",
+      "limitTime": 0,
       "name": "项目研发部门",
-      "uid": 24,
+      "uid": "dep_dev",
       "val_1_1": 2,
       "val_1_2": 2,
       "val_1_3": 2,
@@ -3335,8 +3787,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "弃掉最多$1张手牌，收取等量的牌。",
+      "limitTime": 0,
       "name": "项目优化部门",
-      "uid": 25,
+      "uid": "dep_youhua",
       "val_1_1": 3,
       "val_1_2": 3,
       "val_1_3": 4,
@@ -3349,8 +3803,10 @@
       "val_2_5": 0
     },
     {
+      "cont": "获得$1个随机书籍。",
+      "limitTime": 0,
       "name": "书籍出版部门",
-      "uid": 26,
+      "uid": "dep_book",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 1,

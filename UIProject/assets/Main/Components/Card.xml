@@ -5,27 +5,37 @@
   <controller name="discarded" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n61_rd08" name="n61" src="rd08t" fileName="Images/Cards/cardBg.png" xy="1,1"/>
-    <image id="n62_rd08" name="n62" src="rd08h" fileName="Images/testCard.png" xy="4,5"/>
-    <image id="n63_rd08" name="n63" src="rd08s" fileName="Images/Cards/cardTop.png" xy="4,1" size="161,51">
-      <gearSize controller="status" pages="0,1,2" values="161,51,1,1|123,51,1,1|65,51,1,1"/>
-    </image>
+    <component id="n62_rd08" name="img" src="blnqbx" fileName="Components/CardImg.xml" xy="4,5"/>
     <loader id="n60_rd08" name="n60" xy="0,0" size="319,462" url="ui://zqdehm1vrd08x">
       <gearIcon controller="color" pages="2,3,4,1" values="ui://zqdehm1vrd08x|ui://zqdehm1vrd08w|ui://zqdehm1vrd08v|ui://zqdehm1vrd08y" default="ui://zqdehm1vrd08z"/>
     </loader>
-    <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/goldIcon.png" xy="60,17" size="26,25">
-      <gearDisplay controller="status" pages="0,1"/>
-    </image>
-    <image id="n65_rd08" name="n65" src="rd08g" fileName="Images/timeIcon.png" xy="12,18" size="16,23"/>
-    <text id="n69_g9th" name="txtName" xy="69,228" size="185,36" fontSize="24" align="center" vAlign="middle" autoSize="none" text="金钱豹"/>
-    <text id="n70_g9th" name="txtCont" xy="27,284" size="273,161" fontSize="24" autoSize="none" text="激活效果：&#xA;当你拥有100金币时，+100人气。"/>
-    <text id="n71_g9th" name="txtAttr" xy="253,236" size="72,36" fontSize="19" align="center" vAlign="middle" autoSize="none" text="豹属">
+    <text id="n69_g9th" name="txtName" xy="171,227" size="103,36" fontSize="24" align="center" vAlign="middle" autoSize="none" text="金钱豹">
+      <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
+    </text>
+    <text id="n70_g9th" name="txtCont" xy="27,348" size="273,97" fontSize="24" autoSize="shrink" text="当你拥有100金币时，+100人气。当你拥有100金币时，+100人气。当你拥有100金币时，+100人气。当你拥有100金币时，+100人气。">
+      <gearXY controller="color" pages="0,3,4,1" values="21,282|23,283|25,286|24,284" default="27,348"/>
+      <gearSize controller="color" pages="2" values="273,97,1,1" default="273,161,1,1"/>
+      <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
+    </text>
+    <text id="n71_g9th" name="txtAttr" xy="190,270" size="121,36" visible="false" fontSize="19" align="right" autoSize="none" text="豹属">
       <gearDisplay controller="color" pages="4"/>
     </text>
-    <text id="n72_g9th" name="txtTimeCost" xy="34,19" size="26,22" fontSize="14" align="center" vAlign="middle" autoSize="none" text="5"/>
-    <text id="n73_g9th" name="txtGoldCost" xy="84,16" size="37,25" fontSize="14" align="center" vAlign="middle" autoSize="none" text="100">
+    <text id="n77_jrzx" name="txtCond" xy="27,271" size="273,77" fontSize="24" vars="true" autoSize="shrink" text="打出条件：&#xA;{cond=某一季度累计从猿猴场馆获得50人气值。}">
+      <gearDisplay controller="color" pages="2"/>
+      <gearSize controller="color" pages="2" values="273,77,1,1" default="273,161,1,1"/>
+    </text>
+    <image id="n63_rd08" name="n63" src="rd08s" fileName="Images/Cards/cardTop.png" xy="3,218" size="161,51">
+      <gearSize controller="status" pages="0,1,2" values="161,51,1,1|123,51,1,1|65,51,1,1"/>
+    </image>
+    <text id="n72_g9th" name="txtTimeCost" xy="33,236" size="26,22" fontSize="14" align="center" vAlign="middle" autoSize="none" text="5"/>
+    <image id="n65_rd08" name="n65" src="rd08g" fileName="Images/timeIcon.png" xy="11,235" size="16,23"/>
+    <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/goldIcon.png" xy="59,234" size="26,25">
+      <gearDisplay controller="status" pages="0,1"/>
+    </image>
+    <text id="n73_g9th" name="txtGoldCost" xy="86,234" size="37,25" fontSize="14" align="center" vAlign="middle" autoSize="none" text="100">
       <gearDisplay controller="status" pages="0,1"/>
     </text>
-    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/VenueSmall.xml" xy="126,10" scale="0.12,0.12">
+    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/VenueSmall.xml" xy="125,227" scale="0.12,0.12">
       <gearDisplay controller="status" pages="0"/>
     </component>
     <graph id="n75_pz64" name="n75" xy="0,0" size="319,462" type="rect" lineSize="0" fillColor="#b5000000">

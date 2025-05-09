@@ -7,11 +7,12 @@ namespace Main
 {
     public partial class UI_WorkPos : GComponent
     {
-        public Controller m_img;
         public Controller m_hasMeeple;
         public Controller m_upgradePage;
         public Controller m_upgradeState;
+        public GLoader m_img;
         public GTextField m_txtInfo;
+        public GLoader m_imgBg;
         public GButton m_btnAddLv;
         public GButton m_btnMinusLv;
         public GTextField m_txtUpgrade;
@@ -26,14 +27,15 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_img = GetControllerAt(0);
-            m_hasMeeple = GetControllerAt(1);
-            m_upgradePage = GetControllerAt(2);
-            m_upgradeState = GetControllerAt(3);
-            m_txtInfo = (GTextField)GetChildAt(2);
-            m_btnAddLv = (GButton)GetChildAt(5);
-            m_btnMinusLv = (GButton)GetChildAt(6);
-            m_txtUpgrade = (GTextField)GetChildAt(7);
+            m_hasMeeple = GetControllerAt(0);
+            m_upgradePage = GetControllerAt(1);
+            m_upgradeState = GetControllerAt(2);
+            m_img = (GLoader)GetChildAt(1);
+            m_txtInfo = (GTextField)GetChildAt(3);
+            m_imgBg = (GLoader)GetChildAt(4);
+            m_btnAddLv = (GButton)GetChildAt(6);
+            m_btnMinusLv = (GButton)GetChildAt(7);
+            m_txtUpgrade = (GTextField)GetChildAt(8);
         }
     }
 }

@@ -1,7 +1,7 @@
 public enum MsgID
 {
     // card
-    ActionDrawCard,
+    ActionDrawCardAndMayDiscard,
     ActionRecycleCard,
     ActionDiscardCardFromDrawPile,
     ActionDiscardCardAndDrawSame,
@@ -16,7 +16,9 @@ public enum MsgID
     ActionTryToPlayHand,
     ActionAddHandLimit,
     ActionGainSpecTypeCard,
-    ActionDeleteBadIdea,
+    ActionDeleteBadIdeaCard,
+    // buff
+    ActionBuffChanged,
     // gold
     ActionGainIncome,
     ActionDoubleGold,
@@ -56,7 +58,6 @@ public enum MsgID
     ActionDemolitionVenueWithCost,
     ActionExpand,
     ActionExpandRandomly,
-    ActionExpandFreely,
     ActionDemolitionVenue,
     // shop
     ActionGoShop,
@@ -66,16 +67,24 @@ public enum MsgID
     // internal msg
     ResolveEventChoiceEffect,
     ResolveCardEffect,
+    ResolveCardsEffect,
     ResolveWorkPosEffect,
     ResolveEndSeason,
     ResolveStartSeason,
-    ResolveNextEvent,
+    ResolveEvent,
     UseWorker,
     AddVenue,
     RemoveVenue,
-    DiscardACard,
-    GainACard,
-    // used to update view
+    // card inner
+    DiscardCard,
+    CardFromDrawToHand,
+    CardFromDrawToDiscard,
+    CardToHand,
+    CardFromHandToDiscard,
+    CardFromDiscardToHand,
+    DeleteCardFromHand,
+    // used to update view or trigger passive
+    AfterGainCard,
     AfterMapChanged,
     AfterBookChanged,
     AfterWorkPosChanged,
@@ -85,6 +94,13 @@ public enum MsgID
     AfterTimeResChanged,
     AfterCardChanged,
     AfterShopChanged,
+    AfterConsoleChanged,
+    AfterTurnChanged,
+    AfterBuffChanged,
     // outside the game
     StartGame,
+    // Console
+    ConsoleMsg,
+    // Ani
+    VenueTakeEffectAni,
 }

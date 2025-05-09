@@ -12,6 +12,7 @@ namespace Main
         public Controller m_selected;
         public GLoader m_img;
         public UI_MapBonus m_bonus;
+        public GLoader m_img_anim;
         public const string URL = "ui://zqdehm1vrd0818";
 
         public static UI_MapPoint CreateInstance()
@@ -28,6 +29,7 @@ namespace Main
             m_selected = GetControllerAt(2);
             m_img = (GLoader)GetChildAt(0);
             m_bonus = (UI_MapBonus)GetChildAt(1);
+            m_img_anim = (GLoader)GetChildAt(5);
         }
     }
 }

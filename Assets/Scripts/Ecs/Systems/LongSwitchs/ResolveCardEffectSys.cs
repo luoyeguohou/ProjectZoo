@@ -3,39 +3,55 @@ using System.Collections.Generic;
 using TinyECS;
 using UnityEngine;
 using Main;
+using System.Threading.Tasks;
 public class ResolveCardEffectSys : ISystem
 {
     public override void OnAddToEngine()
     {
         Msg.Bind(MsgID.ResolveCardEffect, DealCard);
+        Msg.Bind(MsgID.ResolveCardsEffect, DealCards);
     }
 
     public override void OnRemoveFromEngine()
     {
         Msg.UnBind(MsgID.ResolveCardEffect, DealCard);
+        Msg.UnBind(MsgID.ResolveCardsEffect, DealCards);
+    }
+
+    private async void DealCards(object[] p) { 
+        List<Card> cards= (List<Card>)p[0];
+        foreach (var item in cards)
+        {
+            await ResolveCard(item);
+        }
     }
 
     private void DealCard(object[] p)
     {
         Card c = (Card)p[0];
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        Resolve(c);
-        BuffComp bComp= World.e.sharedConfig.GetComp<BuffComp>();
-        if (bComp.numProjCardDoublePlayed > 0)
-        {
-            bComp.numProjCardDoublePlayed--;
-            Resolve(c);
-        }
-        sComp.lastProjectCardPlayed = c.uid;
+        _= ResolveCard(c);
     }
 
-    private void Resolve(Card c)
+    private async Task ResolveCard(Card c)
+    {
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        await Resolve(c);
+        if (EcsUtil.GetBuffNum(45) > 0 && c.cfg.oneTime == 1)
+        {
+            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 45, -1 });
+            await Resolve(c);
+        }
+        if(c.cfg.oneTime == 1)
+            sComp.lastProjectCardPlayed = c.uid;
+    }
+
+    private async Task Resolve(Card c)
     {
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         switch (c.cfg.cardType)
         {
             case 0:
-                BuildVenue(c);
+                await BuildVenue(c);
                 break;
             case 1:
                 TakeEffectAchi(c.uid);
@@ -46,102 +62,101 @@ public class ResolveCardEffectSys : ISystem
                 break;
             case 3:
                 TakeEffecrProj(c.uid);
+                if (c.cfg.oneTime == 0) sComp.permanentProjectCard++;
                 break;
         }
     }
 
-    private void BuildVenue(Card c)
+    private async Task BuildVenue(Card c)
     {
-        UI_DealVenue ui = FGUIUtil.CreateWindow<UI_DealVenue>("DealVenue");
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        ui.Init(c, (List<Vector2Int> poses) =>
+        List<Vector2Int> poses = await FGUIUtil.SelectVenuePlace(c);
+        Venue zb = new();
+        zb.uid = c.uid;
+        zb.cfg = Cfg.venues[zb.uid];
+        zb.location = poses;
+        zb.wid = EcsUtil.GeneNextWorldID();
+        Msg.Dispatch(MsgID.AddVenue, new object[] { zb });
+        foreach (Vector2Int p in poses)
         {
-            Venue zb = new Venue();
-            zb.uid = c.uid;
-            zb.cfg = Cfg.venues[zb.uid];
-            zb.location = poses;
-            zb.wid = EcsUtil.GeneNextWorldID();
-            Msg.Dispatch(MsgID.AddVenue, new object[] { zb });
-            foreach (Vector2Int p in poses)
+            ZooGround g = EcsUtil.GetGroundByPos(p);
+            g.hasBuilt = true;
+            g.venue = zb;
+            if (g.bonus != null)
             {
-                ZooGround g = EcsUtil.GetGroundByPos(p);
-                g.hasBuilt = true;
-                g.buildIdx = vComp.venues.Count - 1;
-                if (g.bonus != null)
-                {
-                    Msg.Dispatch(MsgID.ActionGainMapBonus, new object[] { g.bonus });
-                    sComp.groundBonusCntTotally++;
-                }
+                Msg.Dispatch(MsgID.ActionGainMapBonus, new object[] { g.bonus });
+                sComp.groundBonusCntTotally++;
             }
-            Msg.Dispatch(MsgID.AfterMapChanged);
-        });
+        }
+        Msg.Dispatch(MsgID.AfterMapChanged);
     }
 
     private void TakeEffectAchi(string uid)
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
         switch (uid)
         {
             case "achi_danyi":
-                bComp.popRGainedStartOfTurn += 20;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 1, 20 });
                 break;
             case "achi_yuanhou":
-                bComp.venueRegardedAsAdj += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 64, 1 });
                 break;
             case "achi_duty":
-                bComp.distanceRegardedAsAd += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 65, 1 });
                 break;
             case "achi_houxuanchuan":
                 gComp.income += 20;
                 break;
             case "achi_poprating":
-                bComp.canDiscardBadIdeaCard += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 36, 1 });
                 break;
             case "achi_buru":
-                bComp.extraPopRFromVenue += 3;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 17, 3 });
                 break;
             case "achi_duozhonglei":
                 gComp.income += 5;
                 break;
             case "achi_hbxs":
-                bComp.propBenefit += 10;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 7, 10 });
                 break;
             case "achi_pachong":
-                bComp.propReptileTakeEffectAgain += 25;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 14, 25 });
                 break;
             case "achi_duoyangxing":
-                bComp.propBenefit += 30;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 7, 30 });
                 break;
             case "achi_kongjiangongji":
-                bComp.discountInStore += 20;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 9, 20 });
                 break;
             case "achi_daxing":
-                bComp.extraPopRFromLargeVenue += 5;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 21, 5 });
                 break;
             case "achi_yu":
-                bComp.discountInBuildXVenue += 50;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 31, 50 });
                 break;
             case "achi_weizhi":
-                bComp.popRGainedAfterBook += 5;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 43, 5 });
                 break;
             case "achi_heliu":
-                bComp.extraPopRFromAdjLakeVenue += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 22, 1 });
                 break;
             case "achi_xiaoxing":
-                bookComp.bookLimit+= 1;
-                bComp.bookGainedStartOfTurn += 1;
+                bookComp.bookLimit += 1;
+                Msg.Dispatch(MsgID.AfterBookChanged);
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 2, 1 });
                 break;
         }
     }
 
     private void TakeEffecrProj(string uid)
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         bool finish1;
         bool finish2;
         bool finish3;
@@ -151,10 +166,10 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionCopyCardFromVegue);
                 break;
             case "houzifanlan":
-                bComp.nextNumMustBeMonkeyCard += 10;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57,10 });
                 break;
             case "yuanhouzhuti":
-                bComp.extraPopRPropFromMonkeyVenue += 20;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 23, 20});
                 break;
             case "yanjiurenyuan":
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { 1 });
@@ -163,34 +178,34 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { 2 });
                 break;
             case "shenjianshuzhi":
-                bComp.goldGainedEachWorkerUnusedEndOfTurn += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 1});
                 break;
             case "guanlidashi":
-                bComp.discountWorkerNeed += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 40, 1});
                 break;
             case "feianliyong":
-                bComp.goldGainedWhenDiscardCard += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 37, 1});
                 break;
             case "taojiahuanjia":
-                bComp.discountInStore += 15;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 9, 15});
                 break;
             case "yejiedaheng":
-                bComp.popRGainedAfterBuy += 2;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 42, 2});
                 break;
             case "sixsixsix":
-                bComp.sellBookProp += 90;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 61, 90});
                 break;
             case "yanfazhiyan":
-                bComp.checkCardInOrder += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 62, 1});
                 break;
             case "heishi":
                 Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 });
                 break;
             case "renqibaopeng":
-                bComp.extraPopRFromVenue += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 17, 1});
                 break;
             case "renmanweifu":
-                bComp.goldGainedWhenDiscardCard += 2;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 2});
                 break;
             case "renmanweian":
                 finish1 = EcsUtil.RandomlyDoSth(25, () => Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 }));
@@ -207,28 +222,29 @@ public class ResolveCardEffectSys : ISystem
                     Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
             case "gouwudaheng":
-                bComp.propGainBookAfterBook += 10;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 44, 10});
                 break;
             case "baocang":
                 bookComp.bookLimit += 1;
+                Msg.Dispatch(MsgID.AfterBookChanged);
                 break;
             case "minjiekaifa":
-                bComp.discountVenueTime += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 32, 1});
                 break;
             case "duokuaihaosheng":
-                bComp.discountVenueGold += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 33, 1});
                 break;
             case "caipiao":
-                bComp.halfPropGainGoldStartOfTurn += 10;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 3, 10 });
                 break;
             case "mailiang":
-                bComp.propInterestTurnToPopR += 20;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 26, 20 });
                 break;
             case "lixifanbei":
-                bComp.interestExtraTime += 100;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 24, 100 });
                 break;
             case "junhengtouzi":
-                bComp.partExtraInterest += 100;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 25, 100 });
                 break;
             case "kuojianrenyuan":
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { 3 });
@@ -237,7 +253,7 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainLastProjectCard, new object[] { 1 });
                 break;
             case "gailvdashi":
-                bComp.propBenefit += 15;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 7, 15 });
                 Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 2 });
                 break;
             case "zhaoshangyinzi":
@@ -254,21 +270,20 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionExpand, new object[] { 4 });
                 break;
             case "shuangbei":
-                bComp.numProjCardDoublePlayed += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 45, 1 });
                 break;
             case "haoyunlai":
-                bComp.propBadMinus += 15;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 8, 15 });
                 break;
             case "miansijinpai":
-                bComp.timeAddHalfWhenNotReachAim += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 47, 1 });
                 break;
             case "kaishan":
                 Msg.Dispatch(MsgID.ActionClearRock, new object[] { 1 });
                 Msg.Dispatch(MsgID.ActionGainGold, new object[] { 5 });
                 break;
             case "changjiuzhiji":
-                // todo
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { 50 });
+                Msg.Dispatch(MsgID.ActionGainIncome, new object[] { sComp.permanentProjectCard });
                 break;
             case "linshiguyong":
                 Msg.Dispatch(MsgID.ActionGainTWorker, new object[] { 4 });
@@ -277,13 +292,13 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { 4 });
                 break;
             case "haiyangzhixin":
-                bComp.xVenusExtraPopR += 2;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 19, 2 });
                 break;
             case "dixiakuangmai":
                 Msg.Dispatch(MsgID.ActionGainRandomMapBonus, new object[] { 5 });
                 break;
             case "kantangaoshou":
-                bComp.extraMapBonusTime += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 49, 1 });
                 break;
             case "feianliyong2":
                 Msg.Dispatch(MsgID.ActionRecycleCard, new object[] { 1 });
@@ -292,25 +307,25 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionDiscardCardFromDrawPile, new object[] { 5 });
                 break;
             case "buhuo":
-                bComp.restock += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 12, 1 });
                 break;
             case "dashuaimai":
-                bComp.storeExtraPos += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 13, 1 });
                 break;
             case "shencengguwu":
-                bComp.randomMapBonusStartOfTurn += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 4, 1 });
                 break;
             case "kaimenhong":
-                bComp.extraEffectTimeFirstVenue += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 16, 1 });
                 break;
             case "chaimendaji":
-                bComp.gainWorkerWhenDestoryVenue += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 54, 1 });
                 break;
             case "fengkuangkuojian":
-                bComp.gainTWorkerWhenExpand += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 55, 1 });
                 break;
             case "rencaiyinjin":
-                bComp.specWorkerExtraEffectTimes += 1;
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 58, 1 });
                 break;
             case "xiangmurenyuan":
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { 5 });

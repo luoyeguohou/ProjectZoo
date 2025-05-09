@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TinyECS;
+using Main;
 
 public class StartSeasonSys : ISystem
 {
@@ -18,23 +19,23 @@ public class StartSeasonSys : ISystem
     private void StartSeason(object[] p)
     {
         // income
-        GainIncome();
-        // 获得人气
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
-        if (bComp.popRGainedStartOfTurn != 0)
-            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { bComp.popRGainedStartOfTurn });
-        if (bComp.bookGainedStartOfTurn != 0)
-            Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { bComp.bookGainedStartOfTurn });
-        if (bComp.halfPropGainGoldStartOfTurn != 0)
-            EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { bComp.halfPropGainGoldStartOfTurn }));
-        if (bComp.randomMapBonusStartOfTurn != 0)
-            Msg.Dispatch(MsgID.ActionGainRandomMapBonus, new object[] { bComp.randomMapBonusStartOfTurn });
-        if (bComp.randomBadIdeaStartOfTurn != 0)
-            Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { bComp.randomBadIdeaStartOfTurn });
-        if (bComp.drawCardStartOfTurn != 0)
-            Msg.Dispatch(MsgID.ActionDrawCard, new object[] { bComp.drawCardStartOfTurn });
+        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        if (gComp.income > 0)
+            Msg.Dispatch(MsgID.ActionGainGold, new object[] { gComp.income });
+        if (EcsUtil.GetBuffNum(1) != 0)
+            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { EcsUtil.GetBuffNum(1) });
+        if (EcsUtil.GetBuffNum(2) != 0)
+            Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { EcsUtil.GetBuffNum(2) });
+        if (EcsUtil.GetBuffNum(3) != 0)
+            EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { EcsUtil.GetBuffNum(3) }));
+        if (EcsUtil.GetBuffNum(4) != 0)
+            Msg.Dispatch(MsgID.ActionGainRandomMapBonus, new object[] { EcsUtil.GetBuffNum(4) });
+        if (EcsUtil.GetBuffNum(5) != 0)
+            Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { EcsUtil.GetBuffNum(5) });
+        if (EcsUtil.GetBuffNum(30) != 0)
+            Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { EcsUtil.GetBuffNum(30) });
 
-        if (bComp.randomGiftStartOfTurn > 0)
+        if (EcsUtil.GetBuffNum(6) > 0)
         {
             int randomValue = new System.Random().Next(100);
             if (randomValue >= 0 && randomValue < 20)
@@ -58,10 +59,13 @@ public class StartSeasonSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 });
             }
         }
-    }
 
-    private void GainIncome() {
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        Msg.Dispatch(MsgID.ActionGainGold,new object[] {gComp.income });
+        if (gComp.income == 0 && EcsUtil.GetBuffNum(30) == 0
+            && EcsUtil.GetBuffNum(1) == 0 && EcsUtil.GetBuffNum(2) == 0
+            && EcsUtil.GetBuffNum(5) == 0 && EcsUtil.GetBuffNum(6) == 0
+            && EcsUtil.GetBuffNum(3) == 0 && EcsUtil.GetBuffNum(4) == 0)
+            return;
+
+        FGUIUtil.CreateWindow<UI_StartOfSeasonWin>("StartOfSeasonWin").Init();
     }
 }

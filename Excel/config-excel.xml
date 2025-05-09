@@ -12,6 +12,7 @@
 				<chineseEvent name="event" firstcol="uid" key="uid" />
 				<chineseWorkPos name="workPos" firstcol="uid" key="uid" />
 				<chineseSpecWorker name="specWorker" firstcol="uid" key="uid" />
+				<chineseBuff name="buff" firstcol="uid" key="uid" />
 			</file>
 		</tableinfo>
 	</client_side>

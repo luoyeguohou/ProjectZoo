@@ -19,10 +19,11 @@ public class UseBookSys : ISystem
     {
         int index = (int)p[0];
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
         Book book = bookComp.books[index];
-        int val = book.cfg.val1 * (1 + bComp.extraBookTime);
+        int val = book.cfg.val1 * (1 + EcsUtil.GetBuffNum(56));
+        int val2 = book.cfg.val2 * (1 + EcsUtil.GetBuffNum(56));
         switch (book.uid) {
             case "oneWorker":
                 Msg.Dispatch(MsgID.ActionGainWorker, new object[]{ val });
@@ -34,10 +35,11 @@ public class UseBookSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainIncome, new object[]{ val });
                 break;
             case "investment":
-                Msg.Dispatch(MsgID.ActionDoubleGold, new object[]{ val });
+                for(int i = 1;i<=val;i++)
+                Msg.Dispatch(MsgID.ActionDoubleGold, new object[]{ val2 });
                 break;
             case "research":
-                Msg.Dispatch(MsgID.ActionDrawCard, new object[]{ val });
+                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[]{ val });
                 break;
             case "expand":
                 Msg.Dispatch(MsgID.ActionExpand, new object[]{ val });
@@ -46,10 +48,12 @@ public class UseBookSys : ISystem
                 Msg.Dispatch(MsgID.ActionTraining, new object[]{ val });
                 break;
             case "trainingCrazyly":
+                Msg.Dispatch(MsgID.ActionTraining, new object[]{ val });
+                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[]{ 1 });
                 break;
             case "shadowIndustry":
-                Msg.Dispatch(MsgID.ActionTraining, new object[]{ val });
-                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[]{ val });
+                Msg.Dispatch(MsgID.ActionGainIncome, new object[]{ val });
+                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[]{ 1 });
                 break;
             case "rockFree":
                 Msg.Dispatch(MsgID.ActionClearRock, new object[]{ val });
@@ -59,7 +63,7 @@ public class UseBookSys : ISystem
                 break;
             case "expandOvernight":
                 Msg.Dispatch(MsgID.ActionExpand, new object[] { val });
-                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { val });
+                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
             case "caseRecycle":
                 Msg.Dispatch(MsgID.ActionRecycleCard, new object[] { val });
@@ -72,14 +76,14 @@ public class UseBookSys : ISystem
                 break;
             case "adBombardment":
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { val });
-                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { val });
+                Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
             case "hiddenTreasure":
-                // todo
-                Msg.Dispatch(MsgID.ActionGainMapBonus5Gold, new object[] { 1,val });
+                Msg.Dispatch(MsgID.ActionGainMapBonus5Gold, new object[] { val, val2 });
                 break;
             case "internalPurge":
-                Msg.Dispatch(MsgID.ActionDiscardCardAndDrawSame, new object[] { });
+                for(int i = 1;i<=val;i++)
+                    Msg.Dispatch(MsgID.ActionDiscardCardAndDrawSame, new object[] { });
                 break;
             case "projectSale":
                 Msg.Dispatch(MsgID.ActionDiscardCardAndGainGold, new object[] { val });
@@ -105,12 +109,12 @@ public class UseBookSys : ISystem
         bookComp.books.Remove(book);
 
         sComp.bookNumUsedTotally++;
-        if (bComp.popRGainedAfterBook > 0)
-            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { bComp.popRGainedAfterBook });
+        if (EcsUtil.GetBuffNum(43) > 0)
+            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { EcsUtil.GetBuffNum(43) });
 
-        if (bComp.propGainBookAfterBook > 0)
+        if (EcsUtil.GetBuffNum(44) > 0)
         {
-            EcsUtil.RandomlyDoSth(bComp.propGainBookAfterBook, () =>
+            EcsUtil.RandomlyDoSth(EcsUtil.GetBuffNum(44), () =>
             {
                 Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 });
             });

@@ -10,6 +10,7 @@ namespace Main
         public GButton m_btnSell;
         public GButton m_btnUse;
         public GButton m_btnDiscard;
+        public GTextField m_txtCont;
         public const string URL = "ui://zqdehm1vwitr20";
 
         public static UI_UseBookPanelItem CreateInstance()
@@ -24,6 +25,7 @@ namespace Main
             m_btnSell = (GButton)GetChildAt(1);
             m_btnUse = (GButton)GetChildAt(2);
             m_btnDiscard = (GButton)GetChildAt(3);
+            m_txtCont = (GTextField)GetChildAt(5);
         }
     }
 }

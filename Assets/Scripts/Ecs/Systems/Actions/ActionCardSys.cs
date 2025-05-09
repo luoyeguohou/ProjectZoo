@@ -9,7 +9,7 @@ public class ActionCardSys : ISystem
 {
     public override void OnAddToEngine()
     {
-        Msg.Bind(MsgID.ActionDrawCard, DrawCard);
+        Msg.Bind(MsgID.ActionDrawCardAndMayDiscard, DrawCardAndMayDiscard);
         Msg.Bind(MsgID.ActionRecycleCard, Recycle);
         Msg.Bind(MsgID.ActionDiscardCardFromDrawPile, DiscardCardFromDrawPile);
         Msg.Bind(MsgID.ActionDiscardCardAndDrawSame, DiscardCardAndDrawSame);
@@ -24,14 +24,21 @@ public class ActionCardSys : ISystem
         Msg.Bind(MsgID.ActionTryToPlayHand, TryToPlayHand);
         Msg.Bind(MsgID.ActionAddHandLimit, AddHandLimit);
         Msg.Bind(MsgID.ActionGainSpecTypeCard, GainSpecTypeCard);
-        Msg.Bind(MsgID.ActionDeleteBadIdea, DeleteBadIdea);
-        Msg.Bind(MsgID.DiscardACard, DiscardACard);
-        Msg.Bind(MsgID.GainACard, GainACard);
+        Msg.Bind(MsgID.ActionDeleteBadIdeaCard, DeleteBadIdea);
+
+        Msg.Bind(MsgID.CardFromDrawToHand, CardFromDrawToHand);
+        Msg.Bind(MsgID.CardFromDrawToDiscard, CardFromDrawToDiscard);
+        Msg.Bind(MsgID.CardToHand, CardToHand);
+        Msg.Bind(MsgID.CardFromHandToDiscard, CardFromHandToDiscard);
+        Msg.Bind(MsgID.CardFromDiscardToHand, CardFromDiscardToHand);
+        Msg.Bind(MsgID.DeleteCardFromHand, DeleteCardFromHand);
+        Msg.Bind(MsgID.AfterGainCard, OnGainCard);
+        Msg.Bind(MsgID.DiscardCard, DiscardCard);
     }
 
     public override void OnRemoveFromEngine()
     {
-        Msg.UnBind(MsgID.ActionDrawCard, DrawCard);
+        Msg.UnBind(MsgID.ActionDrawCardAndMayDiscard, DrawCardAndMayDiscard);
         Msg.UnBind(MsgID.ActionRecycleCard, Recycle);
         Msg.UnBind(MsgID.ActionDiscardCardFromDrawPile, DiscardCardFromDrawPile);
         Msg.UnBind(MsgID.ActionDiscardCardAndDrawSame, DiscardCardAndDrawSame);
@@ -46,12 +53,19 @@ public class ActionCardSys : ISystem
         Msg.UnBind(MsgID.ActionTryToPlayHand, TryToPlayHand);
         Msg.UnBind(MsgID.ActionAddHandLimit, AddHandLimit);
         Msg.UnBind(MsgID.ActionGainSpecTypeCard, GainSpecTypeCard);
-        Msg.UnBind(MsgID.ActionDeleteBadIdea, DeleteBadIdea);
-        Msg.UnBind(MsgID.DiscardACard, DiscardACard);
-        Msg.UnBind(MsgID.GainACard, GainACard);
+        Msg.UnBind(MsgID.ActionDeleteBadIdeaCard, DeleteBadIdea);
+
+        Msg.UnBind(MsgID.CardFromDrawToHand, CardFromDrawToHand);
+        Msg.UnBind(MsgID.CardFromDrawToDiscard, CardFromDrawToDiscard);
+        Msg.UnBind(MsgID.CardToHand, CardToHand);
+        Msg.UnBind(MsgID.CardFromHandToDiscard, CardFromHandToDiscard);
+        Msg.UnBind(MsgID.CardFromDiscardToHand, CardFromDiscardToHand);
+        Msg.UnBind(MsgID.DeleteCardFromHand, DeleteCardFromHand);
+        Msg.UnBind(MsgID.AfterGainCard, OnGainCard);
+        Msg.UnBind(MsgID.DiscardCard, DiscardCard);
     }
 
-    private void DrawCard(object[] p)
+    private void DrawCardAndMayDiscard(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
@@ -61,10 +75,7 @@ public class ActionCardSys : ISystem
             if (p.Length == 1)
             {
                 // only draw
-                foreach (Card c in cards)
-                {
-                    Msg.Dispatch(MsgID.GainACard, new object[] { c });
-                }
+                Msg.Dispatch(MsgID.CardFromDrawToHand, new object[] { cards });
                 await Task.CompletedTask;
             }
             else
@@ -72,42 +83,26 @@ public class ActionCardSys : ISystem
                 // draw and discard
                 var tcs = new TaskCompletionSource<bool>();
                 int holdNum = (int)p[1];
-                UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-                win.Init(cards, gainNum - holdNum, (List<Card> discarded, List<Card> held) =>
-                {
-                    foreach (Card c in cards)
-                    {
-                        Msg.Dispatch(MsgID.GainACard, new object[] { c });
-                    }
-                    foreach (Card c in discarded)
-                    {
-                        Msg.Dispatch(MsgID.DiscardACard, new object[] { c });
-                    }
-                    tcs.SetResult(true);
-                });
+                (List<Card> discarded, List<Card> held) = await FGUIUtil.SelectCardsNeedTheOthers(cards, gainNum - holdNum);
+                Msg.Dispatch(MsgID.CardFromDrawToHand, new object[] { held });
+                Msg.Dispatch(MsgID.CardFromDrawToDiscard, new object[] { discarded });
+                tcs.SetResult(true);
                 await tcs.Task;
             }
         });
     }
+
     private void Recycle(object[] p)
     {
-
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            win.Init(cmComp.discardPile, gainNum, (List<Card> chosen, List<Card> _) =>
-            {
-                foreach (Card c in chosen)
-                {
-                    cmComp.discardPile.Remove(c);
-                    Msg.Dispatch(MsgID.GainACard, new object[] { c });
-                }
-                tcs.SetResult(true);
-            });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.discardPile, gainNum, false);
+            Msg.Dispatch(MsgID.CardFromDiscardToHand, new object[] { chosen });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
@@ -120,20 +115,13 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            win.Init(cmComp.drawPile, gainNum, (List<Card> chosen, List<Card> _) =>
-            {
-                foreach (Card c in chosen)
-                {
-                    cmComp.discardPile.Add(c);
-                    cmComp.drawPile.Remove(c);
-                }
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.drawPile, gainNum, false);
+            Msg.Dispatch(MsgID.CardFromDrawToDiscard, new object[] { chosen });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
+
     private void DiscardCardAndDrawSame(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
@@ -141,17 +129,10 @@ public class ActionCardSys : ISystem
         {
             var tcs = new TaskCompletionSource<bool>();
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            win.Init(cmComp.hands, -1, (List<Card> chosen, List<Card> _) =>
-            {
-                foreach (Card c in chosen)
-                {
-                    Msg.Dispatch(MsgID.DiscardACard, new object[] { c });
-                }
-                Msg.Dispatch(MsgID.ActionDrawCard, new object[] { chosen.Count });
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, -1);
+            Msg.Dispatch(MsgID.DiscardCard, new object[] { chosen });
+            Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { chosen.Count });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
@@ -163,17 +144,10 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int limitNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            win.Init(cmComp.hands, limitNum, (List<Card> chosen, List<Card> _) =>
-            {
-                foreach (Card c in chosen)
-                {
-                    Msg.Dispatch(MsgID.DiscardACard, new object[] { c });
-                }
-                Msg.Dispatch(MsgID.ActionDrawCard, new object[] { chosen.Count });
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, limitNum,false);
+            Msg.Dispatch(MsgID.DiscardCard, new object[] { chosen });
+            Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { chosen.Count });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
@@ -185,17 +159,10 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            win.Init(cmComp.hands, -1, (List<Card> chosen, List<Card> _) =>
-            {
-                foreach (Card c in chosen)
-                {
-                    Msg.Dispatch(MsgID.DiscardACard, new object[] { c });
-                }
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { chosen.Count * gainNum });
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, -1);
+            Msg.Dispatch(MsgID.DiscardCard, new object[] { chosen });
+            Msg.Dispatch(MsgID.ActionGainGold, new object[] { chosen.Count * gainNum });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
@@ -208,45 +175,43 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            win.Init(cmComp.hands, 1, (List<Card> chosen, List<Card> _) =>
-            {
-                for (int i = 0; i < gainNum; i++)
-                {
-                    Msg.Dispatch(MsgID.GainACard, new object[] { new Card(chosen[0].uid) });
-                }
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, 1);
+            List<Card> gain = new List<Card>();
+            for (int i = 0; i < gainNum; i++) {
+                gain.Add(new Card(chosen[0].uid));
+            }
+            Msg.Dispatch(MsgID.CardToHand, new object[] { gain });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
+
     private void GainRandomDepCard(object[] p)
     {
+        int gainNum = (int)p[0];
         CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-        List<Card> pool = new List<Card>();
-        foreach (Card c in cmComp.drawPile)
-        {
-            if (c.cfg.cardType == 2) pool.Add(c);
-        }
+        List<Card> pool = Util.Filter(cmComp.drawPile, c => c.cfg.cardType == 2);
+        pool = pool.GetRange(0, Math.Min(gainNum, pool.Count));
         if (pool.Count == 0) return;
         Util.Shuffle(pool, new System.Random());
-        cmComp.drawPile.Remove(pool[0]);
-        Msg.Dispatch(MsgID.GainACard, new object[] { pool[0] });
+        Msg.Dispatch(MsgID.CardFromDrawToHand, new object[] { pool });
     }
 
     private void GainRandomBadIdeaCard(object[] p)
     {
-        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        if (bComp.badIdeaExchangeToNextCard > 0)
-        {
-            Msg.Dispatch(MsgID.ActionDrawCard, new object[] { 1 });
-            return;
-        }
-        string uid = Cfg.badIdeaUids[new System.Random().Next(Cfg.badIdeaUids.Count)];
-        Msg.Dispatch(MsgID.GainACard, new object[] { new Card(uid) });
-        sComp.badIdeaNumTotally++;
+        int num = (int)p[0];
+        for (int i = 1; i <= num; i++)
+            if (EcsUtil.GetBuffNum(51) > 0)
+            {
+                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { 1 });
+            }
+            else
+            {
+                string uid = Cfg.badIdeaUids[new System.Random().Next(Cfg.badIdeaUids.Count)];
+                Msg.Dispatch(MsgID.CardToHand, new object[] { new Card(uid) });
+                sComp.badIdeaNumTotally++;
+            }
     }
 
     private void GainLastProjectCard(object[] p)
@@ -258,7 +223,11 @@ public class ActionCardSys : ISystem
     private void GainSpecificCard(object[] p)
     {
         string uid = (string)p[0];
-        Msg.Dispatch(MsgID.GainACard, new object[] { new Card(uid) });
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        CardCfg cfg = Cfg.cards[uid];
+        if (cfg.module == -1)
+            sComp.badIdeaNumTotally++;
+        Msg.Dispatch(MsgID.CardToHand, new object[] { new Card(uid) });
     }
 
     private void CopyCardFromVegue(object[] p)
@@ -267,78 +236,10 @@ public class ActionCardSys : ISystem
         aComp.queue.PushData(async () =>
         {
             var tcs = new TaskCompletionSource<bool>();
-            UI_SelectVenue dbWin = FGUIUtil.CreateWindow<UI_SelectVenue>("SelectVenue");
-            dbWin.Init((Venue zb) =>
-            {
-                Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { zb.uid });
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            Venue zb = await FGUIUtil.SelectVenue();
+            Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { zb.uid });
+            tcs.SetResult(true);
             await tcs.Task;
-        });
-    }
-
-    private void TryToPlayHand(object[] p)
-    {
-        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
-        aComp.queue.PushData(async () =>
-        {
-                
-            int index = (int)p[0];
-            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
-            Card c = cmComp.hands[index];
-
-            // calculate cost
-            int goldCost = c.cfg.goldCost;
-            int timeCost = c.cfg.timeCost;
-            goldCost = Mathf.Max(0, (goldCost - bComp.discountVenueGold) * (100 + bComp.extraPercGoldCostOnCard) / 100);
-            timeCost = Mathf.Max(0, timeCost - bComp.discountVenueTime);
-            if (bComp.discountInBuildXVenue > 0 && c.cfg.cardType == 0 && Cfg.venues[c.uid].isX == 1)
-            {
-                goldCost = Mathf.Max(0, goldCost - bComp.discountInBuildXVenue);
-            }
-
-            if (c.cfg.cardType == 1 && bComp.canNotPlayAchi > 0)
-            {
-                Debug.Log("有负面效果，不能打出成就");
-                return;
-            }
-            if (!EcsUtil.HaveEnoughTimeAndGold(timeCost, goldCost))
-            {
-                Debug.Log("没钱没时间");
-                // todo  show ui
-                return;
-            }
-            if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
-            {
-                Debug.Log("没钱没时间");
-                // todo  show ui
-                return;
-            }
-            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c.cfg.landType))
-            {
-                Debug.Log("没有足够场地打出此牌");
-                // todo  show ui
-                return;
-            }
-            Msg.Dispatch(MsgID.ActionPayGold, new object[] { c.cfg.goldCost });
-            Msg.Dispatch(MsgID.ActionPayTime, new object[] { c.cfg.timeCost });
-            Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { cmComp.hands[index] });
-            Msg.Dispatch(MsgID.DiscardACard, new object[] { cmComp.hands[index] });
-            await Task.CompletedTask;
-        });
-    }
-
-    private void AddHandLimit(object[] p)
-    {
-        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
-        aComp.queue.PushData(async () =>
-        {
-            int gainNum = (int)p[0];
-            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            cmComp.handsLimit += gainNum;
-            await Task.CompletedTask;
         });
     }
 
@@ -350,21 +251,8 @@ public class ActionCardSys : ISystem
             int module = (int)p[0];
             int gainNum = (int)p[1];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> cards = new List<Card>();
-            foreach (Card c in cmComp.drawPile)
-            {
-                if (c.cfg.module == module && c.cfg.cardType == 0)
-                {
-                    cards.Add(c);
-                    if (cards.Count >= gainNum) break;
-                }
-            }
-            foreach (Card c in cards)
-            {
-                cmComp.drawPile.Remove(c);
-                Msg.Dispatch(MsgID.GainACard, new object[] { c });
-            }
-            Msg.Dispatch(MsgID.AfterCardChanged);
+            List<Card> cards = Util.Filter(cmComp.drawPile,c=> c.cfg.module == module && c.cfg.cardType == 0,gainNum); 
+            Msg.Dispatch(MsgID.CardFromDrawToHand, new object[] { cards });
             await Task.CompletedTask;
         });
     }
@@ -378,67 +266,206 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            UI_SelectCards win = FGUIUtil.CreateWindow<UI_SelectCards>("SelectCards");
-            List<Card> cards = new List<Card>();
-            foreach (Card c in cmComp.hands)
-                if (c.cfg.module == -1)
-                    cards.Add(c);
+            List<Card> cards = Util.Filter(cmComp.hands,c=>c.cfg.module == -1);
+            List<Card> chosen = await FGUIUtil.SelectCards(cards, Mathf.Min(gainNum, cards.Count),false);
+            Msg.Dispatch(MsgID.DeleteCardFromHand, new object[] { chosen } );
 
-            win.Init(cards, Mathf.Min(gainNum, cards.Count), (List<Card> chosen, List<Card> _) =>
-            {
-                foreach (Card c in chosen)
-                {
-                    cmComp.hands.Remove(c);
-                }
-                Msg.Dispatch(MsgID.AfterCardChanged);
-                tcs.SetResult(true);
-            });
+            tcs.SetResult(true);
             await tcs.Task;
         });
     }
 
-    private void DiscardACard(object[] p)
+    private void CardFromDrawToHand(object[] p) 
     {
-        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
-        aComp.queue.PushData(async () =>
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        foreach (Card c in cards)
         {
-            Card c = (Card)p[0];
-            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+            if (cmComp.drawPile.Contains(c))
+                cmComp.drawPile.Remove(c);
+            cmComp.hands.Add(c);
+        }
+        Msg.Dispatch(MsgID.AfterGainCard,new object[] { cards});
+        Msg.Dispatch(MsgID.AfterCardChanged);
+    }
 
-            if (bComp.noDiscard > 0) return;
+    private void CardToHand(object[] p) {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
 
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        foreach (Card c in cards)
+        {
+            cmComp.hands.Add(c);
+        }
+        Msg.Dispatch(MsgID.AfterGainCard,new object[] { cards});
+        Msg.Dispatch(MsgID.AfterCardChanged);
+    }
+
+    private void CardFromHandToDiscard(object[] p) {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        foreach (Card c in cards)
+        {
             cmComp.hands.Remove(c);
             cmComp.discardPile.Add(c);
-            if (bComp.goldGainedWhenDiscardCard > 0)
-            {
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { bComp.goldGainedWhenDiscardCard });
-            }
-            Msg.Dispatch(MsgID.AfterCardChanged);
-            await Task.CompletedTask;
-        });
+        }
+        Msg.Dispatch(MsgID.AfterCardChanged);
     }
 
-    private void GainACard(object[] p)
+    private void CardFromDrawToDiscard(object[] p)
+    {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        foreach (Card c in cards)
+        {
+            if (cmComp.drawPile.Contains(c))
+                cmComp.drawPile.Remove(c);
+            cmComp.discardPile.Add(c);
+        }
+        Msg.Dispatch(MsgID.AfterCardChanged);
+    }
+
+    private void CardFromDiscardToHand(object[] p)
+    {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        foreach (Card c in cards)
+        {
+            cmComp.discardPile.Remove(c);
+            cmComp.hands.Add(c);
+        }
+        Msg.Dispatch(MsgID.AfterGainCard,new object[] { cards});
+        Msg.Dispatch(MsgID.AfterCardChanged);
+    }
+    private void DeleteCardFromHand(object[] p) {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        foreach (Card c in cards)
+        {
+            cmComp.hands.Remove(c);
+        }
+        Msg.Dispatch(MsgID.AfterCardChanged);
+    }
+
+    private void OnGainCard(object[] p)
+    {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+        Logger.AddOpe(OpeType.GainCard, new object[] { cards });
+        CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+        
+        if (EcsUtil.GetBuffNum(52) == 0) return;
+        foreach (Card c in cards)
+        {
+            EcsUtil.RandomlyDoSth(EcsUtil.GetBuffNum(52), () =>
+            {
+                Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { c });
+            });
+        }
+    }
+
+    private void DiscardCard(object[] p)
+    {
+        List<Card> cards = new();
+        if (p[0] is Card card)
+            cards.Add(card);
+        else if (p[0] is List<Card> lstCard)
+            cards = lstCard;
+        if (EcsUtil.GetBuffNum(46) > 0) return;
+        if (EcsUtil.GetBuffNum(37) > 0)
+            Msg.Dispatch(MsgID.ActionGainGold, new object[] { EcsUtil.GetBuffNum(37) * cards.Count });
+        Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { cards });
+    }
+
+    private void AddHandLimit(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            Card c = (Card)p[0];
+            int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
-            if (bComp.propDiscardWhenGainCard > 0)
-            {
-                bool discard = EcsUtil.RandomlyDoSth(bComp.propDiscardWhenGainCard, () =>
-                {
-                    Msg.Dispatch(MsgID.DiscardACard, new object[] { c });
-                });
-                if (discard)
-                    return;
-            }
-            cmComp.hands.Add(c);
-            Msg.Dispatch(MsgID.AfterCardChanged);
+            cmComp.handsLimit += gainNum;
             await Task.CompletedTask;
         });
     }
+    private void TryToPlayHand(object[] p)
+    {
+        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        aComp.queue.PushData(async () =>
+        {
+
+            int index = (int)p[0];
+            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+            Card c = cmComp.hands[index];
+
+            // calculate cost
+            int goldCost = c.cfg.goldCost;
+            int timeCost = c.cfg.timeCost;
+            goldCost = Mathf.Max(0, (goldCost - EcsUtil.GetBuffNum(33)) * (100 + EcsUtil.GetBuffNum(34)) / 100);
+            timeCost = Mathf.Max(0, timeCost - EcsUtil.GetBuffNum(32));
+            if (EcsUtil.GetBuffNum(31) > 0 && c.cfg.cardType == 0 && Cfg.venues[c.uid].isX == 1)
+            {
+                goldCost = Mathf.Max(0, goldCost - EcsUtil.GetBuffNum(31));
+            }
+
+            if (c.cfg.cardType == 1 && EcsUtil.GetBuffNum(53) > 0)
+            {
+                FGUIUtil.ShowMsg("Can't play any achievement card!!!");
+                return;
+            }
+            if (!EcsUtil.HaveEnoughTimeAndGold(timeCost, goldCost))
+            {
+                FGUIUtil.ShowMsg("Don't have enough time or money!!!");
+                return;
+            }
+            if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
+            {
+                FGUIUtil.ShowMsg("Don't  meet the requiremant!!!");
+                return;
+            }
+            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c.cfg.landType))
+            {
+                FGUIUtil.ShowMsg("Don't have enough room for this venue!!!");
+                return;
+            }
+            Msg.Dispatch(MsgID.ActionPayGold, new object[] { goldCost });
+            Msg.Dispatch(MsgID.ActionPayTime, new object[] { timeCost });
+            Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { cmComp.hands[index] });
+            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { cmComp.hands[index] });
+            await Task.CompletedTask;
+        });
+    }
+
 }

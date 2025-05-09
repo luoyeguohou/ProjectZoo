@@ -25,6 +25,7 @@ public class ActionZooLandSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
+            int clearNum = (int)p[0];
             ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
             List<ZooGround> rocks = new List<ZooGround>();
             foreach (ZooGround g in zgComp.grounds)
@@ -36,7 +37,8 @@ public class ActionZooLandSys : ISystem
             }
             if (rocks.Count == 0) return;
             Util.Shuffle(rocks, new System.Random());
-            rocks[0].state = GroundStatus.CanBuild;
+            for (int i = 0; i < Mathf.Min(rocks.Count, clearNum); i++)
+                rocks[i].state = GroundStatus.CanBuild;
             Msg.Dispatch(MsgID.AfterMapChanged);
             await Task.CompletedTask;
         });
@@ -47,6 +49,7 @@ public class ActionZooLandSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
+            int clearNum = (int)p[0];
             ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
             List<ZooGround> lakes = new List<ZooGround>();
             foreach (ZooGround g in zgComp.grounds)
@@ -58,7 +61,8 @@ public class ActionZooLandSys : ISystem
             }
             if (lakes.Count == 0) return;
             Util.Shuffle(lakes, new System.Random());
-            lakes[0].state = GroundStatus.CanBuild;
+            for (int i = 0; i < Mathf.Min(lakes.Count, clearNum); i++)
+                lakes[i].state = GroundStatus.CanBuild;
             Msg.Dispatch(MsgID.AfterMapChanged);
             await Task.CompletedTask;
         });
@@ -70,9 +74,9 @@ public class ActionZooLandSys : ISystem
         aComp.queue.PushData(async () =>
         {
             MapBonus b = (MapBonus)p[0];
-            BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
-            if (bComp.canNotGetMapBonus > 0) return;
-            int val = b.val * (1 + bComp.extraMapBonusTime);
+            
+            if (EcsUtil.GetBuffNum(50) > 0) return;
+            int val = b.val * (1 + EcsUtil.GetBuffNum(49));
             switch (b.bonusType)
             {
                 case MapBonusType.Worker:
@@ -91,7 +95,7 @@ public class ActionZooLandSys : ISystem
                     Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { val });
                     break;
                 case MapBonusType.DrawCard:
-                    Msg.Dispatch(MsgID.ActionDrawCard, new object[] { val });
+                    Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { val });
                     break;
             }
             await Task.CompletedTask;

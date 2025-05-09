@@ -14,6 +14,7 @@ public class CardCfg {
     public int module;
     public int repeatNum;
     public int rare;
+    public int oneTime;
 }
 
 public class VenueCfg {
@@ -63,8 +64,10 @@ public class BookCfg
 }
 
 public class RawWorkPosCfg {
-    public int uid;
+    public string uid;
     public string name;
+    public string cont;
+    public int limitTime;
     public int val_1_1;
     public int val_2_1;
     public int val_1_2;
@@ -78,13 +81,21 @@ public class RawWorkPosCfg {
 }
 
 public class WorkPosCfg {
-    public int uid;
+    public string uid;
+    public string cont;
     public string name;
+    public int limitTime;
     public int[] val1;
     public int[] val2;
 }
 
 public class SpecWorkerCfg
+{
+    public int uid;
+    public string cont;
+}
+
+public class BuffCfg
 {
     public int uid;
     public string cont;
