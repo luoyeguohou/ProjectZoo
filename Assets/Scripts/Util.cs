@@ -148,7 +148,7 @@ class Util
         int[] des = new int[vals.Length];
         Array.Copy(vals, des, vals.Length);
         Array.Sort(des);
-        return des[0];
+        return des[des.Length-1];
     }
 
     public static int GetSecondMax(int[] vals)
@@ -157,7 +157,7 @@ class Util
         int[] des = new int[vals.Length];
         Array.Copy(vals, des, vals.Length);
         Array.Sort(des);
-        return des[1];
+        return des[des.Length - 1];
     }
 }
 

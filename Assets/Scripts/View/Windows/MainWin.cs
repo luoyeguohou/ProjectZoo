@@ -11,21 +11,27 @@ namespace Main
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            m_lstBook.itemRenderer = BookIR;
-            m_lstWorkPos.itemRenderer = WorkPosIR;
-            FGUIUtil.InitMapList(m_lstMap, ZooBlockIniter);
-            m_lstSpecWorker.itemRenderer = WorkerIR;
-            m_btnDrawPile.onClick.Add(OnClickDrawPile);
-            m_btnDiscardPile.onClick.Add(OnClickDiscardPile);
-            m_btnInfo.onClick.Add(OnClickInfo);
-            m_btnEndTurn.onClick.Add(OnClickEndSesson);
-            m_btnLog.onClick.Add(OnClickLog);
-            m_btnConsole.onClick.Add(OnClickConsole);
-            m_worker.draggable = true;
-            m_worker.onDragStart.Add(OnDragWorker(-1));
-            m_tmpWorker.draggable = true;
-            m_tmpWorker.onDragStart.Add(OnDragWorker(-2));
-            m_lstBuff.itemRenderer = BuffIR;
+            m_cont.m_lstBook.itemRenderer = BookIR;
+            m_cont.m_lstWorkPos.itemRenderer = WorkPosIR;
+            FGUIUtil.InitMapList(m_cont.m_lstMap, ZooBlockIniter);
+            m_cont.m_lstMap.onTouchEnd.Add(() => { 
+                ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+                zgComp.mapOffset = new Vector2Int((int)m_cont.m_lstMap.scrollPane.posX, (int)m_cont.m_lstMap.scrollPane.posY);
+            });
+            m_cont.m_lstSpecWorker.itemRenderer = WorkerIR;
+            m_cont.m_btnDrawPile.onClick.Add(OnClickDrawPile);
+            m_cont.m_btnDiscardPile.onClick.Add(OnClickDiscardPile);
+            m_cont.m_btnInfo.onClick.Add(OnClickInfo);
+            m_cont.m_btnEndTurn.onClick.Add(OnClickEndSesson);
+            m_cont.m_btnLog.onClick.Add(OnClickLog);
+            m_cont.m_btnConsole.onClick.Add(OnClickConsole);
+            m_cont.m_worker.draggable = true;
+            m_cont.m_worker.onDragStart.Add(OnDragWorker(-1));
+            FGUIUtil.SetHint(m_cont.m_worker, "普通工人，新的回合会刷新！！！");
+            m_cont.m_tmpWorker.draggable = true;
+            m_cont.m_tmpWorker.onDragStart.Add(OnDragWorker(-2));
+            FGUIUtil.SetHint(m_cont.m_tmpWorker, "临时工人，回合结束时消失！！！");
+            m_cont.m_lstBuff.itemRenderer = BuffIR;
 
             Msg.Bind(MsgID.AfterMapChanged, UpdateZooBlockView);
             Msg.Bind(MsgID.AfterBookChanged, UpdateBookView);
@@ -38,12 +44,13 @@ namespace Main
             Msg.Bind(MsgID.AfterTimeResChanged, UpdateTimeResView);
             Msg.Bind(MsgID.AfterTurnChanged, UpdateAllView);
             Msg.Bind(MsgID.AfterBuffChanged, UpdateBuffView);
+            Msg.Bind(MsgID.AfterBuffChanged, UpdateWorkPosView);
         }
 
         public void Init()
         {
             UpdateAllView();
-            m_hand.Init();
+            m_cont.m_hand.Init();
         }
 
         private void UpdateAllView(object[] p = null)
@@ -63,46 +70,49 @@ namespace Main
         private void UpdateTimeResView(object[] p = null)
         {
             TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
-            m_txtTimeRes.text = trComp.time.ToString();
+            m_cont.m_txtTimeRes.text = trComp.time.ToString();
         }
 
         private void UpdateDrawPileView(object[] p = null)
         {
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            m_txtDrawPile.text = cmComp.drawPile.Count.ToString();
+            m_cont.m_txtDrawPile.text = cmComp.drawPile.Count.ToString();
         }
 
         private void UpdateDiscardPileView(object[] p = null)
         {
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            m_txtDiscardPile.text = cmComp.discardPile.Count.ToString();
+            m_cont.m_txtDiscardPile.text = cmComp.discardPile.Count.ToString();
         }
 
         private void UpdateZooBlockView(object[] p = null)
         {
             MapSizeComp cmComp = World.e.sharedConfig.GetComp<MapSizeComp>();
-            m_lstMap.numItems = cmComp.width * cmComp.height;
+            m_cont.m_lstMap.numItems = cmComp.width * cmComp.height;
+            ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+            m_cont.m_lstMap.scrollPane.posX = zgComp.mapOffset.x;
+            m_cont.m_lstMap.scrollPane.posY = zgComp.mapOffset.y;
         }
 
         private void UpdateBookView(object[] p = null)
         {
             BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
-            m_lstBook.numItems = iComp.bookLimit;
+            m_cont.m_lstBook.numItems = iComp.bookLimit;
         }
 
         private void UpdateWorkPosView(object[] p = null)
         {
             WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-            m_lstWorkPos.numItems = wComp.workPoses.Count;
+            m_cont.m_lstWorkPos.numItems = wComp.workPoses.Count;
         }
         private void UpdateWorkerView(object[] p = null)
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
 
             m_hasTmpWorker.selectedIndex = wComp.tempWorkers.Count > 0 ? 1 : 0;
-            m_txtWorker.SetVar("num", wComp.normalWorkers.Count.ToString()).FlushVars();
-            m_txtTmpWorker.SetVar("num", wComp.tempWorkers.Count.ToString()).FlushVars();
-            m_lstSpecWorker.numItems = wComp.specialWorker.Count;
+            m_cont.m_txtWorker.SetVar("num", wComp.normalWorkers.Count.ToString()).FlushVars();
+            m_cont.m_txtTmpWorker.SetVar("num", wComp.tempWorkers.Count.ToString()).FlushVars();
+            m_cont.m_lstSpecWorker.numItems = wComp.specialWorker.Count;
         }
 
         private void UpdatePopRatingView(object[] p = null)
@@ -110,15 +120,15 @@ namespace Main
             PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
             TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
             AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
-            m_txtAim.SetVar("cur", prComp.popRating.ToString());
-            m_txtAim.SetVar("aim", aComp.aims[tComp.turn - 1].ToString());
-            m_txtAim.FlushVars();
+            m_cont.m_txtAim.SetVar("cur", prComp.popRating.ToString());
+            m_cont.m_txtAim.SetVar("aim", aComp.aims[tComp.turn - 1].ToString());
+            m_cont.m_txtAim.FlushVars();
         }
 
         private void UpdateGoldView(object[] p = null)
         {
             GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-            m_txtGold.text = gComp.gold.ToString() + "(" + gComp.income + ")";
+            m_cont.m_txtGold.text = gComp.gold.ToString() + "(" + gComp.income + ")";
         }
 
         private void OnClickDrawPile()
@@ -164,13 +174,12 @@ namespace Main
             ui.onClick.Clear();
             ui.onClick.Add(() =>
             {
-                if (!UIManager.IsCurrMainWin()) return;
                 BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
-                UI_UseBookPanelWin win = FGUIUtil.CreateWindow<UI_UseBookPanelWin>("UseBookPanelWin"); ;
+                UI_UseBookPanelWin win = FGUIUtil.CreateWindow<UI_UseBookPanelWin>("UseBookPanelWin");
                 win.SetIdx(index);
                 FGUIUtil.SetSamePos(win.m_book, ui.m_img);
             });
-            FGUIUtil.SetHint(ui, b.cfg.cont);
+            FGUIUtil.SetHint(ui, ()=>EcsUtil.GetBookCont(b.uid));
         }
 
         private void WorkPosIR(int index, GObject g)
@@ -192,7 +201,8 @@ namespace Main
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
             UI_Worker ui = (UI_Worker)g;
-            ui.m_type.selectedIndex = wComp.specialWorker[index].id + 1;
+            Worker w = wComp.specialWorker[index];
+            ui.m_type.selectedIndex = Cfg.specWorkers[ w.uid].order +2;
 
             ui.draggable = true;
             ui.onDragStart.Clear();
@@ -200,10 +210,12 @@ namespace Main
             {
                 context.PreventDefault();
                 if (!UIManager.IsCurrMainWin()) return;
-                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", wComp.specialWorker[index], (int)context.data);
+                DragDropManager.inst.StartDrag(m_cont.m_worker, "ui://Main/Worker", wComp.specialWorker[index], (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
-                ui.m_type.selectedIndex = wComp.specialWorker[index].id + 1;
+                ui.m_type.selectedIndex = Cfg.specWorkers[w.uid].order + 2;
             });
+
+            FGUIUtil.SetHint(ui,()=>EcsUtil.GetSpecWorkerCont(w));
         }
 
         List<int> buffs;
@@ -214,7 +226,7 @@ namespace Main
             BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
             buffs = bComp.buffs.Keys.ToList();
             stacks = bComp.buffs.Values.ToList();
-            m_lstBuff.numItems = buffs.Count;
+            m_cont.m_lstBuff.numItems = buffs.Count;
         }
 
         private void BuffIR(int index, GObject g)
@@ -224,7 +236,7 @@ namespace Main
             int stack = stacks[index];
             ui.Init(buff, stack);
             BuffCfg cfg = Cfg.buffCfgs[buff];
-            FGUIUtil.SetHint(ui, cfg.cont);
+            FGUIUtil.SetHint(ui, cfg.GetCont());
         }
 
         private EventCallback1 OnDragWorker(int workerIdx)
@@ -250,7 +262,7 @@ namespace Main
                     worker = wComp.specialWorker[workerIdx];
                 }
 
-                DragDropManager.inst.StartDrag(m_worker, "ui://Main/Worker", worker, (int)context.data);
+                DragDropManager.inst.StartDrag(m_cont.m_worker, "ui://Main/Worker", worker, (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
                 ui.Init(worker);
             };
@@ -265,7 +277,7 @@ namespace Main
                 else if (zg.state == GroundStatus.Rock && !zg.hasBuilt) return "岩石" + pos;
                 else if (zg.state == GroundStatus.Water && !zg.hasBuilt) return "湖泊" + pos;
                 else if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt) return "可建造" + pos;
-                else return zg.venue.cfg.cont + pos;
+                else return EcsUtil.GetCardCont(zg.venue.cfg.uid) + pos;
             });
         }
 

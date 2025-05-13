@@ -52,7 +52,7 @@ namespace Main
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             ShopBook shopBook = sComp.books[index];
             ui.Init(shopBook);
-            FGUIUtil.SetHint(ui, shopBook.book.cfg.cont);
+            FGUIUtil.SetHint(ui, ()=> EcsUtil.GetBookCont(shopBook.book.cfg.uid));
         }
     }
 }

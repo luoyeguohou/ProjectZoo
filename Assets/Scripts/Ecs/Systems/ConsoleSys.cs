@@ -47,6 +47,9 @@ public class ConsoleSys : ISystem
                 case "LuckPoint":
                     cComp.luckPoint = int.Parse(msgs[1]);
                     break;
+                case "AddBuff":
+                    Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { int.Parse(msgs[1]), int.Parse(msgs[2]) });
+                    break;
             }
         }
         catch { }

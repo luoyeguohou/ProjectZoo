@@ -28,6 +28,8 @@ namespace Main
             UIObjectFactory.SetPackageItemExtension(UI_PlayHandsWin.URL, typeof(UI_PlayHandsWin));
             UIObjectFactory.SetPackageItemExtension(UI_SelectVenueWin.URL, typeof(UI_SelectVenueWin));
             UIObjectFactory.SetPackageItemExtension(UI_DealVenueWin.URL, typeof(UI_DealVenueWin));
+            UIObjectFactory.SetPackageItemExtension(UI_MainCont.URL, typeof(UI_MainCont));
+            UIObjectFactory.SetPackageItemExtension(UI_SeasonInfoCont.URL, typeof(UI_SeasonInfoCont));
             UIObjectFactory.SetPackageItemExtension(UI_InterestWin.URL, typeof(UI_InterestWin));
             UIObjectFactory.SetPackageItemExtension(UI_Book.URL, typeof(UI_Book));
             UIObjectFactory.SetPackageItemExtension(UI_CardWithPrice.URL, typeof(UI_CardWithPrice));

@@ -7,12 +7,12 @@ namespace Main
     public partial class UI_Worker : GComponent
     {
         public void Init(Worker w) {
-            if (w.id == -1)
+            if (w.uid == "normalWorker")
                 m_type.selectedIndex = 0;
-            else if (w.id == -2)
+            else if (w.uid == "tempWorker")
                 m_type.selectedIndex = 1;
             else
-                m_type.selectedIndex = w.id - 1;
+                m_type.selectedIndex =Cfg.specWorkers[w.uid].order+2;
         }
     }
 }

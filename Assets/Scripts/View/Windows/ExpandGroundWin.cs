@@ -30,6 +30,9 @@ namespace Main
             this.handler = handler;
             m_cont.m_txtTitle.SetVar("num", chosenNum.ToString()).FlushVars();
             selectedList.Clear();
+            ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+            m_cont.m_lstMap.scrollPane.posX = zgComp.mapOffset.x;
+            m_cont.m_lstMap.scrollPane.posY = zgComp.mapOffset.y;
         }
 
         private void ZooBlockIniter(UI_MapPoint ui, ZooGround zg)

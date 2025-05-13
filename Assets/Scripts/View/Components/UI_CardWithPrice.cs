@@ -19,7 +19,7 @@ namespace Main
         {
             card = c;
             m_card.SetCard(c.card);
-            m_btnBuy.title = c.price.ToString();
+            m_btnBuy.title = EcsUtil.GetValStr(c.price,c.oriPrice);
         }
 
         private void OnClickBuy()

@@ -56,6 +56,7 @@ public class StartGameSys: ISystem
         }
         List<ZooGround> temp = new List<ZooGround>(zgComp.grounds);
         Util.Shuffle(temp, new System.Random());
+        zgComp.mapOffset = new Vector2Int(293,557);
 
         // 谨慎修改此处逻辑，同一地块只能处于 岩石 水 有奖励 其中之一
         // 布置岩石
@@ -90,14 +91,17 @@ public class StartGameSys: ISystem
         }
         // 布置初始勘探过土地
         Vector2Int[] initGround = new Vector2Int[] {
-            new Vector2Int(4,0),
-            new Vector2Int(5,0),
-            new Vector2Int(6,0),
-            new Vector2Int(4,1),
-            new Vector2Int(4,2),
-            new Vector2Int(5,1),
-            new Vector2Int(6,1),
-            new Vector2Int(6,-1),
+            new Vector2Int(9,5),
+            new Vector2Int(9,4),
+            new Vector2Int(9,6),
+            new Vector2Int(8,5),
+            new Vector2Int(10,5),
+            new Vector2Int(10,4),
+            new Vector2Int(8,6),
+            new Vector2Int(8,4),
+            new Vector2Int(10,3),
+            new Vector2Int(8,7),
+            new Vector2Int(10,6),
         };
         foreach (Vector2Int groundPos in initGround) { 
             EcsUtil.GetGroundByPos(groundPos.x,groundPos.y).isTouchedLand = true;
@@ -113,7 +117,7 @@ public class StartGameSys: ISystem
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         for (int i = 0; i < 5; i++)
         {
-            Worker worker = new Worker(-1);
+            Worker worker = new Worker("normalWorker");
             worker.age = 10;
             wComp.normalWorkers.Add(worker);
             wComp.normalWorkerLimit .Add(worker);

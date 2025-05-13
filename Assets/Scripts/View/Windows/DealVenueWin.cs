@@ -26,6 +26,9 @@ namespace Main
             this.handler = handler;
             m_cont.m_lstMap.numItems = msComp.width* msComp.height;
             m_cont.m_card.SetCard(c);
+            ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+            m_cont.m_lstMap.scrollPane.posX = zgComp.mapOffset.x;
+            m_cont.m_lstMap.scrollPane.posY = zgComp.mapOffset.y;
         }
 
         private void OnClickConfirm()
@@ -39,7 +42,11 @@ namespace Main
         {
             ui.onClick.Add(() =>
             {
-                if (ui.m_type.selectedIndex != 0) return;
+                bool canChoose = ui.m_type.selectedIndex == 0;
+                if (c.uid == "kemoduojx" && ui.m_type.selectedIndex == 4 && zg.venue.uid == "kemoduojx")
+                    canChoose = true;
+                if (!canChoose) return;
+
                 bool oriSelected = ui.m_selected.selectedIndex == 1;
                 ui.m_selected.selectedIndex = oriSelected ? 0 : 1;
                 if (oriSelected)

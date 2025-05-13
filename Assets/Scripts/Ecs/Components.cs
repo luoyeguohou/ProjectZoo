@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TinyECS;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GoldComp : IComponent {
     public int gold = 0;
@@ -16,7 +17,8 @@ public class PopRatingComp:IComponent
 
 public class ZooGroundComp : IComponent
 {
-    public List<ZooGround> grounds = new List<ZooGround>(); 
+    public List<ZooGround> grounds = new List<ZooGround>();
+    public Vector2Int mapOffset = new Vector2Int();
 }
 
 public class CardManageComp : IComponent
@@ -105,7 +107,7 @@ public class StatisticComp : IComponent
     public int bookNumUsedTotally = 0;
     public int expandCntTotally = 0;
     public int badIdeaNumTotally = 0;
-    public int groundBonusCntTotally = 0;
+    public int mapBonusCntTotally = 0;
     public int achiNumTotally = 0;
     public int permanentProjectCard = 0;
 
@@ -141,20 +143,24 @@ public class ShopBook
 {
     public Book book;
     public int price;
-    public ShopBook(Book book, int price)
+    public int oriPrice;
+    public ShopBook(Book book, int price, int oriPrice)
     {
         this.book = book;
         this.price = price;
+        this.oriPrice = oriPrice;
     }
 }
 public class ShopCard
 {
     public Card card;
     public int price;
-    public ShopCard(Card card, int price)
+    public int oriPrice;
+    public ShopCard(Card card, int price,int oriPrice)
     {
         this.card = card;
         this.price = price;
+        this.oriPrice = oriPrice;
     }
 }
 
@@ -183,9 +189,10 @@ public class WorkPos
 
     public string GetCont()
     {
-        string s = cfg.cont;
-        s = s.Replace("$1", cfg.val1[level - 1].ToString());
-        s = s.Replace("$2", cfg.val2[level - 1].ToString());
+        string s = Cfg.workPoses[uid].GetCont();
+        s = s.Replace("$1", cfg.GetDesc1Str(level));
+        s = s.Replace("$2", cfg.GetDesc2Str(level));
+        s += "（当前等级：" + level.ToString() + ")";
         return s;
     }
 }
@@ -261,6 +268,14 @@ public class Venue
     public int cnt = 0;
     public int timePopR = 1;
     public int extraPopRPerm = 0;
+    public Venue(string uid, List<Vector2Int> location, bool genWorldID = true)
+    {
+        this.uid = uid;
+        cfg = Cfg.venues[uid];
+        this.location = location;
+        if (genWorldID) wid = EcsUtil.GeneNextWorldID();
+    }
+    public Venue() { }
 }
 
 public class ZooEvent
@@ -269,6 +284,14 @@ public class ZooEvent
     public EventCfg cfg;
     public List<ZooEventChoice> zooEventChoices = new List<ZooEventChoice>();
     public string url;
+    public ZooEvent(string uid) { 
+        this.uid = uid;
+        cfg = Cfg.events[uid];
+        List<string> choices = cfg.GetChoices();
+        List<string> choiceUids = cfg.GetChoiceUids();
+        for (int i = 0; i < choices.Count; i++)
+            zooEventChoices.Add(new ZooEventChoice(choices[i], choiceUids[i]));
+    }
 }
 
 public class ZooEventChoice
@@ -298,10 +321,10 @@ public class Book
 
 public class Worker
 {
-    public int id;//-1 normal -2 temp >0 spec
+    public string uid;//-1 normal -2 temp >0 spec
     public int age = 0;
-    public Worker(int id)
+    public Worker(string uid)
     {
-        this.id = id;
+        this.uid = uid;
     }
 }

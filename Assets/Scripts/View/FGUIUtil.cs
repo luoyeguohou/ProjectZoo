@@ -5,6 +5,7 @@ using UnityEngine;
 using Main;
 using System;
 using System.Threading.Tasks;
+using UnityEngine.UIElements;
 
 public class FGUIUtil
 {
@@ -35,6 +36,7 @@ public class FGUIUtil
         try
         {
             UI_HintMessage win = (UI_HintMessage)UIPackage.CreateObject("Main", "HintMessage").asCom;
+            win.touchable = false;
             GRoot.inst.AddChild(win);
             win.Center();
             win.Init(msg);
@@ -107,7 +109,7 @@ public class FGUIUtil
     public static Task<List<Vector2Int>> SelectVenuePlace (Card c)
     {
         var tcs = new TaskCompletionSource<List<Vector2Int>>();
-        UI_DealVenueWin ui = FGUIUtil.CreateWindow<UI_DealVenueWin>("DealVenueWin");
+        UI_DealVenueWin ui = CreateWindow<UI_DealVenueWin>("DealVenueWin");
         ui.Init(c,(List<Vector2Int> poses) =>
         {
             tcs.SetResult(poses);
@@ -143,5 +145,16 @@ public class FGUIUtil
             ui.Init(zg);
             action(ui,zg);
         };
+    }
+
+    public static Task<bool> DealEvent(ZooEvent curEvent)
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        UI_EventPanelWin ui = FGUIUtil.CreateWindow<UI_EventPanelWin>("EventPanelWin");
+        ui.Init(curEvent, () =>
+        {
+            tcs.SetResult(true);
+        });
+        return tcs.Task;
     }
 }

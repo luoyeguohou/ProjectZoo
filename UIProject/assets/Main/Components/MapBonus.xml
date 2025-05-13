@@ -7,7 +7,7 @@
       <gearColor controller="rewardType" pages="2" values="#999999" default="#ffffff"/>
       <gearIcon controller="rewardType" pages="4,2,1,5,3" values="ui://zqdehm1vrd08j|ui://zqdehm1vz1411i|ui://zqdehm1vjrzxe5|ui://zqdehm1vrd08q|ui://zqdehm1vrd08u" default="ui://zqdehm1vrd08r"/>
     </loader>
-    <text id="n61_rd08" name="txtNumber" xy="30,7" size="17,19" fontSize="12" text="15"/>
+    <text id="n61_rd08" name="txtNumber" xy="30,7" size="17,19" fontSize="12" ubb="true" text="15"/>
     <text id="n62_jrzx" name="n62" xy="12,7" size="16,19" fontSize="12" text="？">
       <gearDisplay controller="rewardType" pages="5"/>
     </text>

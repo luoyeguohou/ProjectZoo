@@ -52,6 +52,7 @@ public class World
         e.AddSystem(new VenueSys());
         e.AddSystem(new ConsoleSys());
         e.AddSystem(new StartSeasonSys());
-
+        e.AddSystem(new StatisticSys());
+        e.AddSystem(new BuffResolveSys());
     }
 }

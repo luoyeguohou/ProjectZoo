@@ -8,7 +8,7 @@ namespace Main
     public partial class UI_SeasonInfoWin : FairyWindow
     {
         public GGraph m_bg;
-        public GList m_lstInfo;
+        public UI_SeasonInfoCont m_cont;
         public const string URL = "ui://zqdehm1vz1411t";
 
         public static UI_SeasonInfoWin CreateInstance()
@@ -21,7 +21,7 @@ namespace Main
             base.ConstructFromXML(xml);
 
             m_bg = (GGraph)GetChildAt(0);
-            m_lstInfo = (GList)GetChildAt(10);
+            m_cont = (UI_SeasonInfoCont)GetChildAt(1);
         }
     }
 }

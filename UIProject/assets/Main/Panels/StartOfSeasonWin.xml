@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" opaque="false">
   <displayList>
-    <component id="n62_g9th" name="cont" src="rr6ne3" fileName="Conts/StartOfSeasonCont.xml" xy="495,14" size="993,1055"/>
+    <component id="n62_g9th" name="cont" src="rr6ne3" fileName="Conts/StartOfSeasonCont.xml" xy="495,14" size="993,1055">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
     <component id="n81_d2b2" name="btnHide" src="rd0816" fileName="Components/ButtonNormal.xml" xy="370,39">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="Hide"/>
     </component>
   </displayList>

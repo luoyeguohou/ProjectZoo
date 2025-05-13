@@ -2,7 +2,7 @@
 <component size="1494,930">
   <displayList>
     <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1497,930"/>
-    <list id="n79_z141" name="lstVenue" xy="96,136" size="1878,578" scale="0.7,0.7" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center">
+    <list id="n79_z141" name="lstVenue" xy="97,261" size="1878,578" scale="0.7,0.7" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center">
       <item/>
       <item/>
       <item/>
@@ -36,9 +36,9 @@
       <item/>
     </list>
     <text id="n80_z141" name="n80" xy="92,34" size="558,98" fontSize="64" vAlign="middle" autoSize="none" text="指定观光路线"/>
-    <component id="n81_z141" name="btnSettle" src="rd0816" fileName="Components/ButtonNormal.xml" xy="673,732">
+    <component id="n81_z141" name="btnSettle" src="rd0816" fileName="Components/ButtonNormal.xml" xy="648,743">
       <Button title="结算"/>
     </component>
-    <text id="n82_z141" name="txtPopRating" xy="523,640" size="496,69" fontSize="44" vars="true" autoSize="none" text="人气值：{hot=100}/{aim=500}"/>
+    <text id="n82_z141" name="txtPopRating" xy="143,154" size="901,69" fontSize="44" vars="true" autoSize="none" text="目标人气值：{aim=500}   当前值：{hot=100}"/>
   </displayList>
 </component>

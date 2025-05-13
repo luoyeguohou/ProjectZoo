@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
   <displayList>
-    <graph id="n92_qev6" name="bg" xy="-1,-1" size="1920,1080" alpha="0.05" type="rect"/>
-    <loader id="n88_qev6" name="n88" xy="384,136" size="1169,784" url="ui://zqdehm1vrd08i" fill="scaleNoBorder"/>
+    <graph id="n92_qev6" name="bg" xy="-1,-1" size="1920,1080" alpha="0.05" type="rect">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <loader id="n88_qev6" name="n88" xy="384,136" size="1169,784" url="ui://zqdehm1vrd08i" fill="scaleNoBorder">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
     <list id="n91_qev6" name="lstLog" xy="435,175" size="1076,617" overflow="scroll" scrollBar="visible" scrollBarRes="ui://zqdehm1vqev639," lineGap="8" defaultItem="ui://zqdehm1vqev635">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <item/>
       <item/>
       <item/>
@@ -23,9 +28,14 @@
       <item/>
       <item/>
     </list>
-    <image id="n94_d2b2" name="n94" src="rd08k" fileName="Images/mapBonus.png" xy="414,798" size="1112,99"/>
-    <text id="n93_d2b2" name="txtInput" xy="434,813" size="1063,72" fontSize="37" vAlign="middle" autoSize="none" text="" input="true" prompt="input commend here..........."/>
+    <image id="n94_d2b2" name="n94" src="rd08k" fileName="Images/mapBonus.png" xy="414,798" size="1112,99">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <text id="n93_d2b2" name="txtInput" xy="434,813" size="1063,72" fontSize="37" vAlign="middle" autoSize="none" text="" input="true" prompt="input commend here...........">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
     <component id="n95_d2b2" name="btnEnter" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1303,813">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="Enter"/>
     </component>
   </displayList>

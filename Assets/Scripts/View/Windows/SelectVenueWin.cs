@@ -23,6 +23,9 @@ namespace Main
             m_cont.m_lstMap.numItems = msComp.width* msComp.height;
             this.handler = handler;
             chosenOne = null;
+            ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+            m_cont.m_lstMap.scrollPane.posX = zgComp.mapOffset.x;
+            m_cont.m_lstMap.scrollPane.posY = zgComp.mapOffset.y;
         }
 
         private void ZooBlockIniter(UI_MapPoint ui, ZooGround zg)

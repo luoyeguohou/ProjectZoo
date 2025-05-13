@@ -1,11 +1,9 @@
 
-using Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Timeline;
+
 public class EcsUtil
 {
     public static Vector2Int PolarToCartesian(Vector2Int polar)
@@ -61,7 +59,7 @@ public class EcsUtil
                 Util.Shuffle(cmComp.drawPile, new System.Random());
             }
 
-            if (EcsUtil.GetBuffNum(57) > 0)
+            if (GetBuffNum(57) > 0)
             {
                 bool hasMonkey = false;
                 foreach (Card c in cmComp.drawPile)
@@ -69,7 +67,7 @@ public class EcsUtil
                     if (c.cfg.module == 0)
                     {
                         hasMonkey = true;
-                        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57,-1});
+                        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57, -1 });
                         cmComp.drawPile.Remove(c);
                         ret.Add(c);
                         break;
@@ -95,14 +93,14 @@ public class EcsUtil
         return null;
     }
 
-    public static bool RandomlyDoSth(int prop, Action handler, bool isGood = true)
+    public static bool RandomlyDoSth(int prop, Action handler = null, bool isGood = true)
     {
-        prop = prop + (isGood ? EcsUtil.GetBuffNum(7) : -EcsUtil.GetBuffNum(8));
+        prop = prop + (isGood ? GetBuffNum(7) : -GetBuffNum(8));
         ConsoleComp cComp = World.e.sharedConfig.GetComp<ConsoleComp>();
         int randomNum = cComp.luckPoint >= 0 ? cComp.luckPoint : new System.Random().Next(100);
         if (randomNum <= prop)
         {
-            handler();
+            handler?.Invoke();
             return true;
         }
         return false;
@@ -186,22 +184,26 @@ public class EcsUtil
         return Util.Any(matchList[landType], lst => TwoListPartMatch(lst, posDelta));
     }
 
-    public static bool HasValidGround(int landType)
+    public static bool HasValidGround(Card c)
     {
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         List<ZooGround> canBuild = new();
-        foreach (ZooGround zg in zgComp.grounds)
-            if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt && zg.isTouchedLand) canBuild.Add(zg);
+        foreach (ZooGround zg in zgComp.grounds) { 
+            if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt && zg.isTouchedLand) 
+                canBuild.Add(zg);
+            if(c.uid == "kemoduojx" && zg.hasBuilt &&zg.venue.uid == "kemoduojx")
+                canBuild.Add(zg);
+        }
 
-        Logger.AddOpe(OpeType.StartCheckHasValidGround, new object[] { canBuild, landType });
+        Logger.AddOpe(OpeType.StartCheckHasValidGround, new object[] { canBuild, c.cfg.landType });
         foreach (ZooGround zg in canBuild)
         {
             List<Vector2Int> relativeCoor = new();
             foreach (ZooGround zg1 in canBuild)
                 relativeCoor.Add(new(zg1.pos.x - zg.pos.x, zg1.pos.y - zg.pos.y));
 
-            Logger.AddOpe(OpeType.CheckHasValidGround, new object[] { zg.pos, relativeCoor, landType });
-            if (Util.Any(matchList[landType], lst => TwoListPartMatch(relativeCoor, lst)))
+            Logger.AddOpe(OpeType.CheckHasValidGround, new object[] { zg.pos, relativeCoor, c.cfg.landType });
+            if (Util.Any(matchList[c.cfg.landType], lst => TwoListPartMatch(relativeCoor, lst)))
                 return true;
         };
         return false;
@@ -233,7 +235,7 @@ public class EcsUtil
         foreach (Venue b in vComp.venues)
         {
             moduleNum[b.cfg.aniModule]++;
-            switch (b.cfg.aniType)
+            switch (b.cfg.GetAniType())
             {
                 case "tiger":
                     hubaoxiongshi = Util.SetBit(hubaoxiongshi, 0);
@@ -248,7 +250,7 @@ public class EcsUtil
                     hubaoxiongshi = Util.SetBit(hubaoxiongshi, 3);
                     break;
             }
-            if (b.cfg.landType >= 4) largeVenue++;
+            if (b.cfg.landType >= 3) largeVenue++;
             if (b.cfg.landType <= 1) smallVenue++;
             if (b.cfg.isX == 1) xVenue++;
             if (IsAdjacentWater(b)) nearLakeVenue++;
@@ -294,27 +296,28 @@ public class EcsUtil
 
     public static int GetDistance(Vector2Int a, Vector2Int b)
     {
-        if(a.x == b.x) return Mathf.Abs(a.y - b.y);
-        if(a.y == b.y) return Mathf.Abs(a.x - b.x);
+        if (a.x == b.x) return Mathf.Abs(a.y - b.y);
+        if (a.y == b.y) return Mathf.Abs(a.x - b.x);
         Vector2Int biggerXOne;
         Vector2Int smallerXOne;
         if (a.x > b.x)
         {
             biggerXOne = a; smallerXOne = b;
         }
-        else { 
+        else
+        {
             biggerXOne = b; smallerXOne = a;
         }
         float prop = (biggerXOne.x - smallerXOne.x) / (biggerXOne.y - smallerXOne.y);
-        if (prop<= -1)
+        if (prop <= -1)
         {
             return biggerXOne.x - smallerXOne.x;
         }
         else if (prop > 0)
         {
-            return biggerXOne.x - smallerXOne.x + Mathf.Abs(biggerXOne.y - smallerXOne.y) ;
+            return biggerXOne.x - smallerXOne.x + Mathf.Abs(biggerXOne.y - smallerXOne.y);
         }
-        else if(prop > -1 && prop <= 0)
+        else if (prop > -1 && prop <= 0)
         {
             return Mathf.Abs(biggerXOne.y - smallerXOne.y);
         }
@@ -329,7 +332,8 @@ public class EcsUtil
 
 
         foreach (Vector2Int posA in a.location)
-            foreach (Vector2Int posB in b.location) {
+            foreach (Vector2Int posB in b.location)
+            {
                 if (GetDistance(posA, posB) <= 1) return true;
             }
         return false;
@@ -426,4 +430,184 @@ public class EcsUtil
         if (!bComp.buffs.ContainsKey(buff)) return 0;
         return bComp.buffs[buff];
     }
+
+    public static int GetCardGoldCost(Card c)
+    {
+        int goldCost = c.cfg.goldCost;
+        goldCost = Mathf.Max(0, (goldCost - GetBuffNum(33)) * (100 + GetBuffNum(34)) / 100);
+        if (GetBuffNum(31) > 0 && c.cfg.cardType == 0 && Cfg.venues[c.uid].isX == 1)
+        {
+            goldCost = Mathf.Max(0, goldCost * (100 - GetBuffNum(31)) / 100);
+        }
+        return goldCost;
+    }
+    public static int GetCardTimeCost(Card c)
+    {
+        int timeCost = c.cfg.timeCost;
+        timeCost = Mathf.Max(0, timeCost - GetBuffNum(32));
+        return timeCost;
+    }
+
+
+    public static int GetWorkPosNeed(WorkPos wp)
+    {
+        return GetBuffNum(41) > 0 ? 1 : Mathf.Max(1, wp.needNum - GetBuffNum(40));
+    }
+
+    public static int GetBookVal1(string uid)
+    {
+        return Cfg.books[uid].val1 * (1 + GetBuffNum(56));
+    }
+    public static int GetBookVal2(string uid)
+    {
+        return Cfg.books[uid].val2 * (1 + GetBuffNum(56));
+    }
+
+    public static string GetBookCont(string uid)
+    {
+        string s = Cfg.books[uid].GetCont();
+        s = s.Replace("$1", GetBookVal1(uid).ToString());
+        s = s.Replace("$2", GetBookVal2(uid).ToString());
+        return s;
+    }
+
+    public static int GetSpecWorkerVal(string uid)
+    {
+        SpecWorkerCfg cfg = Cfg.specWorkers[uid];
+        return cfg.val * (GetBuffNum(58) + 1);
+    }
+
+    public static string GetSpecWorkerCont(Worker w)
+    {
+        if (w.uid == "normalWorker") return "";
+        if (w.uid == "tempWorker") return "";
+        string cont = Cfg.specWorkers[w.uid].GetCont();
+        return cont.Replace("$1", Cfg.specWorkers[w.uid].val.ToString());
+    }
+
+    public static int GetShopPrice()
+    {
+        return 0;
+    }
+
+    public static InterestInfo GetInterestInfo()
+    {
+        InterestInfo info = new();
+        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        info.interestPart = Mathf.Min(gComp.gold, gComp.interestPart * (100 + GetBuffNum(24)) / 100);
+        info.interestRate = gComp.interestRate * (100 + GetBuffNum(25)) / 100;
+        int interest = info.interestPart * info.interestRate / 100;
+        if (GetBuffNum(26) > 0)
+        {
+            info.interest = interest * (100 - GetBuffNum(26)) / 100;
+            info.popRGet = interest * GetBuffNum(26) / 100;
+        }
+        else
+        {
+            info.interest = interest;
+            info.popRGet = 0;
+        }
+        info.currGold = gComp.gold;
+        return info;
+    }
+
+    public static bool TryToMinusBuff(int buff)
+    {
+        if (GetBuffNum(buff) <= 0) return false;
+        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { buff, -1 });
+        return true;
+    }
+
+    public static void MinusAllBuff(int buff)
+    {
+        if (GetBuffNum(buff) <= 0) return;
+        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { buff, -GetBuffNum(buff) });
+    }
+
+    public static int GetMapBonusVal(MapBonus mb)
+    {
+        return mb.val * (1 + GetBuffNum(49));
+    }
+
+
+    public static string GetValStr(int val,int oriVal) {
+       string colorStr = val == oriVal ? ("#000000") : val < oriVal ? "#009C00" : "#CC0000";
+       return "[color=" + colorStr + "]" + val + "[/color]";
+    }
+
+    public static int GetStatisticNum(string uid) {
+        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
+        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+        int statisticNum = 0;
+        switch (uid)
+        {
+            case "mi_monkey":
+                statisticNum = GetAdjacentMonkeyVenueNum();
+                break;
+            case "rong_monkey":
+                statisticNum = vComp.venues.Count;
+                break;
+            case "spider_monkey":
+                statisticNum = gComp.gold/2;
+                break;
+            case "shayu":
+                statisticNum = sComp.workerUsedThisTurn;
+                break;
+            case "shirenyu":
+                statisticNum = sComp.badIdeaNumTotally;
+                break;
+            case "yanshiyu":
+                statisticNum = Util.Count(vComp.venues, b => IsAdjacentRock(b));
+                break;
+            case "shenhaiyu":
+                statisticNum = Util.Count(vComp.venues, b => IsAdjacentWater(b));
+                break;
+            case "jinli":
+                statisticNum = Util.Count(vComp.venues, b => b.cfg.aniModule == 3);
+                break;
+            case "lianyu":
+                statisticNum = sComp.bookNumUsedTotally;
+                break;
+            case "qunjuyu":
+                statisticNum = Util.Count(vComp.venues, b => b.cfg.landType < 2);
+                break;
+            case "denglongyu":
+                statisticNum = sComp.mapBonusCntTotally;
+                break;
+            case "jinyu":
+                statisticNum = sComp.achiNumTotally;
+                break;
+            case "yagualabihu":
+                statisticNum = Util.Count(zgComp.grounds, g => g.isTouchedLand && !g.hasBuilt && g.state == GroundStatus.CanBuild);
+                break;
+        }
+        return statisticNum;
+    }
+
+    public static string GetCardCont(string uid) {
+        CardCfg cfg = Cfg.cards[uid];
+        string cont = cfg.GetCont();
+        cont = cont.Replace("$1", cfg.val1.ToString());
+        cont = cont.Replace("$2", cfg.val2.ToString());
+        cont = cont.Replace("$3", cfg.val3.ToString());
+        if (cont.Contains("$w1"))
+            cont = cont.Replace("$w1", Cfg.workPoses[cfg.uid].GetDesc1Str());
+        if (cont.Contains("$w2"))
+            cont = cont.Replace("$w2", Cfg.workPoses[cfg.uid].GetDesc2Str());
+        if (cont.Contains("$wr1"))
+            cont = cont.Replace("$wr1", GetSpecWorkerVal(cfg.uid).ToString());
+        cont = cont.Replace("$d",GetStatisticNum(cfg.uid).ToString());
+        return cont;
+    }
+}
+
+public class InterestInfo 
+{
+    public int interestPart;
+    public int interest;
+    public int interestRate;
+    public int popRGet;
+    public int currGold;
 }

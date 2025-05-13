@@ -7,12 +7,29 @@
 	<!-- encode pretty for read -->
 	<EnablePretty>1</EnablePretty>
 	<tables>
-		<!-- monsterGen.xlsx -->
+		<!-- chinese.xlsx -->
 		<table name="chineseCard">*</table>
 		<table name="chineseBook">*</table>
 		<table name="chineseVenue">*</table>
 		<table name="chineseEvent">*</table>
 		<table name="chineseWorkPos">*</table>
+		<table name="chineseSpecWorker">*</table>
 		<table name="chineseBuff">*</table>
+		<!-- data.xlsx -->
+		<table name="dataCard">*</table>
+		<table name="dataBook">*</table>
+		<table name="dataVenue">*</table>
+		<table name="dataWorkPos">*</table>
+		<table name="dataSpecWorker">*</table>
+		<table name="dataEvent">*</table>
+		<table name="dataBuff">*</table>
+		<!-- english.xlsx -->
+		<table name="englishCard">*</table>
+		<table name="englishBook">*</table>
+		<table name="englishVenue">*</table>
+		<table name="englishEvent">*</table>
+		<table name="englishWorkPos">*</table>
+		<table name="englishBuff">*</table>
+		<table name="englishSpecWorker">*</table>
 	</tables>
 </config>

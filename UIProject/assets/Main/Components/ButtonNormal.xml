@@ -5,7 +5,7 @@
     <image id="n0_rd08" name="n0" src="rd0810" fileName="Images/button.png" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n1_rd08" name="title" xy="11,5" size="176,68" fontSize="37" align="center" vAlign="middle" autoSize="shrink" text="button">
+    <text id="n1_rd08" name="title" xy="11,5" size="176,68" fontSize="37" align="center" vAlign="middle" ubb="true" autoSize="shrink" text="button">
       <relation target="" sidePair="width-width,height-height"/>
     </text>
   </displayList>

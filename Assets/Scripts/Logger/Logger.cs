@@ -45,7 +45,7 @@ public class Logger
             case OpeType.BuffChanged:
                 BuffCfg cfg = Cfg.buffCfgs[(int)param[0]];
                 BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
-                AddMsg("change buff " + cfg.cont + " from "+ (bComp.buffs[(int)param[0]] - (int)param[1]) + " to " + bComp.buffs[(int)param[0]]);
+                AddMsg("change buff " + cfg.GetCont() + " from "+ (bComp.buffs[(int)param[0]] - (int)param[1]) + " to " + bComp.buffs[(int)param[0]]);
                 break;
             case OpeType.ExpandChoose:
                 AddMsg("choosing expand ground");

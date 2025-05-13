@@ -47,21 +47,19 @@ public class ActionShopSys : ISystem
 
     private ShopBook GeneABook()
     {
-        
         string book = EcsUtil.GetRandomBook();
         Random r = new Random();
         int basePrice = r.Next(10) + 5;
         int price = (basePrice - (EcsUtil.GetBuffNum(10) == 1 ? r.Next(5) : 0)) * (100 - EcsUtil.GetBuffNum(9)) / 100;
-        return new ShopBook(new Book(book, price), price);
+        return new ShopBook(new Book(book, price), price,basePrice);
     }
 
     private ShopCard GeneACard()
     {
         Card c = EcsUtil.GetCardsFromDrawPile(1)[0];
-        
         int basePrice = GetCardPrice(c.cfg.rare);
         int price = (basePrice + EcsUtil.GetBuffNum(11)) * (100 - EcsUtil.GetBuffNum(9)) / 100;
-        return new ShopCard(c, price);
+        return new ShopCard(c, price, basePrice);
     }
 
     private int GetCardPrice(int rare)

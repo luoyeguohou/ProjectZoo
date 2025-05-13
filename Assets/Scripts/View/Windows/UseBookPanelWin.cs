@@ -20,7 +20,7 @@ namespace Main
         {
             bookIndex = index;
             BookComp bComp = World.e.sharedConfig.GetComp<BookComp>();
-            m_book.m_txtCont.text = bComp.books[index].cfg.cont;
+            m_book.m_txtCont.text = bComp.books[index].cfg.GetCont();
         }
 
         private void OnClickSell()

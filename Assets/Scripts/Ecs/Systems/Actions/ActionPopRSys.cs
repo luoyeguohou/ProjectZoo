@@ -39,9 +39,7 @@ public class ActionPopRSys : ISystem
         {
             int gainNum = (int)p[0];
             Venue b = (Venue)p[1];
-            StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
             PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
-            
 
             gainNum = gainNum * b.timePopR + b.extraPopRPerm;
             if (EcsUtil.GetBuffNum(19) > 0 && b.cfg.isX == 1)
@@ -51,17 +49,17 @@ public class ActionPopRSys : ISystem
             if (EcsUtil.GetBuffNum(21) > 0 && b.cfg.landType >= 4)
                 gainNum += EcsUtil.GetBuffNum(21);
             if (EcsUtil.GetBuffNum(23) > 0 && b.cfg.aniModule == 0)
-                gainNum = gainNum*(100+EcsUtil.GetBuffNum(23))/100;
+                gainNum = gainNum * (100 + EcsUtil.GetBuffNum(23)) / 100;
             gainNum = gainNum * (100 + EcsUtil.GetBuffNum(18) + EcsUtil.GetBuffNum(66)) / 100 + EcsUtil.GetBuffNum(17);
 
-            Debug.Log("buff 20 value: "+EcsUtil.GetBuffNum(20));
-            if (EcsUtil.GetBuffNum(20) > 0)
+            if (EcsUtil.TryToMinusBuff(20))
                 Msg.Dispatch(MsgID.ActionGainGold, new object[] { gainNum });
             else
+            {
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { gainNum });
-
-            sComp.popRThisVenue += gainNum;
-            Msg.Dispatch(MsgID.AfterPopRatingChanged);
+                Msg.Dispatch(MsgID.AfterPopRatingChanged);
+                Msg.Dispatch(MsgID.AfterGainPopRByVenue, new object[] { gainNum });
+            }
             await Task.CompletedTask;
         });
     }

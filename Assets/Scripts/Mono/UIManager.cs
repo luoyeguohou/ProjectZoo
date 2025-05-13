@@ -26,6 +26,7 @@ public class UIManager
         }
 
         explainPanel = (UI_ExplainPanel)UIPackage.CreateObject("Main", "ExplainPanel").asCom;
+        explainPanel.touchable = false;
         GRoot.inst.AddChild(explainPanel);
         return explainPanel;
     }

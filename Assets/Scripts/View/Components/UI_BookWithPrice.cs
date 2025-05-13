@@ -18,7 +18,7 @@ namespace Main
         {
             this.i = i;
             m_book.Init(i.book);
-            m_btnBuy.title = i.price.ToString();
+            m_btnBuy.title = EcsUtil.GetValStr(i.price, i.oriPrice);
         }
 
         private void OnClickBuy()

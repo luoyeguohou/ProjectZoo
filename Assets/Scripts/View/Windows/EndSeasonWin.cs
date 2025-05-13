@@ -56,7 +56,7 @@ namespace Main
                 Venue v = vComp.venues[GetVenueIdx(i)];
                 ui.m_venue.Init(v);
                 ui.m_venue.SetFaded(idxDragTo == i && idxCurrDragVenue!= -1);
-                FGUIUtil.SetHint(ui, v.cfg.cont);
+                FGUIUtil.SetHint(ui, ()=>EcsUtil.GetCardCont(v.uid));
             }
         }
         private void UpdatePopRView(object[] p = null)
@@ -83,7 +83,7 @@ namespace Main
             Venue v = vComp.venues[GetVenueIdx(index)];
             UI_VenueWithAni ui = (UI_VenueWithAni)g;
             ui.m_venue.Init(v);
-            FGUIUtil.SetHint(ui, v.cfg.cont);
+            FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid));
             ui.draggable = true;
             ui.onDragStart.Add((EventContext context) =>
             {

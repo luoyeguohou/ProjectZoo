@@ -4,6 +4,8 @@ using Main;
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Threading;
 
 public class ActionCardSys : ISystem
 {
@@ -22,6 +24,7 @@ public class ActionCardSys : ISystem
         Msg.Bind(MsgID.ActionGainSpecificCard, GainSpecificCard);
         Msg.Bind(MsgID.ActionCopyCardFromVegue, CopyCardFromVegue);
         Msg.Bind(MsgID.ActionTryToPlayHand, TryToPlayHand);
+        Msg.Bind(MsgID.ActionTryToPlayHandsFreely, TryToPlayHandsFreely);
         Msg.Bind(MsgID.ActionAddHandLimit, AddHandLimit);
         Msg.Bind(MsgID.ActionGainSpecTypeCard, GainSpecTypeCard);
         Msg.Bind(MsgID.ActionDeleteBadIdeaCard, DeleteBadIdea);
@@ -51,6 +54,7 @@ public class ActionCardSys : ISystem
         Msg.UnBind(MsgID.ActionGainSpecificCard, GainSpecificCard);
         Msg.UnBind(MsgID.ActionCopyCardFromVegue, CopyCardFromVegue);
         Msg.UnBind(MsgID.ActionTryToPlayHand, TryToPlayHand);
+        Msg.UnBind(MsgID.ActionTryToPlayHandsFreely, TryToPlayHandsFreely);
         Msg.UnBind(MsgID.ActionAddHandLimit, AddHandLimit);
         Msg.UnBind(MsgID.ActionGainSpecTypeCard, GainSpecTypeCard);
         Msg.UnBind(MsgID.ActionDeleteBadIdeaCard, DeleteBadIdea);
@@ -115,7 +119,10 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.drawPile, gainNum, false);
+            List<Card> pile = new(cmComp.drawPile);
+            if (EcsUtil.GetBuffNum(62) == 0)
+                pile.Sort((a, b) => string.Compare(a.uid, b.uid, StringComparison.OrdinalIgnoreCase));
+            List<Card> chosen = await FGUIUtil.SelectCards(pile, gainNum, false);
             Msg.Dispatch(MsgID.CardFromDrawToDiscard, new object[] { chosen });
             tcs.SetResult(true);
             await tcs.Task;
@@ -199,7 +206,6 @@ public class ActionCardSys : ISystem
 
     private void GainRandomBadIdeaCard(object[] p)
     {
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         int num = (int)p[0];
         for (int i = 1; i <= num; i++)
             if (EcsUtil.GetBuffNum(51) > 0)
@@ -210,23 +216,18 @@ public class ActionCardSys : ISystem
             {
                 string uid = Cfg.badIdeaUids[new System.Random().Next(Cfg.badIdeaUids.Count)];
                 Msg.Dispatch(MsgID.CardToHand, new object[] { new Card(uid) });
-                sComp.badIdeaNumTotally++;
             }
     }
 
     private void GainLastProjectCard(object[] p)
     {
-        StatisticComp cmComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { cmComp.lastProjectCardPlayed });
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { sComp.lastProjectCardPlayed });
     }
 
     private void GainSpecificCard(object[] p)
     {
         string uid = (string)p[0];
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        CardCfg cfg = Cfg.cards[uid];
-        if (cfg.module == -1)
-            sComp.badIdeaNumTotally++;
         Msg.Dispatch(MsgID.CardToHand, new object[] { new Card(uid) });
     }
 
@@ -294,7 +295,8 @@ public class ActionCardSys : ISystem
         Msg.Dispatch(MsgID.AfterCardChanged);
     }
 
-    private void CardToHand(object[] p) {
+    private void CardToHand(object[] p)
+    {
         List<Card> cards = new();
         if (p[0] is Card card)
             cards.Add(card);
@@ -306,8 +308,9 @@ public class ActionCardSys : ISystem
         {
             cmComp.hands.Add(c);
         }
-        Msg.Dispatch(MsgID.AfterGainCard,new object[] { cards});
+        Msg.Dispatch(MsgID.AfterGainCard, new object[] { cards });
         Msg.Dispatch(MsgID.AfterCardChanged);
+        Msg.Dispatch(MsgID.AfterGainACard, new object[] { cards });
     }
 
     private void CardFromHandToDiscard(object[] p) {
@@ -431,13 +434,12 @@ public class ActionCardSys : ISystem
             Card c = cmComp.hands[index];
 
             // calculate cost
-            int goldCost = c.cfg.goldCost;
-            int timeCost = c.cfg.timeCost;
-            goldCost = Mathf.Max(0, (goldCost - EcsUtil.GetBuffNum(33)) * (100 + EcsUtil.GetBuffNum(34)) / 100);
-            timeCost = Mathf.Max(0, timeCost - EcsUtil.GetBuffNum(32));
-            if (EcsUtil.GetBuffNum(31) > 0 && c.cfg.cardType == 0 && Cfg.venues[c.uid].isX == 1)
+            int goldCost = EcsUtil.GetCardGoldCost(c); 
+            int timeCost = EcsUtil.GetCardTimeCost(c);
+            if (!EcsUtil.HaveEnoughTimeAndGold(timeCost, goldCost))
             {
-                goldCost = Mathf.Max(0, goldCost - EcsUtil.GetBuffNum(31));
+                FGUIUtil.ShowMsg("Don't have enough time or money!!!");
+                return;
             }
 
             if (c.cfg.cardType == 1 && EcsUtil.GetBuffNum(53) > 0)
@@ -445,27 +447,52 @@ public class ActionCardSys : ISystem
                 FGUIUtil.ShowMsg("Can't play any achievement card!!!");
                 return;
             }
-            if (!EcsUtil.HaveEnoughTimeAndGold(timeCost, goldCost))
-            {
-                FGUIUtil.ShowMsg("Don't have enough time or money!!!");
-                return;
-            }
+
             if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
             {
                 FGUIUtil.ShowMsg("Don't  meet the requiremant!!!");
                 return;
             }
-            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c.cfg.landType))
+
+            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c))
             {
                 FGUIUtil.ShowMsg("Don't have enough room for this venue!!!");
                 return;
             }
+
             Msg.Dispatch(MsgID.ActionPayGold, new object[] { goldCost });
             Msg.Dispatch(MsgID.ActionPayTime, new object[] { timeCost });
             Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { cmComp.hands[index] });
             Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { cmComp.hands[index] });
             await Task.CompletedTask;
         });
+    }
+
+    private void TryToPlayHandsFreely(object[] p) {
+        List<Card> cards = (List<Card>)p[0];
+        foreach (Card c in cards)
+        {
+            if (c.cfg.cardType == 1 && EcsUtil.GetBuffNum(53) > 0)
+            {
+                FGUIUtil.ShowMsg("Can't play any achievement card!!! Stop play");
+                return;
+            }
+
+            if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
+            {
+                FGUIUtil.ShowMsg("Don't  meet the requiremant!!! Stop play");
+                return;
+            }
+
+            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c))
+            {
+                FGUIUtil.ShowMsg("Don't have enough room for this venue!!! Stop play");
+                return;
+            }
+
+            Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { c });
+            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { c });
+        }
     }
 
 }

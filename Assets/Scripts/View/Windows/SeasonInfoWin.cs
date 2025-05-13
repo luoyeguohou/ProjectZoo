@@ -10,12 +10,12 @@ namespace Main
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            m_lstInfo.itemRenderer = ItemIR;
+            m_cont.m_lstInfo.itemRenderer = ItemIR;
         }
 
         public void Init() {
             AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
-            m_lstInfo.numItems = aComp.aims.Count;
+            m_cont.m_lstInfo.numItems = aComp.aims.Count;
         }
 
         private void ItemIR(int index, GObject g)

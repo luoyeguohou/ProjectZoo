@@ -70,13 +70,12 @@ public class ActionZooLandSys : ISystem
 
     private void GainMapBonus(object[] p)
     {
+        if (EcsUtil.GetBuffNum(50) > 0) return;
+        MapBonus b = (MapBonus)p[0];
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            MapBonus b = (MapBonus)p[0];
-            
-            if (EcsUtil.GetBuffNum(50) > 0) return;
-            int val = b.val * (1 + EcsUtil.GetBuffNum(49));
+            int val = EcsUtil.GetMapBonusVal(b);
             switch (b.bonusType)
             {
                 case MapBonusType.Worker:
@@ -98,6 +97,7 @@ public class ActionZooLandSys : ISystem
                     Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { val });
                     break;
             }
+            Msg.Dispatch(MsgID.AfterGainMapBonues);
             await Task.CompletedTask;
         });
     }

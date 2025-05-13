@@ -36,9 +36,8 @@ public class ActionZooSys : ISystem
         {
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, gainNum,false);
-            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { chosen });
-            Msg.Dispatch(MsgID.ResolveCardsEffect, new object[] { chosen });
+            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, gainNum, false);
+            Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
     private void BuildBigVenueFreely(object[] p)
@@ -53,9 +52,8 @@ public class ActionZooSys : ISystem
                 if (c.cfg.cardType == 0 && c.cfg.landType >= 4)
                     cards.Add(c);
             if (cards.Count == 0) return;
-            List<Card> chosen = await FGUIUtil.SelectCards(cards, gainNum,false);
-            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { chosen });
-            Msg.Dispatch(MsgID.ResolveCardsEffect, new object[] { chosen });
+            List<Card> chosen = await FGUIUtil.SelectCards(cards, gainNum, false);
+            Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
 
@@ -71,22 +69,19 @@ public class ActionZooSys : ISystem
                 if (c.cfg.cardType == 0 && c.cfg.module == 0)
                     cards.Add(c);
             if (cards.Count == 0) return;
-            List<Card> chosen = await FGUIUtil.SelectCards(cards, gainNum,false);
-            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { chosen });
-            Msg.Dispatch(MsgID.ResolveCardsEffect, new object[] { chosen });
-            Msg.Dispatch(MsgID.AfterCardChanged);
+            List<Card> chosen = await FGUIUtil.SelectCards(cards, gainNum, false); 
+            Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
 
-    private void DoExpand(List<Vector2Int> poses) {
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+    private void DoExpand(List<Vector2Int> poses)
+    {
         foreach (Vector2Int pos in poses)
             EcsUtil.GetGroundByPos(pos).isTouchedLand = true;
-        if (EcsUtil.GetBuffNum(55) > 0)
-            Msg.Dispatch(MsgID.ActionGainTWorker, new object[] { EcsUtil.GetBuffNum(55) });
-        sComp.expandCntTotally++;
         Msg.Dispatch(MsgID.AfterMapChanged);
+        Msg.Dispatch(MsgID.AfterGainMapBonues, new object[] { poses.Count });
     }
+
     private void Expand(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
@@ -106,30 +101,23 @@ public class ActionZooSys : ISystem
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         List<ZooGround> allGrounds = new List<ZooGround>(zgComp.grounds);
         Util.Shuffle(allGrounds, new System.Random());
-        List<ZooGround> zgs = Util.Filter(allGrounds, g => !g.isTouchedLand,gainNum);
-        DoExpand(Util.Map(zgs,g=> g.pos) );
+        List<ZooGround> zgs = Util.Filter(allGrounds, g => !g.isTouchedLand, gainNum);
+        DoExpand(Util.Map(zgs, g => g.pos));
     }
 
     private void DoDemolition(Venue v)
     {
-        
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-        ZooGroundComp zgCopmp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-        int index = vComp.venues.IndexOf(v);
-        foreach (ZooGround g in zgCopmp.grounds)
-            if (g.hasBuilt && vComp.venues.IndexOf(g.venue)== index)
-                g.hasBuilt = false;
         Msg.Dispatch(MsgID.RemoveVenue, new object[] { v });
         Msg.Dispatch(MsgID.AfterMapChanged);
-        if (EcsUtil.GetBuffNum(54) > 0)
-            Msg.Dispatch(MsgID.ActionGainWorker, new object[] { EcsUtil.GetBuffNum(54) });
+        Msg.Dispatch(MsgID.AfterDemolition);
     }
+
     private void DemolitionVenueWithCost(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            
+
             if (EcsUtil.GetBuffNum(38) > 0) return;
             VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
             if (vComp.venues.Count == 0) return;
@@ -146,7 +134,7 @@ public class ActionZooSys : ISystem
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
-            
+
             if (EcsUtil.GetBuffNum(38) > 0) return;
             VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
             if (vComp.venues.Count == 0) return;

@@ -43,6 +43,7 @@ namespace Main
             UpdateView(ui, index);
             ui.m_btnAddLv.onClick.Add(() => ChangeUpgradeNum(index, 1));
             ui.m_btnMinusLv.onClick.Add(() => ChangeUpgradeNum(index,-1));
+            FGUIUtil.SetHint(ui, wp.GetCont);
         }
 
         private void ChangeUpgradeNum(int index,int changeNum) 

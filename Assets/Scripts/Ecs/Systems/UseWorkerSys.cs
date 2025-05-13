@@ -18,7 +18,6 @@ public class UseWorkerSys : ISystem
 
     private void OnUseWorker(object[] p)
     {
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         Worker worker = (Worker)p[0];
         int workPosIdx = (int)p[1];
@@ -33,23 +32,22 @@ public class UseWorkerSys : ISystem
         RemoveWorker(worker);
 
         // put on pos
-        if (EcsUtil.GetBuffNum(39) > 0 && worker.id == -2)
+        if (EcsUtil.GetBuffNum(39) > 0 && worker.uid == "tempWorker")
             wp.currNum += 1 + EcsUtil.GetBuffNum(39);
         else
             wp.currNum++;
 
         // check can take effect
-        int needWorkerNum = EcsUtil.GetBuffNum(41) > 0 ? 1 : wp.needNum - EcsUtil.GetBuffNum(40);
-        if (wp.currNum >= needWorkerNum)
+        if (wp.currNum >= EcsUtil.GetWorkPosNeed(wp))
         {
             // take effect
             wp.currNum = 0;
             wp.needNum++;
             Msg.Dispatch(MsgID.ResolveWorkPosEffect, new object[] { workPosIdx });
         }
-        sComp.workerUsedThisTurn++;
         Msg.Dispatch(MsgID.AfterWorkPosChanged);
         Msg.Dispatch(MsgID.AfterWorkerChanged);
+        Msg.Dispatch(MsgID.AfterUseWorker);
     }
 
     private bool CheckCanPut(WorkPos wp)
@@ -57,8 +55,6 @@ public class UseWorkerSys : ISystem
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-        Debug.Log(wp.cfg.limitTime);
-        Debug.Log(wp.workTimeThisTurn);
         if (wp.cfg.limitTime != 0 && wp.workTimeThisTurn >= wp.cfg.limitTime)
         {
             FGUIUtil.ShowMsg("只能用一次");
@@ -74,7 +70,7 @@ public class UseWorkerSys : ISystem
                 }
                 break;
             case "dep_7":
-                if (!EcsUtil.HaveEnoughGold(Cfg.workPoses[wp.uid].val1[wp.level] * (1 + EcsUtil.GetBuffNum(63))))
+                if (!EcsUtil.HaveEnoughGold(Cfg.workPoses[wp.uid].val1[wp.level - 1] * (1 + EcsUtil.GetBuffNum(63))))
                 {
                     FGUIUtil.ShowMsg("Don't have enough time or money!!!");
                     return false;
@@ -138,10 +134,11 @@ public class UseWorkerSys : ISystem
         return true;
     }
 
-    private void RemoveWorker(Worker worker) {
+    private void RemoveWorker(Worker worker)
+    {
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        if (worker.id == -1) wComp.normalWorkers.Remove(worker);
-        else if (worker.id == -2) wComp.tempWorkers.Remove(worker);
+        if (worker.uid == "normalWorker") wComp.normalWorkers.Remove(worker);
+        else if (worker.uid == "tempWorker") wComp.tempWorkers.Remove(worker);
         else
         {
             wComp.specialWorker.Remove(worker);
@@ -151,28 +148,28 @@ public class UseWorkerSys : ISystem
 
     private void ResolveSpecWorker(Worker worker)
     {
-        
+
         if (EcsUtil.GetBuffNum(59) > 0)
             return;
 
-        int workTime = EcsUtil.GetBuffNum(58) + 1;
-        switch (worker.id)
+        int val = EcsUtil.GetSpecWorkerVal(worker.uid);
+        switch (worker.uid)
         {
-            case 1:
-                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { 2 * workTime });
+            case "yanjiurenyuan":
+                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { val });
                 Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
-            case 2:
-                Msg.Dispatch(MsgID.ActionGainTime, new object[] { 2 * workTime });
+            case "jiansherenyuan":
+                Msg.Dispatch(MsgID.ActionGainTime, new object[] { val });
                 break;
-            case 3:
-                Msg.Dispatch(MsgID.ActionExpandRandomly, new object[] { workTime });
+            case "kuojianrenyuan":
+                Msg.Dispatch(MsgID.ActionExpandRandomly, new object[] { val });
                 break;
-            case 4:
-                Msg.Dispatch(MsgID.ActionGainTWorker, new object[] { workTime });
+            case "guyongrenyuuan":
+                Msg.Dispatch(MsgID.ActionGainTWorker, new object[] { val });
                 break;
-            case 5:
-                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { workTime });
+            case "xiangmurenyuan":
+                Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { val });
                 break;
         }
     }

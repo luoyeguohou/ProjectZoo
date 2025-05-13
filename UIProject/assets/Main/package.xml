@@ -419,6 +419,8 @@
     <component id="rr6ne3" name="StartOfSeasonCont.xml" path="/Conts/"/>
     <component id="rr6ne4" name="StartOfSeasonItem.xml" path="/Components/"/>
     <image id="jrzxe5" name="IncomeIcon.png" path="/Images/" exported="true"/>
+    <component id="ep2ze6" name="MainCont.xml" path="/Conts/"/>
+    <component id="ep2ze7" name="SeasonInfoCont.xml" path="/Conts/"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>
