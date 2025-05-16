@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1494,970">
+  <controller name="step" pages="0,routine,1,interest,2,dealVenue,3,discardHand,6,event" selected="2"/>
+  <displayList>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1497,970"/>
+    <image id="n85_nkfb" name="n85" src="rd089" fileName="Images/zooBack.png" xy="155,52" size="233,109"/>
+    <image id="n86_nkfb" name="n86" src="rd089" fileName="Images/zooBack.png" xy="395,52" size="233,109"/>
+    <image id="n87_nkfb" name="n87" src="rd089" fileName="Images/zooBack.png" xy="630,49" size="233,109"/>
+    <image id="n88_nkfb" name="n88" src="rd089" fileName="Images/zooBack.png" xy="871,47" size="233,109"/>
+    <text id="n89_nkfb" name="n89" xy="187,70" size="171,72" fontSize="31" align="center" vAlign="middle" autoSize="none" text="指定路径"/>
+    <text id="n90_nkfb" name="n90" xy="426,69" size="171,72" fontSize="31" align="center" vAlign="middle" autoSize="none" text="获得利息"/>
+    <text id="n91_nkfb" name="n91" xy="664,67" size="171,72" fontSize="31" align="center" vAlign="middle" autoSize="none" text="结算场馆"/>
+    <text id="n92_nkfb" name="n92" xy="904,65" size="171,72" fontSize="31" align="center" vAlign="middle" autoSize="none" text="丢弃手牌"/>
+    <image id="n93_nkfb" name="n93" src="rd089" fileName="Images/zooBack.png" xy="1107,46" size="233,109"/>
+    <text id="n94_nkfb" name="n94" xy="1137,63" size="171,72" fontSize="31" align="center" vAlign="middle" autoSize="none" text="神秘事件"/>
+    <image id="n95_nkfb" name="n95" src="rd08m" fileName="Images/item1.png" xy="805,39">
+      <gearXY controller="step" pages="0,1,2,3,6" values="322,39|566,39|805,39|1040,39|1275,39" tween="true" ease="Bounce.Out" duration=".6"/>
+    </image>
+    <component id="n97_nkfb" name="routine" src="nkfbed" fileName="Conts/EndSeason/RoutineCont.xml" xy="77,163">
+      <gearDisplay controller="step" pages="0"/>
+    </component>
+    <component id="n96_nkfb" name="interest" src="nkfbec" fileName="Conts/EndSeason/NewInterestCont.xml" xy="262,170" size="993,727" controller="HasPopR,1">
+      <gearDisplay controller="step" pages="1"/>
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <component id="n98_nkfb" name="dealVenue" src="nkfbej" fileName="Conts/EndSeason/DealVenueCont.xml" xy="91,210" size="1311,681">
+      <gearDisplay controller="step" pages="2"/>
+    </component>
+    <component id="n99_nkfb" name="discardCard" src="nkfbee" fileName="Conts/EndSeason/DiscardHandsCont.xml" xy="23,165" size="1435,776">
+      <gearDisplay controller="step" pages="3"/>
+    </component>
+    <component id="n102_nkfb" name="event" src="nkfbef" fileName="Conts/EndSeason/NewEventCont.xml" xy="351,189">
+      <gearDisplay controller="step" pages="6"/>
+    </component>
+  </displayList>
+</component>

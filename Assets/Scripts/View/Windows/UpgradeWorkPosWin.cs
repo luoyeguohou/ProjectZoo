@@ -50,9 +50,10 @@ namespace Main
         {
             WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             WorkPos wp = wComp.workPoses[index];
-            int deltaLv = upgradeNums[index] + changeNum;
-            if (currNum + changeNum < 0 || deltaLv < 0 ) return;
-            if (currNum >= aimNum || deltaLv + wp.level > 5) return;
+            int afterLv = upgradeNums[index] + changeNum;
+            if (afterLv < 0 || afterLv > 5) return;
+            if (currNum + changeNum < 0) return;
+            if (currNum+ changeNum > aimNum) return;
             currNum += changeNum;
             upgradeNums[index]+=changeNum;
             UpdateView((UI_WorkPos)m_cont.m_lstWorkPos.GetChildAt(index), index);

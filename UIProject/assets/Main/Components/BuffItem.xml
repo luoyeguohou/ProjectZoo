@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="57,57">
+<component size="80,80">
   <displayList>
-    <loader id="n100_dd57" name="img" xy="0,0" size="57,57" url="ui://zqdehm1vea443t" fill="scale"/>
-    <text id="n101_ea44" name="txtBuff" xy="2,19" size="54,37" fontSize="23" align="right" vAlign="middle" vars="true" autoSize="shrink" singleLine="true" text="X{num=1000}">
+    <loader id="n100_dd57" name="img" xy="0,0" size="80,80" url="ui://zqdehm1vea443t" fill="scale"/>
+    <text id="n101_ea44" name="txtBuff" xy="24,42" size="54,39" fontSize="28" align="right" vAlign="middle" vars="true" autoSize="shrink" singleLine="true" text="X{num=10}">
       <relation target="" sidePair="right-right"/>
     </text>
   </displayList>

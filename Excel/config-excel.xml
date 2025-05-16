@@ -13,6 +13,7 @@
 				<chineseWorkPos name="workPos" firstcol="uid" key="uid" />
 				<chineseSpecWorker name="specWorker" firstcol="uid" key="uid" />
 				<chineseBuff name="buff" firstcol="uid" key="uid" />
+				<chineseStaticText name="staticText" firstcol="uid" key="uid" />
 			</file>
 			<file name="excel/english.xlsx">
 				<englishCard name="card" firstcol="uid" key="uid" />
@@ -22,6 +23,7 @@
 				<englishWorkPos name="workPos" firstcol="uid" key="uid" />
 				<englishSpecWorker name="specWorker" firstcol="uid" key="uid" />
 				<englishBuff name="buff" firstcol="uid" key="uid" />
+				<englishStaticText name="staticText" firstcol="uid" key="uid" />
 			</file>
 			<file name="excel/data.xlsx">
 				<dataCard name="card" firstcol="uid" key="uid" />

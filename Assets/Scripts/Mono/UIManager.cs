@@ -9,6 +9,7 @@ public class UIManager
     public static UI_MainWin mainWin;
     public static void Init()
     {
+        UIConfig.defaultFont = "Font2";
         UIPackage.AddPackage("UI/Main");
         MainBinder.BindAll();
         mainWin = FGUIUtil.CreateWindow<UI_MainWin>("MainWin");
@@ -50,5 +51,12 @@ public class UIManager
         FairyWindow win = GetCurrWindow();
         if (win == null) return false;
         return win is UI_MainWin;
+    }
+
+    public static bool HasType<T>() where T : FairyWindow
+    {
+        foreach (FairyWindow win in windows)
+            if (win.GetType() == typeof(T)) return true;
+        return false;
     }
 }

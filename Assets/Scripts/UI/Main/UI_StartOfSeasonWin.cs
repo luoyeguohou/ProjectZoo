@@ -9,6 +9,7 @@ namespace Main
     {
         public UI_StartOfSeasonCont m_cont;
         public GButton m_btnHide;
+        public Transition m_idle;
         public const string URL = "ui://zqdehm1vrr6ne2";
 
         public static UI_StartOfSeasonWin CreateInstance()
@@ -22,6 +23,7 @@ namespace Main
 
             m_cont = (UI_StartOfSeasonCont)GetChildAt(0);
             m_btnHide = (GButton)GetChildAt(1);
+            m_idle = GetTransitionAt(0);
         }
     }
 }

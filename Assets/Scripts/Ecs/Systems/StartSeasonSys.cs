@@ -20,6 +20,7 @@ public class StartSeasonSys : ISystem
     {
         // income
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         if (gComp.income > 0)
             Msg.Dispatch(MsgID.ActionGainGold, new object[] { gComp.income });
         if (EcsUtil.GetBuffNum(1) != 0)
@@ -60,12 +61,11 @@ public class StartSeasonSys : ISystem
             }
         }
 
-        if (gComp.income == 0 && EcsUtil.GetBuffNum(30) == 0
-            && EcsUtil.GetBuffNum(1) == 0 && EcsUtil.GetBuffNum(2) == 0
-            && EcsUtil.GetBuffNum(5) == 0 && EcsUtil.GetBuffNum(6) == 0
-            && EcsUtil.GetBuffNum(3) == 0 && EcsUtil.GetBuffNum(4) == 0)
+        if (tComp.turn == 1)
+        {
+            FGUIUtil.CreateWindow<UI_NewbieWin>("NewbieWin").Init();
             return;
-
+        }
         FGUIUtil.CreateWindow<UI_StartOfSeasonWin>("StartOfSeasonWin").Init();
     }
 }

@@ -7,6 +7,7 @@ namespace Main
 {
     public partial class UI_ShopCont : GComponent
     {
+        public Controller m_hasDiscard;
         public GList m_lstBook;
         public GList m_lstCard;
         public GButton m_btnDelete;
@@ -21,6 +22,7 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
+            m_hasDiscard = GetControllerAt(0);
             m_lstBook = (GList)GetChildAt(1);
             m_lstCard = (GList)GetChildAt(2);
             m_btnDelete = (GButton)GetChildAt(4);

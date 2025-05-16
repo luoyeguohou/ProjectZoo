@@ -1,4 +1,5 @@
 using FairyGUI;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +15,7 @@ namespace Main
         private Action<List<Card>, List<Card>> onFinished;
         private int currNum;
         private bool mustChooseEnough;
+        private string selectedText;
 
         public override void ConstructFromResource()
         {
@@ -22,8 +24,9 @@ namespace Main
             m_cont.m_btnFinish.onClick.Add(OnClickFinish);
         }
 
-        public void Init(List<Card> cards, int chooseAimNum, Action<List<Card>, List<Card>> onFinished,bool mustChooseEnough = true)
+        public void Init(string title,string selectedText,List<Card> cards, int chooseAimNum, Action<List<Card>, List<Card>> onFinished,bool mustChooseEnough = true)
         {
+            this.selectedText = selectedText;
             this.mustChooseEnough = mustChooseEnough;
             this.cards = cards;
             this.chooseAimNum = chooseAimNum;
@@ -32,6 +35,7 @@ namespace Main
             cardsSelected = new List<Card>();
             currNum = 0;
             m_cont.m_lstCard.numItems = cards.Count;
+            m_cont.m_txtTitle.text = title;
             m_cont.m_txtTitle.SetVar("num", chooseAimNum.ToString()).FlushVars();
         }
 

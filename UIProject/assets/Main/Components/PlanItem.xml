@@ -3,7 +3,7 @@
   <controller name="state" pages="0,,1,cur,2,finished" selected="2"/>
   <displayList>
     <text id="n80_z141" name="txtNum" xy="2,2" size="164,50" fontSize="26" align="center" vAlign="middle" autoSize="none" text="10000"/>
-    <image id="n81_z141" name="n81" src="z1411l" fileName="Images/Plans/planCur.png" xy="33,-1" size="58,31" scale="1.8,1.8">
+    <image id="n81_z141" name="n81" src="z1411l" fileName="Images/Plans/planCur.png" xy="33,1" size="99,50">
       <gearDisplay controller="state" pages="1"/>
     </image>
     <image id="n82_z141" name="n82" src="z1411s" fileName="Images/Plans/planFInished.png" xy="48,5" size="77,47">

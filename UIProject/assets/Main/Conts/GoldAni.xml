@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <image id="n0_u37u" name="n0" src="rd08r" fileName="Images/goldIcon.png" xy="859,450" size="55,55"/>
+    <image id="n11_u37u" name="n11" src="rd08r" fileName="Images/goldIcon.png" xy="949,461" size="55,55"/>
+    <image id="n12_u37u" name="n12" src="rd08r" fileName="Images/goldIcon.png" xy="928,556" size="55,55"/>
+    <image id="n13_u37u" name="n13" src="rd08r" fileName="Images/goldIcon.png" xy="1021,504" size="55,55"/>
+    <image id="n14_u37u" name="n14" src="rd08r" fileName="Images/goldIcon.png" xy="815,506" size="55,55"/>
+  </displayList>
+  <transition name="idle">
+    <item time="0" type="Alpha" target="n0_u37u" tween="true" startValue="0" endValue="1" duration="14"/>
+    <item time="0" type="Alpha" target="n11_u37u" value="0"/>
+    <item time="0" type="Alpha" target="n12_u37u" value="0"/>
+    <item time="0" type="Alpha" target="n13_u37u" value="0"/>
+    <item time="0" type="Alpha" target="n14_u37u" value="0"/>
+    <item time="0" type="XY" target="n0_u37u" tween="true" startValue="859.5,450" endValue="859.5,600" duration="9"/>
+    <item time="2" type="Alpha" target="n11_u37u" tween="true" startValue="0" endValue="1" duration="14"/>
+    <item time="2" type="XY" target="n11_u37u" tween="true" startValue="949,461" endValue="949,611" duration="9"/>
+    <item time="5" type="Alpha" target="n12_u37u" tween="true" startValue="0" endValue="1" duration="14"/>
+    <item time="5" type="XY" target="n12_u37u" tween="true" startValue="928,556" endValue="928,706" duration="9"/>
+    <item time="8" type="Alpha" target="n13_u37u" tween="true" startValue="0" endValue="1" duration="14"/>
+    <item time="8" type="XY" target="n13_u37u" tween="true" startValue="1021,504" endValue="1021,654" duration="9"/>
+    <item time="9" type="XY" target="n0_u37u" tween="true" startValue="859.5,600" endValue="859.5,580" duration="5"/>
+    <item time="11" type="Alpha" target="n14_u37u" tween="true" startValue="0" endValue="1" duration="14"/>
+    <item time="11" type="XY" target="n11_u37u" tween="true" startValue="949,611" endValue="949,591" duration="5"/>
+    <item time="11" type="XY" target="n14_u37u" tween="true" startValue="815,506" endValue="815,656" duration="9"/>
+    <item time="14" type="XY" target="n12_u37u" tween="true" startValue="928,706" endValue="928,686" duration="5"/>
+    <item time="17" type="XY" target="n13_u37u" tween="true" startValue="1021,654" endValue="1021,634" duration="5"/>
+    <item time="20" type="XY" target="n14_u37u" tween="true" startValue="815,656" endValue="815,636" duration="5"/>
+    <item time="28" type="XY" target="n0_u37u" tween="true" startValue="859.5,580" endValue="1714.5,80" duration="13"/>
+    <item time="30" type="XY" target="n11_u37u" tween="true" startValue="949,591" endValue="1714.5,80" duration="13"/>
+    <item time="33" type="XY" target="n12_u37u" tween="true" startValue="928,686" endValue="1714.5,80" duration="13"/>
+    <item time="36" type="XY" target="n13_u37u" tween="true" startValue="1021,634" endValue="1714,80" duration="13"/>
+    <item time="40" type="XY" target="n14_u37u" tween="true" startValue="815,636" endValue="1714.5,80" duration="13"/>
+  </transition>
+</component>

@@ -36,7 +36,7 @@ public class ActionZooSys : ISystem
         {
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> chosen = await FGUIUtil.SelectCards(cmComp.hands, gainNum, false);
+            List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("playHandFreely"), Cfg.GetSTexts("selected"), cmComp.hands, gainNum, false);
             Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
@@ -52,7 +52,7 @@ public class ActionZooSys : ISystem
                 if (c.cfg.cardType == 0 && c.cfg.landType >= 4)
                     cards.Add(c);
             if (cards.Count == 0) return;
-            List<Card> chosen = await FGUIUtil.SelectCards(cards, gainNum, false);
+            List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("playBigVenueFreely"), Cfg.GetSTexts("selected"),cards, gainNum, false);
             Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
@@ -69,7 +69,7 @@ public class ActionZooSys : ISystem
                 if (c.cfg.cardType == 0 && c.cfg.module == 0)
                     cards.Add(c);
             if (cards.Count == 0) return;
-            List<Card> chosen = await FGUIUtil.SelectCards(cards, gainNum, false); 
+            List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("playMonkeyFreely"), Cfg.GetSTexts("selected"), cards, gainNum, false); 
             Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
@@ -122,7 +122,7 @@ public class ActionZooSys : ISystem
             VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
             if (vComp.venues.Count == 0) return;
             int gainNum = (int)p[0];
-            Venue zb = await FGUIUtil.SelectVenue();
+            Venue zb = await FGUIUtil.SelectVenue(Cfg.GetSTexts("chooseVenueDemolish"));
             DoDemolition(zb);
             Msg.Dispatch(MsgID.ActionGainGold, new object[] { Cfg.cards[zb.uid].goldCost * gainNum / 100 });
         });
@@ -138,7 +138,7 @@ public class ActionZooSys : ISystem
             if (EcsUtil.GetBuffNum(38) > 0) return;
             VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
             if (vComp.venues.Count == 0) return;
-            Venue zb = await FGUIUtil.SelectVenue();
+            Venue zb = await FGUIUtil.SelectVenue(Cfg.GetSTexts("chooseVenueDemolish"));
             DoDemolition(zb);
         });
     }

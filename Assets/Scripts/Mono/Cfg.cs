@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LitJson;
-using JetBrains.Annotations;
 
 public class Cfg
 {
@@ -24,6 +22,8 @@ public class Cfg
     public static List<string> bookUids = new();
     public static Dictionary<string, SpecWorkerCfg> specWorkers = new();
     public static Dictionary<int, BuffCfg> buffCfgs= new();
+    public static Dictionary<string, StaticTextCfg> staticTextCfgs= new();
+
     public static void Init()
     {
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
@@ -172,5 +172,22 @@ public class Cfg
                 buffCfgs[cfg.uid].i18NCfgs[lg] = cfg;
             }
         }
+
+        // static text 
+        foreach (string lg in supportLanguages)
+        {
+            JsonData languageData = jd[lg + "StaticText"];
+            foreach (JsonData d in languageData)
+            {
+                StaticTextI18NCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(StaticTextI18NCfg)) as StaticTextI18NCfg;
+                if (!staticTextCfgs.ContainsKey(cfg.uid)) 
+                    staticTextCfgs[cfg.uid] = new StaticTextCfg();
+                staticTextCfgs[cfg.uid].i18NCfgs[lg] = cfg;
+            }
+        }
+    }
+
+    public static string GetSTexts(string uid) {
+        return staticTextCfgs[uid].GetCont();
     }
 }

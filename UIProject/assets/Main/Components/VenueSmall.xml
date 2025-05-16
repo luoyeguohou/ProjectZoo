@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="257,267">
-  <controller name="type" exported="true" homePageType="specific" homePage="7" pages="0,one,1,two,2,three,3,four,4,five,5,five-Ⅱ,6,six,7,seven" selected="0"/>
+<component size="80,80">
+  <controller name="type" exported="true" homePageType="specific" homePage="7" pages="0,one,1,two,2,three,3,four,4,five,5,five-Ⅱ,6,six,7,seven" selected="1"/>
   <displayList>
-    <loader id="n78_z141" name="img1" xy="77,89" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n78_z141" name="img1" xy="25,24" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="0,2,4,5,6,7"/>
     </loader>
-    <loader id="n77_z141" name="img2" xy="0,46" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n77_z141" name="img2" xy="2,11" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="2,4,6,7"/>
     </loader>
-    <loader id="n81_z141" name="img3" xy="154,133" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n81_z141" name="img3" xy="48,37" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="2,4,5,6,7"/>
     </loader>
-    <loader id="n79_z141" name="img4" xy="154,46" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n79_z141" name="img4" xy="48,11" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="4,5,6,7"/>
     </loader>
-    <loader id="n80_z141" name="img5" xy="1,134" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n80_z141" name="img5" xy="2,37" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="4,5,6,7"/>
     </loader>
-    <loader id="n82_z141" name="img6" xy="77,1" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n82_z141" name="img6" xy="25,-2" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="5,6,7"/>
     </loader>
-    <loader id="n83_z141" name="img7" xy="79,177" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n83_z141" name="img7" xy="25,50" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="7"/>
     </loader>
-    <loader id="n84_z141" name="img8" xy="41,57" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n84_z141" name="img8" xy="16,17" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="1"/>
     </loader>
-    <loader id="n85_z141" name="img9" xy="116,101" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n85_z141" name="img9" xy="38,31" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="1"/>
     </loader>
-    <loader id="n86_z141" name="img10" xy="73,41" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n86_z141" name="img10" xy="25,11" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="3"/>
     </loader>
-    <loader id="n87_z141" name="img11" xy="149,85" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n87_z141" name="img11" xy="48,24" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="3"/>
     </loader>
-    <loader id="n88_z141" name="img12" xy="73,129" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n88_z141" name="img12" xy="25,37" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="3"/>
     </loader>
-    <loader id="n89_z141" name="img13" xy="-5,85" size="103,90" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
+    <loader id="n89_z141" name="img13" xy="2,24" size="30,30" url="ui://zqdehm1vg9th1b" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="type" pages="3"/>
     </loader>
   </displayList>

@@ -18,14 +18,14 @@ public class StartGameSys: ISystem
 
     private void StartGame(object[] p)
     {
-        // 决定用哪些模组
+        // decide which modules
         List<int> modules = new List<int>(Cfg.modules);
         Util.Shuffle(modules, new System.Random());
         ModuleComp mComp = World.e.sharedConfig.GetComp<ModuleComp>();
         mComp.modules.Clear();
         mComp.modules.Add(modules[0]);
         mComp.modules.Add(modules[1]);
-        // 把模组的牌放到抽牌堆
+        // put cards into draw pile
         CardManageComp cComp = World.e.sharedConfig.GetComp<CardManageComp>();
         cComp.discardPile.Clear();
         cComp.drawPile.Clear();
@@ -36,18 +36,18 @@ public class StartGameSys: ISystem
                     cComp.drawPile.Add(new Card(cCfg.uid));
         Util.Shuffle(cComp.drawPile, new System.Random());
 
-        // MapSize
+        // map size
         MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
         msComp.width = 10;
         msComp.height = 40;
 
-        // 初始化地图
+        // init map
         ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
         for (int x = 0; x < msComp.width; x++)
         {
             for (int y = 0; y < msComp.height; y++)
             {
-                // 因为是六边形地图，所以从零开始算的奇数行首个位置不会有数据
+                // On a hex map, the first cell of odd rows (zero-indexed) is empty
                 if (x == 0 && y % 2 == 1) continue;
                 ZooGround g = new ZooGround();
                 g.pos = EcsUtil.PolarToCartesian(new Vector2Int(x, y));
@@ -58,19 +58,21 @@ public class StartGameSys: ISystem
         Util.Shuffle(temp, new System.Random());
         zgComp.mapOffset = new Vector2Int(293,557);
 
-        // 谨慎修改此处逻辑，同一地块只能处于 岩石 水 有奖励 其中之一
-        // 布置岩石
+        // Be cautious when modifying this logic — a single tile can only be one of: rock, water, or reward
+        // rock
         int tmpIdx = 0;
         for (int cur = tmpIdx; tmpIdx < 10 + cur; tmpIdx++)
         {
             temp[tmpIdx].state = GroundStatus.Rock;
+            temp[tmpIdx].isTouchedLand = true;
         }
-        // 布置水源
+        // lack
         for (int cur = tmpIdx; tmpIdx < 10 + cur; tmpIdx++)
         {
             temp[tmpIdx].state = GroundStatus.Water;
+            temp[tmpIdx].isTouchedLand = true;
         }
-        // 布置地图奖励
+        // map bonus
         MapBonus[] bonus = new MapBonus[] {
             new MapBonus(MapBonusType.Worker,1),
             new MapBonus(MapBonusType.Worker,1),
@@ -89,7 +91,7 @@ public class StartGameSys: ISystem
         {
             temp[tmpIdx].bonus = bonus[tmpIdx-cur];
         }
-        // 布置初始勘探过土地
+        // touched lands
         Vector2Int[] initGround = new Vector2Int[] {
             new Vector2Int(9,5),
             new Vector2Int(9,4),
@@ -107,15 +109,15 @@ public class StartGameSys: ISystem
             EcsUtil.GetGroundByPos(groundPos.x,groundPos.y).isTouchedLand = true;
         }
 
-        // 初始化人气值
+        // init pop rating
         PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
         prComp.popRating = 0;
-        // 初始化建筑
+        // init venues
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         vComp.venues.Clear();
-        // 初始化工人
+        // init workers
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             Worker worker = new Worker("normalWorker");
             worker.age = 10;
@@ -127,11 +129,11 @@ public class StartGameSys: ISystem
         //wComp.specialWorker.Add(new Worker(3));
         //wComp.specialWorker.Add(new Worker(4));
         wComp.specialWorkerLimit = new List<Worker>(wComp.specialWorker);
-        // 初始化物品
+        // init books
         BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
         iComp.books.Clear();
         iComp.bookLimit = 3;
-        // 初始化目标
+        // init aims
         AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
         aComp.aims = new List<int> {
             1, 2, 3, 10,
@@ -141,11 +143,11 @@ public class StartGameSys: ISystem
             90, 100, 110, 140,
             150, 160, 170, 200,
         };
-        // 初始化金币
+        // init gold
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         gComp.gold = 30;
         gComp.income = 0;
-        // 初始化工位
+        // init work pos
         WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         wpComp.workPoses.Clear();
         wpComp.workPoses.Add(new WorkPos("dep_0"));
@@ -156,19 +158,19 @@ public class StartGameSys: ISystem
         wpComp.workPoses.Add(new WorkPos("dep_5"));
         wpComp.workPoses.Add(new WorkPos("dep_6"));
         wpComp.workPoses.Add(new WorkPos("dep_7"));
-        // 初始化 回合
+        // init turn
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         tComp.season = Season.Spring;
         tComp.turn = 1;
 
-        // 初始化 Shop
+        // init shop
         ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
         sComp.books.Clear();
         sComp.cards.Clear();
         sComp.DeleteCost = 5;
         sComp.DeleteCostAddon = 5;
 
-        // 初始化事件
+        // init events
         EventComp eComp = World.e.sharedConfig.GetComp<EventComp>();
         eComp.eventIDs = new List<string>(Cfg.eventList);
         Util.Shuffle(eComp.eventIDs,new System.Random());

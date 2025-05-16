@@ -8,9 +8,9 @@
       <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="Hide"/>
     </component>
-    <component id="n73_d2b2" name="btnBack" src="rd0816" fileName="Components/ButtonNormal.xml" xy="46,904">
+    <component id="n73_d2b2" name="btnBack" src="rd0816" fileName="Components/ButtonNormal.xml" xy="53,211">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <Button title="Back"/>
+      <Button title="Leave"/>
     </component>
   </displayList>
 </component>

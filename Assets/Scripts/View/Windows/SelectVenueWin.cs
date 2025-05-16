@@ -17,8 +17,9 @@ namespace Main
             m_cont.m_btnFinish.onClick.Add(OnClickFinish);
         }
 
-        public void Init(Action<Venue> handler)
+        public void Init(string title,Action<Venue> handler)
         {
+            m_cont.m_txtTitle.text = title;
             MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
             m_cont.m_lstMap.numItems = msComp.width* msComp.height;
             this.handler = handler;
@@ -38,9 +39,9 @@ namespace Main
                 if (ui.m_type.selectedIndex != 4) return;
                 if ((chosenOne != null && zg.venue != chosenOne) || chosenOne == null)
                 {
-                    // 已经选了 并且点的是个新的 撤销之前的，选新的
-                    // 或者
-                    // 还没选 点的有效  选新的
+                    // has chosen && new one => cancel it and choose a new one
+                    // or
+                    // hasn't chosen && valid => choose it
                     chosenOne = zg.venue;
                     m_cont.m_lstMap.numItems = msComp.width * msComp.height;
                 }

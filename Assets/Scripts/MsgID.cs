@@ -65,6 +65,7 @@ public enum MsgID
     ActionBuyBook,
     ActionBuyCard,
     ActionDiscardCardInShop,
+    ActionExitShop,
     // internal msg
     ResolveEventChoiceEffect,
     ResolveCardEffect,
@@ -84,6 +85,7 @@ public enum MsgID
     CardFromHandToDiscard,
     CardFromDiscardToHand,
     DeleteCardFromHand,
+    CardFromNoWhereToDiscard,
     // used to update view or trigger passive
     AfterGainCard,
     AfterMapChanged,
@@ -110,6 +112,9 @@ public enum MsgID
     AfterExpand,
     AfterDemolition,
     AfterStatisticChange,
+    AfterHandLimitChange,
+    AfterViewDetailChange,
+    AfterTurnStepChanged,
     // outside the game
     StartGame,
     // Console

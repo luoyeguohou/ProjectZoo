@@ -34,11 +34,10 @@ public class ConsoleSys : ISystem
                 case "Expand":
                     Msg.Dispatch(MsgID.ActionExpand, new object[] { int.Parse(msgs[1]) });
                     break;
-                case "Book":
+                case "AddBook":
                     Msg.Dispatch(MsgID.ActionGainBook, new object[] { msgs[1] });
                     break;
                 case "Event":
-                    Debug.Log("Event");
                     Msg.Dispatch(MsgID.ResolveEvent, new object[] { msgs[1] });
                     break;
                 case "AddTime":

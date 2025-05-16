@@ -7,7 +7,6 @@ namespace Main
 {
     public partial class UI_MainWin : FairyWindow
     {
-        public Controller m_hasTmpWorker;
         public UI_MainCont m_cont;
         public const string URL = "ui://zqdehm1vpjwc0";
 
@@ -20,7 +19,6 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_hasTmpWorker = GetControllerAt(0);
             m_cont = (UI_MainCont)GetChildAt(1);
         }
     }

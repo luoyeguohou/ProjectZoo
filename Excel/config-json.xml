@@ -15,6 +15,7 @@
 		<table name="chineseWorkPos">*</table>
 		<table name="chineseSpecWorker">*</table>
 		<table name="chineseBuff">*</table>
+		<table name="chineseStaticText">*</table>
 		<!-- data.xlsx -->
 		<table name="dataCard">*</table>
 		<table name="dataBook">*</table>
@@ -31,5 +32,6 @@
 		<table name="englishWorkPos">*</table>
 		<table name="englishBuff">*</table>
 		<table name="englishSpecWorker">*</table>
+		<table name="englishStaticText">*</table>
 	</tables>
 </config>

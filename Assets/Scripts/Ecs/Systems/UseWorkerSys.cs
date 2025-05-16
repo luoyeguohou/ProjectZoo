@@ -57,7 +57,7 @@ public class UseWorkerSys : ISystem
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         if (wp.cfg.limitTime != 0 && wp.workTimeThisTurn >= wp.cfg.limitTime)
         {
-            FGUIUtil.ShowMsg("只能用一次");
+            FGUIUtil.ShowMsg(Cfg.GetSTexts("OncePerTurn"));
             return false;
         }
         switch (wp.uid)
@@ -65,61 +65,68 @@ public class UseWorkerSys : ISystem
             case "dep_3":
                 if (!EcsUtil.HaveEnoughGold(wComp.workerPrice))
                 {
-                    FGUIUtil.ShowMsg("Don't have enough time or money!!!");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
+                    return false;
+                }
+                break;
+            case "dep_5":
+                if (!EcsUtil.HaveEnoughGold(10))
+                {
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
             case "dep_7":
                 if (!EcsUtil.HaveEnoughGold(Cfg.workPoses[wp.uid].val1[wp.level - 1] * (1 + EcsUtil.GetBuffNum(63))))
                 {
-                    FGUIUtil.ShowMsg("Don't have enough time or money!!!");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
             case "dep_6":
                 if (vComp.venues.Count == 0)
                 {
-                    FGUIUtil.ShowMsg("You don't have any venue!!!");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveVenue"));
                     return false;
                 }
                 if (EcsUtil.GetBuffNum(38) > 0)
                 {
-                    FGUIUtil.ShowMsg("You can not chaichu venue!!!");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("CantDemolish"));
                     return false;
                 }
                 break;
             case "dep_qingli":
                 if (EcsUtil.GetBuffNum(38) > 0)
                 {
-                    FGUIUtil.ShowMsg("You can not chaichu venue!!!");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("CantDemolish"));
                     return false;
                 }
                 break;
             case "dep_spring":
                 if (tComp.season != Season.Spring)
                 {
-                    FGUIUtil.ShowMsg("Only available in Spring");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("OnlyInSpring"));
                     return false;
                 }
                 break;
             case "dep_summer":
                 if (tComp.season != Season.Summer)
                 {
-                    FGUIUtil.ShowMsg("Only available in Summer");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("OnlyInSummer"));
                     return false;
                 }
                 break;
             case "dep_august":
                 if (tComp.season != Season.August)
                 {
-                    FGUIUtil.ShowMsg("Only available in August");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("OnlyInAugust"));
                     return false;
                 }
                 break;
             case "dep_winter":
                 if (tComp.season != Season.Winter)
                 {
-                    FGUIUtil.ShowMsg("Only available in Winter");
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("OnlyInWinter"));
                     return false;
                 }
                 break;

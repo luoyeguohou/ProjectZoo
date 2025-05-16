@@ -62,10 +62,8 @@ public class VenueSys : ISystem
         foreach (ZooGround g in zgComp.grounds)
             if (g.hasBuilt && removeOne == g.venue)
             {
-                // 特殊情况科摩多巨蜥
                 if (removeOne.uid == "kemoduojx")
                 {
-                    //检查有没有在同一个地点的。
                     foreach (Venue v in vComp.venues)
                     {
                         if (v != removeOne && v.location[0].x == removeOne.location[0].x && v.location[0].y == removeOne.location[0].y)

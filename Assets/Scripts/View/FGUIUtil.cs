@@ -23,7 +23,7 @@ public class FGUIUtil
         SetWorldPos(follower, GetWorldPos(aim));
     }
 
-    public static T CreateWindow<T>(string name) where T : GComponent
+    public static T CreateWindow<T>(string name) where T : FairyWindow
     {
         GComponent gcom = UIPackage.CreateObject("Main", name).asCom;
         GRoot.inst.AddChild(gcom);
@@ -61,6 +61,12 @@ public class FGUIUtil
         });
     }
 
+    public static void ClearHint(GObject g)
+    {
+        g.onRollOver.Clear();
+        g.onRollOut.Clear();
+    }
+
     public static void SetHint(GObject g, Func<string> s, Vector2Int offset = new Vector2Int())
     {
         g.onRollOver.Add((EventContext context) =>
@@ -73,33 +79,33 @@ public class FGUIUtil
         });
     }
 
-    public static Task<List<Card>> SelectCards(List<Card> cards, int num,bool mustChooseEnough = true)
+    public static Task<List<Card>> SelectCards(string title, string selectedText, List<Card> cards, int num,bool mustChooseEnough = true)
     {
         var tcs = new TaskCompletionSource<List<Card>>();
         UI_SelectCardsWin win = CreateWindow<UI_SelectCardsWin>("SelectCardsWin");
-        win.Init(cards, num, (List<Card> a, List<Card> b) =>
+        win.Init(title, selectedText, cards, num, (List<Card> a, List<Card> b) =>
         {
             tcs.SetResult(a);
         }, mustChooseEnough);
         return tcs.Task;
     }
 
-    public static Task<(List<Card> a, List<Card> b)> SelectCardsNeedTheOthers(List<Card> cards, int num)
+    public static Task<(List<Card> a, List<Card> b)> SelectCardsNeedTheOthers(string title, string selectedText, List<Card> cards, int num)
     {
         var tcs = new TaskCompletionSource<(List<Card> a, List<Card> b)>();
         UI_SelectCardsWin win = CreateWindow<UI_SelectCardsWin>("SelectCardsWin");
-        win.Init(cards, num, (List<Card> a, List<Card> b) =>
+        win.Init(title,selectedText,cards, num, (List<Card> a, List<Card> b) =>
         {
             tcs.SetResult((a, b));
         });
         return tcs.Task;
     }
 
-    public static Task<Venue> SelectVenue()
+    public static Task<Venue> SelectVenue(string title)
     {
         var tcs = new TaskCompletionSource<Venue>();
-        UI_SelectVenueWin dbWin = FGUIUtil.CreateWindow<UI_SelectVenueWin>("SelectVenueWin");
-        dbWin.Init((Venue zb) =>
+        UI_SelectVenueWin dbWin = CreateWindow<UI_SelectVenueWin>("SelectVenueWin");
+        dbWin.Init(title ,(Venue zb) =>
         {
             tcs.SetResult(zb);
         });
@@ -120,7 +126,7 @@ public class FGUIUtil
     public static Task<List<Vector2Int>> ChooseExpandGrounds(int gainNum)
     {
         var tcs = new TaskCompletionSource<List<Vector2Int>>();
-        UI_ExpandGroundWin exWin = FGUIUtil.CreateWindow<UI_ExpandGroundWin>("ExpandGroundWin");
+        UI_ExpandGroundWin exWin = CreateWindow<UI_ExpandGroundWin>("ExpandGroundWin");
         exWin.Init(gainNum, (List<Vector2Int> poses) =>
         {
             tcs.SetResult(poses);
@@ -150,9 +156,22 @@ public class FGUIUtil
     public static Task<bool> DealEvent(ZooEvent curEvent)
     {
         var tcs = new TaskCompletionSource<bool>();
-        UI_EventPanelWin ui = FGUIUtil.CreateWindow<UI_EventPanelWin>("EventPanelWin");
+        UI_EventPanelWin ui = CreateWindow<UI_EventPanelWin>("EventPanelWin");
         ui.Init(curEvent, () =>
         {
+            tcs.SetResult(true);
+        });
+        return tcs.Task;
+    }
+
+    public static Task<bool> PlayGoldAni()
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        GComponent gcom = UIPackage.CreateObject("Main", "GoldAni").asCom;
+        GRoot.inst.AddChild(gcom);
+        gcom.MakeFullScreen();
+        gcom.GetTransition("idle").Play(() => {
+            gcom.Dispose();
             tcs.SetResult(true);
         });
         return tcs.Task;

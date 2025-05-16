@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="58,31">
+  <displayList>
+    <image id="n81_z141" name="circle" src="z1411l" fileName="Images/Plans/planCur.png" xy="0,0" size="31,17" scale="1.8,1.8" fillMethod="radial360"/>
+    <image id="n82_oa6n" name="checkMark" src="z1411s" fileName="Images/Plans/planFInished.png" xy="4,0" size="50,31" fillMethod="hz"/>
+  </displayList>
+  <transition name="idle">
+    <item time="0" type="XY" target="n81_z141" value="172,0"/>
+  </transition>
+  <transition name="idle1">
+    <item time="0" type="XY" target="n81_z141" value="-501,64"/>
+  </transition>
+  <transition name="idle2">
+    <item time="0" type="Visible" target="n82_oa6n" value="false"/>
+  </transition>
+</component>

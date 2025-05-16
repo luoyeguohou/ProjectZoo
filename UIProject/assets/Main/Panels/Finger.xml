@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="140,140">
+  <controller name="step" pages="0,,1," selected="0"/>
+  <displayList>
+    <image id="n6_pxbk" name="n6" src="pxbkes" fileName="Images/finger.png" xy="140,140" size="140,140" scale="1,-1" rotation="-90"/>
+  </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="XY" target="n6_pxbk" tween="true" startValue="140,140" endValue="140,165" duration="9"/>
+    <item time="9" type="XY" target="n6_pxbk" tween="true" startValue="140,165" endValue="140,140" duration="9"/>
+  </transition>
+</component>

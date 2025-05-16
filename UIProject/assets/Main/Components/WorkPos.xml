@@ -8,7 +8,7 @@
     <image id="n54_rd08" name="n54" src="rd08j" fileName="Images/meeple.png" xy="54,90" size="22,20">
       <gearDisplay controller="hasMeeple" pages="1"/>
     </image>
-    <text id="n55_rd08" name="txtInfo" xy="66,99" size="54,24" fontSize="14" align="center" ubb="true" vars="true" autoSize="none" text="{curNum=01}/{limit=11}"/>
+    <text id="n55_rd08" name="txtInfo" xy="64,99" size="56,23" fontSize="13" align="center" ubb="true" vars="true" autoSize="none" text="{curNum=01}/{limit=1}"/>
     <loader id="n56_pz64" name="imgBg" xy="0,0" size="120,125" alpha="0.904" url="ui://zqdehm1vpz6428" align="center" fill="scale" color="#000000">
       <gearDisplay controller="upgradePage" pages="1"/>
     </loader>

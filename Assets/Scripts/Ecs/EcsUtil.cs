@@ -235,7 +235,7 @@ public class EcsUtil
         foreach (Venue b in vComp.venues)
         {
             moduleNum[b.cfg.aniModule]++;
-            switch (b.cfg.GetAniType())
+            switch (b.cfg.aniType)
             {
                 case "tiger":
                     hubaoxiongshi = Util.SetBit(hubaoxiongshi, 0);
@@ -263,7 +263,7 @@ public class EcsUtil
             case "achi_yuanhou":
                 return moduleNum[0] >= 10;
             case "achi_duty":
-                return Util.All(zgComp.grounds, g => g.isTouchedLand);
+                return Util.Count(zgComp.grounds, g => g.isTouchedLand && g.state == GroundStatus.CanBuild && !g.hasBuilt)>= 10;
             case "achi_houxuanchuan":
                 return sComp.highestPopRFromMonkeyVenue >= 50;
             case "achi_poprating":
@@ -494,9 +494,9 @@ public class EcsUtil
     {
         InterestInfo info = new();
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        info.interestPart = Mathf.Min(gComp.gold, gComp.interestPart * (100 + GetBuffNum(24)) / 100);
+        info.interestPart = gComp.interestPart * (100 + GetBuffNum(24)) / 100;
         info.interestRate = gComp.interestRate * (100 + GetBuffNum(25)) / 100;
-        int interest = info.interestPart * info.interestRate / 100;
+        int interest = Mathf.Min(gComp.gold, info.interestPart) * info.interestRate / 100;
         if (GetBuffNum(26) > 0)
         {
             info.interest = interest * (100 - GetBuffNum(26)) / 100;

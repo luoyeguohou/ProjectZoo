@@ -14,7 +14,8 @@ namespace Main
             m_cont.m_lstBook.itemRenderer = BookIR;
             m_cont.m_lstWorkPos.itemRenderer = WorkPosIR;
             FGUIUtil.InitMapList(m_cont.m_lstMap, ZooBlockIniter);
-            m_cont.m_lstMap.onTouchEnd.Add(() => { 
+            m_cont.m_lstMap.onTouchEnd.Add(() =>
+            {
                 ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
                 zgComp.mapOffset = new Vector2Int((int)m_cont.m_lstMap.scrollPane.posX, (int)m_cont.m_lstMap.scrollPane.posY);
             });
@@ -27,12 +28,17 @@ namespace Main
             m_cont.m_btnConsole.onClick.Add(OnClickConsole);
             m_cont.m_worker.draggable = true;
             m_cont.m_worker.onDragStart.Add(OnDragWorker(-1));
-            FGUIUtil.SetHint(m_cont.m_worker, "普通工人，新的回合会刷新！！！");
+            FGUIUtil.SetHint(m_cont.m_worker, Cfg.GetSTexts("normalWorker"));
             m_cont.m_tmpWorker.draggable = true;
             m_cont.m_tmpWorker.onDragStart.Add(OnDragWorker(-2));
-            FGUIUtil.SetHint(m_cont.m_tmpWorker, "临时工人，回合结束时消失！！！");
+            FGUIUtil.SetHint(m_cont.m_tmpWorker, Cfg.GetSTexts("tempWorker"));
             m_cont.m_lstBuff.itemRenderer = BuffIR;
-
+            ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
+            m_cont.m_viewDetailed.selectedIndex = vdComp.viewDetailed ? 1 : 0;
+            m_cont.m_viewDetailed.onChanged.Add(() => {
+                vdComp.viewDetailed = m_cont.m_viewDetailed.selectedIndex == 1;
+                Msg.Dispatch(MsgID.AfterViewDetailChange);
+            });
             Msg.Bind(MsgID.AfterMapChanged, UpdateZooBlockView);
             Msg.Bind(MsgID.AfterBookChanged, UpdateBookView);
             Msg.Bind(MsgID.AfterWorkPosChanged, UpdateWorkPosView);
@@ -45,6 +51,7 @@ namespace Main
             Msg.Bind(MsgID.AfterTurnChanged, UpdateAllView);
             Msg.Bind(MsgID.AfterBuffChanged, UpdateBuffView);
             Msg.Bind(MsgID.AfterBuffChanged, UpdateWorkPosView);
+            Msg.Bind(MsgID.AfterHandLimitChange, UpdateHandLimitView);
         }
 
         public void Init()
@@ -65,6 +72,7 @@ namespace Main
             UpdateDrawPileView();
             UpdateDiscardPileView();
             UpdateBuffView();
+            UpdateHandLimitView();
         }
 
         private void UpdateTimeResView(object[] p = null)
@@ -108,8 +116,7 @@ namespace Main
         private void UpdateWorkerView(object[] p = null)
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-
-            m_hasTmpWorker.selectedIndex = wComp.tempWorkers.Count > 0 ? 1 : 0;
+            m_cont.m_hasTmpWorker.selectedIndex = wComp.tempWorkers.Count > 0 ? 1 : 0;
             m_cont.m_txtWorker.SetVar("num", wComp.normalWorkers.Count.ToString()).FlushVars();
             m_cont.m_txtTmpWorker.SetVar("num", wComp.tempWorkers.Count.ToString()).FlushVars();
             m_cont.m_lstSpecWorker.numItems = wComp.specialWorker.Count;
@@ -133,22 +140,23 @@ namespace Main
 
         private void OnClickDrawPile()
         {
+            if (UIManager.HasType<UI_CardOverviewWin>()) return;
             CardManageComp cComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            
             UI_CardOverviewWin win = FGUIUtil.CreateWindow<UI_CardOverviewWin>("CardOverviewWin");
             // todo i18n
             List<Card> pile = new(cComp.drawPile);
             if (EcsUtil.GetBuffNum(62) == 0)
                 pile.Sort((a, b) => string.Compare(a.uid, b.uid, StringComparison.OrdinalIgnoreCase));
-            win.Init(pile, "抽牌堆");
+            win.Init(pile, Cfg.GetSTexts("drawPile"));
         }
 
         private void OnClickDiscardPile()
         {
+            if (UIManager.HasType<UI_CardOverviewWin>()) return;
             CardManageComp cComp = World.e.sharedConfig.GetComp<CardManageComp>();
             UI_CardOverviewWin win = FGUIUtil.CreateWindow<UI_CardOverviewWin>("CardOverviewWin");
             // todo i18n
-            win.Init(cComp.discardPile, "弃牌堆");
+            win.Init(cComp.discardPile, Cfg.GetSTexts("discardPile"));
         }
 
         private void OnClickLog()
@@ -169,9 +177,13 @@ namespace Main
             UI_Book ui = (UI_Book)g;
             bool isEmp = index >= iComp.books.Count;
             ui.Init(isEmp ? null : iComp.books[index], isEmp);
-            if (isEmp) return;
-            Book b = iComp.books[index];
             ui.onClick.Clear();
+            if (isEmp)
+            {
+                FGUIUtil.ClearHint(ui);
+                return;
+            }
+            Book b = iComp.books[index];
             ui.onClick.Add(() =>
             {
                 BookComp iComp = World.e.sharedConfig.GetComp<BookComp>();
@@ -179,7 +191,7 @@ namespace Main
                 win.SetIdx(index);
                 FGUIUtil.SetSamePos(win.m_book, ui.m_img);
             });
-            FGUIUtil.SetHint(ui, ()=>EcsUtil.GetBookCont(b.uid));
+            FGUIUtil.SetHint(ui, () => EcsUtil.GetBookCont(b.uid));
         }
 
         private void WorkPosIR(int index, GObject g)
@@ -202,7 +214,7 @@ namespace Main
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
             UI_Worker ui = (UI_Worker)g;
             Worker w = wComp.specialWorker[index];
-            ui.m_type.selectedIndex = Cfg.specWorkers[ w.uid].order +2;
+            ui.m_type.selectedIndex = Cfg.specWorkers[w.uid].order + 2;
 
             ui.draggable = true;
             ui.onDragStart.Clear();
@@ -215,7 +227,7 @@ namespace Main
                 ui.m_type.selectedIndex = Cfg.specWorkers[w.uid].order + 2;
             });
 
-            FGUIUtil.SetHint(ui,()=>EcsUtil.GetSpecWorkerCont(w));
+            FGUIUtil.SetHint(ui, () => EcsUtil.GetSpecWorkerCont(w));
         }
 
         List<int> buffs;
@@ -227,6 +239,12 @@ namespace Main
             buffs = bComp.buffs.Keys.ToList();
             stacks = bComp.buffs.Values.ToList();
             m_cont.m_lstBuff.numItems = buffs.Count;
+        }
+
+        private void UpdateHandLimitView(object[] p = null)
+        {
+            CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+            m_cont.m_txtHandLimit.SetVar("num", cmComp.handsLimit.ToString()).FlushVars();
         }
 
         private void BuffIR(int index, GObject g)
@@ -264,6 +282,8 @@ namespace Main
 
                 DragDropManager.inst.StartDrag(m_cont.m_worker, "ui://Main/Worker", worker, (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
+                ui.SetPivot(0.5f, 0.5f, true);
+                ui.SetScale(1.25f, 1.25f);
                 ui.Init(worker);
             };
         }
@@ -273,10 +293,10 @@ namespace Main
             FGUIUtil.SetHint(ui, () =>
             {
                 string pos = " (" + zg.pos.x + ", " + zg.pos.y + ")";
-                if (!zg.isTouchedLand) return "等待开采" + pos;
-                else if (zg.state == GroundStatus.Rock && !zg.hasBuilt) return "岩石" + pos;
-                else if (zg.state == GroundStatus.Water && !zg.hasBuilt) return "湖泊" + pos;
-                else if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt) return "可建造" + pos;
+                if (!zg.isTouchedLand) return Cfg.GetSTexts("tempWorker") + pos;
+                else if (zg.state == GroundStatus.Rock && !zg.hasBuilt) return Cfg.GetSTexts("rock") + pos;
+                else if (zg.state == GroundStatus.Water && !zg.hasBuilt) return Cfg.GetSTexts("lack") + pos;
+                else if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt) return Cfg.GetSTexts("canBuild") + pos;
                 else return EcsUtil.GetCardCont(zg.venue.cfg.uid) + pos;
             });
         }
@@ -288,7 +308,7 @@ namespace Main
 
         private void OnClickEndSesson()
         {
-            FGUIUtil.CreateWindow<UI_EndSeasonWin>("EndSeasonWin").Init();
+            FGUIUtil.CreateWindow<UI_NewEndSeasonWin>("NewEndSeasonWin").Init();
         }
     }
 }

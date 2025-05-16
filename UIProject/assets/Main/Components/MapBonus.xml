@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="58,35">
-  <controller name="rewardType" pages="4,workerP,0,gold,2,workerT,1,income,5,randomItem,3,drawCards" selected="0"/>
+<component size="80,50">
+  <controller name="rewardType" pages="4,workerP,0,gold,2,workerT,1,income,5,randomItem,3,drawCards" selected="4"/>
   <displayList>
-    <image id="n59_rd08" name="n59" src="rd08k" fileName="Images/mapBonus.png" xy="0,0" size="58,35"/>
-    <loader id="n60_rd08" name="n60" xy="7,7" size="21,20" url="ui://zqdehm1vrd08j" align="center" vAlign="middle" fill="scale">
+    <image id="n59_rd08" name="n59" src="rd08k" fileName="Images/mapBonus.png" xy="0,0" size="80,50"/>
+    <loader id="n60_rd08" name="n60" xy="10,10" size="28,28" url="ui://zqdehm1vrd08q" align="center" vAlign="middle" fill="scale">
+      <gearDisplay controller="rewardType" pages="4,0,2,1,3"/>
       <gearColor controller="rewardType" pages="2" values="#999999" default="#ffffff"/>
       <gearIcon controller="rewardType" pages="4,2,1,5,3" values="ui://zqdehm1vrd08j|ui://zqdehm1vz1411i|ui://zqdehm1vjrzxe5|ui://zqdehm1vrd08q|ui://zqdehm1vrd08u" default="ui://zqdehm1vrd08r"/>
     </loader>
-    <text id="n61_rd08" name="txtNumber" xy="30,7" size="17,19" fontSize="12" ubb="true" text="15"/>
-    <text id="n62_jrzx" name="n62" xy="12,7" size="16,19" fontSize="12" text="？">
+    <text id="n61_rd08" name="txtNumber" xy="41,9" size="27,30" fontSize="19" align="center" vAlign="middle" ubb="true" autoSize="none" text="15"/>
+    <image id="n64_sy7u" name="n64" src="qff22w" fileName="Images/Books/book6.png" xy="8,14" size="32,24">
       <gearDisplay controller="rewardType" pages="5"/>
-    </text>
+    </image>
   </displayList>
 </component>

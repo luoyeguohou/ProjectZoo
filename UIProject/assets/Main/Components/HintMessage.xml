@@ -2,7 +2,7 @@
 <component size="1023,87">
   <displayList>
     <image id="n96_qev6" name="n96" src="rd08k" fileName="Images/mapBonus.png" xy="5,0" size="1018,87" alpha="0.756"/>
-    <text id="n95_qev6" name="txtMsg" xy="0,6" size="1023,74" fontSize="50" align="center" vAlign="middle" autoSize="none" text="获得5金币"/>
+    <text id="n95_qev6" name="txtMsg" xy="0,6" size="1023,74" fontSize="50" align="center" vAlign="middle" autoSize="none" autoClearText="true" text="获得5金币"/>
   </displayList>
   <transition name="idle">
     <item time="22" type="Alpha" target="n95_qev6" tween="true" startValue="1" endValue="0" duration="32"/>

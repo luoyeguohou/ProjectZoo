@@ -66,7 +66,7 @@ class Util
         while (n > 1)
         {
             n--;
-            int k = rng.Next(n + 1); // 生成 0 到 n 之间的随机数
+            int k = rng.Next(n + 1);
             T value = list[k];
             list[k] = list[n];
             list[n] = value;

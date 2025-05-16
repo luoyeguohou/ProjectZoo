@@ -14,6 +14,7 @@ namespace Main
             m_cont.m_lstCard.itemRenderer = CardIR;
             m_cont.m_lstBook.itemRenderer = BookIR;
             Msg.Bind(MsgID.AfterShopChanged, UpdateView);
+            m_btnBack.onClick.Add(ExitShop);
         }
 
         public override void Dispose()
@@ -27,11 +28,17 @@ namespace Main
             UpdateView();
         }
 
+        private void ExitShop() 
+        {
+            Msg.Dispatch(MsgID.ActionExitShop);
+        }
+
         private void UpdateView(object[] param = null)
         {
             ShopComp sComp = World.e.sharedConfig.GetComp<ShopComp>();
             m_cont.m_lstCard.numItems = sComp.cards.Count;
             m_cont.m_lstBook.numItems = sComp.books.Count;
+            m_cont.m_hasDiscard.selectedIndex = (sComp.deleteThisTime ? 1 : 0);
         }
 
         private void OnClickDelete()

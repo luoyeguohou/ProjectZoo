@@ -7,7 +7,7 @@ namespace Main
 {
     public partial class UI_DealVenueWin : FairyWindow
     {
-        public UI_DealVenueCont m_cont;
+        public UI_PutVenueCont m_cont;
         public GButton m_btnHide;
         public const string URL = "ui://zqdehm1vehbe2e";
 
@@ -20,7 +20,7 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_cont = (UI_DealVenueCont)GetChildAt(0);
+            m_cont = (UI_PutVenueCont)GetChildAt(0);
             m_btnHide = (GButton)GetChildAt(1);
         }
     }

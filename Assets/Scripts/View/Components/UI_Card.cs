@@ -13,6 +13,7 @@ namespace Main
             Msg.Bind(MsgID.AfterBuffChanged, UpdateView);
             Msg.Bind(MsgID.AfterStatisticChange, UpdateCont);
             Msg.Bind(MsgID.AfterMapChanged, UpdateCont);
+            Msg.Bind(MsgID.AfterViewDetailChange, UpdateCont);
         }
 
         public override void Dispose()
@@ -21,6 +22,7 @@ namespace Main
             Msg.UnBind(MsgID.AfterBuffChanged, UpdateView);
             Msg.UnBind(MsgID.AfterStatisticChange, UpdateCont);
             Msg.UnBind(MsgID.AfterMapChanged, UpdateCont);
+            Msg.UnBind(MsgID.AfterViewDetailChange, UpdateCont);
         }
 
         public Card c;

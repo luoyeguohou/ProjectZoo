@@ -2,7 +2,7 @@
 <packageDescription id="zqdehm1v">
   <resources>
     <component id="pjwc0" name="MainWin.xml" path="/" exported="true"/>
-    <image id="rd089" name="zooBack.png" path="/Images/" exported="true"/>
+    <image id="rd089" name="zooBack.png" path="/Images/" exported="true" scale="9grid" scale9grid="31,25,875,637"/>
     <image id="rd08g" name="timeIcon.png" path="/Images/" exported="true"/>
     <image id="rd08h" name="testCard.png" path="/Images/" exported="true"/>
     <image id="rd08i" name="panel.png" path="/Images/" exported="true" scale="9grid" scale9grid="249,163,498,326"/>
@@ -61,7 +61,6 @@
     <component id="pz6421" name="SelectCardsWin.xml" path="/Panels/" exported="true"/>
     <component id="pz6422" name="ExpandGroundWin.xml" path="/Panels/" exported="true"/>
     <component id="pz6423" name="UpgradeWorkPosWin.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2c" name="PlayHandsWin.xml" path="/Panels/" exported="true"/>
     <component id="ehbe2d" name="SelectVenueWin.xml" path="/Panels/" exported="true"/>
     <component id="ehbe2e" name="DealVenueWin.xml" path="/Panels/" exported="true"/>
     <component id="c0b72f" name="MainHand.xml" path="/Components/"/>
@@ -99,7 +98,7 @@
     <component id="qev63b" name="HintMessage.xml" path="/Components/" exported="true"/>
     <component id="d2b23c" name="ExplainPanel.xml" path="/Components/" exported="true"/>
     <component id="d2b23d" name="CardOverviewCont.xml" path="/Conts/"/>
-    <component id="d2b23e" name="DealVenueCont.xml" path="/Conts/"/>
+    <component id="d2b23e" name="PutVenueCont.xml" path="/Conts/"/>
     <component id="d2b23f" name="EndSeasonCont.xml" path="/Conts/"/>
     <component id="d2b23g" name="EventPanelCont.xml" path="/Conts/"/>
     <component id="d2b23h" name="ExpandGroundCont.xml" path="/Conts/"/>
@@ -421,6 +420,27 @@
     <image id="jrzxe5" name="IncomeIcon.png" path="/Images/" exported="true"/>
     <component id="ep2ze6" name="MainCont.xml" path="/Conts/"/>
     <component id="ep2ze7" name="SeasonInfoCont.xml" path="/Conts/"/>
+    <component id="nkfbea" name="NewEndSeasonWin.xml" path="/Panels/" exported="true"/>
+    <component id="nkfbeb" name="NewEndSeasonCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbec" name="NewInterestCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbed" name="RoutineCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbee" name="DiscardHandsCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbef" name="NewEventCont.xml" path="/Conts/EndSeason/"/>
+    <image id="nkfbeg" name="porg.png" path="/Images/" exported="true"/>
+    <image id="nkfbeh" name="progCont.png" path="/Images/" exported="true" scale="9grid" scale9grid="49,25,616,2"/>
+    <component id="nkfbei" name="CommonProg.xml" path="/Conts/"/>
+    <component id="nkfbej" name="DealVenueCont.xml" path="/Conts/EndSeason/"/>
+    <image id="nkfbek" name="panel2.png" path="/Images/" exported="true" scale="9grid" scale9grid="231,156,462,312"/>
+    <image id="nkfbel" name="person.png" path="/Images/" exported="true"/>
+    <image id="nkfbem" name="dialog.png" path="/Images/" exported="true" scale="9grid" scale9grid="52,52,481,18"/>
+    <component id="nkfben" name="NewbieWin.xml" path="/Panels/" exported="true"/>
+    <component id="u37ueo" name="GoldAni.xml" path="/Conts/" exported="true"/>
+    <image id="u37uep" name="popR.png" path="/Images/" exported="true"/>
+    <component id="u37ueq" name="PopR.xml" path="/Components/" exported="true"/>
+    <component id="oa6ner" name="TurnAni.xml" path="/Components/" exported="true"/>
+    <image id="pxbkes" name="finger.png" path="/Images/" exported="true"/>
+    <component id="pxbket" name="Finger.xml" path="/Panels/"/>
+    <component id="pxbkeu" name="NewBieCont.xml" path="/Conts/"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

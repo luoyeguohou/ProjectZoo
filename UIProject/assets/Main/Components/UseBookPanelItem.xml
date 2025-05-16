@@ -12,6 +12,6 @@
       <Button title="Discard" titleFontSize="34"/>
     </component>
     <image id="n58_d2b2" name="n58" src="rd08i" fileName="Images/panel.png" xy="239,93" size="263,144"/>
-    <text id="n59_d2b2" name="txtCont" xy="261,106" size="224,119" fontSize="27" autoSize="shrink" text="抽牌堆展示$1张牌，弃置$2张牌，获得剩余的牌。"/>
+    <text id="n59_d2b2" name="txtCont" xy="261,106" size="224,119" fontSize="27" autoSize="shrink" autoClearText="true" text="抽牌堆展示$1张牌，弃置$2张牌，获得剩余的牌。"/>
   </displayList>
 </component>

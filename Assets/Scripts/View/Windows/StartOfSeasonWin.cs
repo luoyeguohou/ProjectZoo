@@ -1,6 +1,7 @@
 using FairyGUI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Main
@@ -8,7 +9,7 @@ namespace Main
     public partial class UI_StartOfSeasonWin : FairyWindow
     {
 
-        private List<string> results = new List<string>();
+        private List<string> results = new ();
 
         public override void ConstructFromResource()
         {
@@ -29,6 +30,16 @@ namespace Main
             if (EcsUtil.GetBuffNum(6) > 0) results.Add("Gain random stuff");
             if (EcsUtil.GetBuffNum(30) > 0) results.Add("Draw cards");
             m_cont.m_lstItem.numItems = results.Count;
+
+            TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
+            AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
+            m_cont.m_txtAimBefore.text = aComp.aims[tComp.turn - 2].ToString();
+            m_cont.m_txtAimAfter.text = aComp.aims[tComp.turn - 1].ToString();
+            m_cont.m_yearBefore.selectedIndex = tComp.turn - 2;
+            m_cont.m_yearAfter.selectedIndex = tComp.turn - 1;
+            m_cont.m_seasonBefore.selectedIndex = ((int)tComp.season-1) %4;
+            m_cont.m_seasonAfter.selectedIndex = (int)tComp.season;
+            m_idle.Play();
         }
 
         private void StartOfSeasonIR(int index, GObject g)

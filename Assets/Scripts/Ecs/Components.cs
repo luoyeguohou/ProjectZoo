@@ -65,6 +65,7 @@ public class TurnComp : IComponent
 {
     public Season season = Season.Spring;
     public int turn = 1;
+    public EndSeasonStep step = EndSeasonStep.ChooseRoutine;
 }
 
 public class ShopComp : IComponent
@@ -139,6 +140,10 @@ public class MapSizeComp : IComponent {
     public int height;
 }
 
+public class ViewDetailedComp : IComponent {
+    public bool viewDetailed = true;
+}
+
 public class ShopBook
 {
     public Book book;
@@ -172,6 +177,15 @@ public enum Season
     Winter = 3,
 }
 
+public enum EndSeasonStep
+{
+    ChooseRoutine = 0,
+    GainInterest = 1,
+    DealEveryVenue = 2,
+    DiscardCard = 3,
+    GoNextEvent = 4,
+}
+
 public class WorkPos
 {
     public string uid = "";
@@ -192,7 +206,7 @@ public class WorkPos
         string s = Cfg.workPoses[uid].GetCont();
         s = s.Replace("$1", cfg.GetDesc1Str(level));
         s = s.Replace("$2", cfg.GetDesc2Str(level));
-        s += "（当前等级：" + level.ToString() + ")";
+        s += "\n"+string.Format(Cfg.GetSTexts("currRank"), level.ToString());
         return s;
     }
 }
@@ -249,7 +263,6 @@ public class Card
 {
     public string uid;
     public CardCfg cfg;
-    public string url;
     public Card(string uid)
     {
         this.uid = uid;
@@ -263,7 +276,6 @@ public class Venue
     public string uid;
     public VenueCfg cfg;
     public List<Vector2Int> location = new List<Vector2Int>();
-    public string url;
     public List<Venue> adjacents = new List<Venue>();
     public int cnt = 0;
     public int timePopR = 1;
@@ -283,7 +295,6 @@ public class ZooEvent
     public string uid;
     public EventCfg cfg;
     public List<ZooEventChoice> zooEventChoices = new List<ZooEventChoice>();
-    public string url;
     public ZooEvent(string uid) { 
         this.uid = uid;
         cfg = Cfg.events[uid];
@@ -309,7 +320,6 @@ public class Book
 {
     public string uid;
     public BookCfg cfg;
-    public string url;
     public int price;
     public Book(string uid, int price = 5)
     {

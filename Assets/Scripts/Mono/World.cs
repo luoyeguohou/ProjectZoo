@@ -27,6 +27,7 @@ public class World
         e.sharedConfig.AddComp(new ConsoleComp());
         e.sharedConfig.AddComp(new MapSizeComp());
         e.sharedConfig.AddComp(new BuffComp());
+        e.sharedConfig.AddComp(new ViewDetailedComp());
 
         // add system
         e.AddSystem(new ActionCardSys());

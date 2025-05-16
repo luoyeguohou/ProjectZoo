@@ -24,7 +24,6 @@ namespace Main
         {
             this.e = e;
             this.endHandler = endHandler;
-            m_cont.m_img.url = e.url;
             m_cont.m_txtTitle.text = e.cfg.GetTitle();
             m_cont.m_txtContent.text = e.cfg.GetCont();
             for (int i = 0; i < choices.Count; i++)

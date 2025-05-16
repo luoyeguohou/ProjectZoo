@@ -1,11 +1,24 @@
 using System.Collections.Generic;
 
+public class StaticTextI18NCfg {
+    public string uid;
+    public string cont;
+}
+
+public class StaticTextCfg {
+    public string uid;
+    public Dictionary<string, StaticTextI18NCfg> i18NCfgs = new();
+    public string GetCont()
+    {
+        return i18NCfgs[Cfg.language].cont;
+    }
+}
+
 public class CardI18NCfg
 {
     public string uid;
     public string name;
     public string className;
-    public string aniName;
     public string cont;
     public string condition;
 }
@@ -50,7 +63,6 @@ public class VenueI18NCfg {
     public string name;
     public string className;
     public string aniName;
-    public string aniType;
 }
 
 public class VenueCfg {
@@ -59,13 +71,9 @@ public class VenueCfg {
     public int landType;
     public int aniModule;
     public int isX;
+    public string aniType;
 
     public Dictionary<string, VenueI18NCfg> i18NCfgs = new();
-
-    public string GetAniType()
-    {
-        return i18NCfgs[Cfg.language].aniType;
-    }
 }
 
 public class RawEventCfg {
@@ -164,6 +172,8 @@ public class WorkPosCfg {
     public Dictionary<string, WorkPosI18NCfg> i18NCfgs = new();
     public string GetDesc1Str(int currLv = -1) {
         string ret = "";
+        ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
+        if (!vdComp.viewDetailed) return val1[currLv == -1?0:currLv-1].ToString();
         for (int i = 0; i < val1.Length; i++) {
             if (val1[i] == 0) break;
             if(i!=0) ret += "/";
@@ -178,6 +188,8 @@ public class WorkPosCfg {
     public string GetDesc2Str(int currLv = -1)
     {
         string ret = "";
+        ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>(); 
+        if (!vdComp.viewDetailed) return val2[currLv == -1 ? 0 : currLv - 1].ToString();
         for (int i = 0; i < val2.Length; i++)
         {
             if (val2[i] == 0) break;

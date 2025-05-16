@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="828,93">
+<component size="367,49">
   <displayList>
-    <text id="n84_rr6n" name="txtCurr" xy="0,0" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="当前金额：{num=5}"/>
+    <text id="n84_rr6n" name="txtCurr" xy="0,0" size="367,49" fontSize="36" align="center" vAlign="middle" vars="true" autoSize="none" autoClearText="true" text="当前金额：{num=5}"/>
   </displayList>
 </component>

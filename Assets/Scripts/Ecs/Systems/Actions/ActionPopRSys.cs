@@ -27,7 +27,7 @@ public class ActionPopRSys : ISystem
             int gainNum = (int)p[0];
             PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
             prComp.popRating += gainNum;
-            Msg.Dispatch(MsgID.AfterPopRatingChanged);
+            Msg.Dispatch(MsgID.AfterPopRatingChanged,new object[] { gainNum});
             await Task.CompletedTask;
         });
     }
@@ -38,17 +38,17 @@ public class ActionPopRSys : ISystem
         aComp.queue.PushData(async () =>
         {
             int gainNum = (int)p[0];
-            Venue b = (Venue)p[1];
+            Venue v = (Venue)p[1];
             PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
 
-            gainNum = gainNum * b.timePopR + b.extraPopRPerm;
-            if (EcsUtil.GetBuffNum(19) > 0 && b.cfg.isX == 1)
+            gainNum = gainNum * v.timePopR + v.extraPopRPerm;
+            if (EcsUtil.GetBuffNum(19) > 0 && v.cfg.isX == 1)
                 gainNum += EcsUtil.GetBuffNum(19);
-            if (EcsUtil.GetBuffNum(22) > 0 && EcsUtil.IsAdjacentWater(b))
+            if (EcsUtil.GetBuffNum(22) > 0 && EcsUtil.IsAdjacentWater(v))
                 gainNum += EcsUtil.GetBuffNum(22);
-            if (EcsUtil.GetBuffNum(21) > 0 && b.cfg.landType >= 4)
+            if (EcsUtil.GetBuffNum(21) > 0 && v.cfg.landType >= 4)
                 gainNum += EcsUtil.GetBuffNum(21);
-            if (EcsUtil.GetBuffNum(23) > 0 && b.cfg.aniModule == 0)
+            if (EcsUtil.GetBuffNum(23) > 0 && v.cfg.aniModule == 0)
                 gainNum = gainNum * (100 + EcsUtil.GetBuffNum(23)) / 100;
             gainNum = gainNum * (100 + EcsUtil.GetBuffNum(18) + EcsUtil.GetBuffNum(66)) / 100 + EcsUtil.GetBuffNum(17);
 
@@ -58,7 +58,7 @@ public class ActionPopRSys : ISystem
             {
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { gainNum });
                 Msg.Dispatch(MsgID.AfterPopRatingChanged);
-                Msg.Dispatch(MsgID.AfterGainPopRByVenue, new object[] { gainNum });
+                Msg.Dispatch(MsgID.AfterGainPopRByVenue, new object[] { gainNum,v });
             }
             await Task.CompletedTask;
         });

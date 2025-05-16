@@ -53,6 +53,7 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionGoShop, new object[] { val1 });
                 break;
             case "dep_5":
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { 10 });
                 Msg.Dispatch(MsgID.ActionTraining, new object[] { val1 });
                 break;
             case "dep_6":

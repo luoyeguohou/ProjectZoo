@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="59,77">
+  <displayList>
+    <image id="n91_u37u" name="n91" src="u37uep" fileName="Images/popR.png" xy="29,40" pivot="0.5,0.5" anchor="true" size="59,77"/>
+    <text id="n92_oa6n" name="txtNum" xy="41,0" size="43,50" fontSize="37" color="#fd2c2c" vars="true" text="+{num=5}"/>
+  </displayList>
+  <transition name="idle">
+    <item time="0" type="Alpha" target="n92_oa6n" tween="true" startValue="0" endValue="1" duration="7"/>
+    <item time="0" type="Scale" target="n91_u37u" tween="true" startValue="0,0" endValue="1.3,1.3" duration="3"/>
+    <item time="0" type="XY" target="n91_u37u" value="29,40"/>
+    <item time="3" type="Scale" target="n91_u37u" tween="true" startValue="1.3,1.3" endValue="0.86,0.86" duration="5"/>
+    <item time="8" type="Scale" target="n91_u37u" tween="true" startValue="0.86,0.86" endValue="1.1,1.1" duration="5"/>
+    <item time="13" type="Scale" target="n91_u37u" tween="true" startValue="1.1,1.1" endValue="1,1.05" duration="4"/>
+    <item time="26" type="Alpha" target="n91_u37u" tween="true" startValue="1" endValue="0" duration="11"/>
+    <item time="26" type="Scale" target="n91_u37u" value="1,1.05"/>
+    <item time="26" type="XY" target="n91_u37u" tween="true" startValue="29,40" endValue="-,-44" duration="11"/>
+  </transition>
+</component>

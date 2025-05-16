@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="754,110" extention="ProgressBar">
+  <displayList>
+    <image id="n1_nkfb" name="bar" src="nkfbeh" fileName="Images/progCont.png" xy="17,14" size="726,81" color="#89a630" fillMethod="hz" fillAmount="77">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n0_nkfb" name="n0" src="nkfbeg" fileName="Images/porg.png" xy="0,0" size="754,110">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_nkfb" name="title" xy="44,20" size="674,71" fontSize="44" align="center" vAlign="middle" autoSize="none" text="11/12">
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+  </displayList>
+  <ProgressBar titleType="valueAndmax"/>
+</component>

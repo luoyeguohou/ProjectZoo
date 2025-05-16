@@ -36,6 +36,6 @@
       <item/>
     </list>
     <image id="n76_z141" name="n76" src="rd08k" fileName="Images/mapBonus.png" xy="699,0" size="298,63"/>
-    <text id="n74_z141" name="txtTitle" xy="703,4" size="291,59" fontSize="39" align="center" vAlign="middle" autoSize="none" text="抽牌堆"/>
+    <text id="n74_z141" name="txtTitle" xy="703,4" size="291,59" fontSize="39" align="center" vAlign="middle" autoSize="none" autoClearText="true" text="抽牌堆"/>
   </displayList>
 </component>

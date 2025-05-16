@@ -7,11 +7,9 @@ namespace Main
 {
     public partial class UI_DealVenueCont : GComponent
     {
-        public GTextField m_txtTitle;
-        public GList m_lstMap;
-        public UI_Card m_card;
-        public GButton m_btnConfirm;
-        public const string URL = "ui://zqdehm1vd2b23e";
+        public GList m_lstVenue;
+        public GProgressBar m_prgPopR;
+        public const string URL = "ui://zqdehm1vnkfbej";
 
         public static UI_DealVenueCont CreateInstance()
         {
@@ -22,10 +20,8 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_txtTitle = (GTextField)GetChildAt(1);
-            m_lstMap = (GList)GetChildAt(3);
-            m_card = (UI_Card)GetChildAt(4);
-            m_btnConfirm = (GButton)GetChildAt(5);
+            m_lstVenue = (GList)GetChildAt(0);
+            m_prgPopR = (GProgressBar)GetChildAt(1);
         }
     }
 }
