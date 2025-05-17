@@ -24,7 +24,7 @@
     </list>
     <component id="n81_ehbe" name="card" src="rd081a" fileName="Components/Card.xml" xy="202,244"/>
     <component id="n82_ehbe" name="btnConfirm" src="rd0816" fileName="Components/ButtonNormal.xml" xy="731,841" size="300,104">
-      <Button title="confirm" titleFontSize="53"/>
+      <Button title="确认" titleFontSize="53"/>
     </component>
   </displayList>
 </component>

@@ -6,12 +6,12 @@ public class Initer : MonoBehaviour
 {
     private void Start()
     {
+        Msg.Init();
         Cfg.Init();
         World.Init();
-        Msg.Dispatch(MsgID.StartGame);
         UIManager.Init();
-        Msg.Dispatch(MsgID.ResolveStartSeason);
-        DontDestroyOnLoad(this);
+        //Msg.Dispatch(MsgID.StartGame);
+        //Msg.Dispatch(MsgID.ResolveStartSeason);
     }
 
     private void Update()

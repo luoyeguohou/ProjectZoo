@@ -4,6 +4,46 @@
     <image id="n104_ea44" name="n104" src="rd0811" fileName="Images/back.png" xy="0,0" size="1920,1080">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
+    <graph id="n145_p0wl" name="n145" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#ff90b572"/>
+    <image id="n105_p0wl" name="n105" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1026,904"/>
+    <image id="n106_p0wl" name="n106" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="537,906"/>
+    <image id="n107_p0wl" name="n107" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1116,846"/>
+    <image id="n108_p0wl" name="n108" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1422,933"/>
+    <image id="n109_p0wl" name="n109" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1429,618"/>
+    <image id="n110_p0wl" name="n110" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1089,128"/>
+    <image id="n111_p0wl" name="n111" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="861,60"/>
+    <image id="n112_p0wl" name="n112" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="533,118"/>
+    <image id="n113_p0wl" name="n113" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="362,907"/>
+    <image id="n114_p0wl" name="n114" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="664,957"/>
+    <image id="n115_p0wl" name="n115" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1101,732"/>
+    <image id="n116_p0wl" name="n116" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1577,944"/>
+    <image id="n117_p0wl" name="n117" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1801,616"/>
+    <image id="n118_p0wl" name="n118" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1820,337"/>
+    <image id="n119_p0wl" name="n119" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1529,508"/>
+    <image id="n120_p0wl" name="n120" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1103,39"/>
+    <image id="n121_p0wl" name="n121" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="1335,959"/>
+    <image id="n122_p0wl" name="n122" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="786,832"/>
+    <image id="n123_p0wl" name="n123" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="163,910"/>
+    <image id="n124_p0wl" name="n124" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="423,846"/>
+    <image id="n125_p0wl" name="n125" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="470,940"/>
+    <image id="n126_p0wl" name="n126" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="939,46"/>
+    <image id="n127_p0wl" name="n127" src="p0wlfc" fileName="Images/Bg/新建项目 (12).png" xy="299,111"/>
+    <image id="n128_p0wl" name="n128" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1636,546"/>
+    <image id="n129_p0wl" name="n129" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1221,730"/>
+    <image id="n130_p0wl" name="n130" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="900,843"/>
+    <image id="n132_p0wl" name="n132" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="295,850"/>
+    <image id="n133_p0wl" name="n133" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1767,93"/>
+    <image id="n134_p0wl" name="n134" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1759,1026"/>
+    <image id="n135_p0wl" name="n135" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1934,800"/>
+    <image id="n136_p0wl" name="n136" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="1935,507"/>
+    <image id="n137_p0wl" name="n137" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1793,508"/>
+    <image id="n138_p0wl" name="n138" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1889,421"/>
+    <image id="n139_p0wl" name="n139" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1856,756"/>
+    <image id="n140_p0wl" name="n140" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1445,717"/>
+    <image id="n141_p0wl" name="n141" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="1521,1018"/>
+    <image id="n142_p0wl" name="n142" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="733,1135"/>
+    <image id="n143_p0wl" name="n143" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="2047,703"/>
+    <image id="n144_p0wl" name="n144" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1987,176" pivot="0.5,1" skew="1,0"/>
     <component id="n43_rd08" name="cont" src="ep2ze6" fileName="Conts/MainCont.xml" xy="0,0">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>

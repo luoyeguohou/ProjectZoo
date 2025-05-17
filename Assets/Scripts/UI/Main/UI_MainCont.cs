@@ -9,6 +9,7 @@ namespace Main
     {
         public Controller m_hasTmpWorker;
         public Controller m_viewDetailed;
+        public Controller m_workPosAmount;
         public GList m_lstBook;
         public GButton m_btnInfo;
         public GButton m_btnEndTurn;
@@ -44,28 +45,29 @@ namespace Main
 
             m_hasTmpWorker = GetControllerAt(0);
             m_viewDetailed = GetControllerAt(1);
+            m_workPosAmount = GetControllerAt(2);
             m_lstBook = (GList)GetChildAt(1);
             m_btnInfo = (GButton)GetChildAt(2);
             m_btnEndTurn = (GButton)GetChildAt(3);
             m_btnDrawPile = (GLoader)GetChildAt(4);
             m_btnDiscardPile = (GLoader)GetChildAt(5);
-            m_lstWorkPos = (GList)GetChildAt(6);
-            m_worker = (UI_Worker)GetChildAt(7);
-            m_txtWorker = (GTextField)GetChildAt(8);
-            m_lstSpecWorker = (GList)GetChildAt(9);
-            m_txtGold = (GTextField)GetChildAt(12);
-            m_txtAim = (GTextField)GetChildAt(14);
-            m_txtDrawPile = (GTextField)GetChildAt(15);
-            m_txtDiscardPile = (GTextField)GetChildAt(16);
-            m_txtTimeRes = (GTextField)GetChildAt(19);
-            m_btnLog = (GButton)GetChildAt(20);
-            m_tmpWorker = (UI_Worker)GetChildAt(21);
-            m_txtTmpWorker = (GTextField)GetChildAt(22);
-            m_btnConsole = (GButton)GetChildAt(23);
-            m_lstMap = (GList)GetChildAt(24);
-            m_txtHandLimit = (GTextField)GetChildAt(26);
-            m_lstBuff = (GList)GetChildAt(27);
-            m_hand = (UI_MainHand)GetChildAt(30);
+            m_lstWorkPos = (GList)GetChildAt(7);
+            m_worker = (UI_Worker)GetChildAt(8);
+            m_txtWorker = (GTextField)GetChildAt(9);
+            m_lstSpecWorker = (GList)GetChildAt(10);
+            m_txtGold = (GTextField)GetChildAt(13);
+            m_txtAim = (GTextField)GetChildAt(15);
+            m_txtDrawPile = (GTextField)GetChildAt(16);
+            m_txtDiscardPile = (GTextField)GetChildAt(17);
+            m_txtTimeRes = (GTextField)GetChildAt(20);
+            m_btnLog = (GButton)GetChildAt(21);
+            m_tmpWorker = (UI_Worker)GetChildAt(22);
+            m_txtTmpWorker = (GTextField)GetChildAt(23);
+            m_btnConsole = (GButton)GetChildAt(24);
+            m_lstMap = (GList)GetChildAt(25);
+            m_txtHandLimit = (GTextField)GetChildAt(27);
+            m_lstBuff = (GList)GetChildAt(28);
+            m_hand = (UI_MainHand)GetChildAt(31);
         }
     }
 }

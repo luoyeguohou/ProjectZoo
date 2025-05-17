@@ -42,6 +42,7 @@ namespace Main
             UIObjectFactory.SetPackageItemExtension(UI_DealVenueCont.URL, typeof(UI_DealVenueCont));
             UIObjectFactory.SetPackageItemExtension(UI_NewbieWin.URL, typeof(UI_NewbieWin));
             UIObjectFactory.SetPackageItemExtension(UI_TurnAni.URL, typeof(UI_TurnAni));
+            UIObjectFactory.SetPackageItemExtension(UI_HomeWin.URL, typeof(UI_HomeWin));
             UIObjectFactory.SetPackageItemExtension(UI_MainWin.URL, typeof(UI_MainWin));
             UIObjectFactory.SetPackageItemExtension(UI_Finger.URL, typeof(UI_Finger));
             UIObjectFactory.SetPackageItemExtension(UI_NewBieCont.URL, typeof(UI_NewBieCont));

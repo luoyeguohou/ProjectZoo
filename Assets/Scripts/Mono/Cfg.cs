@@ -26,6 +26,8 @@ public class Cfg
 
     public static void Init()
     {
+        language = PlayerPrefs.GetString("language","english");
+        Debug.Log(language);
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
         JsonData jd = JsonMapper.ToObject(ta.text);
         // cards
@@ -122,11 +124,13 @@ public class Cfg
         foreach (JsonData d in workPosData)
         {
             RawWorkPosCfg rawCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(RawWorkPosCfg)) as RawWorkPosCfg;
-            WorkPosCfg cfg = new();
-            cfg.uid = rawCfg.uid;
-            cfg.limitTime = rawCfg.limitTime;
-            cfg.val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 };
-            cfg.val2 = new int[] { rawCfg.val_2_1, rawCfg.val_2_2, rawCfg.val_2_3, rawCfg.val_2_4, rawCfg.val_2_5 };
+            WorkPosCfg cfg = new()
+            {
+                uid = rawCfg.uid,
+                limitTime = new int[] { rawCfg.limitTime_1, rawCfg.limitTime_2, rawCfg.limitTime_3, rawCfg.limitTime_4, rawCfg.limitTime_5 },
+                val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 },
+                val2 = new int[] { rawCfg.val_2_1, rawCfg.val_2_2, rawCfg.val_2_3, rawCfg.val_2_4, rawCfg.val_2_5 }
+            };
             workPoses[cfg.uid] = cfg;
         }
         foreach (string lg in supportLanguages)

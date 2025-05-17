@@ -8,7 +8,7 @@
     </list>
     <text id="n100_nkfb" name="txtTitle" xy="83,2" size="1302,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="选择{num=5}弃置。"/>
     <component id="n101_nkfb" name="btnFinish" src="rd0816" fileName="Components/ButtonNormal.xml" xy="568,594" size="300,104">
-      <Button title="finish" titleFontSize="53"/>
+      <Button title="完成" titleFontSize="53"/>
     </component>
   </displayList>
 </component>

@@ -64,6 +64,7 @@ public class ResolveCardEffectSys : ISystem
         List<Vector2Int> poses = await FGUIUtil.SelectVenuePlace(c);
         Msg.Dispatch(MsgID.AddVenue, new object[] { new Venue(c.uid, poses) });
         Msg.Dispatch(MsgID.AfterMapChanged);
+        EcsUtil.PlaySound("build");
     }
 
     private void TakeEffectAchi(string uid)
@@ -208,7 +209,7 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 33, 1});
                 break;
             case "caipiao":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 3, 10 });
+                EcsUtil.RandomlyDoSth(30, () => Msg.Dispatch(MsgID.ActionGainIncome, new object[] { 3 }));
                 break;
             case "mailiang":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 26, 20 });

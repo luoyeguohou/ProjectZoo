@@ -65,10 +65,12 @@ namespace Main
             Debug.Log("VenueTakeEffectAni");
             int gainNum = (int)p[0];
             Venue v = (Venue)p[1];
+            TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
             foreach (UI_VenueWithAni ui in m_lstVenue.GetChildren())
             {
                 if (ui.m_venue.v == v){
                     m_prgPopR.value += gainNum;
+                    ui.m_takeEffect.timeScale = tComp.endTurnSpeed;
                     ui.m_takeEffect.Play();
                     UI_PopR gcom = (UI_PopR)UIPackage.CreateObject("Main", "PopR").asCom;
                     gcom.SetPivot(0.5f,0.5f,true);
@@ -77,9 +79,11 @@ namespace Main
                     gcom.position = new Vector3(gcom.position.x+ new System.Random().Next((int)30),
                         gcom.position.y + new System.Random().Next((int)30));
                     gcom.m_txtNum.SetVar("num",gainNum.ToString()).FlushVars();
+                    gcom.m_idle.timeScale = tComp.endTurnSpeed;
                     gcom.m_idle.Play(()=>{
                         gcom.Dispose();
                     });
+                    EcsUtil.PlaySound("bubble");
                     return;
                 }
             }

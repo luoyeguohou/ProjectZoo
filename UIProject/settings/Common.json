@@ -18,7 +18,7 @@
     "defaultDisplay": "visible"
   },
   "tipsRes": "",
-  "buttonClickSound": "",
+  "buttonClickSound": "ui://zqdehm1vp0wlfh",
   "pivot": "default",
   "listClearOnPublish": false,
   "fileName": "Common"

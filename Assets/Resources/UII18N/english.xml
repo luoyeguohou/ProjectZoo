@@ -170,4 +170,8 @@ At that time, your exhibits will provide Popularity, and we will check if you ha
   <string name="zqdehm1vrr6ne2-n81_d2b2" mz="btnHide">Hide</string>
   <!-- Main/Panels/UpgradeWorkPosWin.xml -->
   <string name="zqdehm1vpz6423-n82_d2b2" mz="btnHide">Hide</string>
+  <!-- Main/Panels/HomeWin.xml -->
+  <string name="zqdehm1vp0wlez-n1_p0wl" mz="n1">project zoo</string>
+  <string name="zqdehm1vp0wlez-n6_p0wl" mz="n6">Start game</string>
+  <string name="zqdehm1vp0wlez-n8_p0wl" mz="n8">Quit</string>
 </resources>

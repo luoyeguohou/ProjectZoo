@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Msg 
 {
-    private static Dictionary<MsgID, Dictionary<int, List<Action<object[]>>>> messages = new Dictionary<MsgID, Dictionary<int, List<Action<object[]>>>>();
+    private static Dictionary<MsgID, Dictionary<int, List<Action<object[]>>>> messages = new ();
+
+    public static void Init() {
+        messages = new();
+    }
 
     public static void Bind(MsgID name, Action<object[]> f, int id = -1)
     {

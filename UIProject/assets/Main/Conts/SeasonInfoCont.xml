@@ -40,6 +40,6 @@
     <image id="n82_z141" name="n82" src="z1411o" fileName="Images/Plans/planSpring.png" xy="214,71" size="54,91"/>
     <image id="n83_z141" name="n83" src="z1411p" fileName="Images/Plans/planSummer.png" xy="365,86" size="79,75"/>
     <image id="n84_z141" name="n84" src="z1411m" fileName="Images/Plans/planWinter.png" xy="706,85" size="80,75"/>
-    <text id="n85_z141" name="n85" xy="109,176" size="98,397" fontSize="38" leading="16" autoSize="none" text="1st&#xA;2nd&#xA;3rd&#xA;4th&#xA;5th&#xA;6th"/>
+    <text id="n85_z141" name="n85" xy="60,176" size="147,397" fontSize="38" leading="16" autoSize="none" text="第一年&#xA; 第二年&#xA;  第三年&#xA;  第四年&#xA;  第五年&#xA;  第六年"/>
   </displayList>
 </component>

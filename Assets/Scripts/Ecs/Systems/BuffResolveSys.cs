@@ -8,6 +8,7 @@ public class BuffResolveSys : ISystem
         Msg.Bind(MsgID.OnTurnEnd, OnTurnEnd);
         Msg.Bind(MsgID.AfterExpand, AfterExpand);
         Msg.Bind(MsgID.AfterDemolition, AfterDemolition);
+        Msg.Bind(MsgID.AfterResolveCard, AfterResolveCard);
     }
 
     public override void OnRemoveFromEngine()
@@ -16,6 +17,7 @@ public class BuffResolveSys : ISystem
         Msg.UnBind(MsgID.OnTurnEnd, OnTurnEnd);
         Msg.UnBind(MsgID.AfterExpand, AfterExpand);
         Msg.UnBind(MsgID.AfterDemolition, AfterDemolition);
+        Msg.UnBind(MsgID.AfterResolveCard, AfterResolveCard);
     }
 
     private void AfterUseBook(object[] param = null)
@@ -61,5 +63,15 @@ public class BuffResolveSys : ISystem
     {
         if (EcsUtil.GetBuffNum(54) > 0)
             Msg.Dispatch(MsgID.ActionGainWorker, new object[] { EcsUtil.GetBuffNum(54) });
+    }
+
+    private void AfterResolveCard(object[] param = null)
+    {
+        Card c = (Card)param[0];
+        if (c.cfg.cardType == 3 && c.cfg.oneTime == 0)
+        {
+            // just for display
+            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 70, 1 });
+        }
     }
 }

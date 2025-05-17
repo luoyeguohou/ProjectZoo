@@ -490,8 +490,18 @@ public class ActionCardSys : ISystem
 
             Msg.Dispatch(MsgID.ActionPayGold, new object[] { goldCost });
             Msg.Dispatch(MsgID.ActionPayTime, new object[] { timeCost });
-            Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { cmComp.hands[index] });
-            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { cmComp.hands[index] });
+            Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { c });
+            if (c.cfg.cardType == 1 || c.cfg.cardType == 2 || (c.cfg.cardType == 3 && c.cfg.oneTime == 0))
+            {
+                Msg.Dispatch(MsgID.DeleteCardFromHand, new object[] { c });
+            }
+            else if (c.uid == "caipiao")
+            {
+
+            }
+            else { 
+                Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { c });
+            }
             await Task.CompletedTask;
         });
     }
@@ -520,7 +530,18 @@ public class ActionCardSys : ISystem
             }
 
             Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { c });
-            Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { c });
+            if (c.cfg.cardType == 1 || c.cfg.cardType == 2 || (c.cfg.cardType == 3 && c.cfg.oneTime == 0))
+            {
+                Msg.Dispatch(MsgID.DeleteCardFromHand, new object[] { c });
+            }
+            else if (c.uid == "caipiao")
+            {
+
+            }
+            else
+            {
+                Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { c });
+            }
         }
     }
 

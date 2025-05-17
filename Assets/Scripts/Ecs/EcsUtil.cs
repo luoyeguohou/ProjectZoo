@@ -250,8 +250,8 @@ public class EcsUtil
                     hubaoxiongshi = Util.SetBit(hubaoxiongshi, 3);
                     break;
             }
-            if (b.cfg.landType >= 3) largeVenue++;
-            if (b.cfg.landType <= 1) smallVenue++;
+            if (b.cfg.landType >= 4) largeVenue++;
+            if (b.cfg.landType <= 2) smallVenue++;
             if (b.cfg.isX == 1) xVenue++;
             if (IsAdjacentWater(b)) nearLakeVenue++;
         }
@@ -263,7 +263,7 @@ public class EcsUtil
             case "achi_yuanhou":
                 return moduleNum[0] >= 10;
             case "achi_duty":
-                return Util.Count(zgComp.grounds, g => g.isTouchedLand && g.state == GroundStatus.CanBuild && !g.hasBuilt)>= 10;
+                return Util.Count(zgComp.grounds, g => g.isTouchedLand && g.state == GroundStatus.CanBuild && !g.hasBuilt)>= 20;
             case "achi_houxuanchuan":
                 return sComp.highestPopRFromMonkeyVenue >= 50;
             case "achi_poprating":
@@ -571,7 +571,7 @@ public class EcsUtil
                 statisticNum = sComp.bookNumUsedTotally;
                 break;
             case "qunjuyu":
-                statisticNum = Util.Count(vComp.venues, b => b.cfg.landType < 2);
+                statisticNum = Util.Count(vComp.venues, b => b.cfg.landType <= 2);
                 break;
             case "denglongyu":
                 statisticNum = sComp.mapBonusCntTotally;
@@ -600,6 +600,14 @@ public class EcsUtil
             cont = cont.Replace("$wr1", GetSpecWorkerVal(cfg.uid).ToString());
         cont = cont.Replace("$d",GetStatisticNum(cfg.uid).ToString());
         return cont;
+    }
+
+    private static GameObject prefab;
+    public static void PlaySound(string s) {
+        if(prefab == null)
+            prefab = Resources.Load<GameObject>("SoundEffect/SoundGameObject");
+        SoundPlayer sound = GameObject.Instantiate(prefab).GetComponent<SoundPlayer>(); ;
+        sound.PlaySound("SoundEffect/"+s);
     }
 }
 

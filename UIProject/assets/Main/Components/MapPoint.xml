@@ -17,7 +17,7 @@
     <graph id="n65_pz64" name="n65" xy="1,-5" size="100,100" type="regular_polygon" fillColor="#cc000000" sides="6">
       <gearDisplay controller="selected" pages="1"/>
     </graph>
-    <text id="n66_pz64" name="n66" xy="19,22" size="65,42" fontSize="14" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="select">
+    <text id="n66_pz64" name="n66" xy="19,22" size="65,42" fontSize="14" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="选中">
       <gearDisplay controller="selected" pages="1"/>
     </text>
     <loader id="n67_blnq" name="img_anim" xy="10,5" size="82,83" url="ui://zqdehm1vblnq69" fill="scale">

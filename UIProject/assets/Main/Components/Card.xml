@@ -1,49 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="319,462">
-  <controller name="color" pages="0,,2,,3,,4,,1," selected="3"/>
-  <controller name="status" pages="0,all3,1,gold&amp;time,2,time" selected="2"/>
+  <controller name="color" pages="0,,2,,3,,4,,1," selected="0"/>
+  <controller name="status" pages="1,gold&amp;time,2,time" selected="1"/>
   <controller name="discarded" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n61_rd08" name="n61" src="rd08t" fileName="Images/Cards/cardBg.png" xy="1,1"/>
     <component id="n62_rd08" name="img" src="blnqbx" fileName="Components/CardImg.xml" xy="4,5"/>
-    <loader id="n60_rd08" name="n60" xy="0,0" size="319,462" url="ui://zqdehm1vrd08v">
-      <gearIcon controller="color" pages="2,3,4,1" values="ui://zqdehm1vrd08x|ui://zqdehm1vrd08w|ui://zqdehm1vrd08v|ui://zqdehm1vrd08y" default="ui://zqdehm1vrd08z"/>
+    <loader id="n60_rd08" name="n60" xy="0,0" size="319,462" url="ui://zqdehm1vp0wlf8" fill="scaleFree">
+      <gearIcon controller="color" pages="0,2,3,4,1" values="ui://zqdehm1vp0wlf8|ui://zqdehm1vp0wlf9|ui://zqdehm1vp0wlf6|ui://zqdehm1vp0wlf5|ui://zqdehm1vp0wlf7"/>
     </loader>
-    <text id="n69_g9th" name="txtName" xy="66,220" size="245,48" fontSize="20" align="center" vAlign="middle" leading="0" autoSize="shrink" singleLine="true" autoClearText="true" text="Snub-nosed Monkey">
-      <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
-      <relation target="n63_rd08" sidePair="leftext-right"/>
+    <text id="n69_g9th" name="txtName" xy="108,220" size="203,48" fontSize="20" color="#ffffff" align="center" vAlign="middle" leading="0" autoSize="shrink" singleLine="true" autoClearText="true" text="澳洲野犬">
+      <gearXY controller="status" pages="1" values="170,220" default="108,220"/>
+      <gearSize controller="status" pages="1" values="141,48,1,1" default="203,48,1,1"/>
+      <gearColor controller="color" pages="0,3,1" values="#ffffff,#000000|#00102b,#000000|#000000,#000000" default="#000000,#000000"/>
     </text>
-    <text id="n70_g9th" name="txtCont" xy="25,286" size="273,161" fontSize="34" autoSize="shrink" autoClearText="true" text="当你拥有100金币时，+100人气。当你拥有100金币时，+100人气。当你拥有100金币时，+100人气。当你拥有100金币时，+100人气。">
-      <gearXY controller="color" pages="0,3,4,1" values="21,282|23,283|25,286|24,284" default="27,348"/>
-      <gearSize controller="color" pages="2" values="273,97,1,1" default="273,161,1,1"/>
-      <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
+    <text id="n70_g9th" name="txtCont" xy="27,274" size="206,164" fontSize="17" color="#ffffff" vars="true" autoSize="shrink" autoClearText="true" text="打出条件：&#xA;{cond=至少拥有10个海洋场馆}&#xA;&#xA;{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}">
+      <gearXY controller="color" pages="0,2,3,4,1" values="27,274|13,274|13,274|13,274|13,274"/>
+      <gearSize controller="color" pages="0,2,3,4,1" values="206,164,1,1|295,176,1,1|295,176,1,1|295,176,1,1|295,176,1,1"/>
+      <gearColor controller="color" pages="0,3,1" values="#ffffff,#000000|#00102b,#000000|#ffffff,#000000" default="#000000,#000000"/>
     </text>
-    <text id="n71_g9th" name="txtAttr" xy="190,270" size="121,36" visible="false" fontSize="19" align="right" autoSize="none" autoClearText="true" text="豹属">
-      <gearDisplay controller="color" pages="4"/>
-    </text>
-    <text id="n77_jrzx" name="txtCond" xy="27,271" size="273,161" fontSize="24" vars="true" autoSize="shrink" text="打出条件：&#xA;{cond=某一季度累计从猿猴场馆获得50人气值。}">
-      <gearDisplay controller="color" pages="2"/>
-      <gearSize controller="color" pages="2" values="273,77,1,1" default="273,161,1,1"/>
-    </text>
-    <image id="n63_rd08" name="n63" src="rd08s" fileName="Images/Cards/cardTop.png" xy="2,218" size="65,51">
-      <gearSize controller="status" pages="0,1,2" values="130,51,1,1|130,51,1,1|65,51,1,1"/>
+    <image id="n81_p0wl" name="n81" src="p0wlfb" fileName="Images/Cards/costPanel.png" xy="10,220" size="242,114" scale="0.4,0.4">
+      <gearSize controller="status" pages="2" values="242,114,0.4,0.4" default="402,117,0.4,0.4"/>
     </image>
-    <text id="n72_g9th" name="txtTimeCost" xy="26,229" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="[color=#000000]15[/color]"/>
-    <image id="n65_rd08" name="n65" src="rd08g" fileName="Images/timeIcon.png" xy="4,227" size="23,33"/>
-    <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/goldIcon.png" xy="59,228" size="35,33">
+    <text id="n72_g9th" name="txtTimeCost" xy="49,227" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="[color=#000000]15[/color]"/>
+    <image id="n65_rd08" name="n65" src="rd08g" fileName="Images/timeIcon.png" xy="27,225" size="23,33"/>
+    <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/goldIcon.png" xy="82,226" size="35,33">
       <gearDisplay controller="status" pages="0,1"/>
     </image>
-    <text id="n73_g9th" name="txtGoldCost" xy="91,228" size="37,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="10">
+    <text id="n73_g9th" name="txtGoldCost" xy="114,226" size="37,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="10">
       <gearDisplay controller="status" pages="0,1"/>
     </text>
-    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/VenueSmall.xml" xy="3,6" size="77,80">
-      <gearDisplay controller="status" pages="0"/>
+    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/VenueSmall.xml" xy="229,335" size="77,80">
+      <gearDisplay controller="color" pages="0"/>
     </component>
     <graph id="n75_pz64" name="n75" xy="0,0" size="319,462" type="rect" lineSize="0" fillColor="#b5000000">
       <gearDisplay controller="discarded" pages="1"/>
     </graph>
-    <text id="n76_pz64" name="n76" xy="55,137" size="209,186" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="Discarded">
+    <text id="n76_pz64" name="txtSelect" xy="55,137" size="209,186" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="被弃置">
       <gearDisplay controller="discarded" pages="1"/>
+    </text>
+    <text id="n78_p0wl" name="txtModule" xy="227,270" size="83,48" fontSize="20" color="#ffffff" align="center" vAlign="middle" leading="0" autoSize="shrink" autoClearText="true" text="Aquatic Exhibits">
+      <gearDisplay controller="color" pages="0"/>
+      <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
+    </text>
+    <text id="n79_p0wl" name="txtSize" xy="227,405" size="83,48" fontSize="20" color="#ffffff" align="center" vAlign="middle" leading="0" autoSize="shrink" autoClearText="true" text="Large Exhibit">
+      <gearDisplay controller="color" pages="0"/>
+      <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
     </text>
   </displayList>
 </component>

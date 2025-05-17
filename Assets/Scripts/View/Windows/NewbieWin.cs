@@ -26,7 +26,6 @@ namespace Main
                 return;
             }
             m_cont.m_step.selectedIndex++;
-            Debug.Log("????");
         }
     }
 }

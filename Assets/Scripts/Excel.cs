@@ -144,7 +144,11 @@ public class RawWorkPosCfg {
     public string uid;
     public string name;
     public string cont;
-    public int limitTime;
+    public int limitTime_1;
+    public int limitTime_2;
+    public int limitTime_3;
+    public int limitTime_4;
+    public int limitTime_5;
     public int val_1_1;
     public int val_2_1;
     public int val_1_2;
@@ -166,7 +170,7 @@ public class WorkPosI18NCfg
 }
 public class WorkPosCfg {
     public string uid;
-    public int limitTime;
+    public int[] limitTime;
     public int[] val1;
     public int[] val2;
     public Dictionary<string, WorkPosI18NCfg> i18NCfgs = new();

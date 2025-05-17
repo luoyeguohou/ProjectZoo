@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <loader id="n0_p0wl" name="n0" xy="2,0" size="1920,1080" filter="color" filterData="0.04,-0.08,-0.58,0" url="ui://zqdehm1vp0wlev" align="center" vAlign="middle" fill="scaleNoBorder">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n2_p0wl" name="n2" src="nkfbek" fileName="Images/panel2.png" xy="271,41" size="1330,241" alpha="0.276">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <text id="n1_p0wl" name="n1" xy="402,64" size="1074,212" fontSize="147" align="center" autoSize="none" bold="true" text="动物园计划">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <loader id="n3_p0wl" name="btnChinese" xy="1672,589" size="207,167" url="ui://zqdehm1vp0wlew">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <loader id="n4_p0wl" name="btnEnglish" xy="1666,794" size="207,167" url="ui://zqdehm1vp0wlex">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <loader id="n5_p0wl" name="btnStartGame" xy="746,498" size="452,169" url="ui://zqdehm1vp0wley">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <text id="n6_p0wl" name="n6" xy="808,532" size="346,110" fontSize="80" align="center" autoSize="none" bold="true" text="开始游戏">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <loader id="n7_p0wl" name="btnQuit" xy="751,704" size="452,169" url="ui://zqdehm1vp0wley">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <text id="n8_p0wl" name="n8" xy="800,734" size="346,110" fontSize="80" align="center" autoSize="none" bold="true" text="退出游戏">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
   <controller name="hasTmpWorker" pages="0,,1," selected="1"/>
-  <controller name="viewDetailed" pages="0,,1," selected="1"/>
+  <controller name="viewDetailed" pages="0,,1," selected="0"/>
+  <controller name="workPosAmount" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n43_rd08" name="n43" src="rd089" fileName="Images/zooBack.png" xy="0,145"/>
     <list id="n45_rd08" name="lstBook" xy="10,0" size="1071,133" layout="row" defaultItem="ui://zqdehm1vg9th1c">
@@ -19,24 +20,22 @@
     </component>
     <loader id="n51_rd08" name="btnDrawPile" xy="37,859" size="128,187" url="ui://zqdehm1vrd08u"/>
     <loader id="n52_rd08" name="btnDiscardPile" xy="1735,859" size="128,187" url="ui://zqdehm1vrd08u"/>
-    <list id="n55_rd08" name="lstWorkPos" xy="965,314" size="617,378" scale="1.2,1.2" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vrd0817">
-      <item controllers="img,0"/>
-      <item controllers="img,6"/>
-      <item controllers="img,5"/>
-      <item controllers="img,2"/>
-      <item controllers="img,4"/>
-      <item controllers="img,7"/>
-      <item controllers="img,1"/>
-      <item controllers="img,3"/>
+    <image id="n110_p0wl" name="n110" src="nkfbek" fileName="Images/panel2.png" xy="1007,225" size="803,411">
+      <gearSize controller="workPosAmount" pages="1" values="803,551,1,1" default="803,411,1,1"/>
+    </image>
+    <list id="n55_rd08" name="lstWorkPos" xy="1039,314" size="617,378" scale="1.2,1.2" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vrd0817">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
     </list>
-    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="927,242"/>
-    <text id="n61_g9th" name="txtWorker" xy="1010,253" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
-    <list id="n73_z141" name="lstSpecWorker" xy="1268,244" size="641,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
+    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="1038,242"/>
+    <text id="n61_g9th" name="txtWorker" xy="1121,253" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
+    <list id="n73_z141" name="lstSpecWorker" xy="1301,242" size="475,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
       <relation target="n93_qev6" sidePair="left-left"/>
-      <item controllers="type,1"/>
-      <item controllers="type,1"/>
-      <item controllers="type,2"/>
-      <item controllers="type,3"/>
       <item controllers="type,3"/>
       <item controllers="type,4"/>
       <item controllers="type,4"/>
@@ -55,11 +54,11 @@
     <component id="n92_qev6" name="btnLog" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1530,0" size="137,76">
       <Button title="log" titleFontSize="23"/>
     </component>
-    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="1120,251" controller="type,5">
+    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="1170,242" controller="type,5">
       <gearDisplay controller="hasTmpWorker" pages="1"/>
-      <gearXY controller="hasTmpWorker" pages="0,1" values="1007,217|1120,251"/>
+      <gearXY controller="hasTmpWorker" pages="0,1" values="1118,217|1170,242"/>
     </component>
-    <text id="n94_qev6" name="txtTmpWorker" xy="1203,255" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}">
+    <text id="n94_qev6" name="txtTmpWorker" xy="1247,253" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}">
       <gearDisplay controller="hasTmpWorker" pages="1"/>
     </text>
     <component id="n99_d2b2" name="btnConsole" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1387,0" size="137,76">
@@ -85,7 +84,7 @@
     </list>
     <image id="n106_nkfb" name="n106" src="rd08k" fileName="Images/mapBonus.png" xy="1478,757" size="185,65"/>
     <text id="n107_nkfb" name="txtHandLimit" xy="1489,765" size="169,49" fontSize="27" vAlign="middle" vars="true" autoSize="shrink" text="手牌上限：{num=3}"/>
-    <list id="n105_ea44" name="lstBuff" xy="1012,153" size="837,82" layout="row" overflow="scroll" colGap="15" defaultItem="ui://zqdehm1vea443u">
+    <list id="n105_ea44" name="lstBuff" xy="1012,153" size="837,82" layout="row" overflow="scroll" scroll="horizontal" colGap="15" defaultItem="ui://zqdehm1vea443u">
       <item/>
       <item/>
       <item/>
@@ -100,12 +99,12 @@
     <component id="n108_nkfb" name="n0" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1242,0" size="137,76">
       <gearDisplay controller="viewDetailed" pages="1"/>
       <gearText controller="viewDetailed" pages="1" values="显示：详细" default="显示：省略"/>
-      <Button title="显示：详细" controller="viewDetailed" page="0"/>
+      <Button title="显示：省略" controller="viewDetailed" page="0"/>
     </component>
     <component id="n109_nkfb" name="n1" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1242,0" size="137,76">
       <gearDisplay controller="viewDetailed" pages="0"/>
       <gearText controller="viewDetailed" pages="1" values="显示：详细" default="显示：省略"/>
-      <Button title="显示：详细" controller="viewDetailed" page="1"/>
+      <Button title="显示：省略" controller="viewDetailed" page="1"/>
     </component>
     <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="312,939"/>
   </displayList>

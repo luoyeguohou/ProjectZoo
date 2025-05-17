@@ -70,10 +70,15 @@ namespace Main
 
         private void VenueTakeEffectAni(object[] p = null)
         {
+            TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
             Venue v = (Venue)p[0];
             foreach (UI_VenueWithAni ui in m_cont.m_lstVenue.GetChildren())
             {
-                if (ui.m_venue.v == v) ui.m_takeEffect.Play();
+                
+                if (ui.m_venue.v == v){
+                    ui.m_takeEffect.timeScale = tComp.endTurnSpeed;
+                    ui.m_takeEffect.Play();
+                }
             }
         }
 

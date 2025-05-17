@@ -45,7 +45,7 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { val2 });
                 break;
             case "dep_3":
-                Msg.Dispatch(MsgID.ActionPayGold, new object[] { wComp.workerPrice });
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { wComp.workerPrice * (EcsUtil.GetBuffNum(67)>0?2:1) });
                 wComp.workerPrice += wComp.workerPriceAddon;
                 Msg.Dispatch(MsgID.ActionGainWorker, new object[] { val1 });
                 break;
@@ -67,7 +67,8 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 66, val1 });
                 break;
             case "dep_devmonkey":
-                Msg.Dispatch(MsgID.ActionGainSpecTypeCard, new object[] { 0, val1 });
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { val1 });
+                Msg.Dispatch(MsgID.ActionGainSpecTypeCard, new object[] { 0, 1 });
                 break;
             case "dep_houqin":
                 Msg.Dispatch(MsgID.ActionDeleteBadIdeaCard, new object[] { val1 });
@@ -79,6 +80,7 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 66, val1 });
                 break;
             case "dep_devburu":
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { val1 });
                 Msg.Dispatch(MsgID.ActionGainSpecTypeCard, new object[] { 1, val1 });
                 break;
             case "dep_qingli":
@@ -97,6 +99,7 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainGold, new object[] { val1 + wp.workTime * val2 });
                 break;
             case "dep_pachong":
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { val1 });
                 Msg.Dispatch(MsgID.ActionGainSpecTypeCard, new object[] { 2, val1 });
                 break;
             case "dep_kuojian":
@@ -106,6 +109,7 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 66, val1 });
                 break;
             case "dep_yu":
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { val1 });
                 Msg.Dispatch(MsgID.ActionGainSpecTypeCard, new object[] { 3, val1 });
                 break;
             case "dep_dev":

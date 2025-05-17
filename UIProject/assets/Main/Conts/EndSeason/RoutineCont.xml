@@ -34,10 +34,10 @@
       <item/>
       <item/>
     </list>
-    <text id="n80_z141" name="n80" xy="404,9" size="558,98" fontSize="64" align="center" vAlign="middle" autoSize="none" text="指定观光路线"/>
+    <text id="n80_z141" name="n80" xy="296,6" size="782,98" fontSize="64" align="center" vAlign="middle" autoSize="none" text="Plan display order"/>
     <component id="n81_z141" name="btnSettle" src="rd0816" fileName="Components/ButtonNormal.xml" xy="546,637" size="290,96">
       <Button title="结算" titleFontSize="42"/>
     </component>
-    <text id="n82_z141" name="txtPopRating" xy="486,110" size="394,69" fontSize="44" align="center" vars="true" autoSize="none" text="目标人气值：{aim=500} "/>
+    <text id="n82_z141" name="txtPopRating" xy="275,110" size="852,69" fontSize="44" align="center" vars="true" autoSize="shrink" text="Target Popularity:{aim=500}"/>
   </displayList>
 </component>

@@ -137,11 +137,11 @@ public class StartGameSys: ISystem
         AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
         aComp.aims = new List<int> {
             1, 2, 3, 10,
-            11, 13, 15, 25,
-            27, 30, 32, 45,
-            50, 55, 60, 80 ,
-            90, 100, 110, 140,
-            150, 160, 170, 200,
+            15, 20, 25, 40,
+            50, 60, 70, 100,
+            120, 140, 160, 200 ,
+            240, 280, 320, 400,
+            450, 500, 550, 700,
         };
         // init gold
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();

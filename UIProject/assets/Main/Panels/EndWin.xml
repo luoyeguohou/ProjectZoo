@@ -4,9 +4,9 @@
     <image id="n50_rd08" name="n50" src="rd0811" fileName="Images/back.png" xy="0,0" size="1920,1080">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n51_ea44" name="n51" xy="361,139" size="1239,244" fontSize="138" align="center" vAlign="middle" autoSize="none" text="GameOver"/>
+    <text id="n51_ea44" name="n51" xy="361,139" size="1239,244" fontSize="138" align="center" vAlign="middle" autoSize="none" text="游戏结束"/>
     <component id="n52_ea44" name="btnRestart" src="rd0816" fileName="Components/ButtonNormal.xml" xy="859,668">
-      <Button title="restart"/>
+      <Button title="重启"/>
     </component>
   </displayList>
 </component>

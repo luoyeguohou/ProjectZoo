@@ -13,6 +13,7 @@ namespace Main
                 .SetVar("curNum", data.currNum.ToString()).FlushVars();
             m_img.url = "ui://Main/" + data.uid + "O";
             m_imgBg.url = "ui://Main/" + data.uid + "W";
+            m_img_bg.url = "ui://Main/" + data.uid + "W";
         }
     }
 }

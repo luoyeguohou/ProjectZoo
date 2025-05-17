@@ -23,6 +23,7 @@ public class ActionGoldSys : ISystem
 
     private void GainIncome(object[] p)
     {
+        if (EcsUtil.GetBuffNum(71) > 0) return;
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {

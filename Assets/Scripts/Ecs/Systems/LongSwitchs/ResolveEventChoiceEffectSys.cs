@@ -27,7 +27,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 break;
             case "event_2":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 46, 1 });
-                Msg.Dispatch(MsgID.ActionGainIncome, new object[] { - gComp.income /2});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 71,1});
                 break;
             case "event_3":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 52, 30 });
@@ -75,7 +75,9 @@ public class ResolveEventChoiceEffectSys : ISystem
                 break;
             case "event_14":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 41, 1 });
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 60, 1 });
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 67, 1 });
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 68, 1 });
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 69, 1 });
                 break;
             case "event_15":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 3 });

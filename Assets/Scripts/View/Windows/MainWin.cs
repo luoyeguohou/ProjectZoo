@@ -205,8 +205,22 @@ namespace Main
             {
                 if (!UIManager.IsCurrMainWin()) return;
                 Msg.Dispatch(MsgID.UseWorker, new object[] { context.data, index });
+                for (int i = 0; i < m_cont.m_lstWorkPos.numChildren; i++)
+                    ((UI_WorkPos)m_cont.m_lstWorkPos.GetChildAt(i)).m_overView.selectedIndex = 0;
             });
             FGUIUtil.SetHint(ui, wp.GetCont);
+
+            ui.m_img.onRollOver.Clear();
+            ui.m_img.onRollOver.Add((EventContext context) =>
+            {
+                if (!DragDropManager.inst.dragging) return;
+                ui.m_overView.selectedIndex = 1;
+            });
+            ui.m_img.onRollOut.Clear();
+            ui.m_img.onRollOut.Add((EventContext context) =>
+            {
+                ui.m_overView.selectedIndex = 0;
+            });
         }
 
         private void WorkerIR(int index, GObject g)
@@ -224,6 +238,7 @@ namespace Main
                 if (!UIManager.IsCurrMainWin()) return;
                 DragDropManager.inst.StartDrag(m_cont.m_worker, "ui://Main/Worker", wComp.specialWorker[index], (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
+                ui.SetScale(1.25f, 1.25f);
                 ui.m_type.selectedIndex = Cfg.specWorkers[w.uid].order + 2;
             });
 
@@ -282,7 +297,7 @@ namespace Main
 
                 DragDropManager.inst.StartDrag(m_cont.m_worker, "ui://Main/Worker", worker, (int)context.data);
                 UI_Worker ui = (UI_Worker)DragDropManager.inst.dragAgent.component;
-                ui.SetPivot(0.5f, 0.5f, true);
+                //ui.SetPivot(0.5f, 0.5f, true);
                 ui.SetScale(1.25f, 1.25f);
                 ui.Init(worker);
             };

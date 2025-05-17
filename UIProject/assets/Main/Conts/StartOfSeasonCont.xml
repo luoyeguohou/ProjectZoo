@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1053,824">
-  <controller name="seasonBefore" pages="0,,1,,2,,3," selected="3"/>
-  <controller name="seasonAfter" pages="0,,1,,2,,3," selected="3"/>
-  <controller name="yearBefore" pages="0,,1,,2,,3,,4,,5," selected="5"/>
-  <controller name="yearAfter" pages="0,,1,,2,,3,,4,,5," selected="5"/>
+  <controller name="seasonBefore" pages="0,,1,,2,,3," selected="0"/>
+  <controller name="seasonAfter" pages="0,,1,,2,,3," selected="0"/>
+  <controller name="yearBefore" pages="0,,1,,2,,3,,4,,5," selected="0"/>
+  <controller name="yearAfter" pages="0,,1,,2,,3,,4,,5," selected="0"/>
   <displayList>
     <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1053,824"/>
     <text id="n74_z141" name="txtTitle" xy="194,81" size="721,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="季度开始简报"/>
     <component id="n78_pz64" name="btnFinish" src="rd0816" fileName="Components/ButtonNormal.xml" xy="362,651" size="300,104">
-      <Button title="Finish" titleFontSize="53"/>
+      <Button title="完成" titleFontSize="53"/>
     </component>
-    <list id="n85_rr6n" name="lstItem" xy="96,233" size="373,359" overflow="scroll" defaultItem="ui://zqdehm1vrr6ne4" align="center" vAlign="middle">
+    <list id="n85_rr6n" name="lstItem" xy="58,233" size="344,359" overflow="scroll" defaultItem="ui://zqdehm1vrr6ne4" align="center" vAlign="middle">
       <item/>
       <item/>
       <item/>
@@ -19,17 +19,17 @@
       <item/>
       <item/>
     </list>
-    <loader id="n100_pxbk" name="n100" xy="596,243" size="80,77" url="ui://zqdehm1vz1411m" align="center" vAlign="middle" fill="scale">
+    <loader id="n100_pxbk" name="n100" xy="596,243" size="80,77" url="ui://zqdehm1vz1411o" align="center" vAlign="middle" fill="scale">
       <gearIcon controller="seasonBefore" pages="0,1,3" values="ui://zqdehm1vz1411o|ui://zqdehm1vz1411p|ui://zqdehm1vz1411m" default="ui://zqdehm1vz1411n"/>
     </loader>
-    <text id="n101_pxbk" name="txtYearBefore" xy="405,252" size="185,58" fontSize="39" autoSize="shrink" text="6th year">
-      <gearText controller="yearBefore" pages="1,2,3,4,5" values="2nd year|3rd year|4th year|5th year|6th year" default="1st year"/>
+    <text id="n101_pxbk" name="txtYearBefore" xy="405,252" size="185,58" fontSize="39" autoSize="shrink" text="第一年">
+      <gearText controller="yearBefore" pages="1,2,3,4,5" values="第二年|第三年|第四年|第五年|第六年" default="第一年"/>
     </text>
     <text id="n102_pxbk" name="txtAimBefore" xy="701,247" size="209,53" fontSize="39" align="center" autoSize="none" text="1"/>
-    <text id="n103_pxbk" name="txtYearAfter" xy="401,383" size="192,58" fontSize="39" autoSize="shrink" text="6th year">
-      <gearText controller="yearAfter" pages="1,2,3,4,5" values="2nd year|3rd year|4th year|5th year|6th year" default="1st year"/>
+    <text id="n103_pxbk" name="txtYearAfter" xy="401,383" size="192,58" fontSize="39" autoSize="shrink" text="第一年">
+      <gearText controller="yearAfter" pages="1,2,3,4,5" values="第二年|第三年|第四年|第五年|第六年" default="第一年"/>
     </text>
-    <loader id="n104_pxbk" name="n104" xy="599,379" size="80,77" url="ui://zqdehm1vz1411m" fill="scale">
+    <loader id="n104_pxbk" name="n104" xy="599,379" size="80,77" url="ui://zqdehm1vz1411o" fill="scale">
       <gearIcon controller="seasonAfter" pages="0,1,3" values="ui://zqdehm1vz1411o|ui://zqdehm1vz1411p|ui://zqdehm1vz1411m" default="ui://zqdehm1vz1411n"/>
     </loader>
     <text id="n105_pxbk" name="txtAimAfter" xy="698,392" size="209,53" fontSize="39" align="center" autoSize="none" text="2"/>

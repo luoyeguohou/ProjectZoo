@@ -17,11 +17,11 @@
     <image id="rd08s" name="cardTop.png" path="/Images/Cards/" exported="true" scale="9grid" scale9grid="37,16,74,32"/>
     <image id="rd08t" name="cardBg.png" path="/Images/Cards/" exported="true"/>
     <image id="rd08u" name="cardBack.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08v" name="card5.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08w" name="card4.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08x" name="card3.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08y" name="card2.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08z" name="card1.png" path="/Images/Cards/" exported="true"/>
+    <image id="rd08v" name="card5.png" path="/Images/Cards/"/>
+    <image id="rd08w" name="card4.png" path="/Images/Cards/"/>
+    <image id="rd08x" name="card3.png" path="/Images/Cards/"/>
+    <image id="rd08y" name="card2.png" path="/Images/Cards/"/>
+    <image id="rd08z" name="card1.png" path="/Images/Cards/"/>
     <image id="rd0810" name="button.png" path="/Images/" exported="true" scale="9grid" scale9grid="49,19,98,38"/>
     <image id="rd0811" name="back.png" path="/Images/" exported="true"/>
     <image id="rd0812" name="ground3.png" path="/Images/" exported="true"/>
@@ -441,6 +441,28 @@
     <image id="pxbkes" name="finger.png" path="/Images/" exported="true"/>
     <component id="pxbket" name="Finger.xml" path="/Panels/"/>
     <component id="pxbkeu" name="NewBieCont.xml" path="/Conts/"/>
+    <image id="p0wlev" name="mainBG.png" path="/Images/Main/" exported="true"/>
+    <image id="p0wlew" name="chinese.png" path="/Images/Main/"/>
+    <image id="p0wlex" name="english.png" path="/Images/Main/"/>
+    <image id="p0wley" name="button.png" path="/Images/Main/"/>
+    <component id="p0wlez" name="HomeWin.xml" path="/Panels/" exported="true"/>
+    <image id="p0wlf0" name="buff_67.png" path="/Images/Buffs/" exported="true"/>
+    <image id="p0wlf1" name="buff_68.png" path="/Images/Buffs/" exported="true"/>
+    <image id="p0wlf2" name="buff_69.png" path="/Images/Buffs/" exported="true"/>
+    <image id="p0wlf3" name="buff_70.png" path="/Images/Buffs/" exported="true"/>
+    <image id="p0wlf4" name="buff_71.png" path="/Images/Buffs/" exported="true"/>
+    <image id="p0wlf5" name="cardNew4.png" path="/Images/Cards/" exported="true"/>
+    <image id="p0wlf6" name="cardNew3.png" path="/Images/Cards/" exported="true"/>
+    <image id="p0wlf7" name="cardNew5.png" path="/Images/Cards/"/>
+    <image id="p0wlf8" name="cardNew1.png" path="/Images/Cards/"/>
+    <image id="p0wlf9" name="cardNew2.png" path="/Images/Cards/" exported="true"/>
+    <image id="p0wlfb" name="costPanel.png" path="/Images/Cards/" exported="true" scale="9grid" scale9grid="52,53,290,5"/>
+    <image id="p0wlfc" name="新建项目 (12).png" path="/Images/Bg/"/>
+    <image id="p0wlfd" name="新建项目 (8).png" path="/Images/Bg/"/>
+    <image id="p0wlfe" name="新建项目 (9).png" path="/Images/Bg/"/>
+    <image id="p0wlff" name="新建项目 (10).png" path="/Images/Bg/"/>
+    <image id="p0wlfg" name="新建项目 (11).png" path="/Images/Bg/"/>
+    <sound id="p0wlfh" name="buttonEff.mp3" path="/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

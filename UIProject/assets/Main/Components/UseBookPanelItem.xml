@@ -3,13 +3,13 @@
   <displayList>
     <image id="n46_witr" name="n46" src="witr1y" fileName="Images/itemUsePanel.png" xy="0,0" size="254,252"/>
     <component id="n47_witr" name="btnSell" src="rd0816" fileName="Components/ButtonNormal.xml" xy="41,73" size="166,55">
-      <Button title="Sell" titleFontSize="34"/>
+      <Button title="售卖" titleFontSize="34"/>
     </component>
     <component id="n56_witr" name="btnUse" src="rd0816" fileName="Components/ButtonNormal.xml" xy="45,186" size="166,55">
-      <Button title="Use" titleFontSize="34"/>
+      <Button title="使用" titleFontSize="34"/>
     </component>
     <component id="n57_witr" name="btnDiscard" src="rd0816" fileName="Components/ButtonNormal.xml" xy="44,131" size="166,55">
-      <Button title="Discard" titleFontSize="34"/>
+      <Button title="丢弃" titleFontSize="34"/>
     </component>
     <image id="n58_d2b2" name="n58" src="rd08i" fileName="Images/panel.png" xy="239,93" size="263,144"/>
     <text id="n59_d2b2" name="txtCont" xy="261,106" size="224,119" fontSize="27" autoSize="shrink" autoClearText="true" text="抽牌堆展示$1张牌，弃置$2张牌，获得剩余的牌。"/>

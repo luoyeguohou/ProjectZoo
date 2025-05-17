@@ -66,6 +66,8 @@ public class TurnComp : IComponent
     public Season season = Season.Spring;
     public int turn = 1;
     public EndSeasonStep step = EndSeasonStep.ChooseRoutine;
+    public float endTurnSpeed = 1;
+    public List<string> startOfSeasonInfo;
 }
 
 public class ShopComp : IComponent

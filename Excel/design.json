@@ -1,7 +1,7 @@
 {
   "chineseBook": [
     {
-      "cont": "招募$1名永久员工",
+      "cont": "招募$1名员工",
       "name": "招募",
       "uid": "oneWorker"
     },
@@ -26,7 +26,7 @@
       "uid": "research"
     },
     {
-      "cont": "开垦$1块土地",
+      "cont": "扩建$1块土地",
       "name": "开垦",
       "uid": "expand"
     },
@@ -36,12 +36,12 @@
       "uid": "training"
     },
     {
-      "cont": "升级$1次部门，获得一张坏点子牌",
+      "cont": "升级$1次部门，获得一张随机诅咒牌",
       "name": "疯狂培训",
       "uid": "trainingCrazyly"
     },
     {
-      "cont": "获得$1收入，获得一张坏点子牌",
+      "cont": "获得$1收入，获得一张随机诅咒牌",
       "name": "灰色产业",
       "uid": "shadowIndustry"
     },
@@ -56,7 +56,7 @@
       "uid": "lakeFree"
     },
     {
-      "cont": "开垦$1块土地，获得一张坏点子牌",
+      "cont": "扩建$1块土地，获得一张随机诅咒牌",
       "name": "连夜开垦",
       "uid": "expandOvernight"
     },
@@ -76,7 +76,7 @@
       "uid": "promotion"
     },
     {
-      "cont": "获得$1点人气值,获得一张坏点子牌",
+      "cont": "获得$1点人气值,获得一张随机诅咒牌",
       "name": "广告轰炸",
       "uid": "adBombardment"
     },
@@ -96,7 +96,7 @@
       "uid": "projectSale"
     },
     {
-      "cont": "忽略所有条件免费打出$1张手牌",
+      "cont": "免费打出$1张手牌",
       "name": "建设",
       "uid": "building"
     },
@@ -123,27 +123,27 @@
   ],
   "chineseBuff": [
     {
-      "cont": "每季度开始时获得人气",
+      "cont": "季度开始时获得的人气数",
       "uid": 1
     },
     {
-      "cont": "每季度开始时获得书籍",
+      "cont": "季度开始时获得书籍数",
       "uid": 2
     },
     {
-      "cont": "每季度开始时有50%概率获得金钱",
+      "cont": "季度开始时有50%概率获得的金钱数",
       "uid": 3
     },
     {
-      "cont": "每季度开始时随机出现地图奖励",
+      "cont": "季度开始时随机出现的地图奖励数",
       "uid": 4
     },
     {
-      "cont": "每季度开始时获得随机坏点子",
+      "cont": "季度开始时获得的随机诅咒牌数",
       "uid": 5
     },
     {
-      "cont": "每季度开始时随机获得一些东西",
+      "cont": "季度开始时随机获得一些东西",
       "uid": 6
     },
     {
@@ -163,7 +163,7 @@
       "uid": 10
     },
     {
-      "cont": "商店项目牌价格额外增加",
+      "cont": "商店项目牌价格额外增加的数量",
       "uid": 11
     },
     {
@@ -171,7 +171,7 @@
       "uid": 12
     },
     {
-      "cont": "增加商店的售卖数量",
+      "cont": "商店增加的售卖数量",
       "uid": 13
     },
     {
@@ -187,15 +187,15 @@
       "uid": 16
     },
     {
-      "cont": "动物场馆中获得人气增加",
+      "cont": "动物场馆中获得的人气增加百分比",
       "uid": 17
     },
     {
-      "cont": "人气值额外获得百分比",
+      "cont": "人气值额外获得的百分比",
       "uid": 18
     },
     {
-      "cont": "X场馆额外获得的人气值",
+      "cont": "从X场馆额外获得的人气值",
       "uid": 19
     },
     {
@@ -203,15 +203,15 @@
       "uid": 20
     },
     {
-      "cont": "大型场馆额外获得的人气",
+      "cont": "大型场馆额外获得的人气数",
       "uid": 21
     },
     {
-      "cont": "临河场馆额外获得的人气",
+      "cont": "临河场馆额外获得的人气数",
       "uid": 22
     },
     {
-      "cont": "猿猴场馆额外获得的人气",
+      "cont": "猿猴场馆额外获得的人气数",
       "uid": 23
     },
     {
@@ -219,7 +219,7 @@
       "uid": 24
     },
     {
-      "cont": "额外可以获得利息的规模",
+      "cont": "额外可以获得利息的倍数",
       "uid": 25
     },
     {
@@ -231,7 +231,7 @@
       "uid": 27
     },
     {
-      "cont": "季度结束时，每个未派遣的工人获得的金钱",
+      "cont": "季度结束时，每个未派遣的工人获得的金钱数",
       "uid": 28
     },
     {
@@ -255,7 +255,7 @@
       "uid": 33
     },
     {
-      "cont": "卡牌的额外金币花费",
+      "cont": "卡牌的额外金币花费数",
       "uid": 34
     },
     {
@@ -263,11 +263,11 @@
       "uid": 35
     },
     {
-      "cont": "可以直接弃置坏点子牌",
+      "cont": "可以直接弃置诅咒牌",
       "uid": 36
     },
     {
-      "cont": "每弃掉一张牌就获得金钱",
+      "cont": "每弃掉一张牌就获得的金钱数",
       "uid": 37
     },
     {
@@ -279,7 +279,7 @@
       "uid": 39
     },
     {
-      "cont": "执行部门效果较少需要的员工",
+      "cont": "执行部门效果减少的员工需求数",
       "uid": 40
     },
     {
@@ -287,15 +287,15 @@
       "uid": 41
     },
     {
-      "cont": "商店购买物品后获得人气值",
+      "cont": "商店购买物品后获得的人气值数",
       "uid": 42
     },
     {
-      "cont": "使用书籍后获得人气值",
+      "cont": "使用书籍后获得的人气值数",
       "uid": 43
     },
     {
-      "cont": "使用书籍有概率获得另一本书籍",
+      "cont": "使用书籍时获得另一本书籍的概率",
       "uid": 44
     },
     {
@@ -323,11 +323,11 @@
       "uid": 50
     },
     {
-      "cont": "坏点子牌会转化为随机项目牌",
+      "cont": "诅咒牌会转化为随机项目牌",
       "uid": 51
     },
     {
-      "cont": "拿到牌后有概率直接弃掉",
+      "cont": "拿到牌后直接弃掉的概率",
       "uid": 52
     },
     {
@@ -335,11 +335,11 @@
       "uid": 53
     },
     {
-      "cont": "拆除场馆时招聘员工",
+      "cont": "拆除场馆时招聘的员工数",
       "uid": 54
     },
     {
-      "cont": "扩建时招募临时员工",
+      "cont": "扩建时招募的临时员工数",
       "uid": 55
     },
     {
@@ -363,7 +363,7 @@
       "uid": 60
     },
     {
-      "cont": "售出书籍的价格比例",
+      "cont": "售出书籍时的价格比例",
       "uid": 61
     },
     {
@@ -375,16 +375,36 @@
       "uid": 63
     },
     {
-      "cont": "视为你有一个与所有场馆都相邻的场馆",
+      "cont": "视为你有一个与所有场馆都相邻的猿猴类场馆",
       "uid": 64
     },
     {
-      "cont": "计算相邻时，可以额外计算的距离",
+      "cont": "2距离内都算作相邻",
       "uid": 65
     },
     {
-      "cont": "仅本回合人气值提升百分比",
+      "cont": "仅本回合额外获得的人气值百分比",
       "uid": 66
+    },
+    {
+      "cont": "招募工人价格翻倍",
+      "uid": 67
+    },
+    {
+      "cont": "不能派遣特殊工人",
+      "uid": 68
+    },
+    {
+      "cont": "不能派遣临时工人",
+      "uid": 69
+    },
+    {
+      "cont": "拥有的永久规划牌数",
+      "uid": 70
+    },
+    {
+      "cont": "不能获得任何收入",
+      "uid": 71
     }
   ],
   "chineseCard": [
@@ -392,7 +412,7 @@
       "aniName": "猿猴",
       "className": "猿猴场馆",
       "condition": "",
-      "cont": "每与另一个场馆相邻，获得$1人气值。如果一共与至少$2个猿猴场馆相邻，则额外提供$3人气值。（当前$d）",
+      "cont": "每与一个场馆相邻，获得$1人气值。如果一共与至少$2个猿猴场馆相邻，则额外提供$3人气值。（当前$d）",
       "name": "金丝猴",
       "uid": "jinsi_monkey"
     },
@@ -416,7 +436,7 @@
       "aniName": "猿猴",
       "className": "猿猴场馆",
       "condition": "",
-      "cont": "获得X人气值，X为园区内场馆数量。（当前$d）",
+      "cont": "获得X人气值，X为场馆数量。（当前$d）",
       "name": "绒猴",
       "uid": "rong_monkey"
     },
@@ -471,15 +491,15 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内至少拥有10个种类相同的场馆。",
-      "cont": "季度开始结算时，获得$1人气。",
+      "condition": "至少拥有10个种类相同的场馆。",
+      "cont": "季度开始时，获得$1人气。",
       "name": "单一生态成就",
       "uid": "achi_danyi"
     },
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内至少拥有10个猿猴场馆。",
+      "condition": "至少拥有10个猿猴场馆。",
       "cont": "计算相邻时视为你拥有$1个与全部场馆相邻的猴类场馆。",
       "name": "猿猴类成就",
       "uid": "achi_yuanhou"
@@ -487,7 +507,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内至少拥有10个可以建造的场地。",
+      "condition": "至少拥有20个可以建造的场地。",
       "cont": "所有距离为$1以内的场馆都视作相邻。",
       "name": "责任成就",
       "uid": "achi_duty"
@@ -495,7 +515,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "某一季度累计从猿猴场馆获得50人气值。",
+      "condition": "某一季度从猿猴场馆获得至少50人气值。",
       "cont": "获得$1收入。",
       "name": "猿猴宣传成就",
       "uid": "achi_houxuanchuan"
@@ -504,7 +524,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "仅春季可用，结算所有场馆后，人气值增加$w1%。",
+      "cont": "仅春季可用，从场馆获得的人气值增加$w1%。",
       "name": "春日装扮",
       "uid": "dep_spring"
     },
@@ -512,7 +532,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张猿猴场馆牌。",
+      "cont": "花费$w1金钱，获得抽牌堆中的下一张猿猴场馆牌。",
       "name": "猿猴研究部门",
       "uid": "dep_devmonkey"
     },
@@ -520,7 +540,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "删除手上的$w1张坏点子牌。",
+      "cont": "删除手上的$w1张诅咒牌。",
       "name": "后勤部门",
       "uid": "dep_houqin"
     },
@@ -528,15 +548,15 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "该部门效果始终为当前等级的研究部门。",
-      "name": "研究部分部门",
+      "cont": "始终与研究部门效果相同。",
+      "name": "研究部门分部门",
       "uid": "dep_yanjiu"
     },
     {
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "免费打出手牌中$w1张猿猴场馆。",
+      "cont": "免费打出手牌中1张猿猴场馆。(每季度限$w1次)",
       "name": "猿猴场馆建设部门",
       "uid": "dep_conmonkey"
     },
@@ -544,7 +564,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "选择1个从卡牌建成的动物场馆，复制$1张该卡牌到手牌中。",
+      "cont": "选择1个动物场馆，复制$1张该卡牌到手牌中。",
       "name": "一招鲜",
       "uid": "yizhaoxian"
     },
@@ -552,7 +572,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "接下来$1张牌均为猴类牌。",
+      "cont": "接下来$1张从抽牌堆获取的牌均为猿猴模组的牌。",
       "name": "猴子泛滥",
       "uid": "houzifanlan"
     },
@@ -568,7 +588,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "招募一名特殊员工，该员工被派遣去研究时，抽$wr1张牌。之后额外获得一张随机坏点子牌。",
+      "cont": "招募一名特殊员工，该员工被派遣时，抽$wr1张牌。之后额外获得一张随机诅咒牌。",
       "name": "招募专职研究人员",
       "uid": "yanjiurenyuan"
     },
@@ -576,7 +596,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "招募一名特殊员工，该员工被派遣去建设时，额外获得$wr1点时间。",
+      "cont": "招募一名特殊员工，该员工被派遣时，获得$wr1点时间点数。",
       "name": "招募专职建设人员",
       "uid": "jiansherenyuan"
     },
@@ -584,7 +604,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "季度结束时，每有1名员工，获得$1金钱。",
+      "cont": "季度结束时，每有1名未派遣的员工，获得$1金钱。",
       "name": "身兼数职",
       "uid": "shenjianshuzhi"
     },
@@ -616,7 +636,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "每次在商店进行购买后，本季度开始结算人气值时，获得$1点人气值。",
+      "cont": "每次在商店进行购买后，获得$1点人气值。",
       "name": "业界大亨",
       "uid": "yejiedaheng"
     },
@@ -664,7 +684,7 @@
       "aniName": "狮",
       "className": "哺乳类场馆",
       "condition": "",
-      "cont": "如果仅与一个场馆严格相邻。这两个场馆获得的人气值都翻倍。获得$1人气值。（需要先于相邻场馆结算，相邻场馆才能翻倍）",
+      "cont": "如果仅与一个场馆相邻。这两个场馆获得的人气值都翻倍。获得$1人气值。（需要先于相邻场馆结算，相邻场馆才能翻倍）",
       "name": "美洲狮",
       "uid": "meizhoushi"
     },
@@ -672,7 +692,7 @@
       "aniName": "狮",
       "className": "哺乳类场馆",
       "condition": "",
-      "cont": "获得$1人气值。获得$2亚洲狮场馆牌。",
+      "cont": "获得$1人气值。获得$2张亚洲狮场馆牌。",
       "name": "亚洲狮",
       "uid": "yazhoushi"
     },
@@ -728,14 +748,14 @@
       "aniName": "",
       "className": "",
       "condition": "连续三个场馆提供总计大于等于20点人气值。",
-      "cont": "你可以直接弃掉坏点子牌。",
+      "cont": "你可以直接弃掉诅咒牌。",
       "name": "人气爆满成就",
       "uid": "achi_poprating"
     },
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少8个哺乳类场馆。",
+      "condition": "至少拥有至少8个哺乳类场馆。",
       "cont": "从动物场馆获得的人气值都会额外增加$1点。",
       "name": "大型哺乳动物成就",
       "uid": "achi_buru"
@@ -743,7 +763,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少15个动物场馆。",
+      "condition": "至少拥有至少15个动物场馆。",
       "cont": "获得$1点收入。",
       "name": "多种类保护成就",
       "uid": "achi_duozhonglei"
@@ -751,7 +771,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有虎，豹，熊，狮动物场馆各至少1各。",
+      "condition": "至少拥有虎，豹，熊，狮动物场馆各至少1个。",
       "cont": "所有正面概率增加$1%。",
       "name": "虎豹熊狮成就",
       "uid": "achi_hbxs"
@@ -760,7 +780,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "仅夏季可用，结算所有场馆后，人气值提升$w1%。",
+      "cont": "仅夏季可用，从场馆获得的人气值增加$w1%。",
       "name": "夏日装扮",
       "uid": "dep_summer"
     },
@@ -768,7 +788,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张哺乳类场馆牌。",
+      "cont": "花费$w1金钱，获得抽牌堆中的下一张哺乳类场馆牌。",
       "name": "哺乳类研究部门",
       "uid": "dep_devburu"
     },
@@ -776,7 +796,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "清理一个场馆，返还建造成本$w1%的金钱。",
+      "cont": "拆除一个场馆，返还建造成本$w1%的金钱。",
       "name": "清理部门",
       "uid": "dep_qingli"
     },
@@ -808,7 +828,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "本季度结束时每个尚未派遣过的工人，获得$1金钱。",
+      "cont": "季度结束时，每个尚未派遣过的工人，获得$1金钱。",
       "name": "人满为福",
       "uid": "renmanweifu"
     },
@@ -816,7 +836,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "25%概率获得1个随机书籍；55%概率获得5金钱；30%概率获得1个临时工人。如果三个选项均被触发，获得一个随机坏点子牌。",
+      "cont": "25%概率获得1个随机书籍；55%概率获得5金钱；30%概率获得1个临时工人。如果三个选项均被触发，获得一个随机诅咒牌。",
       "name": "人满为安",
       "uid": "renmanweian"
     },
@@ -824,7 +844,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "50%概率获得5金钱；25%概率获得10金钱；15%概率获得30金钱。如果三个选项均被触发，获得一个随机坏点子牌。",
+      "cont": "50%概率获得5金钱；25%概率获得10金钱；15%概率获得30金钱。如果三个选项均被触发，获得一个随机诅咒牌。",
       "name": "赌博",
       "uid": "dubo"
     },
@@ -840,7 +860,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "获得$1个书籍字段。",
+      "cont": "获得$1个书籍栏位。",
       "name": "爆仓",
       "uid": "baocang"
     },
@@ -848,7 +868,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "建设场馆的时间花费减$1。（最少1点）",
+      "cont": "建设场馆的时间点数花费减$1。（最少1点）",
       "name": "敏捷开发",
       "uid": "minjiekaifa"
     },
@@ -864,7 +884,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "每季度开始时，50%概率获得$1金钱。",
+      "cont": "30%概率获得$1收入。将这张卡牌返回手牌。",
       "name": "彩票",
       "uid": "caipiao"
     },
@@ -888,7 +908,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "可以获得利息的规模翻$1倍。",
+      "cont": "可以获得利息的部分翻$1倍。",
       "name": "均衡投资",
       "uid": "junhengtouzi"
     },
@@ -896,7 +916,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "招募1名特殊员工，该员工被派遣去扩建时，额外扩建$wr1块地。",
+      "cont": "招募1名特殊员工，该员工被派遣时，随机扩建$wr1块地。",
       "name": "招募专职扩建人员",
       "uid": "kuojianrenyuan"
     },
@@ -912,7 +932,7 @@
       "aniName": "变色龙",
       "className": "爬虫类场馆",
       "condition": "",
-      "cont": "获得$1*X人气值，X为本季度结算过的爬虫场馆数。$2%概率获得1张随机坏点子牌。",
+      "cont": "获得X人气值，X为$1*本季度结算过的爬虫场馆数。$2%概率获得1张随机诅咒牌。",
       "name": "高冠变色龙",
       "uid": "gaoguanbsl"
     },
@@ -920,7 +940,7 @@
       "aniName": "变色龙",
       "className": "爬虫类场馆",
       "condition": "",
-      "cont": "获得$1*X人气值，X为本季度结算过的爬虫场馆数。",
+      "cont": "获得X人气值，X为$1*本季度结算过的爬虫场馆数。",
       "name": "杰克森变色龙",
       "uid": "duojiesenbsl"
     },
@@ -936,7 +956,7 @@
       "aniName": "蜥",
       "className": "爬虫类场馆",
       "condition": "",
-      "cont": "获得$1人气值。但有$2%概率获得1张随机坏点子牌。",
+      "cont": "获得$1人气值。但有$2%概率获得1张随机诅咒牌。",
       "name": "巨型环尾蜥",
       "uid": "juxinghuanweixi"
     },
@@ -944,7 +964,7 @@
       "aniName": "蜥",
       "className": "爬虫类场馆",
       "condition": "",
-      "cont": "获得$1人气值。如果没有与任何场馆严格相邻，改为获得$2人气值。",
+      "cont": "获得$1人气值。如果没有与任何场馆相邻，改为获得$2人气值。",
       "name": "角蜥",
       "uid": "jiaoxi"
     },
@@ -952,7 +972,7 @@
       "aniName": "壁虎",
       "className": "爬虫类场馆",
       "condition": "",
-      "cont": "每有可建造的空地，获得$1人气值。(当前$b)",
+      "cont": "每有1块可建造的空地，获得$1人气值。(当前$b)",
       "name": "亚瓜拉壁虎",
       "uid": "yagualabihu"
     },
@@ -983,7 +1003,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少8个爬虫类场馆。",
+      "condition": "至少拥有至少8个爬虫类场馆。",
       "cont": "所有爬虫类场馆结算时有$1%概率再结算一次。",
       "name": "爬虫类保护成就",
       "uid": "achi_pachong"
@@ -991,7 +1011,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有两种动物场馆各至少5个。",
+      "condition": "至少拥有两种动物场馆各至少5个。",
       "cont": "获得$1收入。",
       "name": "多样性保护成就",
       "uid": "achi_duoyangxing"
@@ -1007,7 +1027,7 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "拥有至少3个大型场馆。",
+      "condition": "至少拥有3个大型场馆。",
       "cont": "从大型动物场馆获得的人气值都会额外增加$1点。",
       "name": "大型动物保护成就",
       "uid": "achi_daxing"
@@ -1016,7 +1036,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "仅秋季可用，结算所有场馆后，人气值提升$w1。",
+      "cont": "仅秋季可用，从场馆获得的人气值增加$w1%。",
       "name": "秋季装扮",
       "uid": "dep_august"
     },
@@ -1024,7 +1044,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "免费建造$w1个大型场馆。",
+      "cont": "免费打出$w1个大型场馆卡牌。",
       "name": "大型场馆建设部门",
       "uid": "dep_daxing"
     },
@@ -1040,7 +1060,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张爬虫类场馆牌。",
+      "cont": "花费$w1金钱，获得抽牌堆中的下一张爬虫类场馆牌。",
       "name": "爬虫类研究部门",
       "uid": "dep_pachong"
     },
@@ -1064,7 +1084,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "好概率会增加$1%。打出时会获得$2张随机坏点子牌。",
+      "cont": "正向概率会增加$1%。打出时会获得$2张随机诅咒牌。",
       "name": "概率大师",
       "uid": "gailvdashi"
     },
@@ -1088,7 +1108,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "获得$1金钱，有$2%的概率获得1张随机坏点子牌。",
+      "cont": "获得$1金钱，有$2%的概率获得1张随机诅咒牌。",
       "name": "坏点子",
       "uid": "huaidianzi"
     },
@@ -1168,7 +1188,7 @@
       "aniName": "鱼",
       "className": "海洋场馆",
       "condition": "",
-      "cont": "获得X人气值，X为累计获得过的坏点子数。(当前为$d)",
+      "cont": "获得X人气值，X为累计获得过的诅咒牌数。(当前为$d)",
       "name": "食人鱼",
       "uid": "shirenyu"
     },
@@ -1176,7 +1196,7 @@
       "aniName": "鱼",
       "className": "海洋场馆",
       "condition": "",
-      "cont": "获得X人气值，X为与岩石地形相邻的场馆数*$1。(当前为$d)",
+      "cont": "获得X人气值，X为与$1*岩石地形相邻的场馆数。(当前为$d)",
       "name": "岩石鱼",
       "uid": "yanshiyu"
     },
@@ -1184,7 +1204,7 @@
       "aniName": "鱼",
       "className": "海洋场馆",
       "condition": "",
-      "cont": "获得X人气值，X为与湖泊地形相邻的场馆数*$1。(当前为$d)",
+      "cont": "获得X人气值，X为与$1*湖泊地形相邻的场馆数。(当前为$d)",
       "name": "深海鱼",
       "uid": "shenhaiyu"
     },
@@ -1192,7 +1212,7 @@
       "aniName": "鱼",
       "className": "海洋场馆",
       "condition": "",
-      "cont": "获得X人气值，X为海洋场馆数*$1。(当前为$d)",
+      "cont": "获得X人气值，X为$1*海洋场馆数。(当前为$d)",
       "name": "锦鲤",
       "uid": "jinli"
     },
@@ -1263,32 +1283,32 @@
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少10个海洋场馆。",
-      "cont": "所有效果内有X的场馆建设费用减少$1%。",
+      "condition": "至少拥有10个海洋场馆。",
+      "cont": "所有效果内有X的场馆建设金钱费用减少$1%。",
       "name": "鱼类保护成就",
       "uid": "achi_yu"
     },
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少10个效果内有X的场馆。",
-      "cont": "使用一个书籍后，本季度结算人气值前获得$1人气。",
+      "condition": "至少拥有10个效果内有X的场馆。",
+      "cont": "使用一个书籍后，获得$1人气。",
       "name": "未知保护成就",
       "uid": "achi_weizhi"
     },
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少10个与湖泊地形相邻的场馆。",
-      "cont": "从与湖泊地形相邻的场馆获得的人气值都会额外增加$1点。",
+      "condition": "至少拥有10个与湖泊地形相邻的场馆。",
+      "cont": "从湖泊地形相邻的场馆获得的人气值增加$1点。",
       "name": "河流利用成就",
       "uid": "achi_heliu"
     },
     {
       "aniName": "",
       "className": "",
-      "condition": "园区内拥有至少15个小型动物场馆。",
-      "cont": "获得$1个书籍字段。每季度开始时，获得$1个随机书籍。",
+      "condition": "至少拥有15个小型动物场馆。",
+      "cont": "获得$1个书籍栏位。每季度开始时，获得$1个随机书籍。",
       "name": "小型动物保护成就",
       "uid": "achi_xiaoxing"
     },
@@ -1296,7 +1316,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "仅冬季可用，结算所有场馆后，人气值提升$w1%。",
+      "cont": "仅冬季可用，从场馆获得的人气值增加$w1%。",
       "name": "冬季装扮",
       "uid": "dep_winter"
     },
@@ -1304,7 +1324,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张海洋场馆牌。",
+      "cont": "花费$1金钱，获得抽牌堆中的下一张海洋场馆牌。",
       "name": "鱼类研究部门",
       "uid": "dep_yu"
     },
@@ -1321,7 +1341,7 @@
       "className": "",
       "condition": "",
       "cont": "弃掉最多$w1张手牌，收取等量的牌。",
-      "name": "专案优化部门",
+      "name": "项目优化部门",
       "uid": "dep_youhua"
     },
     {
@@ -1448,7 +1468,7 @@
       "aniName": "",
       "className": "",
       "condition": "",
-      "cont": "不能被弃置。尽可在春季打出。",
+      "cont": "不能被弃置。仅可在春季打出。",
       "name": "寒潮",
       "uid": "hanchao"
     },
@@ -1479,7 +1499,7 @@
   ],
   "chineseEvent": [
     {
-      "choose_1": "获得10收入，但是不会获得任何利息",
+      "choose_1": "获得10收入，但是不会获得任何利息。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1492,7 +1512,7 @@
       "uid": "event_1"
     },
     {
-      "choose_1": "不会再弃牌，但是收入减半",
+      "choose_1": "不会再弃牌，也不会获得任何收入。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1518,7 +1538,7 @@
       "uid": "event_3"
     },
     {
-      "choose_1": "获得的人气值翻倍，但是只有前5个场馆会生效",
+      "choose_1": "获得的人气值翻倍，但是只有前5个场馆会生效。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1544,7 +1564,7 @@
       "uid": "event_5"
     },
     {
-      "choose_1": "每回合开始时抽2张牌，但是所有牌的费用增加50%。",
+      "choose_1": "每回合开始时抽2张牌，但是所有牌的金钱费用增加50%。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1557,7 +1577,7 @@
       "uid": "event_6"
     },
     {
-      "choose_1": "每季度开始时地图上出现随机奖励，但是每季度开始时会增加一张坏点子到手牌。",
+      "choose_1": "每季度开始时地图上出现随机奖励，但是每季度开始时会增加一张随机诅咒牌到手牌。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1570,7 +1590,7 @@
       "uid": "event_7"
     },
     {
-      "choose_1": "你的坏点子牌都会转化成随机项目牌，但是你扩建的费用翻倍。",
+      "choose_1": "你的诅咒牌都会转化成随机项目牌，但是你扩建的费用翻倍。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1583,7 +1603,7 @@
       "uid": "event_8"
     },
     {
-      "choose_1": "每季度开始时，随机获得下列其中一项：+10块钱，+1临时工人，-5人气值，+1坏点子牌，+1随机物品",
+      "choose_1": "每季度开始时，随机获得下列其中一项：+10块钱，+1临时工人，-5人气值，+1随机诅咒牌，+1随机物品。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1596,7 +1616,7 @@
       "uid": "event_9"
     },
     {
-      "choose_1": "书籍效果翻倍，但是不能打出任何成就牌",
+      "choose_1": "书籍效果翻倍，但是不能打出任何成就牌。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1609,7 +1629,7 @@
       "uid": "event_10"
     },
     {
-      "choose_1": "50%概率获得20金钱，50%失去20金钱",
+      "choose_1": "50%概率获得20金钱，50%失去20金钱。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1622,7 +1642,7 @@
       "uid": "event_11"
     },
     {
-      "choose_1": "获得200金币，但是你不会再得到任何的利息与场地奖励",
+      "choose_1": "获得200金币，但是你不会再得到任何的利息与场地奖励。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1635,7 +1655,7 @@
       "uid": "event_12"
     },
     {
-      "choose_1": "获得2个永久工人，但是你派遣特殊工人不会有任何效果",
+      "choose_1": "获得2个永久工人，但是你派遣特殊工人不会有任何效果。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1648,7 +1668,7 @@
       "uid": "event_13"
     },
     {
-      "choose_1": "重复执行部门行动也只需要一个工人，工人在被招募两个回合内不能被派遣",
+      "choose_1": "重复执行部门行动也只需要一个工人，不能派遣任何临时工人或特殊工人。招募工人价格翻倍。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1661,7 +1681,7 @@
       "uid": "event_14"
     },
     {
-      "choose_1": "季度结束时，你每有一个未派遣的工人就获得3金钱",
+      "choose_1": "季度结束时，你每有一个未派遣的工人就获得3金钱。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1674,7 +1694,7 @@
       "uid": "event_15"
     },
     {
-      "choose_1": "你商店购买书籍时会随机减免1-5金钱，但是商店的项目卡会贵1金钱",
+      "choose_1": "你商店购买书籍时会随机减免1-5金钱，但是商店的项目卡价格会增加1金钱。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1687,7 +1707,7 @@
       "uid": "event_16"
     },
     {
-      "choose_1": "每个季度开始时有50%概率获得10金币，但是，坏概率增加5%",
+      "choose_1": "每个季度开始时有50%概率获得10金币，但是负面概率增加5%。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1700,7 +1720,7 @@
       "uid": "event_17"
     },
     {
-      "choose_1": "获得5收入，但是，将所有春季替换为冬季。",
+      "choose_1": "获得5收入，但是将所有春季替换为冬季。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1713,7 +1733,7 @@
       "uid": "event_18"
     },
     {
-      "choose_1": "所有的效果内包含X的场馆在结算时X值+1，但是减10收入",
+      "choose_1": "所有的效果内包含X的场馆在结算时X值+1，但是减10收入。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1726,7 +1746,7 @@
       "uid": "event_19"
     },
     {
-      "choose_1": "临时工人可以当作2个工人，但是不能再拆除场馆",
+      "choose_1": "临时工人可以当作2个工人，但是不能再拆除场馆。",
       "choose_2": "无事发生",
       "choose_3": 0,
       "choose_4": 0,
@@ -1741,15 +1761,15 @@
   ],
   "chineseSpecWorker": [
     {
-      "cont": "该员工被派遣时，抽$1张牌。之后额外获得一张随机坏点子牌。",
+      "cont": "该员工被派遣时，抽$1张牌。之后额外获得一张随机诅咒牌。",
       "uid": "yanjiurenyuan"
     },
     {
-      "cont": "该员工被派遣时，获得$1点时间。",
+      "cont": "该员工被派遣时，获得$1点时间点数。",
       "uid": "jiansherenyuan"
     },
     {
-      "cont": "该员工被派遣时，扩建$1块随机地。",
+      "cont": "该员工被派遣时，扩建$1块随机地块。",
       "uid": "kuojianrenyuan"
     },
     {
@@ -1763,11 +1783,11 @@
   ],
   "chineseStaticText": [
     {
-      "cont": "discarded",
+      "cont": "丢弃",
       "uid": "discarded"
     },
     {
-      "cont": "selected",
+      "cont": "选择",
       "uid": "selected"
     },
     {
@@ -1803,7 +1823,7 @@
       "uid": "copyVenue"
     },
     {
-      "cont": "删除最多{num=1}张坏点子牌",
+      "cont": "删除最多{num=1}张诅咒牌",
       "uid": "deleteBadIdea"
     },
     {
@@ -1859,68 +1879,132 @@
       "uid": "canBuild"
     },
     {
-      "cont": "Don't have enough time or money!!!",
+      "cont": "没有足够的时间点数或金钱",
       "uid": "notEnoughMoney"
     },
     {
-      "cont": "Can't play it!!!",
+      "cont": "不能打出",
       "uid": "cantPlayIt"
     },
     {
-      "cont": "Can't play any achievement card!!!",
+      "cont": "不能打出成就牌",
       "uid": "CantPlayAchiCard"
     },
     {
-      "cont": "Don't  meet the requiremant!!!",
+      "cont": "不满足打出的条件",
       "uid": "DontMeetReq"
     },
     {
-      "cont": "Don't have enough room for this venue!!!",
+      "cont": "没有足够的空间建造这个场馆",
       "uid": "DontHaveRoom"
     },
     {
-      "cont": "Can't play any achievement card!!! Stop play",
+      "cont": "不能打出成就牌，停止打出",
       "uid": "CantPlayAchiCardStop"
     },
     {
-      "cont": "Don't  meet the requiremant!!! Stop play",
+      "cont": "不满足打出的条件，停止打出",
       "uid": "DontMeetReqStop"
     },
     {
-      "cont": "Don't have enough room for this venue!!! Stop play",
+      "cont": "没有足够的空间建造这个场馆，停止打出",
       "uid": "DontHaveRoomStop"
     },
     {
-      "cont": "get gold {0}",
+      "cont": "获得金钱 {0}",
       "uid": "GetGold"
     },
     {
-      "cont": "can only be used once per turn!!!",
+      "cont": "一回合最多使用一次",
       "uid": "OncePerTurn"
     },
     {
-      "cont": "You don't have any venue!!!",
+      "cont": "你没有任何场馆",
       "uid": "DontHaveVenue"
     },
     {
-      "cont": "You can not demolish venue!!!",
+      "cont": "你不能拆除场馆",
       "uid": "CantDemolish"
     },
     {
-      "cont": "Only available in Spring",
+      "cont": "仅春季可用",
       "uid": "OnlyInSpring"
     },
     {
-      "cont": "Only available in Summer",
+      "cont": "仅夏季可用",
       "uid": "OnlyInSummer"
     },
     {
-      "cont": "Only available in August",
+      "cont": "仅秋季可用",
       "uid": "OnlyInAugust"
     },
     {
-      "cont": "Only available in Winter",
+      "cont": "仅冬季可用",
       "uid": "OnlyInWinter"
+    },
+    {
+      "cont": "打出条件：\n{cond=至少拥有10个海洋场馆}\n\n{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}",
+      "uid": "cardContWithCond"
+    },
+    {
+      "cont": "大型场馆",
+      "uid": "bigExhibit"
+    },
+    {
+      "cont": "小型场馆",
+      "uid": "smallExhibit"
+    },
+    {
+      "cont": "通过收入获得{0}金钱。",
+      "uid": "ssIncome"
+    },
+    {
+      "cont": "获得{0}人气值。",
+      "uid": "ssPopularity"
+    },
+    {
+      "cont": "获得{0}本随机书籍。",
+      "uid": "ssBook"
+    },
+    {
+      "cont": "成功通过50%概率获得{0}金钱。",
+      "uid": "ssHalfChange"
+    },
+    {
+      "cont": "获得{0}个随机地图奖励。",
+      "uid": "ssPlotRewards"
+    },
+    {
+      "cont": "获得{0}张随机诅咒牌。",
+      "uid": "ssCurse"
+    },
+    {
+      "cont": "抽{0}张牌。",
+      "uid": "ssCard"
+    },
+    {
+      "cont": "获得随机项： ",
+      "uid": "ssRandomGain"
+    },
+    {
+      "cont": "{0}金钱。",
+      "uid": "ssRCoin"
+    },
+    {
+      "cont": "{0}人气值。",
+      "uid": "ssRPopularity"
+    },
+    {
+      "cont": "{0}个临时工人。",
+      "uid": "sRTWorker"
+    },
+    {
+      "cont": "{0}张随机诅咒牌。",
+      "uid": "ssRCurse"
+    },
+    {
+      "cont": "{0}本随机书籍。",
+      "uid": "ssRBook"
     }
   ],
   "chineseVenue": [
@@ -2196,7 +2280,7 @@
       "uid": "dep_0"
     },
     {
-      "cont": "获得$1点时间。",
+      "cont": "获得$1点时间点数。",
       "name": "建设部",
       "uid": "dep_1"
     },
@@ -2206,12 +2290,12 @@
       "uid": "dep_2"
     },
     {
-      "cont": "招募$1名新员工，花费10+招募次数*10的金币。",
+      "cont": "花费10+招募次数*10的金币,招募$1名新员工。",
       "name": "人力部",
       "uid": "dep_3"
     },
     {
-      "cont": "去一次商店，价格变为$1%。",
+      "cont": "进行一次采购，商品价格变为原本的$1%。",
       "name": "采购部",
       "uid": "dep_4"
     },
@@ -2221,52 +2305,52 @@
       "uid": "dep_5"
     },
     {
-      "cont": "拆除1个场馆。",
+      "cont": "支付$1%的建造金钱，拆除一个场馆。",
       "name": "清理部门",
       "uid": "dep_6"
     },
     {
-      "cont": "花费$1金钱，开扩$2块未知地块。",
+      "cont": "花费$1金钱，扩建$2块未知地块。",
       "name": "扩建部门",
       "uid": "dep_7"
     },
     {
-      "cont": "仅春季可用，结算所有场馆后，人气值增加$1%。",
+      "cont": "仅春季可用，从场馆获得的人气值增加$1%。",
       "name": "春日装扮",
       "uid": "dep_spring"
     },
     {
-      "cont": "获得抽牌堆中的下$1张猿猴场馆牌。",
+      "cont": "花费$1金钱，获得抽牌堆中的下一张猿猴场馆牌。",
       "name": "猿猴研究部门",
       "uid": "dep_devmonkey"
     },
     {
-      "cont": "删除手上的$1张坏点子牌。",
+      "cont": "删除手上的$1张诅咒牌。",
       "name": "后勤部门",
       "uid": "dep_houqin"
     },
     {
-      "cont": "该部门效果始终为当前等级的研究部门。",
+      "cont": "该部门为当前等级的研究部门。",
       "name": "研究部分部门",
       "uid": "dep_yanjiu"
     },
     {
-      "cont": "打出手牌中$1张猿猴场馆。",
+      "cont": "打出手牌中1张猿猴场馆。(每季度限$1次)",
       "name": "猿猴场馆建设部门",
       "uid": "dep_conmonkey"
     },
     {
-      "cont": "仅夏季可用，结算所有场馆后，人气值提升$1%。",
+      "cont": "仅夏季可用，从场馆获得的人气值增加$1%。",
       "name": "夏日装扮",
       "uid": "dep_summer"
     },
     {
-      "cont": "获得抽牌堆中的下$1张哺乳类场馆牌。",
+      "cont": "花费$1金钱，获得抽牌堆中的下一张哺乳类场馆牌。",
       "name": "哺乳类研究部门",
       "uid": "dep_devburu"
     },
     {
-      "cont": "清理一个场馆，返还建造成本$1%的金钱。",
+      "cont": "拆除一个场馆，返还建造成本$1%的金钱。",
       "name": "清理部门",
       "uid": "dep_qingli"
     },
@@ -2276,7 +2360,7 @@
       "uid": "dep_rencai"
     },
     {
-      "cont": "仅秋季可用，结算所有场馆后，人气值提升$1%。",
+      "cont": "仅秋季可用，从场馆获得的人气值增加$1%。",
       "name": "秋季装扮",
       "uid": "dep_august"
     },
@@ -2286,12 +2370,12 @@
       "uid": "dep_daxing"
     },
     {
-      "cont": "获得$1金钱。每次执行都会永久提升该数值$2点。",
+      "cont": "获得10金钱。每次执行都会永久提升该数值$1点。",
       "name": "投资部门",
       "uid": "dep_investment"
     },
     {
-      "cont": "获得抽牌堆中的下$1张爬虫类场馆牌。",
+      "cont": "花费$1金钱，获得抽牌堆中的下一张爬虫类场馆牌。",
       "name": "爬虫类研究部门",
       "uid": "dep_pachong"
     },
@@ -2301,12 +2385,12 @@
       "uid": "dep_kuojian"
     },
     {
-      "cont": "仅冬季可用，结算所有场馆后，人气值提升$1%。",
+      "cont": "仅冬季可用，从场馆获得的人气值增加$1%。",
       "name": "冬季装扮",
       "uid": "dep_winter"
     },
     {
-      "cont": "获得抽牌堆中的下$1张海洋场馆牌。",
+      "cont": "花费$1金钱，获得抽牌堆中的下一张海洋场馆牌。",
       "name": "鱼类研究部门",
       "uid": "dep_yu"
     },
@@ -2360,7 +2444,7 @@
     {
       "order": 6,
       "uid": "expand",
-      "val1": 2,
+      "val1": 3,
       "val2": 0
     },
     {
@@ -2378,25 +2462,25 @@
     {
       "order": 9,
       "uid": "shadowIndustry",
-      "val1": 10,
+      "val1": 8,
       "val2": 0
     },
     {
       "order": 10,
       "uid": "rockFree",
-      "val1": 1,
+      "val1": 2,
       "val2": 0
     },
     {
       "order": 11,
       "uid": "lakeFree",
-      "val1": 1,
+      "val1": 2,
       "val2": 0
     },
     {
       "order": 12,
       "uid": "expandOvernight",
-      "val1": 4,
+      "val1": 5,
       "val2": 0
     },
     {
@@ -2670,6 +2754,21 @@
     },
     {
       "uid": 66
+    },
+    {
+      "uid": 67
+    },
+    {
+      "uid": 68
+    },
+    {
+      "uid": 69
+    },
+    {
+      "uid": 70
+    },
+    {
+      "uid": 71
     }
   ],
   "dataCard": [
@@ -2820,7 +2919,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_danyi",
       "val1": 20,
@@ -2834,7 +2933,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_yuanhou",
       "val1": 1,
@@ -2848,7 +2947,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_duty",
       "val1": 2,
@@ -2862,7 +2961,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_houxuanchuan",
       "val1": 20,
@@ -2876,7 +2975,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_spring",
       "val1": 0,
@@ -2890,7 +2989,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_devmonkey",
       "val1": 0,
@@ -2904,7 +3003,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_houqin",
       "val1": 0,
@@ -2918,7 +3017,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_yanjiu",
       "val1": 0,
@@ -2932,7 +3031,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_conmonkey",
       "val1": 0,
@@ -2988,7 +3087,7 @@
       "module": 0,
       "oneTime": 1,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 2,
       "timeCost": 5,
       "uid": "yanjiurenyuan",
       "val1": 2,
@@ -3002,7 +3101,7 @@
       "module": 0,
       "oneTime": 1,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 2,
       "timeCost": 5,
       "uid": "jiansherenyuan",
       "val1": 0,
@@ -3016,10 +3115,10 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 5,
       "timeCost": 5,
       "uid": "shenjianshuzhi",
-      "val1": 1,
+      "val1": 3,
       "val2": 0,
       "val3": 0
     },
@@ -3030,7 +3129,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 5,
       "uid": "guanlidashi",
       "val1": 1,
@@ -3086,7 +3185,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 6,
       "uid": "sixsixsix",
       "val1": 90,
@@ -3100,7 +3199,7 @@
       "module": 0,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "yanfazhiyan",
       "val1": 1,
@@ -3268,7 +3367,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_poprating",
       "val1": 0,
@@ -3282,7 +3381,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_buru",
       "val1": 3,
@@ -3296,7 +3395,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_duozhonglei",
       "val1": 5,
@@ -3310,7 +3409,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_hbxs",
       "val1": 10,
@@ -3324,7 +3423,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_summer",
       "val1": 0,
@@ -3338,7 +3437,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_devburu",
       "val1": 0,
@@ -3352,7 +3451,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "dep_qingli",
       "val1": 0,
@@ -3366,7 +3465,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_rencai",
       "val1": 0,
@@ -3380,7 +3479,7 @@
       "module": 1,
       "oneTime": 1,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "heishi",
       "val1": 1,
@@ -3408,10 +3507,10 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 5,
       "timeCost": 4,
       "uid": "renmanweifu",
-      "val1": 2,
+      "val1": 3,
       "val2": 0,
       "val3": 0
     },
@@ -3509,7 +3608,7 @@
       "repeatNum": 3,
       "timeCost": 5,
       "uid": "caipiao",
-      "val1": 10,
+      "val1": 3,
       "val2": 0,
       "val3": 0
     },
@@ -3520,7 +3619,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 4,
       "uid": "mailiang",
       "val1": 50,
@@ -3534,7 +3633,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 2,
       "timeCost": 5,
       "uid": "lixifanbei",
       "val1": 1,
@@ -3548,7 +3647,7 @@
       "module": 1,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 2,
       "timeCost": 5,
       "uid": "junhengtouzi",
       "val1": 1,
@@ -3562,7 +3661,7 @@
       "module": 1,
       "oneTime": 1,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 2,
       "timeCost": 5,
       "uid": "kuojianrenyuan",
       "val1": 0,
@@ -3716,7 +3815,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_pachong",
       "val1": 25,
@@ -3730,7 +3829,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_duoyangxing",
       "val1": 30,
@@ -3744,7 +3843,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_kongjiangongji",
       "val1": 20,
@@ -3758,7 +3857,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_daxing",
       "val1": 5,
@@ -3772,7 +3871,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_august",
       "val1": 0,
@@ -3786,7 +3885,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 3,
       "uid": "dep_daxing",
       "val1": 0,
@@ -3800,7 +3899,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 5,
       "uid": "dep_investment",
       "val1": 0,
@@ -3814,7 +3913,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_pachong",
       "val1": 0,
@@ -3828,7 +3927,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 3,
       "uid": "dep_kuojian",
       "val1": 0,
@@ -3954,7 +4053,7 @@
       "module": 2,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 5,
       "uid": "miansijinpai",
       "val1": 50,
@@ -4206,7 +4305,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_yu",
       "val1": 50,
@@ -4220,7 +4319,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_weizhi",
       "val1": 5,
@@ -4234,7 +4333,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_heliu",
       "val1": 1,
@@ -4248,7 +4347,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "achi_xiaoxing",
       "val1": 1,
@@ -4262,7 +4361,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_winter",
       "val1": 0,
@@ -4276,7 +4375,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 2,
       "uid": "dep_yu",
       "val1": 0,
@@ -4290,7 +4389,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 3,
       "uid": "dep_dev",
       "val1": 0,
@@ -4304,7 +4403,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 1,
       "uid": "dep_youhua",
       "val1": 0,
@@ -4318,7 +4417,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 4,
       "uid": "dep_book",
       "val1": 0,
@@ -4402,7 +4501,7 @@
       "module": 3,
       "oneTime": 0,
       "rare": 0,
-      "repeatNum": 3,
+      "repeatNum": 1,
       "timeCost": 3,
       "uid": "buhuo",
       "val1": 0,
@@ -4509,7 +4608,7 @@
     },
     {
       "cardType": -1,
-      "goldCost": 5,
+      "goldCost": 7,
       "landType": 0,
       "module": -1,
       "oneTime": 0,
@@ -4557,7 +4656,7 @@
       "oneTime": 0,
       "rare": 0,
       "repeatNum": 0,
-      "timeCost": 6,
+      "timeCost": 8,
       "uid": "eyishougou",
       "val1": 0,
       "val2": 0,
@@ -4974,7 +5073,11 @@
   ],
   "dataWorkPos": [
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_0",
       "val_1_1": 5,
       "val_1_2": 6,
@@ -4988,7 +5091,11 @@
       "val_2_5": 2
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_1",
       "val_1_1": 5,
       "val_1_2": 6,
@@ -5002,7 +5109,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_2",
       "val_1_1": 5,
       "val_1_2": 6,
@@ -5016,7 +5127,11 @@
       "val_2_5": 3
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_3",
       "val_1_1": 1,
       "val_1_2": 1,
@@ -5030,7 +5145,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_4",
       "val_1_1": 100,
       "val_1_2": 90,
@@ -5044,7 +5163,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_5",
       "val_1_1": 1,
       "val_1_2": 1,
@@ -5058,7 +5181,11 @@
       "val_2_5": 20
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_6",
       "val_1_1": 50,
       "val_1_2": 40,
@@ -5072,7 +5199,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_7",
       "val_1_1": 5,
       "val_1_2": 7,
@@ -5086,7 +5217,11 @@
       "val_2_5": 5
     },
     {
-      "limitTime": 1,
+      "limitTime_1": 1,
+      "limitTime_2": 1,
+      "limitTime_3": 1,
+      "limitTime_4": 1,
+      "limitTime_5": 1,
       "uid": "dep_spring",
       "val_1_1": 100,
       "val_1_2": 110,
@@ -5100,12 +5235,16 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_devmonkey",
-      "val_1_1": 1,
-      "val_1_2": 1,
-      "val_1_3": 1,
-      "val_1_4": 1,
+      "val_1_1": 10,
+      "val_1_2": 8,
+      "val_1_3": 6,
+      "val_1_4": 4,
       "val_1_5": 2,
       "val_2_1": 0,
       "val_2_2": 0,
@@ -5114,7 +5253,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_houqin",
       "val_1_1": 1,
       "val_1_2": 1,
@@ -5128,7 +5271,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_yanjiu",
       "val_1_1": 0,
       "val_1_2": 0,
@@ -5142,13 +5289,17 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 1,
+      "limitTime_2": 1,
+      "limitTime_3": 2,
+      "limitTime_4": 2,
+      "limitTime_5": 3,
       "uid": "dep_conmonkey",
-      "val_1_1": 1,
-      "val_1_2": 1,
-      "val_1_3": 2,
-      "val_1_4": 2,
-      "val_1_5": 3,
+      "val_1_1": 0,
+      "val_1_2": 0,
+      "val_1_3": 0,
+      "val_1_4": 0,
+      "val_1_5": 0,
       "val_2_1": 0,
       "val_2_2": 0,
       "val_2_3": 0,
@@ -5156,7 +5307,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 1,
+      "limitTime_1": 1,
+      "limitTime_2": 1,
+      "limitTime_3": 1,
+      "limitTime_4": 1,
+      "limitTime_5": 1,
       "uid": "dep_summer",
       "val_1_1": 50,
       "val_1_2": 55,
@@ -5170,12 +5325,16 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_devburu",
-      "val_1_1": 1,
-      "val_1_2": 1,
-      "val_1_3": 1,
-      "val_1_4": 1,
+      "val_1_1": 10,
+      "val_1_2": 8,
+      "val_1_3": 6,
+      "val_1_4": 4,
       "val_1_5": 2,
       "val_2_1": 0,
       "val_2_2": 0,
@@ -5184,7 +5343,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_qingli",
       "val_1_1": 50,
       "val_1_2": 70,
@@ -5198,7 +5361,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_rencai",
       "val_1_1": 2,
       "val_1_2": 2,
@@ -5212,7 +5379,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 1,
+      "limitTime_1": 1,
+      "limitTime_2": 1,
+      "limitTime_3": 1,
+      "limitTime_4": 1,
+      "limitTime_5": 1,
       "uid": "dep_august",
       "val_1_1": 20,
       "val_1_2": 25,
@@ -5226,7 +5397,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_daxing",
       "val_1_1": 1,
       "val_1_2": 1,
@@ -5240,7 +5415,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_investment",
       "val_1_1": 10,
       "val_1_2": 10,
@@ -5254,12 +5433,16 @@
       "val_2_5": 11
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_pachong",
-      "val_1_1": 1,
-      "val_1_2": 1,
-      "val_1_3": 1,
-      "val_1_4": 1,
+      "val_1_1": 10,
+      "val_1_2": 8,
+      "val_1_3": 6,
+      "val_1_4": 4,
       "val_1_5": 2,
       "val_2_1": 0,
       "val_2_2": 0,
@@ -5268,7 +5451,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_kuojian",
       "val_1_1": 1,
       "val_1_2": 1,
@@ -5282,7 +5469,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 1,
+      "limitTime_1": 1,
+      "limitTime_2": 1,
+      "limitTime_3": 1,
+      "limitTime_4": 1,
+      "limitTime_5": 1,
       "uid": "dep_winter",
       "val_1_1": 10,
       "val_1_2": 12,
@@ -5296,12 +5487,16 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_yu",
-      "val_1_1": 1,
-      "val_1_2": 1,
-      "val_1_3": 1,
-      "val_1_4": 1,
+      "val_1_1": 10,
+      "val_1_2": 8,
+      "val_1_3": 6,
+      "val_1_4": 4,
       "val_1_5": 2,
       "val_2_1": 0,
       "val_2_2": 0,
@@ -5310,7 +5505,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_dev",
       "val_1_1": 2,
       "val_1_2": 2,
@@ -5324,7 +5523,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_youhua",
       "val_1_1": 3,
       "val_1_2": 3,
@@ -5338,7 +5541,11 @@
       "val_2_5": 0
     },
     {
-      "limitTime": 0,
+      "limitTime_1": 0,
+      "limitTime_2": 0,
+      "limitTime_3": 0,
+      "limitTime_4": 0,
+      "limitTime_5": 0,
       "uid": "dep_book",
       "val_1_1": 1,
       "val_1_2": 1,
@@ -5354,1627 +5561,1647 @@
   ],
   "englishBook": [
     {
-      "cont": "招募$1名永久员工",
+      "cont": "Recruit $1 permanent workers.",
       "name": "招募",
       "uid": "oneWorker"
     },
     {
-      "cont": "招募$1名临时员工",
+      "cont": "Recruit $1 temporary workers.",
       "name": "临时招募",
       "uid": "threeWorker"
     },
     {
-      "cont": "获得$1收入",
+      "cont": "Gain $1 income.",
       "name": "新产业",
       "uid": "newIndustry"
     },
     {
-      "cont": "金钱翻$1倍（最多$2）",
+      "cont": "Coins are increased by an additional $1× (up to $2).",
       "name": "投资",
       "uid": "investment"
     },
     {
-      "cont": "抽$1张牌",
+      "cont": "Draw $1 card(s).",
       "name": "研究",
       "uid": "research"
     },
     {
-      "cont": "开垦$1块土地",
+      "cont": "Expand $1 plot(s).",
       "name": "开垦",
       "uid": "expand"
     },
     {
-      "cont": "升级$1次部门",
+      "cont": "Upgrade the Action Space $1 time(s).",
       "name": "培训",
       "uid": "training"
     },
     {
-      "cont": "升级$1次部门，获得一张坏点子牌",
+      "cont": "Upgrade the Action Space $1 time(s). Gain 1 random Curse card.",
       "name": "疯狂培训",
       "uid": "trainingCrazyly"
     },
     {
-      "cont": "获得$1收入，获得一张坏点子牌",
+      "cont": "Gain $1 income. Gain 1 random Curse card.",
       "name": "灰色产业",
       "uid": "shadowIndustry"
     },
     {
-      "cont": "清理掉$1个随机岩石地块",
+      "cont": "Remove $1 random rocky plot(s).",
       "name": "岩石清理",
       "uid": "rockFree"
     },
     {
-      "cont": "清理掉$1个随机湖泊地块",
+      "cont": "Remove $1 random lake plot(s).",
       "name": "湖泊清理",
       "uid": "lakeFree"
     },
     {
-      "cont": "开垦$1块土地，获得一张坏点子牌",
+      "cont": "Expand $1 plot(s). Gain 1 random Curse card.",
       "name": "连夜开垦",
       "uid": "expandOvernight"
     },
     {
-      "cont": "从弃牌堆选$1张牌加入手牌",
+      "cont": "Choose $1 card(s) from the discard pile and add it to your hand.",
       "name": "废案回收",
       "uid": "caseRecycle"
     },
     {
-      "cont": "从抽牌堆选$1张牌弃至弃牌堆",
+      "cont": "Choose $1 card(s) from the discard pile and discard it to the discard pile.",
       "name": "项目筛选",
       "uid": "projectScreening"
     },
     {
-      "cont": "获得$1点人气值",
+      "cont": "Gain $1 popularity.",
       "name": "宣传",
       "uid": "promotion"
     },
     {
-      "cont": "获得$1点人气值,获得一张坏点子牌",
+      "cont": "Gain $1 popularity. Gain 1 random Curse card.",
       "name": "广告轰炸",
       "uid": "adBombardment"
     },
     {
-      "cont": "随机$1个空地上生成一个+$2金钱奖励",
+      "cont": "Generate a plot reward of +$2 Coins on $1 random plot(s).",
       "name": "隐藏宝藏",
       "uid": "hiddenTreasure"
     },
     {
-      "cont": "弃掉任意手牌，抽取等量牌（$1次）",
+      "cont": "Discard any number of cards and draw the same number of cards ($1 times).",
       "name": "内部清洗",
       "uid": "internalPurge"
     },
     {
-      "cont": "弃掉任意手牌，每张手牌获得$1金钱",
+      "cont": "Discard any number of cards and gain $1 Coin per card.",
       "name": "项目出售",
       "uid": "projectSale"
     },
     {
-      "cont": "忽略所有条件免费打出$1张手牌",
+      "cont": "Play $1 card(s) from your hand for free, ignoring all conditions.",
       "name": "建设",
       "uid": "building"
     },
     {
-      "cont": "复制$1张手牌",
+      "cont": "Copy $1 card(s) from your hand.",
       "name": "抄袭",
       "uid": "copy"
     },
     {
-      "cont": "从抽牌堆获得$1张随机部门牌",
+      "cont": "Gain $1 random Action Space card(s) from the draw pile.",
       "name": "新部门",
       "uid": "newDepartment"
     },
     {
-      "cont": "手牌上限永久+$1",
+      "cont": "Permanently increase hand size limit by $1.",
       "name": "仓库扩充",
       "uid": "warehouseExpansion"
     },
     {
-      "cont": "升级宣传部门$1次",
+      "cont": "Upgrade the Open Exhibit Action Space $1 time(s).",
       "name": "宣传部门扩张",
       "uid": "promotionDepartmentExpansion"
     }
   ],
   "englishBuff": [
     {
-      "cont": "每季度开始时获得人气",
+      "cont": "Popularity gained at the start of each quarter.",
       "uid": 1
     },
     {
-      "cont": "每季度开始时获得书籍",
+      "cont": "Books gained at the start of each quarter.",
       "uid": 2
     },
     {
-      "cont": "每季度开始时有50%概率获得金钱",
+      "cont": "Coins gained with a 50% chance at the start of each quarter.",
       "uid": 3
     },
     {
-      "cont": "每季度开始时随机出现地图奖励",
+      "cont": "Plot rewards randomly appear at the start of each quarter.",
       "uid": 4
     },
     {
-      "cont": "每季度开始时获得随机坏点子",
+      "cont": "Random Curse cards gained at the start of each quarter.",
       "uid": 5
     },
     {
-      "cont": "每季度开始时随机获得一些东西",
+      "cont": "At the start of each quarter, randomly gain one of the following: +10 Coins, +1 Temporary Worker, -5 Popularity, +1 Curse card, or +1 random item.",
       "uid": 6
     },
     {
-      "cont": "正面概率加成",
+      "cont": "Positive probability bonus.",
       "uid": 7
     },
     {
-      "cont": "负面概率加成",
+      "cont": "Negative probability increase.",
       "uid": 8
     },
     {
-      "cont": "商店折扣",
+      "cont": "Shop discount",
       "uid": 9
     },
     {
-      "cont": "购买书籍随机减免1-5金币",
+      "cont": "Random discount of 1–5 Coins when purchasing Books.",
       "uid": 10
     },
     {
-      "cont": "商店项目牌价格额外增加",
+      "cont": "Additional coin cost added to Shop cards.",
       "uid": 11
     },
     {
-      "cont": "商店会补货",
+      "cont": "The Shop restocks.",
       "uid": 12
     },
     {
-      "cont": "增加商店的售卖数量",
+      "cont": "Additional number of items in the Shop.",
       "uid": 13
     },
     {
-      "cont": "爬虫场馆再次结算的概率",
+      "cont": "Probability of Reptile Exhibits being resolved again.",
       "uid": 14
     },
     {
-      "cont": "下一个场馆额外结算两次",
+      "cont": "The next exhibit is resolved an additional two times.",
       "uid": 15
     },
     {
-      "cont": "第一个场馆会多次结算",
+      "cont": "Number of additional resolutions for the first exhibit.",
       "uid": 16
     },
     {
-      "cont": "动物场馆中获得人气增加",
+      "cont": "Number of additional Popularity gained from exhibits.",
       "uid": 17
     },
     {
-      "cont": "人气值额外获得百分比",
+      "cont": "Additional Popularity gained by percentage.",
       "uid": 18
     },
     {
-      "cont": "X场馆额外获得的人气值",
+      "cont": "Additional Popularity gained by X Exhibits.",
       "uid": 19
     },
     {
-      "cont": "下一个场馆获得人气时，改为获得金币",
+      "cont": "When the next exhibit gains popularity, it gains Coins instead.",
       "uid": 20
     },
     {
-      "cont": "大型场馆额外获得的人气",
+      "cont": "Additional Popularity gained by Large Exhibits.",
       "uid": 21
     },
     {
-      "cont": "临河场馆额外获得的人气",
+      "cont": "Additional Popularity gained by Lakeside Exhibits.",
       "uid": 22
     },
     {
-      "cont": "猿猴场馆额外获得的人气",
+      "cont": "Additional Popularity gained by Primate Exhibits.",
       "uid": 23
     },
     {
-      "cont": "利息额外倍率",
+      "cont": "Additional interest multiplier.",
       "uid": 24
     },
     {
-      "cont": "额外可以获得利息的规模",
+      "cont": "Additional portion eligible for interest gain.",
       "uid": 25
     },
     {
-      "cont": "利息的多少部分转为额外的人气值",
+      "cont": "The portion of interest converted into additional popularity.",
       "uid": 26
     },
     {
-      "cont": "没有任何利息",
+      "cont": "No interest gained.",
       "uid": 27
     },
     {
-      "cont": "季度结束时，每个未派遣的工人获得的金钱",
+      "cont": "Coins gained at the end of the quarter for each unassigned Worker.",
       "uid": 28
     },
     {
-      "cont": "回合结束时金钱减半",
+      "cont": "Coins are halved at the end of the quarter.",
       "uid": 29
     },
     {
-      "cont": "回合开始抽牌数",
+      "cont": "Number of cards drawn at the start of the quarter.",
       "uid": 30
     },
     {
-      "cont": "X场馆建设折扣",
+      "cont": "Amount of Coin cost reduction for X Exhibits.",
       "uid": 31
     },
     {
-      "cont": "建设场馆减少花费的时间",
+      "cont": "Time cost reduction for building exhibits.",
       "uid": 32
     },
     {
-      "cont": "建设场馆减少花费的金钱",
+      "cont": "Cost cost reduction for building exhibits.",
       "uid": 33
     },
     {
-      "cont": "卡牌的额外金币花费",
+      "cont": "Additional Coin cost of the card.",
       "uid": 34
     },
     {
-      "cont": "春季变成冬季",
+      "cont": "All Springs will become Winters.",
       "uid": 35
     },
     {
-      "cont": "可以直接弃置坏点子牌",
+      "cont": "You can discard Curse cards directly.",
       "uid": 36
     },
     {
-      "cont": "每弃掉一张牌就获得金钱",
+      "cont": "Gain Coins for each card discarded.",
       "uid": 37
     },
     {
-      "cont": "不能拆除场馆",
+      "cont": "Cannot demolish any exhibits.",
       "uid": 38
     },
     {
-      "cont": "临时工人可以当作两个工人",
+      "cont": "Temporary Workers count as two workers.",
       "uid": 39
     },
     {
-      "cont": "执行部门效果较少需要的员工",
+      "cont": "Reduce the number of Workers required to execute the Work Space.",
       "uid": 40
     },
     {
-      "cont": "重复执行部门效果只需要一个工人",
+      "cont": "Repeating the Work Space action requires only one Worker.",
       "uid": 41
     },
     {
-      "cont": "商店购买物品后获得人气值",
+      "cont": "Popularity gained after purchasing items from the Shop.",
       "uid": 42
     },
     {
-      "cont": "使用书籍后获得人气值",
+      "cont": "Popularity gained after using a Book.",
       "uid": 43
     },
     {
-      "cont": "使用书籍有概率获得另一本书籍",
+      "cont": "Chance to gain another Book when using a Book.",
       "uid": 44
     },
     {
-      "cont": "下一张牌打出两次",
+      "cont": "The next card is played twice.",
       "uid": 45
     },
     {
-      "cont": "不会再弃牌",
+      "cont": "Skip the discard phase.",
       "uid": 46
     },
     {
-      "cont": "下次未达到目标人气时，增加50%人气",
+      "cont": "The next time you fail to meet the target Popularity, gain 50% additional Popularity.",
       "uid": 47
     },
     {
-      "cont": "只能结算前五个场馆",
+      "cont": "Only the first five exhibits can be resolved.",
       "uid": 48
     },
     {
-      "cont": "地图奖励效果翻倍",
+      "cont": "Plot reward effects are doubled.",
       "uid": 49
     },
     {
-      "cont": "不能获得任何地图奖励",
+      "cont": "Cannot gain any plot rewards.",
       "uid": 50
     },
     {
-      "cont": "坏点子牌会转化为随机项目牌",
+      "cont": "Curse cards will be transformed into random cards.",
       "uid": 51
     },
     {
-      "cont": "拿到牌后有概率直接弃掉",
+      "cont": "Chance to discard the card immediately after drawing.",
       "uid": 52
     },
     {
-      "cont": "不能打出成就牌",
+      "cont": "Cannot play any Achievement cards.",
       "uid": 53
     },
     {
-      "cont": "拆除场馆时招聘员工",
+      "cont": "Number of workers recruited when demolishing an exhibit.",
       "uid": 54
     },
     {
-      "cont": "扩建时招募临时员工",
+      "cont": "Number of Temporary Workers recruited upon expansion.",
       "uid": 55
     },
     {
-      "cont": "书籍效果翻倍",
+      "cont": "Book effects are doubled.",
       "uid": 56
     },
     {
-      "cont": "接下来从牌堆获取牌时，必定为猿猴模组的牌",
+      "cont": "The next cards drawn from the deck are guaranteed to be from the Primate module.",
       "uid": 57
     },
     {
-      "cont": "特殊员工派遣效果翻倍",
+      "cont": "Special Workers’ assignment effects are doubled.",
       "uid": 58
     },
     {
-      "cont": "特殊员工没有任何效果",
+      "cont": "Special Workers have no effects.",
       "uid": 59
     },
     {
-      "cont": "工人在被招募两个回合内不能行动",
+      "cont": "Workers cannot be assigned for two turns after being recruited.",
       "uid": 60
     },
     {
-      "cont": "售出书籍的价格比例",
+      "cont": "Price ratio for selling Books.",
       "uid": 61
     },
     {
-      "cont": "查看抽牌堆时，按照顺序查看",
+      "cont": "When viewing the draw pile, cards are viewed in order.",
       "uid": 62
     },
     {
-      "cont": "扩建的费用翻倍",
+      "cont": "Expansion costs are doubled.",
       "uid": 63
     },
     {
-      "cont": "视为你有一个与所有场馆都相邻的场馆",
+      "cont": "Considered as if you have one Primate Exhibit adjacent to all exhibits.",
       "uid": 64
     },
     {
-      "cont": "计算相邻时，可以额外计算的距离",
+      "cont": "When calculating adjacency, exhibits within a distance of 2 are considered adjacent.",
       "uid": 65
     },
     {
-      "cont": "仅本回合人气值提升百分比",
+      "cont": "Percentage of additional Popularity gained, valid only for this quarter.",
       "uid": 66
+    },
+    {
+      "cont": "Worker recruitment costs are doubled.",
+      "uid": 67
+    },
+    {
+      "cont": "Special Workers cannot be assigned.",
+      "uid": 68
+    },
+    {
+      "cont": "Temporary Workers cannot be assigned.",
+      "uid": 69
+    },
+    {
+      "cont": "Number of Permanent Plan cards owned.",
+      "uid": 70
+    },
+    {
+      "cont": "Cannot gain any income.",
+      "uid": 71
     }
   ],
   "englishCard": [
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "每与另一个场馆相邻，获得$1人气值。如果一共与至少$2个猿猴场馆相邻，则额外提供$3人气值。（当前$d）",
+      "cont": "Get $1 popularity for each adjecent exhibit.\nGain extra 10 popularity if adjacent to at least six Primate Exhibits.\n(Currently: $d)",
       "name": "Snub-nosed Monkey",
       "uid": "jinsi_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "园区里每有一对相邻的猿猴场馆，获得$1人气值。（当前有$d个）",
+      "cont": "Gain $1 popularity for each pair of adjecent exhibits.\n(Currently: $d)",
       "name": "Rhesus Monkey",
       "uid": "mi_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。该场馆视为与所有场馆相邻。",
+      "cont": "Gain $1 popularity. Treat this exhibit as adjacent to all other exhibits.",
       "name": "Proboscis Monkey",
       "uid": "changbi_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为园区内场馆数量。（当前$d）",
+      "cont": "Gain X popularity, where X is the number of exhibits.\n(Currently: $d)",
       "name": "Marmoset",
       "uid": "rong_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "消耗$1%金钱，获得等同于消耗量的人气值。（当前$d）",
+      "cont": "Spend 50% of your coins. Gain that much popularity.",
       "name": "Spider Monkey",
       "uid": "spider_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "Capuchin Monkey",
       "uid": "juanwei_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "Howler Monkey",
       "uid": "hou_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得$1人气值",
+      "cont": "Gain $1 popularity. ",
       "name": "Owl Monkeys",
       "uid": "ye_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得$1人气值，抽$2张牌。",
+      "cont": "Gain $1 popularity.  Draw $2 cards.",
       "name": "Gray Langur",
       "uid": "huiye_monkey"
     },
     {
-      "className": "猿猴场馆",
+      "className": "Primate Exhibits",
       "condition": "",
-      "cont": "获得$1人气值，$2季度后自动被拆除。",
+      "cont": "Gain $1 popularity.  Automatically demolished after $2 quarters.",
       "name": "Ape",
       "uid": "yuan_monkey"
     },
     {
       "className": "",
-      "condition": "园区内至少拥有10个种类相同的场馆。",
-      "cont": "季度开始结算时，获得$1人气。",
+      "condition": "Have at least 10 exhibits of the same type.",
+      "cont": "Gain $1 popularity at the start of each quarter.",
       "name": "Mono-Eco",
       "uid": "achi_danyi"
     },
     {
       "className": "",
-      "condition": "园区内至少拥有10个猿猴场馆。",
-      "cont": "计算相邻时视为你拥有$1个与全部场馆相邻的猴类场馆。",
+      "condition": "Have at least 10 Primate Exhibits.",
+      "cont": "When checking adjacency, treat it as if you have 1 Primate Exhibit that is adjacent to all exhibits.",
       "name": "Ape Star",
       "uid": "achi_yuanhou"
     },
     {
       "className": "",
-      "condition": "园区内至少拥有10个可以建造的场地。",
-      "cont": "所有距离为$1以内的场馆都视作相邻。",
+      "condition": "Have at least 20 buildable plots.",
+      "cont": "Treat all exhibits within range $1 as adjacent.",
       "name": "Fully Expanded",
       "uid": "achi_duty"
     },
     {
       "className": "",
-      "condition": "某一季度累计从猿猴场馆获得50人气值。",
-      "cont": "获得$1收入。",
+      "condition": "Gain at least 50 popularity from Primate Exhibits in a single quarter.",
+      "cont": "Gain $1 income.",
       "name": "Ape Promo",
       "uid": "achi_houxuanchuan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "仅春季可用，结算所有场馆后，人气值增加$w1%。",
+      "cont": "Spring only. Gain $w1% popularity after resolving all exhibits.",
       "name": "Spring Décor",
       "uid": "dep_spring"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张猿猴场馆牌。",
+      "cont": "Pay $w1 coins. Gain the next Primate Exhibit card(s) from the draw pile.",
       "name": "Ape Research",
       "uid": "dep_devmonkey"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "删除手上的$w1张坏点子牌。",
+      "cont": "Remove $w1 Curse card(s) from your hand.",
       "name": "Logistics",
       "uid": "dep_houqin"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "该部门效果始终为当前等级的研究部门。",
+      "cont": "This action space always uses the effect of the Research Lab at its current level.",
       "name": "Research Division",
       "uid": "dep_yanjiu"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "免费打出手牌中$w1张猿猴场馆。",
+      "cont": "Play 1 Primate Exhibit card(s) from your hand for free.(Limit time: $w1)",
       "name": "Ape Facility Build",
       "uid": "dep_conmonkey"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "选择1个从卡牌建成的动物场馆，复制$1张该卡牌到手牌中。",
+      "cont": "Choose 1 animal exhibit. Add $1 copy(copies) of that card to your hand.",
       "name": "One Trick Wonder",
       "uid": "yizhaoxian"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "接下来$1张牌均为猴类牌。",
+      "cont": "The next $1 card(s) you draw from the draw pile will be Primate Exhibit card(s).",
       "name": "Monkey Overload",
       "uid": "houzifanlan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "从猿猴场馆获得的人气值增加$1%。",
+      "cont": "All popularity gained from Primate Exhibits is increased by $1%.",
       "name": "Ape Theme",
       "uid": "yuanhouzhuti"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募一名特殊员工，该员工被派遣去研究时，抽$wr1张牌。之后额外获得一张随机坏点子牌。",
+      "cont": "Recruit a special staff member. When assigned, draw $wr1 card(s).",
       "name": "Recruit Researchers",
       "uid": "yanjiurenyuan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募一名特殊员工，该员工被派遣去建设时，额外获得$wr1点时间。",
+      "cont": "Recruit a special staff member. When assigned, gain $wr1 Time Points.",
       "name": "Recruit Builders",
       "uid": "jiansherenyuan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "季度结束时，每有1名员工，获得$1金钱。",
+      "cont": "At the end of the quarter, gain $1 coin(s) for each unassigned staff member.",
       "name": "Multi-role",
       "uid": "shenjianshuzhi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "执行部门效果所需的员工数减$1。（最少仍然需要1个）",
+      "cont": "Reduce the number of workers required to activate Action Space effects by $1 (minimum 1).",
       "name": "Management Master",
       "uid": "guanlidashi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "每弃掉1张项目牌，获得$1金钱。",
+      "cont": "Gain $1 coin(s) for each card you discard.",
       "name": "Repurpose",
       "uid": "feianliyong"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "商店的价格减少$1%。",
+      "cont": "Reduce all shop prices by $1%.",
       "name": "Bargain",
       "uid": "taojiahuanjia"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "每次在商店进行购买后，本季度开始结算人气值时，获得$1点人气值。",
+      "cont": "Gain $1 popularity each time you make a purchase in the Shop.",
       "name": "Industry Tycoon",
       "uid": "yejiedaheng"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "你可以以$1%的售价出售物品。",
+      "cont": "Books can be sold at $1% of their value.",
       "name": "SixSixSix",
       "uid": "sixsixsix"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "观看抽牌堆时，卡牌将按顺序排列。",
+      "cont": "When viewing the draw pile, cards are shown in order.",
       "name": "R\u0026D Eye",
       "uid": "yanfazhiyan"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "Short-faced Bear",
       "uid": "duanmianxiong"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "Polar Bear",
       "uid": "huixiong"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "African Lion",
       "uid": "feizhoushi"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "如果仅与一个场馆严格相邻。这两个场馆获得的人气值都翻倍。获得$1人气值。（需要先于相邻场馆结算，相邻场馆才能翻倍）",
+      "cont": "If this is adjacent to exactly one exhibit, both gain double popularity.\nThen, gain $1 Popularity. This exhibit must resolve before the adjacent one for the effect to apply.",
       "name": "Puma",
       "uid": "meizhoushi"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。获得$2亚洲狮场馆牌。",
+      "cont": "Gain $1 popularity. Gain $2 Asiatic Lion.",
       "name": "Asiatic Lion",
       "uid": "yazhoushi"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为上一个场馆提供的人气值。",
+      "cont": "Gain X popularity, where X is the amount of popularity gained from the previous exhibit.",
       "name": "Snow Leopard",
       "uid": "guzhonghuabao"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为本季度结算过的场馆数量。",
+      "cont": "Gain X popularity, where X is the number of exhibits that have been resolved this quarter.",
       "name": "Jaguar",
       "uid": "meizhoubao"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "接下来的场馆获得人气值时，改为获得等量的金钱。获得$1人气值。",
+      "cont": "When the next exhibit gains Popularity, it gains that amount in Coins instead. Gain $1 Popularity.",
       "name": "Siberian Tiger",
       "uid": "dongbeihu"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。获得$1人气值。获得$1人气值。获得$1人气值。获得$1人气值。",
+      "cont": "Gain $1 popularity. Gain $1 popularity. Gain $1 popularity. Gain $1 popularity. Gain $1 popularity. ",
       "name": "South China Tiger",
       "uid": "huananhu"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。每次结算后永久提升$2点该数值。(当前$d)",
+      "cont": "Gain $1 Popularity. After each resolution, permanently increase the Popularity gained by 2. (Resolved $d times.)",
       "name": "Dingo",
       "uid": "aozhouyequan"
     },
     {
-      "className": "哺乳类场馆",
+      "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "接下来的场馆结算$1次。",
+      "cont": "The next exhibit resolves $1 times.",
       "name": "European Badger",
       "uid": "ouzhouguan"
     },
     {
       "className": "",
-      "condition": "连续三个场馆提供总计大于等于20点人气值。",
-      "cont": "你可以直接弃掉坏点子牌。",
+      "condition": "Three consecutive exhibits provide at least 20 Popularity.",
+      "cont": "You may discard Curse card(s) directly.",
       "name": "Max Pop",
       "uid": "achi_poprating"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少8个哺乳类场馆。",
-      "cont": "从动物场馆获得的人气值都会额外增加$1点。",
+      "condition": "Have at least 8 Mammal Exhibits.",
+      "cont": "Popularity gained from Animal Exhibits is increased by $1.",
       "name": "Large Mammal",
       "uid": "achi_buru"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少15个动物场馆。",
-      "cont": "获得$1点收入。",
+      "condition": "Have at least 15 Animal Exhibits.",
+      "cont": "Gain $1 income.",
       "name": "Multi-Conserve",
       "uid": "achi_duozhonglei"
     },
     {
       "className": "",
-      "condition": "园区内拥有虎，豹，熊，狮动物场馆各至少1各。",
-      "cont": "所有正面概率增加$1%。",
+      "condition": "Have at least 1 Tiger, Leopard, Bear, and Lion Exhibit each.",
+      "cont": "All positive probabilities are increased by $1%.",
       "name": "Big Four",
       "uid": "achi_hbxs"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "仅夏季可用，结算所有场馆后，人气值提升$w1%。",
+      "cont": "Summer only. Gain $w1% popularity after resolving all exhibits.",
       "name": "Summer Décor",
       "uid": "dep_summer"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张哺乳类场馆牌。",
+      "cont": "Pay $w1 coins. Gain the next Mammal Exhibit card(s) from the draw pile.",
       "name": "Mammal Research",
       "uid": "dep_devburu"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "清理一个场馆，返还建造成本$w1%的金钱。",
+      "cont": "Demolish an exhibit and refund $w1% of its coin cost.",
       "name": "Cleaning Dept",
       "uid": "dep_qingli"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "雇佣$w1名临时员工。",
+      "cont": "Recruit $w1 temporary worker(s).",
       "name": "Talent Market",
       "uid": "dep_rencai"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得$1个随机书籍。",
+      "cont": "Gain $1 random Book(s).",
       "name": "Secret Market",
       "uid": "heishi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "从动物场馆获得的人气值都会额外增加$1点。",
+      "cont": "Popularity gained from Animal Exhibits is increased by $1.",
       "name": "Full House",
       "uid": "renqibaopeng"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "本季度结束时每个尚未派遣过的工人，获得$1金钱。",
+      "cont": "At the end of the quarter, gain $1 coin(s) for each unassigned staff member.",
       "name": "Blessed with Crowds",
       "uid": "renmanweifu"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "25%概率获得1个随机书籍；55%概率获得5金钱；30%概率获得1个临时工人。如果三个选项均被触发，获得一个随机坏点子牌。",
+      "cont": "25% chance to gain 1 random book; 55% chance to gain 5 coins; 30% chance to gain 1 temporary worker. If all three effects are triggered, gain 1 random Curse card.",
       "name": "Peace in Numbers",
       "uid": "renmanweian"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "50%概率获得5金钱；25%概率获得10金钱；15%概率获得30金钱。如果三个选项均被触发，获得一个随机坏点子牌。",
+      "cont": "50% chance to gain 5 coins; 25% chance to gain 10 coins; 15% chance to gain 30 coins. If all three effects are triggered, gain 1 random Curse card.",
       "name": "Gambling",
       "uid": "dubo"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "使用书籍时，有$1%概率获得1个随机书籍。",
+      "cont": "When using a Book, there is a $1% chance to gain 1 random book.",
       "name": "Shopping Tycoon",
       "uid": "gouwudaheng"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得$1个书籍栏位。",
+      "cont": "Gain $1 book slot.",
       "name": "Overstocked",
       "uid": "baocang"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "建设场馆的时间花费减$1。（最少1点）",
+      "cont": "Reduce the time point cost to build exhibits by $1.\n(minimum 1).",
       "name": "Agile Development",
       "uid": "minjiekaifa"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "建设场馆的金钱花费减$1。（最少1点）",
+      "cont": "Reduce the coin cost to build exhibits by $1.\n(minimum 1).",
       "name": "Fast, Good, Cheap",
       "uid": "duokuaihaosheng"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "每季度开始时，50%概率获得$1金钱。",
+      "cont": "30% chance to gain $1 income. Return this card to your hand.",
       "name": "Lottery",
       "uid": "caipiao"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "将你利息的$1%作为额外的人气值。",
+      "cont": "Convert $1% of your interest into additional popularity.",
       "name": "Traffic Purchase",
       "uid": "mailiang"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "利息翻$1倍。",
+      "cont": "Interest is multiplied by $1.",
       "name": "Double Interest",
       "uid": "lixifanbei"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "可以获得利息的规模翻$1倍。",
+      "cont": "Your interest is increased by an additional $1×.",
       "name": "Balanced Investment",
       "uid": "junhengtouzi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募1名特殊员工，该员工被派遣去扩建时，额外扩建$wr1块地。",
+      "cont": "Recruit 1 special Worker. When assigned, additionally expand $wr1 random plots.",
       "name": "Recruit Farmers",
       "uid": "kuojianrenyuan"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为本季度结算过的爬虫场馆数。",
+      "cont": "Gain X popularity, where X is the number of Reptile Exhibits that have been resolved this quarter.",
       "name": "Parson’s Chameleon",
       "uid": "guowangbsl"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1*X人气值，X为本季度结算过的爬虫场馆数。$2%概率获得1张随机坏点子牌。",
+      "cont": "Gain X popularity, where X is $1 times the number of Reptile Exhibits resolved this quarter. $2% chance to gain 1 random Curse card.",
       "name": "Veiled Chameleon",
       "uid": "gaoguanbsl"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1*X人气值，X为本季度结算过的爬虫场馆数。",
+      "cont": "Gain X popularity, where X is $1 times the number of Reptile Exhibits resolved this quarter. ",
       "name": "Jackson’s Chameleon",
       "uid": "duojiesenbsl"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。科摩多巨蜥场馆可以建在同一个地点。",
+      "cont": "Gain $1 popularity. This exhibit can be built on the same plot as another.",
       "name": "Komodo Dragon",
       "uid": "kemoduojx"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。但有$2%概率获得1张随机坏点子牌。",
+      "cont": "Gain $1 popularity. $2% chance to gain 1 random Curse card.",
       "name": "Sungazer",
       "uid": "juxinghuanweixi"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。如果没有与任何场馆严格相邻，改为获得$2人气值。",
+      "cont": "Gain $1 popularity. If not adjacent to any exhibits, gain $2 Popularity instead.",
       "name": "Horned Lizard",
       "uid": "jiaoxi"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "每有可建造的空地，获得$1人气值。(当前$b)",
+      "cont": "Gain $1 popularity for each buildable plot. (Currently: $b)",
       "name": "Jaragua Gecko",
       "uid": "yagualabihu"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1金钱。",
+      "cont": "Gain $1 coin(s). ",
       "name": "Golden Coin Turtle",
       "uid": "jinqiangui"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "Side-necked Turtle",
       "uid": "toucejingui"
     },
     {
-      "className": "爬虫类场馆",
+      "className": "Reptile Exhibits",
       "condition": "",
-      "cont": "获得$1人气值。",
+      "cont": "Gain $1 popularity. ",
       "name": "Green Sea Turtle",
       "uid": "baxihaigui"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少8个爬虫类场馆。",
-      "cont": "所有爬虫类场馆结算时有$1%概率再结算一次。",
+      "condition": "Have at least 8 Reptile Exhibits.",
+      "cont": "Each time a Reptile Exhibit is resolved, there is a $1% chance to resolve it again.",
       "name": "Reptile Care",
       "uid": "achi_pachong"
     },
     {
       "className": "",
-      "condition": "园区内拥有两种动物场馆各至少5个。",
-      "cont": "获得$1收入。",
+      "condition": "Have at least 5 exhibits each of two different animal types.",
+      "cont": "Gain $1 income.",
       "name": "Diversity Care",
       "uid": "achi_duoyangxing"
     },
     {
       "className": "",
-      "condition": "累计扩建30块地。",
-      "cont": "商店内获得$1%折扣。",
+      "condition": "Accumulate the expansion of 30 plots.",
+      "cont": "Reduce all shop prices by $1%.",
       "name": "Space Support",
       "uid": "achi_kongjiangongji"
     },
     {
       "className": "",
-      "condition": "拥有至少3个大型场馆。",
-      "cont": "从大型动物场馆获得的人气值都会额外增加$1点。",
+      "condition": "Have at least 3 Large Exhibits.",
+      "cont": "Popularity gained from Large Animal Exhibits is increased by $1.",
       "name": "Big Animal Care",
       "uid": "achi_daxing"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "仅秋季可用，结算所有场馆后，人气值提升$w1。",
+      "cont": "August only. Gain $w1% popularity after resolving all exhibits.",
       "name": "Autumn Décor",
       "uid": "dep_august"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "免费建造$w1个大型场馆。",
+      "cont": "Play $w1 Large Exhibit card(s) for free.",
       "name": "Large Facility Build",
       "uid": "dep_daxing"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得$w1金钱。每次执行都会永久提升该数值$w2点。",
+      "cont": "Gain $w1 coin(s). Each time this is triggered, permanently increase the amount by $w2.",
       "name": "Investment Dept",
       "uid": "dep_investment"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张爬虫类场馆牌。",
+      "cont": "Pay $w1 coins. Gain the next Reptile Exhibit card(s) from the draw pile.",
       "name": "Reptile Research",
       "uid": "dep_pachong"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "免费扩建$w1块地。",
+      "cont": "Expand $w1 plot(s) for free.",
       "name": "Expansion Dept",
       "uid": "dep_kuojian"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得上$1张使用过的非永久规划牌。",
+      "cont": "Gain the last used One-Time Plan card.",
       "name": "Strategist",
       "uid": "zhanluejia"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "好概率会增加$1%。打出时会获得$2张随机坏点子牌。",
+      "cont": "All positive probabilities are increased by $1%. When played, gain $2 random Curse cards.",
       "name": "Probability Master",
       "uid": "gailvdashi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "收入翻$1倍。",
+      "cont": "Double your income.",
       "name": "Investment Attraction",
       "uid": "zhaoshangyinzi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募$1名永久员工。",
+      "cont": "Recruit $1 permanent workers.",
       "name": "Special Recruitment",
       "uid": "teshuzhaomu"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得$1金钱，有$2%的概率获得1张随机坏点子牌。",
+      "cont": "Gain $1 Coin. $2% chance to gain 1 random Curse card.",
       "name": "Bad Idea",
       "uid": "huaidianzi"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "扩建$1块地。",
+      "cont": "Expand $1 plot(s).",
       "name": "Expand Territory",
       "uid": "kuozhangdipan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "下一张非永久规划牌额外打出$1次。",
+      "cont": "The next One-Time Plan card is played an additional $1 time.",
       "name": "Double",
       "uid": "shuangbei"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "负面概率减少$1%。",
+      "cont": "Negative probabilities are reduced by $1%.",
       "name": "Good Luck",
       "uid": "haoyunlai"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "下一次未达到目标人气值时，增加$1%人气值。",
+      "cont": "The next time you fail to meet the target Popularity, gain an additional $1% Popularity.",
       "name": "Lizard Tail",
       "uid": "miansijinpai"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "随机清除一个岩石地块，获得$1金钱。",
+      "cont": "Randomly clear 1 rocky plot and gain $1 coin(s).",
       "name": "Break Ground",
       "uid": "kaishan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "你每有1个永久规划牌，获得$1收入。",
+      "cont": "Gain $1 income for each Permanent Plan card you have.",
       "name": "Long-term Plan",
       "uid": "changjiuzhiji"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募$1名临时员工。",
+      "cont": "Recruit $1 temporary workers.",
       "name": "Temporary Hire",
       "uid": "linshiguyong"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募1名特殊员工，该员工被派遣时，获得$wr1名临时员工。",
+      "cont": "Recruit 1 special worker. When assigned, gain $wr1 temporary workers.",
       "name": "Recruit HR",
       "uid": "guyongrenyuuan"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为本回合使用过的员工数。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of Workers used this quarter. (Currently: $d)",
       "name": "Great White Shark",
       "uid": "shayu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为累计获得过的坏点子数。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the total number of Curse cards you have gained. (Currently: $d)",
       "name": "Piranha",
       "uid": "shirenyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为与岩石地形相邻的场馆数*$1。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of exhibits adjacent to rocky terrain × $1. (Currently: $d)",
       "name": "Stonefish",
       "uid": "yanshiyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为与湖泊地形相邻的场馆数*$1。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of exhibits adjacent to lake terrain × $1. (Currently: $d)",
       "name": "Deep-sea Fish",
       "uid": "shenhaiyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为海洋场馆数*$1。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of Aquatic Exhibits × $1. (Currently: $d)",
       "name": "Koi",
       "uid": "jinli"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为你的当前金钱/$1。(当前为$d)",
+      "cont": "Gain X Popularity, where X is your current Coins divided by $1. (Currently: $d)",
       "name": "Betta Fish",
       "uid": "douyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为累计使用过的书籍数。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the total number of books you have used. (Currently: $d)",
       "name": "Silver Carp",
       "uid": "lianyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为小型场馆数。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of Small Exhibits you have. (Currently: $d)",
       "name": "Schooling Fish",
       "uid": "qunjuyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为获得过的场地奖励数。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of plot rewards you have gained. (Currently: $d)",
       "name": "Anglerfish",
       "uid": "denglongyu"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为$1。",
+      "cont": "Gain X Popularity, where X is $1.",
       "name": "Shrimp",
       "uid": "xiami"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为$1。",
+      "cont": "Gain X Popularity, where X is $1.",
       "name": "Small Fish",
       "uid": "xiaoxingyulei"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为$1。",
+      "cont": "Gain X Popularity, where X is $1.",
       "name": "Large Fish",
       "uid": "daxingyulei"
     },
     {
-      "className": "海洋场馆",
+      "className": "Aquatic Exhibits",
       "condition": "",
-      "cont": "获得X人气值，X为完成过的成就数*$1。(当前为$d)",
+      "cont": "Gain X Popularity, where X is the number of Achievement cards you have played × $1. (Currently: $d)",
       "name": "Goldfish",
       "uid": "jinyu"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少10个海洋场馆。",
-      "cont": "所有效果内有X的场馆建设费用减少$1%。",
+      "condition": "Have at least 10 Aquatic Exhibits.",
+      "cont": "The Coin cost to build all X Exhibits is reduced by $1%.",
       "name": "Fish Care",
       "uid": "achi_yu"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少10个效果内有X的场馆。",
-      "cont": "使用一个书籍后，本季度结算人气值前获得$1人气。",
+      "condition": "Have at least 10 X Exhibits.",
+      "cont": "After using a Book, gain $1 Popularity.",
       "name": "X-Zone",
       "uid": "achi_weizhi"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少10个与湖泊地形相邻的场馆。",
-      "cont": "从与湖泊地形相邻的场馆获得的人气值都会额外增加$1点。",
+      "condition": "Have at least 10 exhibits adjacent to lake plots.",
+      "cont": "Exhibits adjacent to lake plots gain an additional $1 Popularity.",
       "name": "River Use",
       "uid": "achi_heliu"
     },
     {
       "className": "",
-      "condition": "园区内拥有至少15个小型动物场馆。",
-      "cont": "获得$1个书籍栏位。每季度开始时，获得$1个随机书籍。",
+      "condition": "Have at least 15 Small Animal Exhibits.",
+      "cont": "Gain $1 book slots. At the start of each quarter, gain $1 random book(s).",
       "name": "Small Animal Care",
       "uid": "achi_xiaoxing"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "仅冬季可用，结算所有场馆后，人气值提升$w1%。",
+      "cont": "Winter only. Gain $w1% popularity after resolving all exhibits.",
       "name": "Winter Décor",
       "uid": "dep_winter"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得抽牌堆中的下$w1张海洋场馆牌。",
+      "cont": "Pay $w1 coins. Gain the next Aquatic Exhibit cards from the draw pile.",
       "name": "Fish Research",
       "uid": "dep_yu"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "抽$w1张牌。",
+      "cont": "Draw $w1 card(s).",
       "name": "Project R\u0026D",
       "uid": "dep_dev"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "弃掉最多$w1张手牌，收取等量的牌。",
+      "cont": "Discard up to $w1 cards from your hand and draw the same number of card(s).",
       "name": "Project Optimization",
       "uid": "dep_youhua"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "获得$w1个随机书籍。",
+      "cont": "Gain $w1 random book(s).",
       "name": "Publishing Dept",
       "uid": "dep_book"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "所有效果内有X的场馆的X值额外增加$1点。",
+      "cont": "All X values of X Exhibits are increased by $1.",
       "name": "Heart of the Ocean",
       "uid": "haiyangzhixin"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "园区内所有可建造地块中随机生成$1个建造奖励。（获得10金钱；招募一个永久员工；获得一个随机书籍；获得3收入；招募5个临时员工）",
+      "cont": "Randomly generate $1 plot rewards in any buildable plot.\n(Possible rewards: Gain 10 Coins; recruit 1 permanent worker; gain 1 random book; gain 3 income; recruit 5 temporary workers.)",
       "name": "Underground Vein",
       "uid": "dixiakuangmai"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "建造奖励翻$1倍。",
+      "cont": "Plot rewards are increased by an additional $1×.",
       "name": "Exploration Expert",
       "uid": "kantangaoshou"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "从弃牌堆选择$1张牌加入手牌。",
+      "cont": "Choose $1 card(s) from the discard pile and add them to your hand.",
       "name": "Repurpose",
       "uid": "feianliyong2"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "从抽牌堆选择$1张牌弃置到弃牌堆。",
+      "cont": "Choose $1 card(s) from the draw pile and discard it to the discard pile.",
       "name": "Preference",
       "uid": "pianhao"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "商店会补货。",
+      "cont": "The Shop restocks.",
       "name": "Restock",
       "uid": "buhuo"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "商店会增加额外的商品。",
+      "cont": "The Shop adds additional items.",
       "name": "Clearance Sale",
       "uid": "dashuaimai"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "每季度开始时，随机一块可建造空地上生成$1个【获得5金钱】的建造奖励。",
+      "cont": "At the start of each quarter, generate $1 plot reward of “Gain 5 Coins” on a random buildable empty plot.",
       "name": "Deep Relics",
       "uid": "shencengguwu"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "每个季度第一个结算的场馆额外结算$1次。",
+      "cont": "The first exhibit resolved each quarter is resolved an additional $1 time(s).",
       "name": "Good Start",
       "uid": "kaimenhong"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "拆除一个场馆后，可以招募$1个永久员工。",
+      "cont": "After demolishing an exhibit, recruit $1 permanent worker.",
       "name": "Breakthrough Profit",
       "uid": "chaimendaji"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "扩建时，招募$1个临时员工。",
+      "cont": "Recruit $1 temporary workers when expanding.",
       "name": "Rampant Expansion",
       "uid": "fengkuangkuojian"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "所有特殊员工的派遣效果翻$1倍。",
+      "cont": "All special workers’ assignment effects are doubled.",
       "name": "Talent Acquisition",
       "uid": "rencaiyinjin"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "招募1名特殊员工，该员工被派遣时，抽$1张牌。",
+      "cont": "Recruit 1 special worker. When assigned, draw $1 card(s).",
       "name": "Recruit Scientist",
       "uid": "xiangmurenyuan"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "不能被弃置。",
+      "cont": "Cannot be discarded.",
       "name": "Laziness",
       "uid": "xiedai"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "不能被弃置。尽可在春季打出。",
+      "cont": "Cannot be discarded. Spring only. ",
       "name": "Cold Wave",
       "uid": "hanchao"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "不能被弃置。",
+      "cont": "Cannot be discarded.",
       "name": "Inflation",
       "uid": "tonghuopengzhang"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "不能被弃置。",
+      "cont": "Cannot be discarded.",
       "name": "Hostile Takeover",
       "uid": "eyishougou"
     },
     {
       "className": "",
       "condition": "",
-      "cont": "不能被弃置。收入减半。",
+      "cont": "Cannot be discarded.Income is halved.",
       "name": "Counterfeit Money",
       "uid": "jiabi"
     }
   ],
   "englishEvent": [
     {
-      "choose_1": "获得10收入，但是不会获得任何利息",
-      "choose_2": "无事发生",
+      "choose_1": "Gain 10 income but receive no interest.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_1",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位保险投资人来到了动物园。他说：“我可以帮你保管你的资金，无论如何，每季度你都可以收到一笔稳定的钱。”",
-      "title": "保险投资人",
+      "cont": "An insurance investor came to the zoo. He said, \"I can help safeguard your funds. That way, no matter what, you’ll receive a steady income every quarter.\"",
+      "title": "Insurance Investor",
       "uid": "event_1"
     },
     {
-      "choose_1": "不会再弃牌，但是收入减半",
-      "choose_2": "无事发生",
+      "choose_1": "No more discarding cards, but you can not gain any income.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_2",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位推销员来到了动物园。他愿意提供一个项目存档服务，但是当然这是收费的。",
-      "title": "项目存档",
+      "cont": "A salesman came to the zoo. He is willing to offer a project save service, but of course, it comes at a cost.",
+      "title": "Project Save",
       "uid": "event_2"
     },
     {
-      "choose_1": "收入翻倍，但是拿到手中的牌有30%概率直接被弃掉。",
-      "choose_2": "无事发生",
+      "choose_1": "Income is doubled, but cards drawn have a 30% chance to be discarded immediately.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_3",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位很奇怪的人来到了动物园。他说你可以把项目存放在他那里。他想要把这些项目拿去供别人学习。他愿意为这些项目支付一定的金额。",
-      "title": "开源",
+      "cont": "A strange man came to the zoo. He said you could store your projects with him. He wants to use these projects for others to study. He is willing to pay a certain amount for these projects.",
+      "title": "Open Source",
       "uid": "event_3"
     },
     {
-      "choose_1": "获得的人气值翻倍，但是只有前5个场馆会生效",
-      "choose_2": "无事发生",
+      "choose_1": "Popularity gained is doubled, but only the first 5 exhibits generate Popularity; all others produce none.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_4",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你在产业大会上了解到了现在新潮的商业模式，集中力量干大事！打造一批重点园区，据说这样做效果很好。",
-      "title": "重点项目",
+      "cont": "At the industry conference, you learned about the latest trendy business models. Focus your efforts on big projects! Build a batch of key parks—it's said this approach works really well.",
+      "title": "Key Project",
       "uid": "event_4"
     },
     {
-      "choose_1": "获得5个永久工人，但是每回合结束时， 金钱会减半。",
-      "choose_2": "无事发生",
+      "choose_1": "Gain 5 permanent Workers, but Coins are halved at the end of each turn.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_5",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "五个矮人兄弟来到了动物园。现在，你可以一次性雇佣五位矮人为你工作。据说传说中没有人能同时雇佣这五个人。",
-      "title": "矮人五兄弟",
+      "cont": "Five dwarf brothers have arrived at the zoo. Now, you can hire all five dwarfs to work for you at once. Legend says no one has ever managed to do this simultaneously, but you have the chance to do it with ease.",
+      "title": "The Five Dwarf Brothers",
       "uid": "event_5"
     },
     {
-      "choose_1": "每回合开始时抽2张牌，但是所有牌的费用增加50%。",
-      "choose_2": "无事发生",
+      "choose_1": "Draw 2 cards at the start of each turn, but all card coin costs are increased by 50%.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_6",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你的秘书跟你建议：“我们为什么不让场馆设计人员加班呢？他们每天的工作只是绘图而已。”你似乎觉得这有一些道理。",
-      "title": "资本家",
+      "cont": "Your secretary suggests to you: \"Why don't we have the exhibit designers work overtime? Their daily work is just a bit of drawing with their fingers, not much workload.\"",
+      "title": "Capitalist",
       "uid": "event_6"
     },
     {
-      "choose_1": "每季度开始时地图上出现随机奖励，但是每季度开始时会增加一张坏点子到手牌。",
-      "choose_2": "无事发生",
+      "choose_1": "At the start of each quarter, a random reward appears on the map, but a Curse card is added to your hand.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_7",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位地质学家来到了动物园。他表示可以帮你管理动物园，他是一位专业的地质学家，他说动物园里有很多稀有金属矿脉。",
-      "title": "地质学家",
+      "cont": "A geologist came to the zoo. He said he could help manage the zoo. As a professional geologist, he mentioned that there are many rare metal veins in the zoo.",
+      "title": "Geologist",
       "uid": "event_7"
     },
     {
-      "choose_1": "你的坏点子牌都会转化成随机项目牌，但是你扩建的费用翻倍。",
-      "choose_2": "无事发生",
+      "choose_1": "Your Curse cards will be converted into random Plan cards, but your expansion costs are doubled.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_8",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位专业的管理人员向你递来了简历。他拥有丰富的项目管理经验。你确信如果雇佣了他，你的园区项目再也不会有任何的烂点子了。",
-      "title": "专业管理人员",
+      "cont": "A professional manager handed you his resume. He has extensive project management experience. You are confident that if you hire him, your park projects will no longer have any bad ideas.",
+      "title": "Professional Manager",
       "uid": "event_8"
     },
     {
-      "choose_1": "每季度开始时，随机获得下列其中一项：+10块钱，+1临时工人，-5人气值，+1坏点子牌，+1随机物品",
-      "choose_2": "无事发生",
+      "choose_1": "At the start of each quarter, randomly gain one of the following: \n+10 Coins, +1 Temporary Worker, -5 Popularity, +1 Curse card, or +1 random item.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_9",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你的经历向你建议可以增加一块留言板，接受顾客的意见并改进。但你知道其实顾客也许并不知道自己需要什么。",
-      "title": "留言板",
+      "cont": "Your manager suggests adding a message board to collect customer feedback and make improvements. You think it's a good idea, but customers might not always know what they really need.",
+      "title": "Message Board",
       "uid": "event_9"
     },
     {
-      "choose_1": "书籍效果翻倍，但是不能打出任何成就牌",
-      "choose_2": "无事发生",
+      "choose_1": "Book effects are doubled, but no Achievement cards can be played.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_10",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你觉得你需要多多看一些书充实一下自己，但读书真的有用么？",
-      "title": "书呆子",
+      "cont": "You feel you need to read more books to enrich yourself, but does reading really help?",
+      "title": "Bookworm",
       "uid": "event_10"
     },
     {
-      "choose_1": "50%概率获得20金钱，50%失去20金钱",
-      "choose_2": "无事发生",
+      "choose_1": "50% chance to gain 20 Coins, then 50% chance to lose 20 Coins.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_11",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你的动物园旁边开了一家彩票店，你觉得可以去买一张，没准就能发大财呢？",
-      "title": "彩票",
+      "cont": "A lottery shop has opened next to your zoo. You think about buying a ticket—maybe you’ll strike it rich!",
+      "title": "\nLottery",
       "uid": "event_11"
     },
     {
-      "choose_1": "获得200金币，但是你不会再得到任何的利息与场地奖励",
-      "choose_2": "无事发生",
+      "choose_1": "Gain 200 Coins, but you will no longer receive any interest or plot rewards.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_12",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位投资人来到了动物园。他表示可以投资这个动物园，他只需要每年的分红。",
-      "title": "恶魔的交易",
+      "cont": "An investor came to the zoo. He said he could invest in the zoo, and he only requires annual dividends.",
+      "title": "Devil's Deal",
       "uid": "event_12"
     },
     {
-      "choose_1": "获得2个永久工人，但是你派遣特殊工人不会有任何效果",
-      "choose_2": "无事发生",
+      "choose_1": "Gain 2 permanent Workers, but assigning Special Workers has no effect.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_13",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一对落魄的兄弟来到了动物园。他们可以不要工资，只要管吃管住就行了。但是你的公司里显然有些人讨厌他们。",
-      "title": "两兄弟",
+      "cont": "A pair of down-and-out brothers came to the zoo. They don’t ask for a salary, only food and lodging. However, some people in your company clearly dislike them.",
+      "title": "Two Brothers",
       "uid": "event_13"
     },
     {
-      "choose_1": "重复执行部门行动也只需要一个工人，工人在被招募两个回合内不能被派遣",
-      "choose_2": "无事发生",
+      "choose_1": "Repeating Action Space actions requires only one Worker.\nBut you cannot assign any Temporary or Special Workers. \nRecruiting Workers costs double.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_14",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你决定让每个员工都单独负责处理事务，因为你知道三个和尚没水吃，但显然这需要一些时间。",
-      "title": "单人成军",
+      "cont": "You decided to have each Worker handle tasks individually because you know that too many cooks spoil the broth, but it will take some time for everyone to get used to this rhythm.",
+      "title": "One Man Army",
       "uid": "event_14"
     },
     {
-      "choose_1": "季度结束时，你每有一个未派遣的工人就获得3金钱",
-      "choose_2": "无事发生",
+      "choose_1": "At the end of the quarter, gain 3 Coins for each unassigned Worker.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_15",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一位动物园长来到了你的动物园。他表示他那里急需人手，如果你有富余的话可以派遣到他那里，他会付钱的。",
-      "title": "劳务派遣",
+      "cont": "A zoo director came to your zoo. He said he urgently needs staff, and if you have any surplus, you can send them to him. He will pay for it.",
+      "title": "Labor Dispatch",
       "uid": "event_15"
     },
     {
-      "choose_1": "你商店购买书籍时会随机减免1-5金钱，但是商店的项目卡会贵1金钱",
-      "choose_2": "无事发生",
+      "choose_1": "When you purchase Books in the Shop, you receive a random discount of 1–5 Coins.\nPlan cards in the Shop cost 1 additional Coin.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_16",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一家书店开在了动物园周围，你再考虑要不要去办一张会员卡，这样你就可以是不是买一些书来提升自己。",
-      "title": "书店",
+      "cont": "A bookstore opened near the zoo, and you're considering getting a membership card so you can buy some books to improve yourself.",
+      "title": "Bookstore",
       "uid": "event_16"
     },
     {
-      "choose_1": "每个季度开始时有50%概率获得10金币，但是，坏概率增加5%",
-      "choose_2": "无事发生",
+      "choose_1": "At the start of each quarter, there is a 50% chance to gain 10 Coins.\nThe negative probability increases by 5%.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_17",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "一天营业结束时，你发现顾客的名贵手表落在了园内。你再考虑要不要每天派人搜索园区，看看会不会找到什么值钱的东西。",
-      "title": "守株待兔",
+      "cont": "At the end of the day’s business, you find that a customer’s valuable watch was left in the park. You consider whether to assign someone to search the zoo daily to see if any valuable items can be found.",
+      "title": "Waiting idly for luck",
       "uid": "event_17"
     },
     {
-      "choose_1": "获得5收入，但是，将所有春季替换为冬季。",
-      "choose_2": "无事发生",
+      "choose_1": "Gain 5 income, but replace all Springs with Winters.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_18",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你突发奇想可不可以把动物园改造成冬季主题馆。也许有个主题会更吸引人？",
-      "title": "winter is coming",
+      "cont": "You suddenly wonder if you could transform the zoo into a winter-themed park. Maybe having a theme would attract more visitors?",
+      "title": "Winter Is Coming",
       "uid": "event_18"
     },
     {
-      "choose_1": "所有的效果内包含X的场馆在结算时X值+1，但是减10收入",
-      "choose_2": "无事发生",
+      "choose_1": "All X Exhibits gain +1 to their X value during resolution, but income is reduced by 10.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_19",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "最近一颗宝石横空出世，名叫海洋之心。你在考虑要不要买下来放在园区里做展览。这样肯定会吸引一大批顾客的。",
-      "title": "海洋之心",
+      "cont": "Recently, a gem called the Heart of the Ocean has emerged. You’re considering whether to buy it for display in your park. It would definitely attract a large crowd of visitors.",
+      "title": "Heart of the Ocean",
       "uid": "event_19"
     },
     {
-      "choose_1": "临时工人可以当作2个工人，但是不能再拆除场馆",
-      "choose_2": "无事发生",
+      "choose_1": "Temporary Workers count as two Workers, but cannot be used to demolish exhibits.",
+      "choose_2": "Nothing happens.",
       "choose_3": 0,
       "choose_4": 0,
       "choose_uid_1": "event_20",
       "choose_uid_2": "nothing",
       "choose_uid_3": 0,
       "choose_uid_4": 0,
-      "cont": "你觉得可以优化一下临时工的培训流程，这样临时工的效率一定可以提高很多。",
-      "title": "临时工培训",
+      "cont": "You think the training process for Temporary Workers can be optimized, which will definitely improve their efficiency significantly.",
+      "title": "Temporary Worker Training",
       "uid": "event_20"
     }
   ],
   "englishSpecWorker": [
     {
-      "cont": "该员工被派遣时，抽$1张牌。之后额外获得一张随机坏点子牌。",
+      "cont": "When assigned, draw $1 card(s).",
       "uid": "yanjiurenyuan"
     },
     {
-      "cont": "该员工被派遣时，获得$1点时间。",
+      "cont": "When assigned, gain $1 Time Points.",
       "uid": "jiansherenyuan"
     },
     {
-      "cont": "该员工被派遣时，扩建$1块随机地。",
+      "cont": "When assigned, additionally expand $1 random plots.",
       "uid": "kuojianrenyuan"
     },
     {
-      "cont": "该员工被派遣时，获得$1名临时员工。",
+      "cont": "When assigned, gain $wr1 temporary workers.",
       "uid": "guyongrenyuuan"
     },
     {
-      "cont": "该员工被派遣时，抽$1张牌。",
+      "cont": "When assigned, draw $1 card(s).",
       "uid": "xiangmurenyuan"
     }
   ],
@@ -6988,156 +7215,220 @@
       "uid": "selected"
     },
     {
-      "cont": "选择{num=5}张牌弃置",
+      "cont": "Discard {num=5} cards.",
       "uid": "chooseToDiscard"
     },
     {
-      "cont": "选择{num=1}张牌加入手牌",
+      "cont": "Choose {num=1} card(s) and add it to your hand.",
       "uid": "chooseToHand"
     },
     {
-      "cont": "选择{num=1}张牌丢弃到弃牌堆",
+      "cont": "Choose {num=1} card(s) and discard it to the discard pile.",
       "uid": "chooseToDiscard"
     },
     {
-      "cont": "选择任意张牌丢弃到弃牌堆，之后抽取等量",
+      "cont": "Discard any number of cards to the discard pile, then draw an equal number of cards.",
       "uid": "chooseToDiscardAndDrawSame"
     },
     {
-      "cont": "选择最多{num=1}张牌丢弃到弃牌堆，之后抽取等量",
+      "cont": "Discard up to {num=1} card(s) to the discard pile, then draw the same number of cards.",
       "uid": "chooseUpToDiscardAndDrawSame"
     },
     {
-      "cont": "选择最多{num=1}张牌丢弃到弃牌堆，之后获取金钱",
+      "cont": "Discard up to {num=1} card(s) to the discard pile, then gain Coins.",
       "uid": "chooseUpToDiscardAndGetMoney"
     },
     {
-      "cont": "复制1张牌",
+      "cont": "Copy 1 card.",
       "uid": "copyCard"
     },
     {
-      "cont": "选择一个场馆复制其场馆牌到手牌。",
+      "cont": "Choose an exhibit and copy it to your hand.",
       "uid": "copyVenue"
     },
     {
-      "cont": "删除最多{num=1}张坏点子牌",
+      "cont": "Remove up to {num=1} Curse card(s).",
       "uid": "deleteBadIdea"
     },
     {
-      "cont": "(当前等级:%s)",
+      "cont": "(Current level: {0})",
       "uid": "currRank"
     },
     {
-      "cont": "免费打出最多{num=1}张牌",
+      "cont": "Play up to {num=1} card(s) for free.",
       "uid": "playHandFreely"
     },
     {
-      "cont": "免费打出最多{num=1}张大型场馆",
+      "cont": "Play up to {num=1} Large Exhibit card(s) for free.",
       "uid": "playBigVenueFreely"
     },
     {
-      "cont": "免费打出最多{num=1}张猿猴场馆",
+      "cont": "Play up to {num=1} Primate Exhibit card(s) for free.",
       "uid": "playMonkeyFreely"
     },
     {
-      "cont": "选择一个场馆拆除",
+      "cont": "Choose an exhibit to demolish.",
       "uid": "chooseVenueDemolish"
     },
     {
-      "cont": "普通工人，新的回合会刷新！！！",
+      "cont": "Regular Workers, they will refresh at the start of each new turn.",
       "uid": "normalWorker"
     },
     {
-      "cont": "临时工人，回合结束时消失！！！",
+      "cont": "Temporary Workers, disappear at the end of the turn!",
       "uid": "tempWorker"
     },
     {
-      "cont": "抽牌堆",
+      "cont": "draw pile",
       "uid": "drawPile"
     },
     {
-      "cont": "弃牌堆",
+      "cont": "discard pile",
       "uid": "discardPile"
     },
     {
-      "cont": "等待开采",
+      "cont": "Waiting to expand",
       "uid": "waitToTouch"
     },
     {
-      "cont": "岩石",
+      "cont": "rocky",
       "uid": "rock"
     },
     {
-      "cont": "湖泊",
+      "cont": "lake",
       "uid": "lack"
     },
     {
-      "cont": "可建造",
+      "cont": "buildable",
       "uid": "canBuild"
     },
     {
-      "cont": "Don't have enough time or money!!!",
+      "cont": "Not enough Time Points or Coins.",
       "uid": "notEnoughMoney"
     },
     {
-      "cont": "Can't play it!!!",
+      "cont": "Can't play it.",
       "uid": "cantPlayIt"
     },
     {
-      "cont": "Can't play any achievement card!!!",
+      "cont": "Can't play any achievement card.",
       "uid": "CantPlayAchiCard"
     },
     {
-      "cont": "Don't  meet the requiremant!!!",
+      "cont": "Don't  meet the requiremant.",
       "uid": "DontMeetReq"
     },
     {
-      "cont": "Don't have enough room for this venue!!!",
+      "cont": "Don't have enough room for this exhibit.",
       "uid": "DontHaveRoom"
     },
     {
-      "cont": "Can't play any achievement card!!! Stop play",
+      "cont": "Can't play any achievement card. Stop play.",
       "uid": "CantPlayAchiCardStop"
     },
     {
-      "cont": "Don't  meet the requiremant!!! Stop play",
+      "cont": "Don't  meet the requiremant. Stop play.",
       "uid": "DontMeetReqStop"
     },
     {
-      "cont": "Don't have enough room for this venue!!! Stop play",
+      "cont": "Don't have enough room for this exhibit. Stop play.",
       "uid": "DontHaveRoomStop"
     },
     {
-      "cont": "get gold {0}",
+      "cont": "get coins {0}",
       "uid": "GetGold"
     },
     {
-      "cont": "can only be used once per turn!!!",
+      "cont": "can only be used once per quarter.",
       "uid": "OncePerTurn"
     },
     {
-      "cont": "You don't have any venue!!!",
+      "cont": "You don't have any exhibit.",
       "uid": "DontHaveVenue"
     },
     {
-      "cont": "You can not demolish venue!!!",
+      "cont": "You can not demolish exhibit.",
       "uid": "CantDemolish"
     },
     {
-      "cont": "Only available in Spring",
+      "cont": "Only in Spring",
       "uid": "OnlyInSpring"
     },
     {
-      "cont": "Only available in Summer",
+      "cont": "Only in Summer",
       "uid": "OnlyInSummer"
     },
     {
-      "cont": "Only available in August",
+      "cont": "Only in August",
       "uid": "OnlyInAugust"
     },
     {
-      "cont": "Only available in Winter",
+      "cont": "Only in Winter",
       "uid": "OnlyInWinter"
+    },
+    {
+      "cont": "Play condition:\n{cond=至少拥有10个海洋场馆}\n\n{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}",
+      "uid": "cardContWithCond"
+    },
+    {
+      "cont": "Large Exhibit",
+      "uid": "bigExhibit"
+    },
+    {
+      "cont": "Small Exhibit",
+      "uid": "smallExhibit"
+    },
+    {
+      "cont": "Gain {0} coin(s) by income.",
+      "uid": "ssIncome"
+    },
+    {
+      "cont": "Gain {0} popularity.",
+      "uid": "ssPopularity"
+    },
+    {
+      "cont": "Gain {0} book(s).",
+      "uid": "ssBook"
+    },
+    {
+      "cont": "Successfully gain {0} Coins with a 50% chance.",
+      "uid": "ssHalfChange"
+    },
+    {
+      "cont": "Gain {0} random plot reward(s).",
+      "uid": "ssPlotRewards"
+    },
+    {
+      "cont": "Gain {0} random curse card(s).",
+      "uid": "ssCurse"
+    },
+    {
+      "cont": "Draw {0} card(s).",
+      "uid": "ssCard"
+    },
+    {
+      "cont": "Gain random item:   ",
+      "uid": "ssRandomGain"
+    },
+    {
+      "cont": "{0} coin(s).",
+      "uid": "ssRCoin"
+    },
+    {
+      "cont": "{0} popularity.",
+      "uid": "ssRPopularity"
+    },
+    {
+      "cont": "{0} temporary worker(s).",
+      "uid": "sRTWorker"
+    },
+    {
+      "cont": "{0} curse card(s).",
+      "uid": "ssRCurse"
+    },
+    {
+      "cont": "{0} book(s). ",
+      "uid": "ssRBook"
     }
   ],
   "englishVenue": [
@@ -7408,137 +7699,137 @@
   ],
   "englishWorkPos": [
     {
-      "cont": "抽牌堆展示$1张牌，保留$2张牌。",
-      "name": "研发部",
+      "cont": "Reveal $1 card(s) from the draw pile, keep $2 card(s).",
+      "name": "Research Lab",
       "uid": "dep_0"
     },
     {
-      "cont": "获得$1点时间。",
+      "cont": "Gain $1 time point(s).",
       "name": "建设部",
       "uid": "dep_1"
     },
     {
-      "cont": "获得$1金钱，获得$2人气值。",
-      "name": "宣传部",
+      "cont": "Gain $1 coins and $2 popularity.",
+      "name": "Open Exhibit",
       "uid": "dep_2"
     },
     {
-      "cont": "招募$1名新员工，花费10+招募次数*10的金币。",
+      "cont": "Recruit $1 new worker at a cost of 10 + number of recruits × 10.",
       "name": "人力部",
       "uid": "dep_3"
     },
     {
-      "cont": "去一次商店，价格变为的$1%。",
+      "cont": "Make one purchase in the Shop at $1% of the original price.",
       "name": "采购部",
       "uid": "dep_4"
     },
     {
-      "cont": "花费$2金钱，升级部门$1次。",
+      "cont": "Spend $2 coins to upgrade the Action Space $1 time(s).",
       "name": "培训部",
       "uid": "dep_5"
     },
     {
-      "cont": "支付$1%的建造金钱，拆除一个场馆。",
+      "cont": "Pay $1% of the coin cost to demolish an exhibit.",
       "name": "清理部门",
       "uid": "dep_6"
     },
     {
-      "cont": "花费$1金钱，开扩$2块未知地块。",
+      "cont": "Spend $1 coins to expand $2 plots.",
       "name": "扩建部门",
       "uid": "dep_7"
     },
     {
-      "cont": "仅春季可用，结算所有场馆后，人气值翻倍。",
+      "cont": "Spring only. Gain $1% popularity after resolving all exhibits.",
       "name": "春日装扮",
       "uid": "dep_spring"
     },
     {
-      "cont": "获得抽牌堆中的下一张猿猴场馆牌。",
+      "cont": "Pay $1 coin(s). Gain the next Primate Exhibit card(s) from the draw pile.",
       "name": "猿猴研究部门",
       "uid": "dep_devmonkey"
     },
     {
-      "cont": "删除手上的一张坏点子牌。",
+      "cont": "Remove $1 Curse card(s) from your hand.",
       "name": "后勤部门",
       "uid": "dep_houqin"
     },
     {
-      "cont": "该部门效果始终为当前等级的研究部门。",
+      "cont": "This action space always uses the effect of the Research Lab at its current level.",
       "name": "研究部分部门",
       "uid": "dep_yanjiu"
     },
     {
-      "cont": "打出手牌中$1张猿猴场馆。",
+      "cont": "Play 1 Primate Exhibit card from your hand for free.(Limit time: $1)",
       "name": "猿猴场馆建设部门",
       "uid": "dep_conmonkey"
     },
     {
-      "cont": "仅夏季可用，结算所有场馆后，人气值提升50%。",
+      "cont": "Summer only. Gain $1% popularity after resolving all exhibits.",
       "name": "夏日装扮",
       "uid": "dep_summer"
     },
     {
-      "cont": "获得抽牌堆中的下一张哺乳类场馆牌。",
+      "cont": "Pay $1 coin(s). Gain the next 1 Mammal Exhibit card(s) from the draw pile.",
       "name": "哺乳类研究部门",
       "uid": "dep_devburu"
     },
     {
-      "cont": "清理一个场馆，返还建造成本50%的金钱。",
+      "cont": "Demolish an exhibit and refund $1% of its coin cost.",
       "name": "清理部门",
       "uid": "dep_qingli"
     },
     {
-      "cont": "雇佣两名临时员工。",
+      "cont": "Recruit $1 temporary worker(s).",
       "name": "人才市场",
       "uid": "dep_rencai"
     },
     {
-      "cont": "仅秋季可用，结算所有场馆后，人气值提升20%。",
+      "cont": "August only. Gain $1% popularity after resolving all exhibits.",
       "name": "秋季装扮",
       "uid": "dep_august"
     },
     {
-      "cont": "免费建造一个大型场馆。",
+      "cont": "Play $1 Large Exhibit card(s) for free.",
       "name": "大型场馆建设部门",
       "uid": "dep_daxing"
     },
     {
-      "cont": "获得10金钱。每次执行都会永久提升该数值$1点。",
+      "cont": "Gain $1 coin(s). Each time this is triggered, permanently increase the amount by $2.",
       "name": "投资部门",
       "uid": "dep_investment"
     },
     {
-      "cont": "获得抽牌堆中的下一张爬虫类场馆牌。",
+      "cont": "Pay $1 coin(s). Gain the next 1 Reptile Exhibit card(s) from the draw pile.",
       "name": "爬虫类研究部门",
       "uid": "dep_pachong"
     },
     {
-      "cont": "免费扩建$1块地。",
+      "cont": "Expand $1 plot(s) for free.",
       "name": "扩建部门",
       "uid": "dep_kuojian"
     },
     {
-      "cont": "仅冬季可用，结算所有场馆后，人气值提升10%。",
+      "cont": "Winter only. Gain $1% popularity after resolving all exhibits.",
       "name": "冬季装扮",
       "uid": "dep_winter"
     },
     {
-      "cont": "获得抽牌堆中的下一张海洋场馆牌。",
+      "cont": "Pay $1 coin(s). Gain the next 1 Aquatic Exhibit cards from the draw pile.",
       "name": "鱼类研究部门",
       "uid": "dep_yu"
     },
     {
-      "cont": "抽$1张牌。",
+      "cont": "Draw $1 card(s).",
       "name": "项目研发部门",
       "uid": "dep_dev"
     },
     {
-      "cont": "弃掉最多$1张手牌，收取等量的牌。",
+      "cont": "Discard up to $1 cards from your hand and draw the same number of card(s).",
       "name": "项目优化部门",
       "uid": "dep_youhua"
     },
     {
-      "cont": "获得$1个随机书籍。",
+      "cont": "Gain $1 random book(s).",
       "name": "书籍出版部门",
       "uid": "dep_book"
     }

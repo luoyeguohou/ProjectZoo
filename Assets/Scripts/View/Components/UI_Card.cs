@@ -40,16 +40,26 @@ namespace Main
             else
                 m_color.selectedIndex = cfg.cardType;
 
-            m_status.selectedIndex = cfg.cardType == (int)CardType.Venue ? 0 : (cfg.goldCost > 0 ? 1 : 2);
+            m_status.selectedIndex = cfg.goldCost > 0 ? 0 : 1;
             if (cfg.cardType == (int)CardType.Venue)
             {
-                m_txtAttr.text = cfg.GetClassName();
                 m_buildCost.m_type.selectedIndex = cfg.landType;
+                m_txtModule.text =  c.cfg.GetClassName();
+                if (c.cfg.landType <= 2)
+                {
+                    m_txtSize.text = Cfg.GetSTexts("smallExhibit");
+                }
+                else if (cfg.landType >= 4)
+                {
+                    m_txtSize.text = Cfg.GetSTexts("bigExhibit");
+                }
+                else { 
+                    m_txtSize.text = "";
+                }
             }
             m_txtName.text = cfg.GetName();
             m_txtTimeCost.text = EcsUtil.GetValStr(EcsUtil.GetCardTimeCost(c), c.cfg.timeCost);
             m_txtGoldCost.text = EcsUtil.GetValStr(EcsUtil.GetCardGoldCost(c), c.cfg.goldCost);
-            m_txtCond.SetVar("cond", cfg.GetCondition()).FlushVars();
             m_img.m_img.url = "ui://Main/" + c.uid;
 
             UpdateCont();
@@ -57,7 +67,17 @@ namespace Main
 
         private void UpdateCont(object[] p = null)
         {
-            m_txtCont.text = EcsUtil.GetCardCont(c.uid);
+            if (c.cfg.cardType == (int)CardType.Achivement)
+            {
+                m_txtCont.text = Cfg.GetSTexts("cardContWithCond");
+                m_txtCont.SetVar("cont", EcsUtil.GetCardCont(c.uid));
+                m_txtCont.SetVar("cond", c.cfg.GetCondition());
+                m_txtCont.FlushVars();
+            }
+            else
+            {
+                m_txtCont.text = EcsUtil.GetCardCont(c.uid);
+            }
         }
     }
 }

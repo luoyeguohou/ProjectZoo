@@ -3,7 +3,11 @@
   <controller name="hasMeeple" pages="0,,1," selected="0"/>
   <controller name="upgradePage" pages="0,,1," selected="0"/>
   <controller name="upgradeState" pages="0,未升级已满级,1,未升级未满级,2,已升级可再次升级,3,已升级不可再次升级" selected="0"/>
+  <controller name="overView" pages="0,,1," selected="1"/>
   <displayList>
+    <loader id="n62_p0wl" name="img_bg" xy="60,62" pivot="0.5,0.5" anchor="true" size="120,125" scale="1.3,1.3" url="ui://zqdehm1vi3x3d6" align="center" fill="scale">
+      <gearDisplay controller="overView" pages="1"/>
+    </loader>
     <loader id="n53_rd08" name="img" xy="0,0" size="120,125" url="ui://zqdehm1vi3x3ch" align="center" fill="scale"/>
     <image id="n54_rd08" name="n54" src="rd08j" fileName="Images/meeple.png" xy="54,90" size="22,20">
       <gearDisplay controller="hasMeeple" pages="1"/>
@@ -12,7 +16,7 @@
     <loader id="n56_pz64" name="imgBg" xy="0,0" size="120,125" alpha="0.904" url="ui://zqdehm1vpz6428" align="center" fill="scale" color="#000000">
       <gearDisplay controller="upgradePage" pages="1"/>
     </loader>
-    <text id="n57_pz64" name="n57" xy="23,98" size="81,19" fontSize="12" color="#ffffff" align="center" autoSize="none" text="Max Level">
+    <text id="n57_pz64" name="n57" xy="23,98" size="81,19" fontSize="12" color="#ffffff" align="center" autoSize="none" text="最高等级">
       <gearDisplay controller="upgradePage" pages="1"/>
       <gearDisplay2 controller="upgradeState" pages="0" condition="0"/>
     </text>

@@ -9,7 +9,7 @@
     <text id="n74_z141" name="txtTitle" xy="109,30" size="721,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="获得利息"/>
     <component id="n78_pz64" name="btnFinish" src="rd0816" fileName="Components/ButtonNormal.xml" xy="348,532" size="300,104">
       <gearXY controller="HasPopR" pages="0" values="348,532" default="349,622"/>
-      <Button title="Get" titleFontSize="53"/>
+      <Button title="获得" titleFontSize="53"/>
     </component>
     <text id="n84_rr6n" name="txtCurr" xy="87,125" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="当前金额：{num=5}"/>
     <text id="n81_rr6n" name="txtRange" xy="84,221" size="828,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="可以获得利息的规模：{num=5}"/>

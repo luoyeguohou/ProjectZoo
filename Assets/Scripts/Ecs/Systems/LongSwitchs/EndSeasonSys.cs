@@ -214,7 +214,9 @@ public class EndSeasonSys : ISystem
         Msg.Dispatch(MsgID.AfterVenueTakeEffect, new object[] { b });
         // ani
         Msg.Dispatch(MsgID.VenueTakeEffectAni, new object[] { b });
-        await Task.Delay(2000);
+        TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
+        await Task.Delay((int)(2000/tComp.endTurnSpeed));
+        tComp.endTurnSpeed += 0.2f;
     }
 
     private bool CheckAim()
@@ -292,7 +294,8 @@ public class EndSeasonSys : ISystem
 
         // turn&season
         tComp.turn++;
-        tComp.season = (Season)(tComp.turn % 4);
+        tComp.season = (Season)(tComp.turn-1 % 4);
+        tComp.endTurnSpeed = 1;
         if (EcsUtil.GetBuffNum(35) > 0 && tComp.season == Season.Spring)
             tComp.season = Season.Winter;
         Msg.Dispatch(MsgID.AfterTurnChanged);

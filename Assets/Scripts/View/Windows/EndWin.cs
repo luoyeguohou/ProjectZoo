@@ -1,6 +1,8 @@
+using FairyGUI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Main
 {
@@ -11,11 +13,12 @@ namespace Main
             base.ConstructFromResource();
             m_btnRestart.onClick.Add(() =>
             {
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit();
-#endif
+                int cnt = UIManager.windows.Count;
+                for (int i = 0; i < cnt; i++)
+                {
+                    UIManager.windows[0].Dispose();
+                }
+                SceneManager.LoadScene(0);
             });
         }
     }

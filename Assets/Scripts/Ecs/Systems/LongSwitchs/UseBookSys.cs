@@ -107,5 +107,6 @@ public class UseBookSys : ISystem
         bookComp.books.Remove(book);
         Msg.Dispatch(MsgID.AfterBookChanged);
         Msg.Dispatch(MsgID.AfterUseBook, new object[] { book });
+        EcsUtil.PlaySound("book");
     }
 }

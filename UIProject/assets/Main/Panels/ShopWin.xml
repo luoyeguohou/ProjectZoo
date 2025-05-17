@@ -6,11 +6,11 @@
     </component>
     <component id="n72_d2b2" name="btnHide" src="rd0816" fileName="Components/ButtonNormal.xml" xy="53,128">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <Button title="Hide"/>
+      <Button title="隐藏"/>
     </component>
     <component id="n73_d2b2" name="btnBack" src="rd0816" fileName="Components/ButtonNormal.xml" xy="53,211">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <Button title="Leave"/>
+      <Button title="退出"/>
     </component>
   </displayList>
 </component>

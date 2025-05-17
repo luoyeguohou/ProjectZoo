@@ -14,7 +14,7 @@
   <string name="zqdehm1vu37ueq-n92_oa6n" mz="txtNum">+{num=5}</string>
   <!-- Main/Components/UseBookPanelItem.xml -->
   <string name="zqdehm1vwitr20-n47_witr" mz="btnSell">售卖</string>
-  <string name="zqdehm1vwitr20-n56_witr" mz="btnUse">使用/string>
+  <string name="zqdehm1vwitr20-n56_witr" mz="btnUse">使用</string>
   <string name="zqdehm1vwitr20-n57_witr" mz="btnDiscard">丢弃</string>
   <!-- Main/Components/WorkPos.xml -->
   <string name="zqdehm1vrd0817-n55_rd08" mz="txtInfo">{curNum=01}/{limit=1}</string>
@@ -99,11 +99,11 @@
   <string name="zqdehm1vd2b23e-n82_ehbe" mz="btnConfirm">确认</string>
   <!-- Main/Conts/SeasonInfoCont.xml -->
   <string name="zqdehm1vep2ze7-n85_z141" mz="n85">第一年
-  第二年
-  第三年
-  第四年
-  第五年
-  第六年</string>
+第二年
+第三年
+第四年
+第五年
+第六年</string>
   <!-- Main/Conts/SelectCardsCont.xml -->
   <string name="zqdehm1vd2b23j-n74_z141" mz="txtTitle">选择{num=5}弃置。</string>
   <string name="zqdehm1vd2b23j-n78_pz64" mz="btnFinish">完成</string>
@@ -166,4 +166,8 @@
   <string name="zqdehm1vrr6ne2-n81_d2b2" mz="btnHide">隐藏</string>
   <!-- Main/Panels/UpgradeWorkPosWin.xml -->
   <string name="zqdehm1vpz6423-n82_d2b2" mz="btnHide">隐藏</string>
+  <!-- Main/Panels/HomeWin.xml -->
+  <string name="zqdehm1vp0wlez-n1_p0wl" mz="n1">动物园计划</string>
+  <string name="zqdehm1vp0wlez-n6_p0wl" mz="n6">开始游戏</string>
+  <string name="zqdehm1vp0wlez-n8_p0wl" mz="n8">退出游戏</string>
 </resources>

@@ -26,7 +26,7 @@ public class UseWorkerSys : ISystem
         if (EcsUtil.GetBuffNum(60) > 0 && worker.age < 2) return;
 
         // check can put
-        if (!CheckCanPut(wp)) return;
+        if (!CheckCanPut(wp,worker)) return;
 
         // remove worker
         RemoveWorker(worker);
@@ -36,6 +36,8 @@ public class UseWorkerSys : ISystem
             wp.currNum += 1 + EcsUtil.GetBuffNum(39);
         else
             wp.currNum++;
+
+        EcsUtil.PlaySound("bubble");
 
         // check can take effect
         if (wp.currNum >= EcsUtil.GetWorkPosNeed(wp))
@@ -50,20 +52,28 @@ public class UseWorkerSys : ISystem
         Msg.Dispatch(MsgID.AfterUseWorker);
     }
 
-    private bool CheckCanPut(WorkPos wp)
+    private bool CheckCanPut(WorkPos wp, Worker worker)
     {
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-        if (wp.cfg.limitTime != 0 && wp.workTimeThisTurn >= wp.cfg.limitTime)
+        int limitTime = wp.cfg.limitTime[wp.level - 1];
+        if (limitTime != 0 && wp.workTimeThisTurn >= limitTime)
         {
             FGUIUtil.ShowMsg(Cfg.GetSTexts("OncePerTurn"));
+            return false;
+        }
+        if (worker.uid == "tempWorker" && EcsUtil.GetBuffNum(69) > 0) {
+            return false;
+        }
+        if (worker.uid != "normalWorker" && worker.uid != "tempWorker" && EcsUtil.GetBuffNum(68) > 0)
+        {
             return false;
         }
         switch (wp.uid)
         {
             case "dep_3":
-                if (!EcsUtil.HaveEnoughGold(wComp.workerPrice))
+                if (!EcsUtil.HaveEnoughGold(wComp.workerPrice*(EcsUtil.GetBuffNum(67) > 0 ? 2 : 1)))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
@@ -134,6 +144,17 @@ public class UseWorkerSys : ISystem
                 BookComp bComp = World.e.sharedConfig.GetComp<BookComp>();
                 if (bComp.books.Count >= bComp.bookLimit)
                 {
+                    return false;
+                }
+                break;
+            case "dep_devmonkey":
+            case "dep_yu":
+            case "dep_pachong":
+            case "dep_devburu":
+                int val = Cfg.workPoses[wp.uid].val1[wp.level - 1];
+                if (!EcsUtil.HaveEnoughGold(val))
+                {
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
