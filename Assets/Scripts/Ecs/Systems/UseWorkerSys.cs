@@ -73,14 +73,14 @@ public class UseWorkerSys : ISystem
         switch (wp.uid)
         {
             case "dep_3":
-                if (!EcsUtil.HaveEnoughGold(wComp.workerPrice*(EcsUtil.GetBuffNum(67) > 0 ? 2 : 1)))
+                if (!EcsUtil.HaveEnoughGold(EcsUtil.GetRecruitCost()))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
             case "dep_5":
-                if (!EcsUtil.HaveEnoughGold(10))
+                if (!EcsUtil.HaveEnoughGold(15))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;

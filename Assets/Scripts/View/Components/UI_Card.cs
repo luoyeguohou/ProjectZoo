@@ -26,9 +26,11 @@ namespace Main
         }
 
         public Card c;
-        public void SetCard(Card c)
+        private string selectedText = "";
+        public void SetCard(Card c,string selectedText = "")
         {
             this.c = c;
+            this.selectedText = selectedText;
             UpdateView();
         }
 
@@ -61,6 +63,10 @@ namespace Main
             m_txtTimeCost.text = EcsUtil.GetValStr(EcsUtil.GetCardTimeCost(c), c.cfg.timeCost);
             m_txtGoldCost.text = EcsUtil.GetValStr(EcsUtil.GetCardGoldCost(c), c.cfg.goldCost);
             m_img.m_img.url = "ui://Main/" + c.uid;
+            if (selectedText != "")
+            {
+                m_txtSelect.text = selectedText;
+            }
 
             UpdateCont();
         }

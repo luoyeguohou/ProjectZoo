@@ -453,6 +453,7 @@ public class ActionCardSys : ISystem
 
             int index = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
+            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             Card c = cmComp.hands[index];
 
             // calculate cost
@@ -476,6 +477,12 @@ public class ActionCardSys : ISystem
                 return;
             }
 
+            if (c.cfg.cardType == 2 && wpComp.workPoses.Count == 15)
+            {
+                FGUIUtil.ShowMsg(Cfg.GetSTexts("cantPlayActionSpaceCard"));
+                return;
+            }
+
             if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontMeetReq"));
@@ -485,6 +492,12 @@ public class ActionCardSys : ISystem
             if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveRoom"));
+                return;
+            }
+
+            if (!OtherConditionCheck(c))
+            {
+                FGUIUtil.ShowMsg(Cfg.GetSTexts("cantPlayIt"));
                 return;
             }
 
@@ -508,6 +521,7 @@ public class ActionCardSys : ISystem
 
     private void TryToPlayHandsFreely(object[] p)
     {
+            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         List<Card> cards = (List<Card>)p[0];
         foreach (Card c in cards)
         {
@@ -526,6 +540,12 @@ public class ActionCardSys : ISystem
             if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveRoomStop"));
+                return;
+            }
+
+            if (c.cfg.cardType == 2 && wpComp.workPoses.Count == 15)
+            {
+                FGUIUtil.ShowMsg(Cfg.GetSTexts("cantPlayActionSpaceCard"));
                 return;
             }
 

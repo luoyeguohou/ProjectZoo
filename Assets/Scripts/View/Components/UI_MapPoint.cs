@@ -7,12 +7,11 @@ namespace Main
 {
     public partial class UI_MapPoint : GComponent
     {
-        public void Init(ZooGround g)
+        public void Init(ZooGround g, string selectedText = "")
         {
             if (g.hasBuilt)
             {
                 m_type.selectedIndex = 4;
-                VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>() ;
                 m_img_anim.url = "ui://Main/"+ g.venue.uid+"S";
             }
             else if (!g.isTouchedLand)
@@ -24,6 +23,8 @@ namespace Main
             }
             m_hasBonus.selectedIndex = g.bonus == null ? 0 : 1;
             if (g.bonus != null)m_bonus.Init(g.bonus);
+            if(selectedText!= "")
+                m_txtSelected.text = selectedText;
         }
     }
 }

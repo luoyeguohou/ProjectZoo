@@ -33,7 +33,7 @@ namespace Main
             UIManager.windows.Remove(this);
         }
 
-        private void Hide()
+        protected void Hide()
         {
             if (btnBack != null) btnBack.visible = !btnBack.visible;
             if (cont != null) cont!.visible = !cont.visible;

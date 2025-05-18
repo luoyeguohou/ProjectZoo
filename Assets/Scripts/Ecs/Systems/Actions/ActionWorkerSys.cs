@@ -30,6 +30,7 @@ public class ActionWorkerSys : ISystem
                 Worker w = new Worker("normalWorker");
                 wComp.normalWorkers.Add(w);
                 wComp.normalWorkerLimit.Add(w);
+                wComp.recruitTime++;
             }
             Msg.Dispatch(MsgID.AfterWorkerChanged);
             await Task.CompletedTask;

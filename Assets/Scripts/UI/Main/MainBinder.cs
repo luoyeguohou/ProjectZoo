@@ -49,6 +49,7 @@ namespace Main
             UIObjectFactory.SetPackageItemExtension(UI_SelectCardsWin.URL, typeof(UI_SelectCardsWin));
             UIObjectFactory.SetPackageItemExtension(UI_ExpandGroundWin.URL, typeof(UI_ExpandGroundWin));
             UIObjectFactory.SetPackageItemExtension(UI_UpgradeWorkPosWin.URL, typeof(UI_UpgradeWorkPosWin));
+            UIObjectFactory.SetPackageItemExtension(UI_SucceedWin.URL, typeof(UI_SucceedWin));
             UIObjectFactory.SetPackageItemExtension(UI_LogItem.URL, typeof(UI_LogItem));
             UIObjectFactory.SetPackageItemExtension(UI_LoggerWin.URL, typeof(UI_LoggerWin));
             UIObjectFactory.SetPackageItemExtension(UI_HintMessage.URL, typeof(UI_HintMessage));

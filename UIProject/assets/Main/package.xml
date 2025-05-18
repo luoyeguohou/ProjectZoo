@@ -463,6 +463,7 @@
     <image id="p0wlff" name="新建项目 (10).png" path="/Images/Bg/"/>
     <image id="p0wlfg" name="新建项目 (11).png" path="/Images/Bg/"/>
     <sound id="p0wlfh" name="buttonEff.mp3" path="/" exported="true"/>
+    <component id="qbvjfi" name="SucceedWin.xml" path="/Panels/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

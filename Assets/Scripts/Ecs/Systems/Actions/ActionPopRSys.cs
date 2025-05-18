@@ -41,7 +41,7 @@ public class ActionPopRSys : ISystem
             Venue v = (Venue)p[1];
             PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
 
-            gainNum = gainNum * v.timePopR + v.extraPopRPerm;
+            gainNum = gainNum * v.timePopR;
             if (EcsUtil.GetBuffNum(19) > 0 && v.cfg.isX == 1)
                 gainNum += EcsUtil.GetBuffNum(19);
             if (EcsUtil.GetBuffNum(22) > 0 && EcsUtil.IsAdjacentWater(v))

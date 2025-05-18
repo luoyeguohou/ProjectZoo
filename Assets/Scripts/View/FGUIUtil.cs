@@ -140,7 +140,7 @@ public class FGUIUtil
         return index % (msComp.width * 2) == msComp.width ? "ui://Main/MapPointEmp" : "ui://Main/MapPoint";
     }
 
-    public static void InitMapList(GList lst,Action<UI_MapPoint,ZooGround> action) {
+    public static void InitMapList(GList lst,Action<UI_MapPoint,ZooGround> action,string selectedText = "") {
         lst.itemProvider = ZooBlockProvider;
         MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
         lst.columnCount = msComp.width;
@@ -148,7 +148,7 @@ public class FGUIUtil
             ZooGround zg = EcsUtil.GetGroundByIndex(index);
             if (zg == null) return;
             UI_MapPoint ui = (UI_MapPoint)g;
-            ui.Init(zg);
+            ui.Init(zg, selectedText);
             action(ui,zg);
         };
     }

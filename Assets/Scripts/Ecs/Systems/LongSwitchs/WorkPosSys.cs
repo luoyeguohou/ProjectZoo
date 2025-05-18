@@ -45,16 +45,15 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { val2 });
                 break;
             case "dep_3":
-                Msg.Dispatch(MsgID.ActionPayGold, new object[] { wComp.workerPrice * (EcsUtil.GetBuffNum(67)>0?2:1) });
-                wComp.workerPrice += wComp.workerPriceAddon;
-                Msg.Dispatch(MsgID.ActionGainWorker, new object[] { val1 });
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { EcsUtil.GetRecruitCost() });
+                Msg.Dispatch(MsgID.ActionGainWorker, new object[] { 1 });
                 break;
             case "dep_4":
                 Msg.Dispatch(MsgID.ActionGoShop, new object[] { val1 });
                 break;
             case "dep_5":
-                Msg.Dispatch(MsgID.ActionPayGold, new object[] { 10 });
-                Msg.Dispatch(MsgID.ActionTraining, new object[] { val1 });
+                Msg.Dispatch(MsgID.ActionPayGold, new object[] { 15 });
+                Msg.Dispatch(MsgID.ActionTraining, new object[] { 1 });
                 break;
             case "dep_6":
                 Msg.Dispatch(MsgID.ActionDemolitionVenue, new object[] { val1 });
@@ -74,7 +73,7 @@ public class WorkPosSys : ISystem
                 Msg.Dispatch(MsgID.ActionDeleteBadIdeaCard, new object[] { val1 });
                 break;
             case "dep_conmonkey":
-                Msg.Dispatch(MsgID.ActionBuildMonkeyVenue, new object[] { val1 });
+                Msg.Dispatch(MsgID.ActionBuildMonkeyVenue, new object[] { 1 });
                 break;
             case "dep_summer":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 66, val1 });

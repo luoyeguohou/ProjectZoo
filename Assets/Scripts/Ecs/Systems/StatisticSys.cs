@@ -92,9 +92,13 @@ public class StatisticSys : ISystem
             sComp.highestPopRFromMonkeyVenue = sComp.popRThisVenue;
 
         if (sComp.popRThisVenue >= 20)
-            sComp.threeVenuesPopRMoreThat20++;
+        {
+            sComp.threeVenuesPopRMoreThat20Cnt++;
+            if (sComp.threeVenuesPopRMoreThat20Cnt > 3)
+                sComp.threeVenuesPopRMoreThat20 = true;
+        }
         else
-            sComp.threeVenuesPopRMoreThat20 = 0;
+            sComp.threeVenuesPopRMoreThat20Cnt = 0;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 

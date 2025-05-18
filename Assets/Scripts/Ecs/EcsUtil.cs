@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EcsUtil
@@ -267,7 +268,7 @@ public class EcsUtil
             case "achi_houxuanchuan":
                 return sComp.highestPopRFromMonkeyVenue >= 50;
             case "achi_poprating":
-                return sComp.threeVenuesPopRMoreThat20 >= 3;
+                return sComp.threeVenuesPopRMoreThat20;
             case "achi_buru":
                 return moduleNum[1] >= 10;
             case "achi_duozhonglei":
@@ -434,7 +435,9 @@ public class EcsUtil
     public static int GetCardGoldCost(Card c)
     {
         int goldCost = c.cfg.goldCost;
-        goldCost = Mathf.Max(0, (goldCost - GetBuffNum(33)) * (100 + GetBuffNum(34)) / 100);
+        if(c.cfg.cardType == 0)
+            goldCost = Mathf.Max(0, (goldCost - GetBuffNum(33)));
+        goldCost *= (100 + GetBuffNum(34)) / 100;
         if (GetBuffNum(31) > 0 && c.cfg.cardType == 0 && Cfg.venues[c.uid].isX == 1)
         {
             goldCost = Mathf.Max(0, goldCost * (100 - GetBuffNum(31)) / 100);
@@ -444,7 +447,8 @@ public class EcsUtil
     public static int GetCardTimeCost(Card c)
     {
         int timeCost = c.cfg.timeCost;
-        timeCost = Mathf.Max(0, timeCost - GetBuffNum(32));
+        if(c.cfg.cardType == 0)
+            timeCost = Mathf.Max(0, timeCost - GetBuffNum(32));
         return timeCost;
     }
 
@@ -535,7 +539,7 @@ public class EcsUtil
        return "[color=" + colorStr + "]" + val + "[/color]";
     }
 
-    public static int GetStatisticNum(string uid) {
+    public static int GetStatisticNum(string uid,Venue v = null) {
         VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
@@ -543,6 +547,18 @@ public class EcsUtil
         int statisticNum = 0;
         switch (uid)
         {
+            case "aozhouyequan":
+                if (v != null)
+                    statisticNum = v.effectCnt;
+                else
+                    statisticNum = 0;
+                break;
+            case "jinsi_monkey":
+                if (v != null)
+                    statisticNum = v.adjacents.Count;
+                else
+                    statisticNum = 0;
+                break;
             case "mi_monkey":
                 statisticNum = GetAdjacentMonkeyVenueNum();
                 break;
@@ -586,7 +602,7 @@ public class EcsUtil
         return statisticNum;
     }
 
-    public static string GetCardCont(string uid) {
+    public static string GetCardCont(string uid,Venue v = null) {
         CardCfg cfg = Cfg.cards[uid];
         string cont = cfg.GetCont();
         cont = cont.Replace("$1", cfg.val1.ToString());
@@ -598,7 +614,7 @@ public class EcsUtil
             cont = cont.Replace("$w2", Cfg.workPoses[cfg.uid].GetDesc2Str());
         if (cont.Contains("$wr1"))
             cont = cont.Replace("$wr1", GetSpecWorkerVal(cfg.uid).ToString());
-        cont = cont.Replace("$d",GetStatisticNum(cfg.uid).ToString());
+        cont = cont.Replace("$d",GetStatisticNum(cfg.uid, v).ToString());
         return cont;
     }
 
@@ -608,6 +624,22 @@ public class EcsUtil
             prefab = Resources.Load<GameObject>("SoundEffect/SoundGameObject");
         SoundPlayer sound = GameObject.Instantiate(prefab).GetComponent<SoundPlayer>(); ;
         sound.PlaySound("SoundEffect/"+s);
+    }
+
+    public static int GetRecruitCost() { 
+        WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
+        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        int val1 = 0;
+        foreach (WorkPos w in wpComp.workPoses)
+        {
+            if (w.uid == "dep_3") val1 = w.cfg.val1[w.level-1];
+        }
+        return (wComp.workerPrice + wComp.recruitTime * val1) * (GetBuffNum(67) > 0 ? 2 : 1);
+    }
+
+    public static bool AllWorkPosMaxLv() { 
+        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        return Util.All(wpComp.workPoses,wp=>wp.level == 5);
     }
 }
 

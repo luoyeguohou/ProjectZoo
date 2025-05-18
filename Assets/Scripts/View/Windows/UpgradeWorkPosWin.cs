@@ -80,7 +80,7 @@ namespace Main
 
         private void OnClickFinish()
         {
-            if (currNum < aimNum) return;
+            if (currNum < aimNum && !EcsUtil.AllWorkPosMaxLv() ) return;
             Dispose();
             handler(upgradeNums);
         }

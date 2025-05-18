@@ -89,7 +89,7 @@ public class EndSeasonSys : ISystem
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         Msg.Dispatch(MsgID.BeforeVenueTakeEffect, new object[] { b });
-        int statisticNum = EcsUtil.GetStatisticNum(b.uid);
+        int statisticNum = EcsUtil.GetStatisticNum(b.uid,b);
         int val1 = Cfg.cards[b.uid].val1;
         int val2 = Cfg.cards[b.uid].val2;
         int val3 = Cfg.cards[b.uid].val3;
@@ -114,13 +114,13 @@ public class EndSeasonSys : ISystem
             case "yagualabihu":
             case "shirenyu":
             case "shayu":
-            case "jinli":
             case "lianyu":
             case "qunjuyu":
             case "denglongyu":
             case "jinyu":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { statisticNum, b });
                 break;
+            case "jinli":
             case "yanshiyu":
             case "shenhaiyu":
             case "mi_monkey":
@@ -130,9 +130,8 @@ public class EndSeasonSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { statisticNum, b });
                 Msg.Dispatch(MsgID.ActionPayGold, new object[] { statisticNum });
                 break;
-
             case "jinsi_monkey":
-                int extra = Util.Count(b.adjacents, b => b.cfg.aniModule == 0) >= val2 ? val3 : 0;
+                int extra = statisticNum >= val2 ? val3 : 0;
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { b.adjacents.Count * val1 + extra, b });
                 break;
             case "huiye_monkey":
@@ -141,8 +140,8 @@ public class EndSeasonSys : ISystem
                 break;
             case "yuan_monkey":
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
-                b.cnt++;
-                if (b.cnt >= val2) Msg.Dispatch(MsgID.RemoveVenue, new object[] { b });
+                b.effectCnt++;
+                if (b.effectCnt >= val2) Msg.Dispatch(MsgID.RemoveVenue, new object[] { b });
                 break;
             case "meizhoushi":
                 if (b.adjacents.Count == 1)
@@ -178,8 +177,8 @@ public class EndSeasonSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
                 break;
             case "aozhouyequan":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
-                b.extraPopRPerm += val2;
+                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1+b.effectCnt, b });
+                b.effectCnt += val2;
                 break;
             case "ouzhouguan":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 15, 1 });
@@ -293,8 +292,15 @@ public class EndSeasonSys : ISystem
         }
 
         // turn&season
+
+        if (tComp.turn == 24) {
+            // finish the game
+            FGUIUtil.CreateWindow<UI_SucceedWin>("SucceedWin");
+            return;
+        }
+
         tComp.turn++;
-        tComp.season = (Season)(tComp.turn-1 % 4);
+        tComp.season = (Season)((tComp.turn-1) % 4);
         tComp.endTurnSpeed = 1;
         if (EcsUtil.GetBuffNum(35) > 0 && tComp.season == Season.Spring)
             tComp.season = Season.Winter;

@@ -24,7 +24,7 @@ public class StartSeasonSys : ISystem
 
         tComp.startOfSeasonInfo = new();
 
-        if (gComp.income > 0)
+        if (gComp.income != 0)
         {
             Msg.Dispatch(MsgID.ActionGainGold, new object[] { gComp.income });
             tComp.startOfSeasonInfo.Add(string.Format(Cfg.GetSTexts("ssIncome"), gComp.income));
@@ -79,12 +79,12 @@ public class StartSeasonSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainPopR, new object[] { -5 });
                 gainStr += string.Format(Cfg.GetSTexts("ssRPopularity"),"-5");
             }
-            else if (randomValue >= 60 && randomValue < 70)
+            else if (randomValue >= 60 && randomValue < 80)
             {
                 Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 gainStr += string.Format(Cfg.GetSTexts("ssRCurse"),"1");
             }
-            else if (randomValue >= 80 && randomValue < 100)
+            else if (randomValue >= 80 && randomValue <= 100)
             {
                 Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 });
                 gainStr += string.Format(Cfg.GetSTexts("ssRBook"),"1");

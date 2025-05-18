@@ -5,11 +5,9 @@
   <!-- Main/Components/ButtonNormal.xml -->
   <string name="zqdehm1vrd0816-n1_rd08" mz="title">button</string>
   <!-- Main/Components/Card.xml -->
-  <string name="zqdehm1vrd081a-n77_jrzx" mz="txtCond">Play condition: 
-{cond=Own 10 exhibits.}</string>
-  <string name="zqdehm1vrd081a-n76_pz64" mz="n76">Discarded</string>
+  <string name="zqdehm1vrd081a-n76_pz64" mz="txtSelect">Discarded</string>
   <!-- Main/Components/MapPoint.xml -->
-  <string name="zqdehm1vrd0818-n66_pz64" mz="n66">select</string>
+  <string name="zqdehm1vrd0818-n66_pz64" mz="txtSelected">select</string>
   <!-- Main/Components/PopR.xml -->
   <string name="zqdehm1vu37ueq-n92_oa6n" mz="txtNum">+{num=5}</string>
   <!-- Main/Components/UseBookPanelItem.xml -->
@@ -82,8 +80,7 @@
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_0" mz="n1">Display:detailed</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_def" mz="n1">Display:omitted</string>
   <!-- Main/Conts/NewBieCont.xml -->
-  <string name="zqdehm1vpxbkeu-n3_pxbk" mz="txtCont">When you no longer wish to take any actions, you can click here to end the current quarter.
-At that time, your exhibits will provide Popularity, and we will check if you have met the KPIs.</string>
+  <string name="zqdehm1vpxbkeu-n3_pxbk" mz="txtCont">You have some Workers under your control, and you can assign them to complete various tasks. They become available again at the end of each quarter.</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_0" mz="txtCont">You can check the zoo’s Popularity plan here anytime. It shows the Popularity targets you need to meet each quarter.</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_1" mz="txtCont">You have some Workers under your control, and you can assign them to complete various tasks. They become available again at the end of each quarter.</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_2" mz="txtCont">This is where your Workers perform their tasks. Drag Workers here to carry out various actions. Repeating the same action each quarter requires more Workers.</string>
@@ -92,12 +89,9 @@ At that time, your exhibits will provide Popularity, and we will check if you ha
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_5" mz="txtCont">This action provides you with Time Points. You need Time Points and Coins to play cards.</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_6" mz="txtCont">This action allows you to obtain Plan cards. Red Exhibit cards provide Popularity each quarter after construction and are an important source of Popularity.</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_7" mz="txtCont">Your Plan cards will be displayed here. Swipe up on a card to play it. Note that you need enough Coins and Time Points to play them.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_8" mz="txtCont">When you no longer wish to take any actions, you can click here to end the current quarter.
-At that time, your exhibits will provide Popularity, and we will check if you have met the KPIs.</string>
+  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_8" mz="txtCont">When you no longer wish to take any actions, you can click here to end the current quarter. At that time, your exhibits will provide Popularity, and we will check if you have met the KPIs.</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_9" mz="txtCont">That’s the general overview of the game. One last thing — have fun playing!</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_def" mz="txtCont">Welcome to the Zoo, where you will manage your very own zoo. Our contract lasts for 6 years, and each quarter your zoo’s Popularity will be assessed against the target plan.
-
-</string>
+  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_def" mz="txtCont">Welcome to the Zoo, where you will manage your very own zoo. Our contract lasts for 6 years, and each quarter your zoo’s Popularity will be assessed against the target plan.</string>
   <!-- Main/Conts/PutVenueCont.xml -->
   <string name="zqdehm1vd2b23e-n74_z141" mz="txtTitle">Choose build location</string>
   <string name="zqdehm1vd2b23e-n82_ehbe" mz="btnConfirm">confirm</string>
@@ -146,7 +140,7 @@ At that time, your exhibits will provide Popularity, and we will check if you ha
   <string name="zqdehm1vz1411w-n85_d2b2" mz="btnBack">Back</string>
   <!-- Main/Panels/EndWin.xml -->
   <string name="zqdehm1vea443s-n51_ea44" mz="n51">GameOver</string>
-  <string name="zqdehm1vea443s-n52_ea44" mz="btnRestart">restart</string>
+  <string name="zqdehm1vea443s-n52_ea44" mz="btnRestart">Back to main</string>
   <!-- Main/Panels/EventPanelWin.xml -->
   <string name="zqdehm1vg9th1g-n80_d2b2" mz="btnHide">Hide</string>
   <!-- Main/Panels/ExpandGroundWin.xml -->
@@ -154,6 +148,10 @@ At that time, your exhibits will provide Popularity, and we will check if you ha
   <!-- Main/Panels/FConsoleWin.xml -->
   <string name="zqdehm1vd2b23p-n93_d2b2-prompt" mz="txtInput">input commend here...........</string>
   <string name="zqdehm1vd2b23p-n95_d2b2" mz="btnEnter">Enter</string>
+  <!-- Main/Panels/HomeWin.xml -->
+  <string name="zqdehm1vp0wlez-n1_p0wl" mz="n1">project zoo</string>
+  <string name="zqdehm1vp0wlez-n6_p0wl" mz="n6">Start game</string>
+  <string name="zqdehm1vp0wlez-n8_p0wl" mz="n8">Quit</string>
   <!-- Main/Panels/InterestWin.xml -->
   <string name="zqdehm1vfjw1e0-n81_d2b2" mz="btnHide">Hide</string>
   <!-- Main/Panels/NewEndSeasonWin.xml -->
@@ -168,10 +166,9 @@ At that time, your exhibits will provide Popularity, and we will check if you ha
   <string name="zqdehm1vg9th1e-n73_d2b2" mz="btnBack">Leave</string>
   <!-- Main/Panels/StartOfSeasonWin.xml -->
   <string name="zqdehm1vrr6ne2-n81_d2b2" mz="btnHide">Hide</string>
+  <!-- Main/Panels/SucceedWin.xml -->
+  <string name="zqdehm1vqbvjfi-n51_ea44" mz="n51">Succeed</string>
+  <string name="zqdehm1vqbvjfi-n52_ea44" mz="btnRestart">Back to main</string>
   <!-- Main/Panels/UpgradeWorkPosWin.xml -->
   <string name="zqdehm1vpz6423-n82_d2b2" mz="btnHide">Hide</string>
-  <!-- Main/Panels/HomeWin.xml -->
-  <string name="zqdehm1vp0wlez-n1_p0wl" mz="n1">project zoo</string>
-  <string name="zqdehm1vp0wlez-n6_p0wl" mz="n6">Start game</string>
-  <string name="zqdehm1vp0wlez-n8_p0wl" mz="n8">Quit</string>
 </resources>

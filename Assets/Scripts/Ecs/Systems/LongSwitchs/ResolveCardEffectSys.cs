@@ -18,8 +18,9 @@ public class ResolveCardEffectSys : ISystem
         Msg.UnBind(MsgID.ResolveCardsEffect, DealCards);
     }
 
-    private async void DealCards(object[] p) { 
-        List<Card> cards= (List<Card>)p[0];
+    private async void DealCards(object[] p)
+    {
+        List<Card> cards = (List<Card>)p[0];
         foreach (var item in cards)
         {
             await ResolveCard(item);
@@ -29,7 +30,7 @@ public class ResolveCardEffectSys : ISystem
     private void DealCard(object[] p)
     {
         Card c = (Card)p[0];
-        _= ResolveCard(c);
+        _ = ResolveCard(c);
     }
 
     private async Task ResolveCard(Card c)
@@ -56,7 +57,7 @@ public class ResolveCardEffectSys : ISystem
                 TakeEffecrProj(c.uid);
                 break;
         }
-        Msg.Dispatch(MsgID.AfterResolveCard, new object[] { c }); 
+        Msg.Dispatch(MsgID.AfterResolveCard, new object[] { c });
     }
 
     private async Task BuildVenue(Card c)
@@ -69,7 +70,7 @@ public class ResolveCardEffectSys : ISystem
 
     private void TakeEffectAchi(string uid)
     {
-        
+
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
         switch (uid)
@@ -129,7 +130,7 @@ public class ResolveCardEffectSys : ISystem
 
     private void TakeEffecrProj(string uid)
     {
-        
+
         GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
@@ -140,10 +141,10 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionCopyCardFromVegue);
                 break;
             case "houzifanlan":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57,10 });
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57, 10 });
                 break;
             case "yuanhouzhuti":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 23, 20});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 23, 20 });
                 break;
             case "yanjiurenyuan":
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { uid });
@@ -152,34 +153,34 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { uid });
                 break;
             case "shenjianshuzhi":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 1 });
                 break;
             case "guanlidashi":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 40, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 40, 1 });
                 break;
             case "feianliyong":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 37, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 37, 1 });
                 break;
             case "taojiahuanjia":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 9, 15});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 9, 15 });
                 break;
             case "yejiedaheng":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 42, 2});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 42, 2 });
                 break;
             case "sixsixsix":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 61, 90});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 61, 90 });
                 break;
             case "yanfazhiyan":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 62, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 62, 1 });
                 break;
             case "heishi":
                 Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 });
                 break;
             case "renqibaopeng":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 17, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 17, 1 });
                 break;
             case "renmanweifu":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 2});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 2 });
                 break;
             case "renmanweian":
                 finish1 = EcsUtil.RandomlyDoSth(25, () => Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 }));
@@ -196,20 +197,24 @@ public class ResolveCardEffectSys : ISystem
                     Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
             case "gouwudaheng":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 44, 10});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 44, 10 });
                 break;
             case "baocang":
                 bookComp.bookLimit += 1;
                 Msg.Dispatch(MsgID.AfterBookChanged);
                 break;
             case "minjiekaifa":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 32, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 32, 1 });
                 break;
             case "duokuaihaosheng":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 33, 1});
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 33, 1 });
                 break;
             case "caipiao":
-                EcsUtil.RandomlyDoSth(30, () => Msg.Dispatch(MsgID.ActionGainIncome, new object[] { 3 }));
+                bool succeed = EcsUtil.RandomlyDoSth(30, () => Msg.Dispatch(MsgID.ActionGainIncome, new object[] { 3 }));
+                if (!succeed)
+                {
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("nothingHappened"));
+                }
                 break;
             case "mailiang":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 26, 20 });

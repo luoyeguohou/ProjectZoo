@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" opaque="false">
+  <controller name="showCard" pages="0,,1," selected="0"/>
   <displayList>
     <component id="n62_g9th" name="cont" src="d2b23d" fileName="Conts/CardOverviewCont.xml" xy="124,26" size="1698,1004">
       <relation target="" sidePair="center-center,middle-middle"/>
@@ -7,6 +8,13 @@
     <component id="n80_d2b2" name="btnBack" src="rd0816" fileName="Components/ButtonNormal.xml" xy="20,88">
       <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="Close"/>
+    </component>
+    <graph id="n82_qbvj" name="bg2" xy="0,0" size="1920,1080" alpha="0.59" type="rect" lineSize="0" fillColor="#ff000000">
+      <gearDisplay controller="showCard" pages="1"/>
+    </graph>
+    <component id="n81_qbvj" name="showCard" src="rd081a" fileName="Components/Card.xml" xy="606,67" scale="2,2">
+      <gearDisplay controller="showCard" pages="1"/>
+      <relation target="" sidePair="center-center,middle-middle"/>
     </component>
   </displayList>
 </component>

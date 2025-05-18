@@ -27,7 +27,7 @@ public class Cfg
     public static void Init()
     {
         language = PlayerPrefs.GetString("language","english");
-        Debug.Log(language);
+        Debug.Log("load language: "+language);
         TextAsset ta = Resources.Load<TextAsset>("ExcelCfg/design");
         JsonData jd = JsonMapper.ToObject(ta.text);
         // cards

@@ -53,7 +53,7 @@ public class WorkerComp : IComponent
     public List<Worker> normalWorkerLimit = new();
     public List<Worker> tempWorkers = new();
     public int workerPrice = 10;
-    public int workerPriceAddon = 10;
+    public int recruitTime = 0;
 }
 
 public class AimComp : IComponent
@@ -119,7 +119,8 @@ public class StatisticComp : IComponent
     public int workerUsedThisTurn = 0;
 
     public int highestPopRFromMonkeyVenue = 0;
-    public int threeVenuesPopRMoreThat20 = 0;
+    public bool threeVenuesPopRMoreThat20 = false;
+    public int threeVenuesPopRMoreThat20Cnt = 0;
 
     public int popRLastVenue = 0;
     public int popRThisVenue = 0;
@@ -142,8 +143,9 @@ public class MapSizeComp : IComponent {
     public int height;
 }
 
-public class ViewDetailedComp : IComponent {
-    public bool viewDetailed = true;
+public class ViewDetailedComp : IComponent
+{
+    public bool viewDetailed = false;
 }
 
 public class ShopBook
@@ -205,10 +207,16 @@ public class WorkPos
 
     public string GetCont()
     {
+        WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
+        ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
         string s = Cfg.workPoses[uid].GetCont();
+        if (cfg.GetDetailCont() != "" && vdComp.viewDetailed)
+            s = Cfg.workPoses[uid].GetDetailCont();
         s = s.Replace("$1", cfg.GetDesc1Str(level));
         s = s.Replace("$2", cfg.GetDesc2Str(level));
-        s += "\n"+string.Format(Cfg.GetSTexts("currRank"), level.ToString());
+        s = s.Replace("$rt", wComp.recruitTime.ToString());
+        s = s.Replace("$r", EcsUtil.GetRecruitCost().ToString());
+        s += "\n" + string.Format(Cfg.GetSTexts("currRank"), level.ToString());
         return s;
     }
 }
@@ -279,9 +287,8 @@ public class Venue
     public VenueCfg cfg;
     public List<Vector2Int> location = new List<Vector2Int>();
     public List<Venue> adjacents = new List<Venue>();
-    public int cnt = 0;
     public int timePopR = 1;
-    public int extraPopRPerm = 0;
+    public int effectCnt = 0;
     public Venue(string uid, List<Vector2Int> location, bool genWorldID = true)
     {
         this.uid = uid;

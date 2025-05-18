@@ -39,7 +39,7 @@ namespace Main
                 UI_VenueWithAni ui = (UI_VenueWithAni)m_lstVenue.GetChildAt(i);
                 Venue v = vComp.venues[i];
                 ui.m_venue.Init(v);
-                FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid));
+                FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid, v));
             }
         }
         private void UpdatePopRView(object[] p = null)
@@ -57,7 +57,7 @@ namespace Main
             Venue v = vComp.venues[index];
             UI_VenueWithAni ui = (UI_VenueWithAni)g;
             ui.m_venue.Init(v);
-            FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid));
+            FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid, v));
         }
 
         private void VenueTakeEffectAni(object[] p = null)

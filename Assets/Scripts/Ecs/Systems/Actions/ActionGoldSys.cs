@@ -32,6 +32,7 @@ public class ActionGoldSys : ISystem
             gComp.income += gainNum;
 
             Logger.AddOpe(OpeType.GainIncome, new object[] { gainNum, gComp.income });
+            FGUIUtil.ShowMsg(string.Format(Cfg.GetSTexts("gainIncome"), gainNum.ToString()));
             Msg.Dispatch(MsgID.AfterGoldChanged);
             await Task.CompletedTask;
         });

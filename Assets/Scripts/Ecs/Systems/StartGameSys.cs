@@ -64,13 +64,13 @@ public class StartGameSys: ISystem
         for (int cur = tmpIdx; tmpIdx < 10 + cur; tmpIdx++)
         {
             temp[tmpIdx].state = GroundStatus.Rock;
-            temp[tmpIdx].isTouchedLand = true;
+            //temp[tmpIdx].isTouchedLand = true;
         }
         // lack
         for (int cur = tmpIdx; tmpIdx < 10 + cur; tmpIdx++)
         {
             temp[tmpIdx].state = GroundStatus.Water;
-            temp[tmpIdx].isTouchedLand = true;
+            //temp[tmpIdx].isTouchedLand = true;
         }
         // map bonus
         MapBonus[] bonus = new MapBonus[] {

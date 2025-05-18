@@ -43,7 +43,7 @@ namespace Main
         {
             Card c = cards[index];
             UI_Card ui = (UI_Card)g;
-            ui.SetCard(c);
+            ui.SetCard(c, selectedText);
             ui.onClick.Clear();
             ui.onClick.Add(() =>
             {

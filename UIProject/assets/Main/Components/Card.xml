@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="319,462">
   <controller name="color" pages="0,,2,,3,,4,,1," selected="0"/>
-  <controller name="status" pages="1,gold&amp;time,2,time" selected="1"/>
+  <controller name="status" pages="1,gold&amp;time,2,time" selected="0"/>
   <controller name="discarded" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n61_rd08" name="n61" src="rd08t" fileName="Images/Cards/cardBg.png" xy="1,1"/>
@@ -9,17 +9,17 @@
     <loader id="n60_rd08" name="n60" xy="0,0" size="319,462" url="ui://zqdehm1vp0wlf8" fill="scaleFree">
       <gearIcon controller="color" pages="0,2,3,4,1" values="ui://zqdehm1vp0wlf8|ui://zqdehm1vp0wlf9|ui://zqdehm1vp0wlf6|ui://zqdehm1vp0wlf5|ui://zqdehm1vp0wlf7"/>
     </loader>
-    <text id="n69_g9th" name="txtName" xy="108,220" size="203,48" fontSize="20" color="#ffffff" align="center" vAlign="middle" leading="0" autoSize="shrink" singleLine="true" autoClearText="true" text="澳洲野犬">
+    <text id="n69_g9th" name="txtName" xy="170,220" size="141,48" fontSize="20" color="#ffffff" align="center" vAlign="middle" leading="0" autoSize="shrink" singleLine="true" autoClearText="true" text="澳洲野犬">
       <gearXY controller="status" pages="1" values="170,220" default="108,220"/>
       <gearSize controller="status" pages="1" values="141,48,1,1" default="203,48,1,1"/>
       <gearColor controller="color" pages="0,3,1" values="#ffffff,#000000|#00102b,#000000|#000000,#000000" default="#000000,#000000"/>
     </text>
-    <text id="n70_g9th" name="txtCont" xy="27,274" size="206,164" fontSize="17" color="#ffffff" vars="true" autoSize="shrink" autoClearText="true" text="打出条件：&#xA;{cond=至少拥有10个海洋场馆}&#xA;&#xA;{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}">
-      <gearXY controller="color" pages="0,2,3,4,1" values="27,274|13,274|13,274|13,274|13,274"/>
-      <gearSize controller="color" pages="0,2,3,4,1" values="206,164,1,1|295,176,1,1|295,176,1,1|295,176,1,1|295,176,1,1"/>
+    <text id="n70_g9th" name="txtCont" xy="13,274" size="205,164" fontSize="17" color="#ffffff" vars="true" autoSize="shrink" autoClearText="true" text="打出条件：&#xA;{cond=至少拥有10个海洋场馆}&#xA;&#xA;{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}">
+      <gearXY controller="color" pages="0,2,3,4,1" values="13,274|13,274|13,274|13,274|13,274"/>
+      <gearSize controller="color" pages="0,2,3,4,1" values="205,164,1,1|295,176,1,1|295,176,1,1|295,176,1,1|295,176,1,1"/>
       <gearColor controller="color" pages="0,3,1" values="#ffffff,#000000|#00102b,#000000|#ffffff,#000000" default="#000000,#000000"/>
     </text>
-    <image id="n81_p0wl" name="n81" src="p0wlfb" fileName="Images/Cards/costPanel.png" xy="10,220" size="242,114" scale="0.4,0.4">
+    <image id="n81_p0wl" name="n81" src="p0wlfb" fileName="Images/Cards/costPanel.png" xy="10,220" size="402,117" scale="0.4,0.4">
       <gearSize controller="status" pages="2" values="242,114,0.4,0.4" default="402,117,0.4,0.4"/>
     </image>
     <text id="n72_g9th" name="txtTimeCost" xy="49,227" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="[color=#000000]15[/color]"/>
@@ -47,5 +47,8 @@
       <gearDisplay controller="color" pages="0"/>
       <gearColor controller="color" pages="0,1" values="#ffffff,#000000|#ffffff,#000000" default="#000000,#000000"/>
     </text>
+    <graph id="n82_qbvj" name="n82" xy="219,269" size="6,184" type="rect" lineSize="0" fillColor="#ffe46b5c">
+      <gearDisplay controller="color" pages="0"/>
+    </graph>
   </displayList>
 </component>

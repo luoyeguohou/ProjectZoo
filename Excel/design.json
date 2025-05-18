@@ -1791,6 +1791,10 @@
       "uid": "selected"
     },
     {
+      "cont": "扩建",
+      "uid": "expand"
+    },
+    {
       "cont": "选择{num=5}张牌弃置",
       "uid": "chooseToDiscard"
     },
@@ -2005,6 +2009,54 @@
     {
       "cont": "{0}本随机书籍。",
       "uid": "ssRBook"
+    },
+    {
+      "cont": "{0}个工人。",
+      "uid": "prWorker"
+    },
+    {
+      "cont": "{0}金钱。",
+      "uid": "prCoin"
+    },
+    {
+      "cont": "{0}个临时工人。",
+      "uid": "prTWorker"
+    },
+    {
+      "cont": "{0}收入。",
+      "uid": "prIncome"
+    },
+    {
+      "cont": "{0}随机书籍。",
+      "uid": "prBook"
+    },
+    {
+      "cont": "抽{0}张牌。",
+      "uid": "prDraw"
+    },
+    {
+      "cont": "地图奖励：",
+      "uid": "plotReward"
+    },
+    {
+      "cont": "待扩建的未知地块。",
+      "uid": "unknowPlot"
+    },
+    {
+      "cont": "不能在结算的时候离开这个页面。",
+      "uid": "cantLeaveWhenResolving"
+    },
+    {
+      "cont": "什么事情也没发生。",
+      "uid": "nothingHappened"
+    },
+    {
+      "cont": "获得{0}收入。",
+      "uid": "gainIncome"
+    },
+    {
+      "cont": "你已经有15个部门了，不能再打出新的部门牌了。",
+      "uid": "cantPlayActionSpaceCard"
     }
   ],
   "chineseVenue": [
@@ -2276,136 +2328,163 @@
   "chineseWorkPos": [
     {
       "cont": "抽牌堆展示$1张牌，保留$2张牌。",
+      "detailCont": "",
       "name": "研发部",
       "uid": "dep_0"
     },
     {
       "cont": "获得$1点时间点数。",
+      "detailCont": "",
       "name": "建设部",
       "uid": "dep_1"
     },
     {
       "cont": "获得$1金钱，获得$2人气值。",
+      "detailCont": "",
       "name": "宣传部",
       "uid": "dep_2"
     },
     {
-      "cont": "花费10+招募次数*10的金币,招募$1名新员工。",
+      "cont": "花费$r金币招募1名工人。",
+      "detailCont": "花费$r(10+13/12/11/10/9*招募次数【当前为$rt】)金币招募1名工人。",
       "name": "人力部",
       "uid": "dep_3"
     },
     {
       "cont": "进行一次采购，商品价格变为原本的$1%。",
+      "detailCont": "",
       "name": "采购部",
       "uid": "dep_4"
     },
     {
-      "cont": "花费$2金钱，升级部门$1次。",
+      "cont": "花费15金钱，升级部门1次。(每季度限$1次)",
+      "detailCont": "",
       "name": "培训部",
       "uid": "dep_5"
     },
     {
       "cont": "支付$1%的建造金钱，拆除一个场馆。",
+      "detailCont": "",
       "name": "清理部门",
       "uid": "dep_6"
     },
     {
       "cont": "花费$1金钱，扩建$2块未知地块。",
+      "detailCont": "",
       "name": "扩建部门",
       "uid": "dep_7"
     },
     {
       "cont": "仅春季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
       "name": "春日装扮",
       "uid": "dep_spring"
     },
     {
       "cont": "花费$1金钱，获得抽牌堆中的下一张猿猴场馆牌。",
+      "detailCont": "",
       "name": "猿猴研究部门",
       "uid": "dep_devmonkey"
     },
     {
       "cont": "删除手上的$1张诅咒牌。",
+      "detailCont": "",
       "name": "后勤部门",
       "uid": "dep_houqin"
     },
     {
       "cont": "该部门为当前等级的研究部门。",
+      "detailCont": "",
       "name": "研究部分部门",
       "uid": "dep_yanjiu"
     },
     {
       "cont": "打出手牌中1张猿猴场馆。(每季度限$1次)",
+      "detailCont": "",
       "name": "猿猴场馆建设部门",
       "uid": "dep_conmonkey"
     },
     {
       "cont": "仅夏季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
       "name": "夏日装扮",
       "uid": "dep_summer"
     },
     {
       "cont": "花费$1金钱，获得抽牌堆中的下一张哺乳类场馆牌。",
+      "detailCont": "",
       "name": "哺乳类研究部门",
       "uid": "dep_devburu"
     },
     {
       "cont": "拆除一个场馆，返还建造成本$1%的金钱。",
+      "detailCont": "",
       "name": "清理部门",
       "uid": "dep_qingli"
     },
     {
       "cont": "雇佣$1名临时员工。",
+      "detailCont": "",
       "name": "人才市场",
       "uid": "dep_rencai"
     },
     {
       "cont": "仅秋季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
       "name": "秋季装扮",
       "uid": "dep_august"
     },
     {
       "cont": "免费建造$1个大型场馆。",
+      "detailCont": "",
       "name": "大型场馆建设部门",
       "uid": "dep_daxing"
     },
     {
       "cont": "获得10金钱。每次执行都会永久提升该数值$1点。",
+      "detailCont": "",
       "name": "投资部门",
       "uid": "dep_investment"
     },
     {
       "cont": "花费$1金钱，获得抽牌堆中的下一张爬虫类场馆牌。",
+      "detailCont": "",
       "name": "爬虫类研究部门",
       "uid": "dep_pachong"
     },
     {
       "cont": "免费扩建$1块地。",
+      "detailCont": "",
       "name": "扩建部门",
       "uid": "dep_kuojian"
     },
     {
       "cont": "仅冬季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
       "name": "冬季装扮",
       "uid": "dep_winter"
     },
     {
       "cont": "花费$1金钱，获得抽牌堆中的下一张海洋场馆牌。",
+      "detailCont": "",
       "name": "鱼类研究部门",
       "uid": "dep_yu"
     },
     {
       "cont": "抽$1张牌。",
+      "detailCont": "",
       "name": "项目研发部门",
       "uid": "dep_dev"
     },
     {
       "cont": "弃掉最多$1张手牌，收取等量的牌。",
+      "detailCont": "",
       "name": "专案优化部门",
       "uid": "dep_youhua"
     },
     {
       "cont": "获得$1个随机书籍。",
+      "detailCont": "",
       "name": "书籍出版部门",
       "uid": "dep_book"
     }
@@ -2788,7 +2867,7 @@
     },
     {
       "cardType": 0,
-      "goldCost": 12,
+      "goldCost": 17,
       "landType": 1,
       "module": 0,
       "oneTime": 0,
@@ -2796,7 +2875,7 @@
       "repeatNum": 3,
       "timeCost": 5,
       "uid": "mi_monkey",
-      "val1": 2,
+      "val1": 1,
       "val2": 0,
       "val3": 0
     },
@@ -3603,7 +3682,7 @@
       "goldCost": 10,
       "landType": 0,
       "module": 1,
-      "oneTime": 0,
+      "oneTime": 1,
       "rare": 0,
       "repeatNum": 3,
       "timeCost": 5,
@@ -4288,7 +4367,7 @@
       "cardType": 0,
       "goldCost": 4,
       "landType": 2,
-      "module": 1,
+      "module": 3,
       "oneTime": 0,
       "rare": 0,
       "repeatNum": 3,
@@ -5133,11 +5212,11 @@
       "limitTime_4": 0,
       "limitTime_5": 0,
       "uid": "dep_3",
-      "val_1_1": 1,
-      "val_1_2": 1,
-      "val_1_3": 1,
-      "val_1_4": 1,
-      "val_1_5": 2,
+      "val_1_1": 13,
+      "val_1_2": 12,
+      "val_1_3": 11,
+      "val_1_4": 10,
+      "val_1_5": 9,
       "val_2_1": 0,
       "val_2_2": 0,
       "val_2_3": 0,
@@ -5163,22 +5242,22 @@
       "val_2_5": 0
     },
     {
-      "limitTime_1": 0,
-      "limitTime_2": 0,
-      "limitTime_3": 0,
-      "limitTime_4": 0,
-      "limitTime_5": 0,
+      "limitTime_1": 1,
+      "limitTime_2": 1,
+      "limitTime_3": 2,
+      "limitTime_4": 2,
+      "limitTime_5": 3,
       "uid": "dep_5",
       "val_1_1": 1,
       "val_1_2": 1,
       "val_1_3": 2,
       "val_1_4": 2,
       "val_1_5": 3,
-      "val_2_1": 10,
-      "val_2_2": 9,
-      "val_2_3": 17,
-      "val_2_4": 15,
-      "val_2_5": 20
+      "val_2_1": 0,
+      "val_2_2": 0,
+      "val_2_3": 0,
+      "val_2_4": 0,
+      "val_2_5": 0
     },
     {
       "limitTime_1": 0,
@@ -5295,11 +5374,11 @@
       "limitTime_4": 2,
       "limitTime_5": 3,
       "uid": "dep_conmonkey",
-      "val_1_1": 0,
-      "val_1_2": 0,
-      "val_1_3": 0,
-      "val_1_4": 0,
-      "val_1_5": 0,
+      "val_1_1": 1,
+      "val_1_2": 1,
+      "val_1_3": 2,
+      "val_1_4": 2,
+      "val_1_5": 3,
       "val_2_1": 0,
       "val_2_2": 0,
       "val_2_3": 0,
@@ -5978,7 +6057,7 @@
     {
       "className": "Primate Exhibits",
       "condition": "",
-      "cont": "Gain $1 popularity for each pair of adjecent exhibits.\n(Currently: $d)",
+      "cont": "Gain $1 popularity for each pair of adjecent Primate exhibits.\n(Currently: $d)",
       "name": "Rhesus Monkey",
       "uid": "mi_monkey"
     },
@@ -7215,6 +7294,10 @@
       "uid": "selected"
     },
     {
+      "cont": "expand",
+      "uid": "expand"
+    },
+    {
       "cont": "Discard {num=5} cards.",
       "uid": "chooseToDiscard"
     },
@@ -7429,6 +7512,54 @@
     {
       "cont": "{0} book(s). ",
       "uid": "ssRBook"
+    },
+    {
+      "cont": "{0} workers.",
+      "uid": "prWorker"
+    },
+    {
+      "cont": "{0} coin(s).",
+      "uid": "prCoin"
+    },
+    {
+      "cont": "{0} temporary worker(s).",
+      "uid": "prTWorker"
+    },
+    {
+      "cont": "{0} income",
+      "uid": "prIncome"
+    },
+    {
+      "cont": "{0} book(s). ",
+      "uid": "prBook"
+    },
+    {
+      "cont": "Draw {0} card(s).",
+      "uid": "prDraw"
+    },
+    {
+      "cont": "Plot rewards: ",
+      "uid": "plotReward"
+    },
+    {
+      "cont": "unknown plot to be expanded",
+      "uid": "unknowPlot"
+    },
+    {
+      "cont": "cannot leave this page when resolving.",
+      "uid": "cantLeaveWhenResolving"
+    },
+    {
+      "cont": "nothing happened",
+      "uid": "nothingHappened"
+    },
+    {
+      "cont": "Gain {0} income.",
+      "uid": "gainIncome"
+    },
+    {
+      "cont": "You already have 15 action spaces, cannot play any more.",
+      "uid": "cantPlayActionSpaceCard"
     }
   ],
   "englishVenue": [
@@ -7700,136 +7831,163 @@
   "englishWorkPos": [
     {
       "cont": "Reveal $1 card(s) from the draw pile, keep $2 card(s).",
+      "detailCont": "",
       "name": "Research Lab",
       "uid": "dep_0"
     },
     {
       "cont": "Gain $1 time point(s).",
+      "detailCont": "",
       "name": "建设部",
       "uid": "dep_1"
     },
     {
       "cont": "Gain $1 coins and $2 popularity.",
+      "detailCont": "",
       "name": "Open Exhibit",
       "uid": "dep_2"
     },
     {
-      "cont": "Recruit $1 new worker at a cost of 10 + number of recruits × 10.",
+      "cont": "Recruit 1 new worker at a cost of $r.",
+      "detailCont": "Recruit 1 new worker at a cost of $r(10+13/12/11/10/9 * recruitTime[current:$rt]). ",
       "name": "人力部",
       "uid": "dep_3"
     },
     {
       "cont": "Make one purchase in the Shop at $1% of the original price.",
+      "detailCont": "",
       "name": "采购部",
       "uid": "dep_4"
     },
     {
-      "cont": "Spend $2 coins to upgrade the Action Space $1 time(s).",
+      "cont": "Spend 15 coins to upgrade the Action Space once. (Limit time: $1)",
+      "detailCont": "",
       "name": "培训部",
       "uid": "dep_5"
     },
     {
       "cont": "Pay $1% of the coin cost to demolish an exhibit.",
+      "detailCont": "",
       "name": "清理部门",
       "uid": "dep_6"
     },
     {
       "cont": "Spend $1 coins to expand $2 plots.",
+      "detailCont": "",
       "name": "扩建部门",
       "uid": "dep_7"
     },
     {
       "cont": "Spring only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
       "name": "春日装扮",
       "uid": "dep_spring"
     },
     {
       "cont": "Pay $1 coin(s). Gain the next Primate Exhibit card(s) from the draw pile.",
+      "detailCont": "",
       "name": "猿猴研究部门",
       "uid": "dep_devmonkey"
     },
     {
       "cont": "Remove $1 Curse card(s) from your hand.",
+      "detailCont": "",
       "name": "后勤部门",
       "uid": "dep_houqin"
     },
     {
       "cont": "This action space always uses the effect of the Research Lab at its current level.",
+      "detailCont": "",
       "name": "研究部分部门",
       "uid": "dep_yanjiu"
     },
     {
-      "cont": "Play 1 Primate Exhibit card from your hand for free.(Limit time: $1)",
+      "cont": "Play 1 Primate Exhibit card from your hand for free. (Limit time: $1)",
+      "detailCont": "",
       "name": "猿猴场馆建设部门",
       "uid": "dep_conmonkey"
     },
     {
       "cont": "Summer only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
       "name": "夏日装扮",
       "uid": "dep_summer"
     },
     {
       "cont": "Pay $1 coin(s). Gain the next 1 Mammal Exhibit card(s) from the draw pile.",
+      "detailCont": "",
       "name": "哺乳类研究部门",
       "uid": "dep_devburu"
     },
     {
       "cont": "Demolish an exhibit and refund $1% of its coin cost.",
+      "detailCont": "",
       "name": "清理部门",
       "uid": "dep_qingli"
     },
     {
       "cont": "Recruit $1 temporary worker(s).",
+      "detailCont": "",
       "name": "人才市场",
       "uid": "dep_rencai"
     },
     {
       "cont": "August only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
       "name": "秋季装扮",
       "uid": "dep_august"
     },
     {
       "cont": "Play $1 Large Exhibit card(s) for free.",
+      "detailCont": "",
       "name": "大型场馆建设部门",
       "uid": "dep_daxing"
     },
     {
       "cont": "Gain $1 coin(s). Each time this is triggered, permanently increase the amount by $2.",
+      "detailCont": "",
       "name": "投资部门",
       "uid": "dep_investment"
     },
     {
       "cont": "Pay $1 coin(s). Gain the next 1 Reptile Exhibit card(s) from the draw pile.",
+      "detailCont": "",
       "name": "爬虫类研究部门",
       "uid": "dep_pachong"
     },
     {
       "cont": "Expand $1 plot(s) for free.",
+      "detailCont": "",
       "name": "扩建部门",
       "uid": "dep_kuojian"
     },
     {
       "cont": "Winter only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
       "name": "冬季装扮",
       "uid": "dep_winter"
     },
     {
       "cont": "Pay $1 coin(s). Gain the next 1 Aquatic Exhibit cards from the draw pile.",
+      "detailCont": "",
       "name": "鱼类研究部门",
       "uid": "dep_yu"
     },
     {
       "cont": "Draw $1 card(s).",
+      "detailCont": "",
       "name": "项目研发部门",
       "uid": "dep_dev"
     },
     {
       "cont": "Discard up to $1 cards from your hand and draw the same number of card(s).",
+      "detailCont": "",
       "name": "项目优化部门",
       "uid": "dep_youhua"
     },
     {
       "cont": "Gain $1 random book(s).",
+      "detailCont": "",
       "name": "书籍出版部门",
       "uid": "dep_book"
     }

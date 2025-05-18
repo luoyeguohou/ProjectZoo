@@ -37,7 +37,7 @@ public class ActionWorkPosSys : ISystem
                     wpComp.workPoses[i].level += val[i];
                 }
                 tcs.SetResult(true);
-            Msg.Dispatch(MsgID.AfterWorkPosChanged);
+                Msg.Dispatch(MsgID.AfterWorkPosChanged);
             });
             await tcs.Task;
         });
@@ -58,11 +58,12 @@ public class ActionWorkPosSys : ISystem
 
     private void GainWorkPos(object[] p)
     {
+        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        if (wpComp.workPoses.Count == 15) return;
         aComp.queue.PushData(async () =>
         {
             string uid = (string)p[0];
-            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             wpComp.workPoses.Add(new WorkPos(uid));
             Msg.Dispatch(MsgID.AfterWorkPosChanged);
             await Task.CompletedTask;

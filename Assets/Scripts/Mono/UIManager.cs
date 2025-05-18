@@ -15,7 +15,6 @@ public class UIManager
         UIConfig.defaultFont = "Font2";
         UIPackage.AddPackage("UI/Main");
         UIConfig.buttonSound = (NAudioClip)UIPackage.GetItemAssetByURL("ui://Main/buttonEff");
-        Debug.Log(UIConfig.buttonSound);
         MainBinder.BindAll();
         FGUIUtil.CreateWindow<UI_HomeWin>("HomeWin");
     }

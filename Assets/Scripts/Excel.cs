@@ -166,6 +166,7 @@ public class WorkPosI18NCfg
 {
     public string uid;
     public string cont;
+    public string detailCont;
     public string name;
 }
 public class WorkPosCfg {
@@ -209,6 +210,11 @@ public class WorkPosCfg {
     public string GetCont()
     {
         return i18NCfgs[Cfg.language].cont;
+    }
+
+    public string GetDetailCont()
+    {
+        return i18NCfgs[Cfg.language].detailCont;
     }
 }
 

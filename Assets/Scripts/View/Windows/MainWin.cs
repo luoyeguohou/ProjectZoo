@@ -1,4 +1,5 @@
 using FairyGUI;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,6 +113,7 @@ namespace Main
         {
             WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
             m_cont.m_lstWorkPos.numItems = wComp.workPoses.Count;
+            m_cont.m_workPosAmount.selectedIndex = wComp.workPoses.Count > 10 ? 1 : 0;
         }
         private void UpdateWorkerView(object[] p = null)
         {
@@ -208,7 +210,7 @@ namespace Main
                 for (int i = 0; i < m_cont.m_lstWorkPos.numChildren; i++)
                     ((UI_WorkPos)m_cont.m_lstWorkPos.GetChildAt(i)).m_overView.selectedIndex = 0;
             });
-            FGUIUtil.SetHint(ui, wp.GetCont);
+            FGUIUtil.SetHint(ui, wp.GetCont,new Vector2Int(30,30));
 
             ui.m_img.onRollOver.Clear();
             ui.m_img.onRollOver.Add((EventContext context) =>
@@ -307,13 +309,48 @@ namespace Main
         {
             FGUIUtil.SetHint(ui, () =>
             {
-                string pos = " (" + zg.pos.x + ", " + zg.pos.y + ")";
-                if (!zg.isTouchedLand) return Cfg.GetSTexts("tempWorker") + pos;
-                else if (zg.state == GroundStatus.Rock && !zg.hasBuilt) return Cfg.GetSTexts("rock") + pos;
-                else if (zg.state == GroundStatus.Water && !zg.hasBuilt) return Cfg.GetSTexts("lack") + pos;
-                else if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt) return Cfg.GetSTexts("canBuild") + pos;
-                else return EcsUtil.GetCardCont(zg.venue.cfg.uid) + pos;
+                ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
+                string s = "";
+                if (zg.hasBuilt) s += EcsUtil.GetCardCont(zg.venue.cfg.uid,zg.venue);
+                else if (!zg.isTouchedLand) s += Cfg.GetSTexts("unknowPlot");
+                else if (zg.bonus != null) s += Cfg.GetSTexts("canBuild") + "\n" + GetPlotRewardStr(zg.bonus);
+                else if (zg.state == GroundStatus.Rock) s += Cfg.GetSTexts("rock");
+                else if (zg.state == GroundStatus.Water) s += Cfg.GetSTexts("lack");
+                else s += Cfg.GetSTexts("canBuild");
+
+                if (vdComp.viewDetailed)
+                {
+                    s += "\n" + " (" + zg.pos.x + ", " + zg.pos.y + ")";
+                }
+                return s;
             });
+        }
+
+        private string GetPlotRewardStr(MapBonus mp)
+        {
+            string s = Cfg.GetSTexts("plotReward");
+            switch (mp.bonusType)
+            {
+                case MapBonusType.RandomBook:
+                    s += string.Format(Cfg.GetSTexts("prBook"), EcsUtil.GetMapBonusVal(mp));
+                    break;
+                case MapBonusType.DrawCard:
+                    s += string.Format(Cfg.GetSTexts("prDraw"), EcsUtil.GetMapBonusVal(mp));
+                    break;
+                case MapBonusType.Gold:
+                    s += string.Format(Cfg.GetSTexts("prCoin"), EcsUtil.GetMapBonusVal(mp));
+                    break;
+                case MapBonusType.TmpWorker:
+                    s += string.Format(Cfg.GetSTexts("prTWorker"), EcsUtil.GetMapBonusVal(mp));
+                    break;
+                case MapBonusType.Income:
+                    s += string.Format(Cfg.GetSTexts("prIncome"), EcsUtil.GetMapBonusVal(mp));
+                    break;
+                case MapBonusType.Worker:
+                    s += string.Format(Cfg.GetSTexts("prWorker"), EcsUtil.GetMapBonusVal(mp));
+                    break;
+            }
+            return s;
         }
 
         private void OnClickInfo()

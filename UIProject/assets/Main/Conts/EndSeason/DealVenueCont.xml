@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1311,681">
   <displayList>
-    <list id="n98_nkfb" name="lstVenue" xy="0,168" size="1878,655" scale="0.7,0.7" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center">
+    <list id="n98_nkfb" name="lstVenue" xy="0,168" size="3278,1257" scale="0.4,0.4" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center" vAlign="middle">
       <item/>
       <item/>
       <item/>
@@ -37,6 +37,6 @@
     <component id="n103_nkfb" name="prgPopR" src="nkfbei" fileName="Conts/CommonProg.xml" xy="239,0" size="1037,110">
       <ProgressBar value="21" max="100"/>
     </component>
-    <text id="n104_nkfb" name="n104" xy="25,17" size="236,78" fontSize="42" align="center" autoSize="none" text="人气值："/>
+    <image id="n105_qbvj" name="n105" src="u37uep" fileName="Images/popR.png" xy="100,-29" size="121,147"/>
   </displayList>
 </component>

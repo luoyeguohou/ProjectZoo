@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
-  <controller name="hasTmpWorker" pages="0,,1," selected="1"/>
+  <controller name="hasTmpWorker" pages="0,,1," selected="0"/>
   <controller name="viewDetailed" pages="0,,1," selected="0"/>
   <controller name="workPosAmount" pages="0,,1," selected="0"/>
   <displayList>
@@ -34,7 +34,7 @@
     </list>
     <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="1038,242"/>
     <text id="n61_g9th" name="txtWorker" xy="1121,253" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
-    <list id="n73_z141" name="lstSpecWorker" xy="1301,242" size="475,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
+    <list id="n73_z141" name="lstSpecWorker" xy="1249,242" size="475,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
       <relation target="n93_qev6" sidePair="left-left"/>
       <item controllers="type,3"/>
       <item controllers="type,4"/>
@@ -45,7 +45,7 @@
     <image id="n78_gie4" name="n78" src="rd08r" fileName="Images/goldIcon.png" xy="1629,85" size="55,53"/>
     <text id="n79_gie4" name="txtGold" xy="1693,89" size="142,47" fontSize="22" vAlign="middle" autoSize="none" text="100(10)"/>
     <image id="n80_gie4" name="n80" src="rd08k" fileName="Images/mapBonus.png" xy="1161,80" size="194,65"/>
-    <text id="n76_z141" name="txtAim" xy="1170,88" size="175,46" fontSize="21" align="center" vAlign="middle" vars="true" autoSize="shrink" text="人气值：{cur=100}/{aim=100}"/>
+    <text id="n76_z141" name="txtAim" xy="1235,88" size="110,46" fontSize="21" align="center" vAlign="middle" vars="true" autoSize="shrink" text="{cur=100}/{aim=100}"/>
     <text id="n81_gie4" name="txtDrawPile" xy="63,909" size="74,79" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="261"/>
     <text id="n82_gie4" name="txtDiscardPile" xy="1759,909" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="26"/>
     <image id="n86_sr8r" name="n86" src="rd08k" fileName="Images/mapBonus.png" xy="1397,80" size="185,65"/>
@@ -54,7 +54,7 @@
     <component id="n92_qev6" name="btnLog" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1530,0" size="137,76">
       <Button title="log" titleFontSize="23"/>
     </component>
-    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="1170,242" controller="type,5">
+    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="1118,217" controller="type,5">
       <gearDisplay controller="hasTmpWorker" pages="1"/>
       <gearXY controller="hasTmpWorker" pages="0,1" values="1118,217|1170,242"/>
     </component>
@@ -107,5 +107,6 @@
       <Button title="显示：省略" controller="viewDetailed" page="1"/>
     </component>
     <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="312,939"/>
+    <image id="n112_qbvj" name="n112" src="u37uep" fileName="Images/popR.png" xy="1176,77" size="49,60"/>
   </displayList>
 </component>

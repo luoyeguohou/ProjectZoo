@@ -34,7 +34,6 @@ namespace Main
             Msg.Dispatch(MsgID.StartGame);
             FGUIUtil.CreateWindow<UI_MainWin>("MainWin").Init();
             Msg.Dispatch(MsgID.ResolveStartSeason);
-            Debug.Log("StartGame");
         }
         private void QuitGame()
         {

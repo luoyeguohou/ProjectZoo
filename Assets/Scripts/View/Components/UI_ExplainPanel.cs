@@ -12,9 +12,15 @@ namespace Main
         protected override void OnUpdate()
         {
             base.OnUpdate();
-            float x = Input.mousePosition.x / Screen.width * GRoot.inst.width;
-            float y = GRoot.inst.height - Input.mousePosition.y / Screen.height * GRoot.inst.height;
-            SetPosition(x + offset.x, y + offset.y, 0);
+            float x = Input.mousePosition.x / Screen.width * GRoot.inst.width + offset.x;
+            float y = GRoot.inst.height - Input.mousePosition.y / Screen.height * GRoot.inst.height + offset.y;
+
+            x = Mathf.Max(x, 0);
+            x = Mathf.Min(x, GRoot.inst.width - width);
+            y = Mathf.Max(y, 0);
+            y = Mathf.Min(y, GRoot.inst.height - height);
+
+            SetPosition(x, y, 0);
 
             if (duration != -1)
             {

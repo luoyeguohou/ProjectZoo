@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1366,773">
   <displayList>
-    <list id="n79_z141" name="lstVenue" xy="9,192" size="1878,578" scale="0.7,0.7" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center">
+    <list id="n79_z141" name="lstVenue" xy="9,192" size="3290,1060" scale="0.4,0.4" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center" vAlign="middle">
       <item/>
       <item/>
       <item/>
@@ -34,10 +34,11 @@
       <item/>
       <item/>
     </list>
-    <text id="n80_z141" name="n80" xy="296,6" size="782,98" fontSize="64" align="center" vAlign="middle" autoSize="none" text="Plan display order"/>
+    <text id="n80_z141" name="n80" xy="296,6" size="782,98" fontSize="64" align="center" vAlign="middle" autoSize="none" text="拖拽场馆来决定生效顺序。"/>
     <component id="n81_z141" name="btnSettle" src="rd0816" fileName="Components/ButtonNormal.xml" xy="546,637" size="290,96">
       <Button title="结算" titleFontSize="42"/>
     </component>
-    <text id="n82_z141" name="txtPopRating" xy="275,110" size="852,69" fontSize="44" align="center" vars="true" autoSize="shrink" text="Target Popularity:{aim=500}"/>
+    <text id="n82_z141" name="txtPopRating" xy="261,111" size="852,69" fontSize="44" align="center" vars="true" autoSize="shrink" text="Target :{aim=500}"/>
+    <image id="n83_qbvj" name="n83" src="u37uep" fileName="Images/popR.png" xy="489,97" size="68,83"/>
   </displayList>
 </component>

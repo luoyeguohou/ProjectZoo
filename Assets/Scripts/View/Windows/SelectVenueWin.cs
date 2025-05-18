@@ -13,7 +13,7 @@ namespace Main
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            FGUIUtil.InitMapList(m_cont.m_lstMap,ZooBlockIniter);
+            FGUIUtil.InitMapList(m_cont.m_lstMap, ZooBlockIniter, Cfg.GetSTexts("selected"));
             m_cont.m_btnFinish.onClick.Add(OnClickFinish);
         }
 
