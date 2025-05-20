@@ -18,17 +18,15 @@
   <string name="zqdehm1vrd0817-n55_rd08" mz="txtInfo">{curNum=01}/{limit=1}</string>
   <string name="zqdehm1vrd0817-n57_pz64" mz="n57">最高等级</string>
   <string name="zqdehm1vrd0817-n61_pz64" mz="txtUpgrade">+{num=2}</string>
-  <!-- Main/Conts/EndSeason/DealVenueCont.xml -->
-  <string name="zqdehm1vnkfbej-n104_nkfb" mz="n104">人气值：</string>
   <!-- Main/Conts/EndSeason/DiscardHandsCont.xml -->
   <string name="zqdehm1vnkfbee-n100_nkfb" mz="txtTitle">选择{num=5}弃置。</string>
   <string name="zqdehm1vnkfbee-n101_nkfb" mz="btnFinish">完成</string>
   <!-- Main/Conts/EndSeason/NewEndSeasonCont.xml -->
-  <string name="zqdehm1vnkfbeb-n89_nkfb" mz="n89">Plan display order</string>
-  <string name="zqdehm1vnkfbeb-n90_nkfb" mz="n90">Gain interest</string>
-  <string name="zqdehm1vnkfbeb-n91_nkfb" mz="n91">Resolve exhibits</string>
-  <string name="zqdehm1vnkfbeb-n92_nkfb" mz="n92">Discard hands</string>
-  <string name="zqdehm1vnkfbeb-n94_nkfb" mz="n94">Event</string>
+  <string name="zqdehm1vnkfbeb-n89_nkfb" mz="n89">决定场馆顺序</string>
+  <string name="zqdehm1vnkfbeb-n90_nkfb" mz="n90">获得利息</string>
+  <string name="zqdehm1vnkfbeb-n91_nkfb" mz="n91">场馆生效</string>
+  <string name="zqdehm1vnkfbeb-n92_nkfb" mz="n92">弃牌</string>
+  <string name="zqdehm1vnkfbeb-n94_nkfb" mz="n94">事件</string>
   <!-- Main/Conts/EndSeason/NewEventCont.xml -->
   <string name="zqdehm1vnkfbef-n75_g9th" mz="btnChoose1">找回来
 （+20%好概率，但是不能抽牌了）</string>
@@ -42,9 +40,9 @@
   <string name="zqdehm1vnkfbec-n83_rr6n" mz="txtGet">获得的利息：{num=5}</string>
   <string name="zqdehm1vnkfbec-n85_rr6n" mz="txtPopR">利息转化的人气值：{num=5}</string>
   <!-- Main/Conts/EndSeason/RoutineCont.xml -->
-  <string name="zqdehm1vnkfbed-n80_z141" mz="n80">Plan display order</string>
+  <string name="zqdehm1vnkfbed-n80_z141" mz="n80">拖拽场馆来决定生效顺序。</string>
   <string name="zqdehm1vnkfbed-n81_z141" mz="btnSettle">结算</string>
-  <string name="zqdehm1vnkfbed-n82_z141" mz="txtPopRating">Target Popularity:{aim=500}</string>
+  <string name="zqdehm1vnkfbed-n82_z141" mz="txtPopRating">目标:{aim=500}</string>
   <!-- Main/Conts/EndSeasonCont.xml -->
   <string name="zqdehm1vd2b23f-n80_z141" mz="n80">指定观光路线</string>
   <string name="zqdehm1vd2b23f-n81_z141" mz="btnSettle">结算</string>
@@ -68,7 +66,7 @@
   <string name="zqdehm1vep2ze6-n47_rd08" mz="btnInfo">信息</string>
   <string name="zqdehm1vep2ze6-n48_rd08" mz="btnEndTurn">结束本季</string>
   <string name="zqdehm1vep2ze6-n61_g9th" mz="txtWorker">X{num=10}</string>
-  <string name="zqdehm1vep2ze6-n76_z141" mz="txtAim">人气值：{cur=100}/{aim=100}</string>
+  <string name="zqdehm1vep2ze6-n76_z141" mz="txtAim">{cur=100}/{aim=100}</string>
   <string name="zqdehm1vep2ze6-n92_qev6" mz="btnLog">log</string>
   <string name="zqdehm1vep2ze6-n94_qev6" mz="txtTmpWorker">X{num=10}</string>
   <string name="zqdehm1vep2ze6-n99_d2b2" mz="btnConsole">console</string>
@@ -89,7 +87,7 @@
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_5" mz="txtCont">这个行动为你提供时间点数。你需要时间点数与金钱来打出卡牌。</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_6" mz="txtCont">这个行动可以让你获得项目牌。红色场馆牌在建造完毕之后每季度会提供人气值。是人气值的重要来源。</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_7" mz="txtCont">你的项目卡牌会展示在这里。上划卡牌来打出。注意你需要有足够的金钱和时间点数来打出它们。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_8" mz="txtCont">当你不想再执行任何行动之后，你可以点击这里来结束这个季节。届时你的场馆会提供人气值，我们会检查你是否达到了KPI。</string>
+  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_8" mz="txtCont">你可以点击这里来结束这个季节。届时你的场馆会提供人气值，我们会检查你是否达到了目标人气值。</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_9" mz="txtCont">这就是大致的游戏介绍了。最后一件事，玩的开心！！！</string>
   <string name="zqdehm1vpxbkeu-n3_pxbk-texts_def" mz="txtCont">欢迎来到卡其动物园，在这里你将经营自己的动物园。我们的合同将持续6年，每个季度会考核你的动物园有没有达到计划的人气值。</string>
   <!-- Main/Conts/PutVenueCont.xml -->
@@ -97,11 +95,11 @@
   <string name="zqdehm1vd2b23e-n82_ehbe" mz="btnConfirm">确认</string>
   <!-- Main/Conts/SeasonInfoCont.xml -->
   <string name="zqdehm1vep2ze7-n85_z141" mz="n85">第一年
- 第二年
-  第三年
-  第四年
-  第五年
-  第六年</string>
+第二年
+第三年
+第四年
+第五年
+第六年</string>
   <!-- Main/Conts/SelectCardsCont.xml -->
   <string name="zqdehm1vd2b23j-n74_z141" mz="txtTitle">选择{num=5}弃置。</string>
   <string name="zqdehm1vd2b23j-n78_pz64" mz="btnFinish">完成</string>
