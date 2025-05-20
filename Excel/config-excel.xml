@@ -8,9 +8,9 @@
 			<file name="excel/chinese.xlsx">
 				<chineseCard name="card" firstcol="uid" key="uid" />
 				<chineseBook name="book" firstcol="uid" key="uid" />
-				<chineseVenue name="venue" firstcol="uid" key="uid" />
+				<chineseExhibit name="exhibit" firstcol="uid" key="uid" />
 				<chineseEvent name="event" firstcol="uid" key="uid" />
-				<chineseWorkPos name="workPos" firstcol="uid" key="uid" />
+				<chineseActionSpace name="actionSpace" firstcol="uid" key="uid" />
 				<chineseSpecWorker name="specWorker" firstcol="uid" key="uid" />
 				<chineseBuff name="buff" firstcol="uid" key="uid" />
 				<chineseStaticText name="staticText" firstcol="uid" key="uid" />
@@ -18,9 +18,9 @@
 			<file name="excel/english.xlsx">
 				<englishCard name="card" firstcol="uid" key="uid" />
 				<englishBook name="book" firstcol="uid" key="uid" />
-				<englishVenue name="venue" firstcol="uid" key="uid" />
+				<englishExhibit name="exhibit" firstcol="uid" key="uid" />
 				<englishEvent name="event" firstcol="uid" key="uid" />
-				<englishWorkPos name="workPos" firstcol="uid" key="uid" />
+				<englishActionSpace name="actionSpace" firstcol="uid" key="uid" />
 				<englishSpecWorker name="specWorker" firstcol="uid" key="uid" />
 				<englishBuff name="buff" firstcol="uid" key="uid" />
 				<englishStaticText name="staticText" firstcol="uid" key="uid" />
@@ -28,8 +28,8 @@
 			<file name="excel/data.xlsx">
 				<dataCard name="card" firstcol="uid" key="uid" />
 				<dataBook name="book" firstcol="uid" key="uid" />
-				<dataVenue name="venue" firstcol="uid" key="uid" />
-				<dataWorkPos name="workPos" firstcol="uid" key="uid" />
+				<dataExhibit name="exhibit" firstcol="uid" key="uid" />
+				<dataActionSpace name="actionSpace" firstcol="uid" key="uid" />
 				<dataSpecWorker name="specWorker" firstcol="uid" key="uid" />
 				<dataBuff name="buff" firstcol="uid" key="uid" />
 				<dataEvent name="event" firstcol="uid" key="uid" />

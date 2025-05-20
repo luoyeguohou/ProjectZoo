@@ -23,13 +23,29 @@ public class CardI18NCfg
     public string condition;
 }
 
-public class CardCfg {
+public class CardRawCfg
+{
     public string uid;
     public int cardType;
     public int timeCost;
-    public int goldCost;
+    public int coinCost;
     public int landType;
     public int module;
+    public int repeatNum;
+    public int rare;
+    public int oneTime;
+    public int val1;
+    public int val2;
+    public int val3;
+}
+
+public class CardCfg {
+    public string uid;
+    public CardType cardType;
+    public int timeCost;
+    public int coinCost;
+    public LandType landType;
+    public Module module;
     public int repeatNum;
     public int rare;
     public int oneTime;
@@ -58,22 +74,41 @@ public class CardCfg {
     }
 }
 
-public class VenueI18NCfg {
+public class ExhibitI18NCfg {
     public string uid;
     public string name;
     public string className;
     public string aniName;
 }
 
-public class VenueCfg {
 
+public class ExhibitRawCfg
+{
     public string uid;
     public int landType;
     public int aniModule;
     public int isX;
     public string aniType;
+}
 
-    public Dictionary<string, VenueI18NCfg> i18NCfgs = new();
+public class ExhibitCfg {
+
+    public string uid;
+    public LandType landType;
+    public Module aniModule;
+    public int isX;
+    public string aniType;
+
+    public Dictionary<string, ExhibitI18NCfg> i18NCfgs = new();
+
+    public bool IsBigExhibit() {
+        return landType >= LandType.Five_1;
+    }
+
+    public bool IsSmallExhibit()
+    {
+        return landType >= LandType.Three;
+    }
 }
 
 public class RawEventCfg {
@@ -140,7 +175,7 @@ public class BookCfg
     }
 }
 
-public class RawWorkPosCfg {
+public class RawActionSpaceCfg {
     public string uid;
     public string name;
     public string cont;
@@ -162,19 +197,19 @@ public class RawWorkPosCfg {
 }
 
 
-public class WorkPosI18NCfg
+public class ActionSpaceI18NCfg
 {
     public string uid;
     public string cont;
     public string detailCont;
     public string name;
 }
-public class WorkPosCfg {
+public class ActionSpaceCfg {
     public string uid;
     public int[] limitTime;
     public int[] val1;
     public int[] val2;
-    public Dictionary<string, WorkPosI18NCfg> i18NCfgs = new();
+    public Dictionary<string, ActionSpaceI18NCfg> i18NCfgs = new();
     public string GetDesc1Str(int currLv = -1) {
         string ret = "";
         ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();

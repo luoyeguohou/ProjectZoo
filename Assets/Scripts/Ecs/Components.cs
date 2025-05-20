@@ -3,46 +3,46 @@ using TinyECS;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GoldComp : IComponent {
-    public int gold = 0;
+public class CoinComp : IComponent {
+    public int coin = 0;
     public int income = 0;
-    public int interestPart = 30;
-    public int interestRate = 25;
+    public int interestPart = 0;
+    public int interestRate = 0;
 }
 
-public class PopRatingComp:IComponent
+public class PopularityComp :IComponent
 {
-    public int popRating;
+    public int p;
 }
 
-public class ZooGroundComp : IComponent
+public class PlotsComp : IComponent
 {
-    public List<ZooGround> grounds = new List<ZooGround>();
-    public Vector2Int mapOffset = new Vector2Int();
+    public List<Plot> plots = new();
+    public Vector2Int mapOffset = new();
 }
 
 public class CardManageComp : IComponent
 { 
-    public List<Card> drawPile = new List<Card>();
-    public List<Card> hands = new List<Card>();
-    public List<Card> discardPile = new List<Card>();
-    public int handsLimit = 3;
+    public List<Card> drawPile = new ();
+    public List<Card> hands = new ();
+    public List<Card> discardPile = new ();
+    public int handsLimit = 0;
 }
 
-public class VenueComp : IComponent
+public class ExhibitComp : IComponent
 { 
-    public List<Venue> venues = new List<Venue>();
+    public List<Exhibit> exhibits = new ();
 }
 
 public class BookComp : IComponent
 { 
-    public List<Book> books = new List<Book>();
-    public int bookLimit = 3;
+    public List<Book> books = new ();
+    public int bookLimit = 0;
 }
 
-public class WorkPosComp : IComponent
+public class ActionSpaceComp : IComponent
 { 
-    public List<WorkPos> workPoses = new List<WorkPos>();
+    public List<ActionSpace> actionSpace = new ();
 }
 
 public class WorkerComp : IComponent
@@ -52,13 +52,12 @@ public class WorkerComp : IComponent
     public List<Worker> normalWorkers = new();
     public List<Worker> normalWorkerLimit = new();
     public List<Worker> tempWorkers = new();
-    public int workerPrice = 10;
     public int recruitTime = 0;
 }
 
 public class AimComp : IComponent
 {
-    public List<int> aims = new List<int>();
+    public List<int> aims = new ();
 }
 
 public class TurnComp : IComponent
@@ -72,22 +71,22 @@ public class TurnComp : IComponent
 
 public class ShopComp : IComponent
 {
-    public int DeleteCost = 5;
-    public int DeleteCostAddon = 5;
+    public int DeleteCost = 0;
+    public int DeleteCostAddon = 0;
     public bool deleteThisTime = false;
-    public List<ShopBook> books = new List<ShopBook>();
-    public List<ShopCard> cards= new List<ShopCard>();
+    public List<ShopBook> books = new ();
+    public List<ShopCard> cards= new ();
 }
 
 public class EventComp : IComponent
 {
     public ZooEvent currEvent;
-    public List<string> eventIDs = new List<string>();
+    public List<string> eventIDs = new ();
 }
 
 public class ModuleComp : IComponent
 {
-    public List<int> modules = new List<int>();
+    public List<Module> modules = new ();
 }
 
 public class TimeResComp : IComponent
@@ -110,20 +109,20 @@ public class StatisticComp : IComponent
     public int bookNumUsedTotally = 0;
     public int expandCntTotally = 0;
     public int badIdeaNumTotally = 0;
-    public int mapBonusCntTotally = 0;
+    public int plotRewardCntTotally = 0;
     public int achiNumTotally = 0;
     public int permanentProjectCard = 0;
 
-    public int numEffectedVenuesThisTurn = 0;
-    public int numEffectedPaChongVenuesThisTurn = 0;
+    public int numEffectedExhibitsThisTurn = 0;
+    public int numEffectedPaChongExhibitsThisTurn = 0;
     public int workerUsedThisTurn = 0;
 
-    public int highestPopRFromMonkeyVenue = 0;
-    public bool threeVenuesPopRMoreThat20 = false;
-    public int threeVenuesPopRMoreThat20Cnt = 0;
+    public int highestPFromMonkeyExhibit = 0;
+    public bool threeExhibitsPMoreThat20 = false;
+    public int threeExhibitsPMoreThat20Cnt = 0;
 
-    public int popRLastVenue = 0;
-    public int popRThisVenue = 0;
+    public int pLastExhibit = 0;
+    public int pThisExhibit = 0;
     public string lastProjectCardPlayed = "";
 }
 
@@ -185,12 +184,12 @@ public enum EndSeasonStep
 {
     ChooseRoutine = 0,
     GainInterest = 1,
-    DealEveryVenue = 2,
+    ResolveEveryExhibit = 2,
     DiscardCard = 3,
     GoNextEvent = 4,
 }
 
-public class WorkPos
+public class ActionSpace
 {
     public string uid = "";
     public int currNum = 0;
@@ -198,20 +197,20 @@ public class WorkPos
     public int level = 1;
     public int workTime = 0;
     public int workTimeThisTurn = 0;
-    public WorkPosCfg cfg;
-    public WorkPos(string uid)
+    public ActionSpaceCfg cfg;
+    public ActionSpace(string uid)
     {
         this.uid = uid;
-        cfg = Cfg.workPoses[uid];
+        cfg = Cfg.actionSpaces[uid];
     }
 
     public string GetCont()
     {
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
         ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
-        string s = Cfg.workPoses[uid].GetCont();
+        string s = Cfg.actionSpaces[uid].GetCont();
         if (cfg.GetDetailCont() != "" && vdComp.viewDetailed)
-            s = Cfg.workPoses[uid].GetDetailCont();
+            s = Cfg.actionSpaces[uid].GetDetailCont();
         s = s.Replace("$1", cfg.GetDesc1Str(level));
         s = s.Replace("$2", cfg.GetDesc2Str(level));
         s = s.Replace("$rt", wComp.recruitTime.ToString());
@@ -221,39 +220,39 @@ public class WorkPos
     }
 }
 
-public class ZooGround
+public class Plot
 {
     public Vector2Int pos;
     // reward
-    public MapBonus bonus = null;
+    public PlotReward reward = null;
     // states  0 ? 1 rock 2 water 3 can build 4 built
-    public GroundStatus state = GroundStatus.CanBuild;
+    public PlotStatus state = PlotStatus.CanBuild;
     public bool isTouchedLand = false;
     public bool hasBuilt = false;
-    public Venue venue;
+    public Exhibit exhibit;
 }
 
-public enum GroundStatus { 
+public enum PlotStatus { 
     CanBuild = 0,
     Water = 1,
     Rock = 2,
 }
 
-public class MapBonus
+public class PlotReward
 {
-    public MapBonusType bonusType;
+    public PlotRewardType rewardType;
     public int val;
-    public MapBonus(MapBonusType bonusType, int val)
+    public PlotReward(PlotRewardType rewardType, int val)
     {
-        this.bonusType = bonusType;
+        this.rewardType = rewardType;
         this.val = val;
     }
 }
 
-public enum MapBonusType
+public enum PlotRewardType
 {
     Worker = 0,
-    Gold = 1,
+    Coin = 1,
     TmpWorker = 2,
     Income = 3,
     RandomBook = 4,
@@ -262,9 +261,9 @@ public enum MapBonusType
 
 public enum CardType
 {
-    Venue = 0,
+    Exhibit = 0,
     Achivement = 1,
-    WorkPos = 2,
+    ActionSpace = 2,
     Project = 3,
     BadIdea = 4,
 }
@@ -280,23 +279,23 @@ public class Card
     }
 }
 
-public class Venue
+public class Exhibit
 {
     public int wid;
     public string uid;
-    public VenueCfg cfg;
-    public List<Vector2Int> location = new List<Vector2Int>();
-    public List<Venue> adjacents = new List<Venue>();
-    public int timePopR = 1;
+    public ExhibitCfg cfg;
+    public List<Vector2Int> location = new ();
+    public List<Exhibit> adjacents = new ();
+    public int timeRopularity = 1;
     public int effectCnt = 0;
-    public Venue(string uid, List<Vector2Int> location, bool genWorldID = true)
+    public Exhibit(string uid, List<Vector2Int> location, bool genWorldID = true)
     {
         this.uid = uid;
-        cfg = Cfg.venues[uid];
+        cfg = Cfg.exhibits[uid];
         this.location = location;
         if (genWorldID) wid = EcsUtil.GeneNextWorldID();
     }
-    public Venue() { }
+    public Exhibit() { }
 }
 
 public class ZooEvent
@@ -346,4 +345,24 @@ public class Worker
     {
         this.uid = uid;
     }
+}
+
+public enum Module 
+{
+    Primate = 0,
+    Mammal = 1,
+    Reptile = 2,
+    Aquatic = 3,
+    BadIdea = -1,
+}
+
+public enum LandType { 
+    One = 0,
+    Two = 1,
+    Three = 2,
+    Four = 3,
+    Five_1 = 4,
+    Five_2 = 5,
+    Six = 6,
+    Seven = 7,
 }

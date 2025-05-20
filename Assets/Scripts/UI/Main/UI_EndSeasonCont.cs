@@ -7,10 +7,13 @@ namespace Main
 {
     public partial class UI_EndSeasonCont : GComponent
     {
-        public GList m_lstVenue;
-        public GButton m_btnSettle;
-        public GTextField m_txtPopRating;
-        public const string URL = "ui://zqdehm1vd2b23f";
+        public Controller m_step;
+        public UI_RoutineCont m_routine;
+        public UI_InterestCont m_interest;
+        public UI_ResolveExhibitCont m_resolveExhibit;
+        public UI_DiscardHandsCont m_discardCard;
+        public UI_EventCont m_event;
+        public const string URL = "ui://zqdehm1vnkfbeb";
 
         public static UI_EndSeasonCont CreateInstance()
         {
@@ -21,9 +24,12 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_lstVenue = (GList)GetChildAt(1);
-            m_btnSettle = (GButton)GetChildAt(3);
-            m_txtPopRating = (GTextField)GetChildAt(4);
+            m_step = GetControllerAt(0);
+            m_routine = (UI_RoutineCont)GetChildAt(12);
+            m_interest = (UI_InterestCont)GetChildAt(13);
+            m_resolveExhibit = (UI_ResolveExhibitCont)GetChildAt(14);
+            m_discardCard = (UI_DiscardHandsCont)GetChildAt(15);
+            m_event = (UI_EventCont)GetChildAt(16);
         }
     }
 }

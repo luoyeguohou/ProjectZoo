@@ -14,8 +14,8 @@ namespace Main
         public GTextField m_txtName;
         public GTextField m_txtCont;
         public GTextField m_txtTimeCost;
-        public GTextField m_txtGoldCost;
-        public UI_VenueSmall m_buildCost;
+        public GTextField m_txtCoinCost;
+        public UI_ExhibitSmall m_buildCost;
         public GTextField m_txtSelect;
         public GTextField m_txtModule;
         public GTextField m_txtSize;
@@ -37,8 +37,8 @@ namespace Main
             m_txtName = (GTextField)GetChildAt(3);
             m_txtCont = (GTextField)GetChildAt(4);
             m_txtTimeCost = (GTextField)GetChildAt(6);
-            m_txtGoldCost = (GTextField)GetChildAt(9);
-            m_buildCost = (UI_VenueSmall)GetChildAt(10);
+            m_txtCoinCost = (GTextField)GetChildAt(9);
+            m_buildCost = (UI_ExhibitSmall)GetChildAt(10);
             m_txtSelect = (GTextField)GetChildAt(12);
             m_txtModule = (GTextField)GetChildAt(13);
             m_txtSize = (GTextField)GetChildAt(14);

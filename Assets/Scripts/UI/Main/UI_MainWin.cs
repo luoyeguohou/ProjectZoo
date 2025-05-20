@@ -19,7 +19,7 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
-            m_cont = (UI_MainCont)GetChildAt(41);
+            m_cont = (UI_MainCont)GetChildAt(54);
         }
     }
 }

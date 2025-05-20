@@ -8,94 +8,93 @@ namespace Main
     public partial class UI_RoutineCont : GComponent
     {
         private int idxDragTo = -1;
-        private int idxCurrDragVenue = -1;
-        private UI_NewEndSeasonWin win;
+        private int idxCurrDragExhibit = -1;
+        private UI_EndSeasonWin win;
 
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            m_lstVenue.itemRenderer = VenueIR;
+            m_lstExhibit.itemRenderer = ExhibitIR;
             m_btnSettle.onClick.Add(EndSeason);
 
             GRoot.inst.onDrop.Add(OnDrop);
-            Msg.Bind(MsgID.AfterPopRatingChanged, UpdatePopRView);
+            Msg.Bind(MsgID.AfterPopularityChanged, UpdatePopularityView);
         }
 
         public override void Dispose()
         {
             base.Dispose();
             GRoot.inst.onDrop.Remove(OnDrop);
-            Msg.UnBind(MsgID.AfterPopRatingChanged, UpdatePopRView);
+            Msg.UnBind(MsgID.AfterPopularityChanged, UpdatePopularityView);
         }
 
         private void OnDrop()
         {
-            if (idxCurrDragVenue == -1) return;
-            VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-            Venue tmp = vComp.venues[idxCurrDragVenue];
-            vComp.venues.RemoveAt(idxCurrDragVenue);
-            //if (idxDragTo > idxCurrDragVenue) idxDragTo--;
-            vComp.venues.Insert(idxDragTo, tmp);
+            if (idxCurrDragExhibit == -1) return;
+            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            Exhibit tmp = eComp.exhibits[idxCurrDragExhibit];
+            eComp.exhibits.RemoveAt(idxCurrDragExhibit);
+            eComp.exhibits.Insert(idxDragTo, tmp);
             idxDragTo = -1;
-            idxCurrDragVenue = -1;
-            UpdateVenueView();
+            idxCurrDragExhibit = -1;
+            UpdateExhibitView();
         }
 
-        public void Init(UI_NewEndSeasonWin win)
+        public void Init(UI_EndSeasonWin win)
         {
-            VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-            m_lstVenue.numItems = vComp.venues.Count;
-            UpdateVenueView();
-            UpdatePopRView();
+            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            m_lstExhibit.numItems = eComp.exhibits.Count;
+            UpdateExhibitView();
+            UpdatePopularityView();
             this.win = win;
         }
 
-        private void UpdateVenueView()
+        private void UpdateExhibitView()
         {
-            VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-            for (int i = 0; i < m_lstVenue.numChildren; i++)
+            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            for (int i = 0; i < m_lstExhibit.numChildren; i++)
             {
-                UI_VenueWithAni ui = (UI_VenueWithAni)m_lstVenue.GetChildAt(i);
-                Venue v = vComp.venues[GetVenueIdx(i)];
-                ui.m_venue.Init(v);
-                ui.m_venue.SetFaded(idxDragTo == i && idxCurrDragVenue != -1);
+                UI_ExhibitWithAni ui = (UI_ExhibitWithAni)m_lstExhibit.GetChildAt(i);
+                Exhibit v = eComp.exhibits[GetExhibitIdx(i)];
+                ui.m_exhibit.Init(v);
+                ui.m_exhibit.SetFaded(idxDragTo == i && idxCurrDragExhibit != -1);
                 FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid,v));
             }
         }
-        private void UpdatePopRView(object[] p = null)
+        private void UpdatePopularityView(object[] p = null)
         {
-            PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
+            PopularityComp pComp = World.e.sharedConfig.GetComp<PopularityComp>();
             AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
             TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-            m_txtPopRating.SetVar("hot", prComp.popRating.ToString())
+            m_txtPopularity.SetVar("hot", pComp.p.ToString())
                 .SetVar("aim", aComp.aims[tComp.turn - 1].ToString()).FlushVars();
         }
 
-        private void VenueIR(int index, GObject g)
+        private void ExhibitIR(int index, GObject g)
         {
-            VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-            Venue v = vComp.venues[GetVenueIdx(index)];
-            UI_VenueWithAni ui = (UI_VenueWithAni)g;
-            ui.m_venue.Init(v);
+            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            Exhibit v = eComp.exhibits[GetExhibitIdx(index)];
+            UI_ExhibitWithAni ui = (UI_ExhibitWithAni)g;
+            ui.m_exhibit.Init(v);
             FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid, v));
             ui.draggable = true;
             ui.onDragStart.Add((EventContext context) =>
             {
-                if (idxCurrDragVenue != -1) return;
+                if (idxCurrDragExhibit != -1) return;
                 context.PreventDefault();
-                DragDropManager.inst.StartDrag(ui, "ui://Main/Venue", index, (int)context.data);
-                UI_Venue dragUI = (UI_Venue)DragDropManager.inst.dragAgent.component;
+                DragDropManager.inst.StartDrag(ui, "ui://Main/Exhibit", index, (int)context.data);
+                UI_Exhibit dragUI = (UI_Exhibit)DragDropManager.inst.dragAgent.component;
                 dragUI.Init(v);
-                idxCurrDragVenue = index;
+                idxCurrDragExhibit = index;
                 idxDragTo = index;
-                UpdateVenueView();
+                UpdateExhibitView();
             });
 
-            ui.m_venue.onRollOver.Add(() =>
+            ui.m_exhibit.onRollOver.Add(() =>
             {
-                if (idxCurrDragVenue == -1) return;
+                if (idxCurrDragExhibit == -1) return;
                 idxDragTo = index;
-                UpdateVenueView();
+                UpdateExhibitView();
             });
         }
 
@@ -104,28 +103,28 @@ namespace Main
             Msg.Dispatch(MsgID.ResolveEndSeason, new object[] { win });
         }
 
-        private int GetVenueIdx(int index)
+        private int GetExhibitIdx(int index)
         {
-            if (idxDragTo == idxCurrDragVenue)
+            if (idxDragTo == idxCurrDragExhibit)
                 return index;
-            else if (idxDragTo > idxCurrDragVenue)
+            else if (idxDragTo > idxCurrDragExhibit)
                 //  0 1 2         60c       90      100 101 102
                 //  0 1 2         61     90 60      100 101 102
-                if (index < idxCurrDragVenue || index > idxDragTo)
+                if (index < idxCurrDragExhibit || index > idxDragTo)
                     return index;
-                else if (index >= idxCurrDragVenue && index < idxDragTo)
+                else if (index >= idxCurrDragExhibit && index < idxDragTo)
                     return index + 1;
                 else
-                    return idxCurrDragVenue;
-            else if (idxDragTo < idxCurrDragVenue)
+                    return idxCurrDragExhibit;
+            else if (idxDragTo < idxCurrDragExhibit)
                 //  0 1 2         60     89 90c     100 101 102
                 //  0 1 2         90     88 89      100 101 102
-                if (index < idxDragTo || index > idxCurrDragVenue)
+                if (index < idxDragTo || index > idxCurrDragExhibit)
                     return index;
-                else if (index > idxDragTo && index <= idxCurrDragVenue)
+                else if (index > idxDragTo && index <= idxCurrDragExhibit)
                     return index - 1;
                 else
-                    return idxCurrDragVenue;
+                    return idxCurrDragExhibit;
             return -1;
         }
     }

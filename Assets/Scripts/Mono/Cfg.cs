@@ -8,17 +8,17 @@ public class Cfg
     public static string language = "chinese";
 
     public static Dictionary<string, CardCfg> cards = new();
-    public static Dictionary<int, List<CardCfg>> cardByModule = new();
-    public static List<int> modules = new();
+    public static Dictionary<Module, List<CardCfg>> cardByModule = new();
+    public static List<Module> modules = new();
     public static Dictionary<string, CardCfg> badIdea = new();
     public static List<string> badIdeaUids = new();
 
-    public static Dictionary<string, VenueCfg> venues = new();
+    public static Dictionary<string, ExhibitCfg> exhibits = new();
     public static Dictionary<string, EventCfg> events = new();
     public static List<string> eventList = new();
 
     public static Dictionary<string, BookCfg> books = new();
-    public static Dictionary<string, WorkPosCfg> workPoses = new();
+    public static Dictionary<string, ActionSpaceCfg> actionSpaces = new();
     public static List<string> bookUids = new();
     public static Dictionary<string, SpecWorkerCfg> specWorkers = new();
     public static Dictionary<int, BuffCfg> buffCfgs= new();
@@ -34,13 +34,28 @@ public class Cfg
         JsonData cardData = jd["dataCard"];
         foreach (JsonData d in cardData)
         {
-            CardCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(CardCfg)) as CardCfg;
+            CardRawCfg rCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(CardRawCfg)) as CardRawCfg;
+            CardCfg cfg = new()
+            {
+                uid = rCfg.uid,
+                cardType = (CardType)rCfg.cardType,
+                timeCost = rCfg.timeCost,
+                coinCost = rCfg.coinCost,
+                landType = (LandType)rCfg.landType,
+                module = (Module)rCfg.module,
+                repeatNum = rCfg.repeatNum,
+                rare = rCfg.rare,
+                oneTime = rCfg.oneTime,
+                val1 = rCfg.val1,
+                val2 = rCfg.val2,
+                val3 = rCfg.val3,
+            };
             cards[cfg.uid] = cfg;
-            if (cfg.module == -1) {
+            if (cfg.module == Module.BadIdea) {
                 badIdea[cfg.uid] = cfg;
                 badIdeaUids.Add(cfg.uid);
             }
-            if (!modules.Contains(cfg.module) && cfg.module!= -1) modules.Add(cfg.module);
+            if (!modules.Contains(cfg.module) && cfg.module!= Module.BadIdea) modules.Add(cfg.module);
             if (!cardByModule.ContainsKey(cfg.module)) cardByModule.Add(cfg.module, new List<CardCfg>());
             cardByModule[cfg.module].Add(cfg);
         }
@@ -71,20 +86,28 @@ public class Cfg
             }
         }
 
-        // venues
-        JsonData venueData = jd["dataVenue"];
-        foreach (JsonData d in venueData)
+        // exhibit
+        JsonData exhibitData = jd["dataExhibit"];
+        foreach (JsonData d in exhibitData)
         {
-            VenueCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(VenueCfg)) as VenueCfg;
-            venues[cfg.uid] = cfg;
+            ExhibitRawCfg rawCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(ExhibitRawCfg)) as ExhibitRawCfg;
+            ExhibitCfg cfg = new()
+            {
+                uid = rawCfg.uid,
+                landType = (LandType)rawCfg.landType,
+                aniModule = (Module)rawCfg.aniModule,
+                isX = rawCfg.isX,
+                aniType = rawCfg.aniType,
+            };
+            exhibits[cfg.uid] = cfg;
         }
         foreach (string lg in supportLanguages)
         {
-            JsonData languageData = jd[lg + "Venue"];
+            JsonData languageData = jd[lg + "Exhibit"];
             foreach (JsonData d in languageData)
             {
-                VenueI18NCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(VenueI18NCfg)) as VenueI18NCfg;
-                venues[cfg.uid].i18NCfgs[lg] = cfg;
+                ExhibitI18NCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(ExhibitI18NCfg)) as ExhibitI18NCfg;
+                exhibits[cfg.uid].i18NCfgs[lg] = cfg;
             }
         }
 
@@ -119,27 +142,27 @@ public class Cfg
             }
         }
 
-        // workPos
-        JsonData workPosData = jd["dataWorkPos"];
-        foreach (JsonData d in workPosData)
+        // actionSpace
+        JsonData actionSpaceData = jd["dataActionSpace"];
+        foreach (JsonData d in actionSpaceData)
         {
-            RawWorkPosCfg rawCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(RawWorkPosCfg)) as RawWorkPosCfg;
-            WorkPosCfg cfg = new()
+            RawActionSpaceCfg rawCfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(RawActionSpaceCfg)) as RawActionSpaceCfg;
+            ActionSpaceCfg cfg = new()
             {
                 uid = rawCfg.uid,
                 limitTime = new int[] { rawCfg.limitTime_1, rawCfg.limitTime_2, rawCfg.limitTime_3, rawCfg.limitTime_4, rawCfg.limitTime_5 },
                 val1 = new int[] { rawCfg.val_1_1, rawCfg.val_1_2, rawCfg.val_1_3, rawCfg.val_1_4, rawCfg.val_1_5 },
                 val2 = new int[] { rawCfg.val_2_1, rawCfg.val_2_2, rawCfg.val_2_3, rawCfg.val_2_4, rawCfg.val_2_5 }
             };
-            workPoses[cfg.uid] = cfg;
+            actionSpaces[cfg.uid] = cfg;
         }
         foreach (string lg in supportLanguages)
         {
-            JsonData languageData = jd[lg + "WorkPos"];
+            JsonData languageData = jd[lg + "ActionSpace"];
             foreach (JsonData d in languageData)
             {
-                WorkPosI18NCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(WorkPosI18NCfg)) as WorkPosI18NCfg;
-                workPoses[cfg.uid].i18NCfgs[lg] = cfg;
+                ActionSpaceI18NCfg cfg = JsonUtility.FromJson(d.ToJson().ToString(), typeof(ActionSpaceI18NCfg)) as ActionSpaceI18NCfg;
+                actionSpaces[cfg.uid].i18NCfgs[lg] = cfg;
             }
         }
 

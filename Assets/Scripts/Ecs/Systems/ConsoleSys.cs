@@ -25,8 +25,8 @@ public class ConsoleSys : ISystem
         {
             switch (msgs[0])
             {
-                case "AddGold":
-                    Msg.Dispatch(MsgID.ActionGainGold, new object[] { int.Parse(msgs[1]) });
+                case "AddCoin":
+                    Msg.Dispatch(MsgID.ActionGainCoin, new object[] { int.Parse(msgs[1]) });
                     break;
                 case "AddCard":
                     Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { msgs[1] });

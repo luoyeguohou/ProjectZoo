@@ -11,8 +11,8 @@ namespace Main
     {
 
         private UI_Card focusCard;
-        private List<UI_Card> pool = new ();
-        private List<UI_Card> active = new ();
+        private readonly List<UI_Card> pool = new ();
+        private readonly List<UI_Card> active = new ();
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();

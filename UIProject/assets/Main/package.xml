@@ -28,19 +28,18 @@
     <image id="rd0814" name="reference.png" path="/Images/" exported="true"/>
     <component id="rd0815" name="BookWithPrice.xml" path="/Components/"/>
     <component id="rd0816" name="ButtonNormal.xml" path="/Components/"/>
-    <component id="rd0817" name="WorkPos.xml" path="/Components/"/>
-    <component id="rd0818" name="MapPoint.xml" path="/Components/"/>
-    <component id="rd0819" name="MapBonus.xml" path="/Components/"/>
+    <component id="rd0817" name="ActionSpace.xml" path="/Components/"/>
+    <component id="rd0818" name="Plot.xml" path="/Components/"/>
+    <component id="rd0819" name="PlotReward.xml" path="/Components/"/>
     <component id="rd081a" name="Card.xml" path="/Components/"/>
     <image id="g9th1b" name="cardBlock.png" path="/Images/Cards/" exported="true"/>
     <component id="g9th1c" name="Book.xml" path="/Components/"/>
     <component id="g9th1d" name="CardWithPrice.xml" path="/Components/"/>
     <component id="g9th1e" name="ShopWin.xml" path="/Panels/" exported="true"/>
     <image id="g9th1f" name="test2.png" path="/Images/" exported="true"/>
-    <component id="g9th1g" name="EventPanelWin.xml" path="/Panels/" exported="true"/>
     <component id="z1411h" name="Worker.xml" path="/Components/"/>
     <image id="z1411i" name="meeple2.png" path="/Images/"/>
-    <component id="z1411j" name="MapPointEmp.xml" path="/Components/" exported="true"/>
+    <component id="z1411j" name="PlotEmp.xml" path="/Components/" exported="true"/>
     <component id="z1411k" name="CardOverviewWin.xml" path="/Panels/" exported="true"/>
     <image id="z1411l" name="planCur.png" path="/Images/Plans/" exported="true"/>
     <image id="z1411m" name="planWinter.png" path="/Images/Plans/" exported="true"/>
@@ -52,17 +51,16 @@
     <image id="z1411s" name="planFInished.png" path="/Images/Plans/" exported="true"/>
     <component id="z1411t" name="SeasonInfoWin.xml" path="/Panels/" exported="true"/>
     <component id="z1411u" name="PlanItem.xml" path="/Components/"/>
-    <component id="z1411v" name="Venue.xml" path="/Components/"/>
-    <component id="z1411w" name="EndSeasonWin.xml" path="/Panels/" exported="true"/>
-    <component id="z1411x" name="VenueSmall.xml" path="/Components/"/>
+    <component id="z1411v" name="Exhibit.xml" path="/Components/"/>
+    <component id="z1411x" name="ExhibitSmall.xml" path="/Components/"/>
     <image id="witr1y" name="itemUsePanel.png" path="/Images/" exported="true" scale9grid="0,80,177,25"/>
     <component id="witr1z" name="UseBookPanelWin.xml" path="/Panels/" exported="true"/>
     <component id="witr20" name="UseBookPanelItem.xml" path="/Components/"/>
     <component id="pz6421" name="SelectCardsWin.xml" path="/Panels/" exported="true"/>
-    <component id="pz6422" name="ExpandGroundWin.xml" path="/Panels/" exported="true"/>
-    <component id="pz6423" name="UpgradeWorkPosWin.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2d" name="SelectVenueWin.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2e" name="DealVenueWin.xml" path="/Panels/" exported="true"/>
+    <component id="pz6422" name="ExpandPlotWin.xml" path="/Panels/" exported="true"/>
+    <component id="pz6423" name="UpgradeActionSpaceWin.xml" path="/Panels/" exported="true"/>
+    <component id="ehbe2d" name="SelectExhibitWin.xml" path="/Panels/" exported="true"/>
+    <component id="ehbe2e" name="PutExhibitWin.xml" path="/Panels/" exported="true"/>
     <component id="c0b72f" name="MainHand.xml" path="/Components/"/>
     <image id="qff22g" name="book24.png" path="/Images/Books/" exported="true"/>
     <image id="qff22h" name="book21.png" path="/Images/Books/" exported="true"/>
@@ -98,17 +96,15 @@
     <component id="qev63b" name="HintMessage.xml" path="/Components/" exported="true"/>
     <component id="d2b23c" name="ExplainPanel.xml" path="/Components/" exported="true"/>
     <component id="d2b23d" name="CardOverviewCont.xml" path="/Conts/"/>
-    <component id="d2b23e" name="PutVenueCont.xml" path="/Conts/"/>
-    <component id="d2b23f" name="EndSeasonCont.xml" path="/Conts/"/>
+    <component id="d2b23e" name="PutExhibitCont.xml" path="/Conts/"/>
     <component id="d2b23g" name="EventPanelCont.xml" path="/Conts/"/>
-    <component id="d2b23h" name="ExpandGroundCont.xml" path="/Conts/"/>
+    <component id="d2b23h" name="ExpandPlotCont.xml" path="/Conts/"/>
     <component id="d2b23i" name="PlayHandsCont.xml" path="/Conts/"/>
     <component id="d2b23j" name="SelectCardsCont.xml" path="/Conts/"/>
-    <component id="d2b23l" name="InterestCont.xml" path="/Conts/"/>
     <component id="d2b23m" name="ShopCont.xml" path="/Conts/"/>
-    <component id="d2b23o" name="UpgradeWorkPosCont.xml" path="/Conts/"/>
+    <component id="d2b23o" name="UpgradeActionSpaceCont.xml" path="/Conts/"/>
     <component id="d2b23p" name="FConsoleWin.xml" path="/Panels/" exported="true"/>
-    <component id="b26m3q" name="VenueWithAni.xml" path="/Components/"/>
+    <component id="b26m3q" name="ExhibitWithAni.xml" path="/Components/"/>
     <component id="ea443s" name="EndWin.xml" path="/Panels/" exported="true"/>
     <component id="ea443u" name="BuffItem.xml" path="/Components/"/>
     <image id="blnq3v" name="yanjiurenyuan.png" path="/Images/ActionCards/" exported="true"/>
@@ -412,31 +408,30 @@
     <image id="i3x3dx" name="dep_devburuO.png" path="/Images/WorkPos/" exported="true"/>
     <image id="i3x3dy" name="dep_yuW.png" path="/Images/WorkPos/bg/" exported="true"/>
     <image id="ltekdz" name="buff_66.png" path="/Images/Buffs/" exported="true"/>
-    <component id="fjw1e0" name="InterestWin.xml" path="/Panels/" exported="true"/>
-    <component id="rr6ne1" name="SelectVenueCont.xml" path="/Conts/"/>
+    <component id="rr6ne1" name="SelectExhibitCont.xml" path="/Conts/"/>
     <component id="rr6ne2" name="StartOfSeasonWin.xml" path="/Panels/" exported="true"/>
     <component id="rr6ne3" name="StartOfSeasonCont.xml" path="/Conts/"/>
     <component id="rr6ne4" name="StartOfSeasonItem.xml" path="/Components/"/>
     <image id="jrzxe5" name="IncomeIcon.png" path="/Images/" exported="true"/>
     <component id="ep2ze6" name="MainCont.xml" path="/Conts/"/>
     <component id="ep2ze7" name="SeasonInfoCont.xml" path="/Conts/"/>
-    <component id="nkfbea" name="NewEndSeasonWin.xml" path="/Panels/" exported="true"/>
-    <component id="nkfbeb" name="NewEndSeasonCont.xml" path="/Conts/EndSeason/"/>
-    <component id="nkfbec" name="NewInterestCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbea" name="EndSeasonWin.xml" path="/Panels/" exported="true"/>
+    <component id="nkfbeb" name="EndSeasonCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbec" name="InterestCont.xml" path="/Conts/EndSeason/"/>
     <component id="nkfbed" name="RoutineCont.xml" path="/Conts/EndSeason/"/>
     <component id="nkfbee" name="DiscardHandsCont.xml" path="/Conts/EndSeason/"/>
-    <component id="nkfbef" name="NewEventCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbef" name="EventCont.xml" path="/Conts/EndSeason/"/>
     <image id="nkfbeg" name="porg.png" path="/Images/" exported="true"/>
     <image id="nkfbeh" name="progCont.png" path="/Images/" exported="true" scale="9grid" scale9grid="49,25,616,2"/>
     <component id="nkfbei" name="CommonProg.xml" path="/Conts/"/>
-    <component id="nkfbej" name="DealVenueCont.xml" path="/Conts/EndSeason/"/>
+    <component id="nkfbej" name="ResolveExhibitCont.xml" path="/Conts/EndSeason/"/>
     <image id="nkfbek" name="panel2.png" path="/Images/" exported="true" scale="9grid" scale9grid="231,156,462,312"/>
     <image id="nkfbel" name="person.png" path="/Images/" exported="true"/>
     <image id="nkfbem" name="dialog.png" path="/Images/" exported="true" scale="9grid" scale9grid="52,52,481,18"/>
     <component id="nkfben" name="NewbieWin.xml" path="/Panels/" exported="true"/>
-    <component id="u37ueo" name="GoldAni.xml" path="/Conts/" exported="true"/>
+    <component id="u37ueo" name="CoinAni.xml" path="/Conts/" exported="true"/>
     <image id="u37uep" name="popR.png" path="/Images/" exported="true"/>
-    <component id="u37ueq" name="PopR.xml" path="/Components/" exported="true"/>
+    <component id="u37ueq" name="Popularity.xml" path="/Components/" exported="true"/>
     <component id="oa6ner" name="TurnAni.xml" path="/Components/" exported="true"/>
     <image id="pxbkes" name="finger.png" path="/Images/" exported="true"/>
     <component id="pxbket" name="Finger.xml" path="/Panels/"/>

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TinyECS;
 using UnityEngine;
-using Main;
 using System.Threading.Tasks;
 public class ResolveCardEffectSys : ISystem
 {
@@ -44,34 +43,34 @@ public class ResolveCardEffectSys : ISystem
     {
         switch (c.cfg.cardType)
         {
-            case 0:
-                await BuildVenue(c);
+            case CardType.Exhibit:
+                await BuildExhibit(c);
                 break;
-            case 1:
+            case CardType.Achivement:
                 TakeEffectAchi(c.uid);
                 break;
-            case 2:
-                Msg.Dispatch(MsgID.ActionGainWorkPos, new object[] { c.uid });
+            case CardType.ActionSpace:
+                Msg.Dispatch(MsgID.ActionGainActionSpace, new object[] { c.uid });
                 break;
-            case 3:
+            case CardType.Project:
                 TakeEffecrProj(c.uid);
                 break;
         }
         Msg.Dispatch(MsgID.AfterResolveCard, new object[] { c });
     }
 
-    private async Task BuildVenue(Card c)
+    private async Task BuildExhibit(Card c)
     {
-        List<Vector2Int> poses = await FGUIUtil.SelectVenuePlace(c);
-        Msg.Dispatch(MsgID.AddVenue, new object[] { new Venue(c.uid, poses) });
-        Msg.Dispatch(MsgID.AfterMapChanged);
+        List<Vector2Int> poses = await FGUIUtil.SelectExhibitLocation(c);
+        Msg.Dispatch(MsgID.AddExhibit, new object[] { new Exhibit(c.uid, poses) });
+        Msg.Dispatch(MsgID.AfterPlotChanged);
         EcsUtil.PlaySound("build");
     }
 
     private void TakeEffectAchi(string uid)
     {
 
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
         switch (uid)
         {
@@ -85,16 +84,16 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 65, 1 });
                 break;
             case "achi_houxuanchuan":
-                gComp.income += 20;
+                cComp.income += 20;
                 break;
-            case "achi_poprating":
+            case "achi_popularity":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 36, 1 });
                 break;
             case "achi_buru":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 17, 3 });
                 break;
             case "achi_duozhonglei":
-                gComp.income += 5;
+                cComp.income += 5;
                 break;
             case "achi_hbxs":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 7, 10 });
@@ -131,7 +130,7 @@ public class ResolveCardEffectSys : ISystem
     private void TakeEffecrProj(string uid)
     {
 
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         BookComp bookComp = World.e.sharedConfig.GetComp<BookComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         bool finish1, finish2, finish3;
@@ -153,7 +152,7 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainSpecWorker, new object[] { uid });
                 break;
             case "shenjianshuzhi":
-                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 1 });
+                Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 28, 2 });
                 break;
             case "guanlidashi":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 40, 1 });
@@ -184,15 +183,15 @@ public class ResolveCardEffectSys : ISystem
                 break;
             case "renmanweian":
                 finish1 = EcsUtil.RandomlyDoSth(25, () => Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 }));
-                finish2 = EcsUtil.RandomlyDoSth(55, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { 5 }));
+                finish2 = EcsUtil.RandomlyDoSth(55, () => Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 5 }));
                 finish3 = EcsUtil.RandomlyDoSth(30, () => Msg.Dispatch(MsgID.ActionGainTWorker, new object[] { 1 }));
                 if (finish1 && finish2 && finish3)
                     Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
             case "dubo":
-                finish1 = EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { 5 }));
-                finish2 = EcsUtil.RandomlyDoSth(25, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { 10 }));
-                finish3 = EcsUtil.RandomlyDoSth(15, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { 30 }));
+                finish1 = EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 5 }));
+                finish2 = EcsUtil.RandomlyDoSth(25, () => Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 10 }));
+                finish3 = EcsUtil.RandomlyDoSth(15, () => Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 30 }));
                 if (finish1 && finish2 && finish3)
                     Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
@@ -236,13 +235,13 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 2 });
                 break;
             case "zhaoshangyinzi":
-                gComp.income *= 2;
+                cComp.income *= 2;
                 break;
             case "teshuzhaomu":
                 Msg.Dispatch(MsgID.ActionGainWorker, new object[] { 1 });
                 break;
             case "huaidianzi":
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { 10 });
+                Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 10 });
                 EcsUtil.RandomlyDoSth(60, () => Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 }), false);
                 break;
             case "kuozhangdipan":
@@ -259,7 +258,7 @@ public class ResolveCardEffectSys : ISystem
                 break;
             case "kaishan":
                 Msg.Dispatch(MsgID.ActionClearRock, new object[] { 1 });
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { 5 });
+                Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 5 });
                 break;
             case "changjiuzhiji":
                 Msg.Dispatch(MsgID.ActionGainIncome, new object[] { sComp.permanentProjectCard });
@@ -274,7 +273,7 @@ public class ResolveCardEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 19, 2 });
                 break;
             case "dixiakuangmai":
-                Msg.Dispatch(MsgID.ActionGainRandomMapBonus, new object[] { 5 });
+                Msg.Dispatch(MsgID.ActionGainRandomPlotReward, new object[] { 5 });
                 break;
             case "kantangaoshou":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 49, 1 });

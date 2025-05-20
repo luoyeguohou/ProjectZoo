@@ -31,7 +31,7 @@ public class ActionBookSys : ISystem
         aComp.queue.PushData(async () =>
         {
             string bookUid = (string)p[0];
-            int price = p.Length > 1 ? (int)p[1] : 5;
+            int price = p.Length > 1 ? (int)p[1] : Consts.bookPrice;
             BookComp bComp = World.e.sharedConfig.GetComp<BookComp>();
             if (bComp.books.Count >= bComp.bookLimit) return;
             bComp.books.Add(new Book(bookUid, price));
@@ -57,7 +57,7 @@ public class ActionBookSys : ISystem
     {
         int bookIdx = (int)p[0];
         BookComp bComp = World.e.sharedConfig.GetComp<BookComp>();
-        Msg.Dispatch(MsgID.ActionGainGold, new object[] { bComp.books[bookIdx].price * (EcsUtil.GetBuffNum(61) > 0 ? EcsUtil.GetBuffNum(61) : 20) / 100 });
+        Msg.Dispatch(MsgID.ActionGainCoin, new object[] { bComp.books[bookIdx].price * (EcsUtil.GetBuffNum(61) > 0 ? EcsUtil.GetBuffNum(61) : Consts.sellBookProp) / 100 });
         Msg.Dispatch(MsgID.ActionDiscardBook, new object[] { bookIdx });
     }
 }

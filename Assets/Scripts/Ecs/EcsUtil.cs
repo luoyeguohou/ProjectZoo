@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EcsUtil
@@ -28,10 +27,10 @@ public class EcsUtil
         return cart;
     }
 
-    public static ZooGround GetGroundByPos(int x, int y)
+    public static Plot GetPlotByPos(int x, int y)
     {
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-        foreach (ZooGround g in zgComp.grounds)
+        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
+        foreach (Plot g in plotsComp.plots)
         {
             if (g.pos.x == x && g.pos.y == y)
             {
@@ -41,9 +40,9 @@ public class EcsUtil
         return null;
     }
 
-    public static ZooGround GetGroundByPos(Vector2Int pos)
+    public static Plot GetPlotByPos(Vector2Int pos)
     {
-        return GetGroundByPos(pos.x, pos.y);
+        return GetPlotByPos(pos.x, pos.y);
     }
 
     public static List<Card> GetCardsFromDrawPile(int num)
@@ -65,7 +64,7 @@ public class EcsUtil
                 bool hasMonkey = false;
                 foreach (Card c in cmComp.drawPile)
                 {
-                    if (c.cfg.module == 0)
+                    if (c.cfg.module == Module.Primate)
                     {
                         hasMonkey = true;
                         Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57, -1 });
@@ -86,10 +85,10 @@ public class EcsUtil
         return ret;
     }
 
-    public static WorkPos GetWorkPosByUid(string uid)
+    public static ActionSpace GetActionSpaceByUid(string uid)
     {
-        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-        foreach (WorkPos wp in wpComp.workPoses)
+        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
+        foreach (ActionSpace wp in asComp.actionSpace)
             if (wp.uid == uid) return wp;
         return null;
     }
@@ -107,17 +106,17 @@ public class EcsUtil
         return false;
     }
 
-    public static bool HaveEnoughTimeAndGold(int time, int gold)
+    public static bool HaveEnoughTimeAndCoin(int time, int coin)
     {
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
-        return gComp.gold >= gold && trComp.time >= time;
+        return cComp.coin >= coin && trComp.time >= time;
     }
 
-    public static bool HaveEnoughGold(int gold)
+    public static bool HaveEnoughCoin(int coin)
     {
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        return gComp.gold >= gold;
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
+        return cComp.coin >= coin;
     }
 
     private static readonly List<List<List<Vector2Int>>> matchList = new()
@@ -174,37 +173,37 @@ public class EcsUtil
         }
     };
 
-    public static bool IsValidGround(List<Vector2Int> poses, int landType)
+    public static bool IsValidPlot(List<Vector2Int> poses, LandType landType)
     {
         List<Vector2Int> posInOrder = poses.OrderBy(n => n.x + n.y * 10000).ToList();
         List<Vector2Int> posDelta = new();
         for (int i = 0; i < posInOrder.Count; i++)
             posDelta.Add(new(posInOrder[i].x - posInOrder[0].x, posInOrder[i].y - posInOrder[0].y));
 
-        Logger.AddOpe(OpeType.CheckIsValidGround, new object[] { posDelta, landType });
-        return Util.Any(matchList[landType], lst => TwoListPartMatch(lst, posDelta));
+        Logger.AddOpe(OpeType.CheckIsValidPlot, new object[] { posDelta, landType });
+        return Util.Any(matchList[(int)landType], lst => TwoListPartMatch(lst, posDelta));
     }
 
-    public static bool HasValidGround(Card c)
+    public static bool HasValidPlot(Card c)
     {
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-        List<ZooGround> canBuild = new();
-        foreach (ZooGround zg in zgComp.grounds) { 
-            if (zg.state == GroundStatus.CanBuild && !zg.hasBuilt && zg.isTouchedLand) 
+        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
+        List<Plot> canBuild = new();
+        foreach (Plot zg in plotsComp.plots) { 
+            if (zg.state == PlotStatus.CanBuild && !zg.hasBuilt && zg.isTouchedLand) 
                 canBuild.Add(zg);
-            if(c.uid == "kemoduojx" && zg.hasBuilt &&zg.venue.uid == "kemoduojx")
+            if(c.uid == "kemoduojx" && zg.hasBuilt &&zg.exhibit.uid == "kemoduojx")
                 canBuild.Add(zg);
         }
 
-        Logger.AddOpe(OpeType.StartCheckHasValidGround, new object[] { canBuild, c.cfg.landType });
-        foreach (ZooGround zg in canBuild)
+        Logger.AddOpe(OpeType.StartCheckHasValidPlot, new object[] { canBuild, c.cfg.landType });
+        foreach (Plot p1 in canBuild)
         {
             List<Vector2Int> relativeCoor = new();
-            foreach (ZooGround zg1 in canBuild)
-                relativeCoor.Add(new(zg1.pos.x - zg.pos.x, zg1.pos.y - zg.pos.y));
+            foreach (Plot p2 in canBuild)
+                relativeCoor.Add(new(p2.pos.x - p1.pos.x, p2.pos.y - p1.pos.y));
 
-            Logger.AddOpe(OpeType.CheckHasValidGround, new object[] { zg.pos, relativeCoor, c.cfg.landType });
-            if (Util.Any(matchList[c.cfg.landType], lst => TwoListPartMatch(relativeCoor, lst)))
+            Logger.AddOpe(OpeType.CheckHasValidPlot, new object[] { p1.pos, relativeCoor, c.cfg.landType });
+            if (Util.Any(matchList[(int)c.cfg.landType], lst => TwoListPartMatch(relativeCoor, lst)))
                 return true;
         };
         return false;
@@ -224,18 +223,18 @@ public class EcsUtil
 
     public static bool CheckAchiCondition(string uid)
     {
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
+        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
         int[] moduleNum = new int[4] { 0, 0, 0, 0 };
         int hubaoxiongshi = 0;
-        int largeVenue = 0;
-        int smallVenue = 0;
-        int xVenue = 0;
-        int nearLakeVenue = 0;
-        foreach (Venue b in vComp.venues)
+        int largeExhibit = 0;
+        int smallExhibit = 0;
+        int xExhibit = 0;
+        int nearLakeExhibit = 0;
+        foreach (Exhibit b in eComp.exhibits)
         {
-            moduleNum[b.cfg.aniModule]++;
+            moduleNum[(int)b.cfg.aniModule]++;
             switch (b.cfg.aniType)
             {
                 case "tiger":
@@ -251,48 +250,31 @@ public class EcsUtil
                     hubaoxiongshi = Util.SetBit(hubaoxiongshi, 3);
                     break;
             }
-            if (b.cfg.landType >= 4) largeVenue++;
-            if (b.cfg.landType <= 2) smallVenue++;
-            if (b.cfg.isX == 1) xVenue++;
-            if (IsAdjacentWater(b)) nearLakeVenue++;
+            if (b.cfg.IsBigExhibit()) largeExhibit++;
+            if (b.cfg.IsSmallExhibit()) smallExhibit++;
+            if (b.cfg.isX == 1) xExhibit++;
+            if (IsAdjacentWater(b)) nearLakeExhibit++;
         }
 
-        switch (uid)
-        {
-            case "achi_danyi":
-                return Util.GetMax(moduleNum) >= 10;
-            case "achi_yuanhou":
-                return moduleNum[0] >= 10;
-            case "achi_duty":
-                return Util.Count(zgComp.grounds, g => g.isTouchedLand && g.state == GroundStatus.CanBuild && !g.hasBuilt)>= 20;
-            case "achi_houxuanchuan":
-                return sComp.highestPopRFromMonkeyVenue >= 50;
-            case "achi_poprating":
-                return sComp.threeVenuesPopRMoreThat20;
-            case "achi_buru":
-                return moduleNum[1] >= 10;
-            case "achi_duozhonglei":
-                return vComp.venues.Count >= 15;
-            case "achi_hbxs":
-                return hubaoxiongshi == 15;
-            case "achi_pachong":
-                return moduleNum[2] >= 8;
-            case "achi_duoyangxing":
-                return Util.GetMax(moduleNum) >= 5 && Util.GetSecondMax(moduleNum) >= 5;
-            case "achi_kongjiangongji":
-                return sComp.expandCntTotally >= 30;
-            case "achi_daxing":
-                return largeVenue >= 3;
-            case "achi_yu":
-                return moduleNum[3] >= 10;
-            case "achi_weizhi":
-                return xVenue >= 10;
-            case "achi_heliu":
-                return nearLakeVenue >= 10;
-            case "achi_xiaoxing":
-                return smallVenue >= 15;
-        }
-        return false;
+        return uid switch {
+            "achi_danyi" => Util.GetMax(moduleNum) >= 10,
+            "achi_yuanhou" => moduleNum[0] >= 10,
+            "achi_duty" => Util.Count(plotsComp.plots, g => g.isTouchedLand && g.state == PlotStatus.CanBuild && !g.hasBuilt) >= 20,
+            "achi_houxuanchuan" => sComp.highestPFromMonkeyExhibit >= 50,
+            "achi_popularity" => sComp.threeExhibitsPMoreThat20,
+            "achi_buru" => moduleNum[1] >= 10,
+            "achi_duozhonglei" => eComp.exhibits.Count >= 15,
+            "achi_hbxs" => hubaoxiongshi == 15,
+            "achi_pachong" => moduleNum[2] >= 8,
+            "achi_duoyangxing" => Util.GetMax(moduleNum) >= 5 && Util.GetSecondMax(moduleNum) >= 5,
+            "achi_kongjiangongji" => sComp.expandCntTotally >= 30,
+            "achi_daxing" => largeExhibit >= 3,
+            "achi_yu" => moduleNum[3] >= 10,
+            "achi_weizhi" => xExhibit >= 10,
+            "achi_heliu" => nearLakeExhibit >= 10,
+            "achi_xiaoxing" => smallExhibit >= 15,
+            _=>false,
+        };
     }
 
     public static int GetDistance(Vector2Int a, Vector2Int b)
@@ -326,7 +308,7 @@ public class EcsUtil
         return 0;
     }
 
-    public static bool IsAdjacent(Venue a, Venue b)
+    public static bool IsAdjacent(Exhibit a, Exhibit b)
     {
         if (a.uid == "changbi_monkey" || b.uid == "changbi_monkey")
             return true;
@@ -340,14 +322,14 @@ public class EcsUtil
         return false;
     }
 
-    public static int GetAdjacentMonkeyVenueNum()
+    public static int GetAdjacentMonkeyExhibitNum()
     {
         int cnt = 0;
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-        foreach (Venue b1 in vComp.venues)
+        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+        foreach (Exhibit b1 in eComp.exhibits)
         {
             if (b1.cfg.aniModule != 0) continue;
-            foreach (Venue b2 in vComp.venues)
+            foreach (Exhibit b2 in eComp.exhibits)
             {
                 if (b2.cfg.aniModule != 0 || b1 == b2) continue;
                 if (IsAdjacent(b1, b2)) cnt++;
@@ -356,7 +338,7 @@ public class EcsUtil
         return cnt / 2;
     }
 
-    public static bool IsAdjacent(Venue a, Vector2Int pos)
+    public static bool IsAdjacent(Exhibit a, Vector2Int pos)
     {
         foreach (Vector2Int posA in a.location)
         {
@@ -366,12 +348,12 @@ public class EcsUtil
         return false;
     }
 
-    public static bool IsAdjacentWater(Venue b)
+    public static bool IsAdjacentWater(Exhibit b)
     {
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-        foreach (ZooGround g in zgComp.grounds)
+        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
+        foreach (Plot g in plotsComp.plots)
         {
-            if (g.state == GroundStatus.Water && IsAdjacent(b, g.pos))
+            if (g.state == PlotStatus.Water && IsAdjacent(b, g.pos))
             {
                 return true;
             }
@@ -379,12 +361,12 @@ public class EcsUtil
         return false;
     }
 
-    public static bool IsAdjacentRock(Venue b)
+    public static bool IsAdjacentRock(Exhibit b)
     {
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-        foreach (ZooGround g in zgComp.grounds)
+        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
+        foreach (Plot g in plotsComp.plots)
         {
-            if (g.state == GroundStatus.Rock && IsAdjacent(b, new Vector2Int(g.pos.x, g.pos.y)))
+            if (g.state == PlotStatus.Rock && IsAdjacent(b, new Vector2Int(g.pos.x, g.pos.y)))
             {
                 return true;
             }
@@ -415,14 +397,14 @@ public class EcsUtil
         return wiComp.worldID;
     }
 
-    public static ZooGround GetGroundByIndex(int index)
+    public static Plot GetPlotByIndex(int index)
     {
         MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
         if (index % (msComp.width * 2) == msComp.width) return null;
         int y = index / msComp.width;
         int x = index % msComp.width;
         Vector2Int pos = PolarToCartesian(x, y);
-        return GetGroundByPos(pos.x, pos.y);
+        return GetPlotByPos(pos.x, pos.y);
     }
 
     public static int GetBuffNum(int buff)
@@ -432,28 +414,28 @@ public class EcsUtil
         return bComp.buffs[buff];
     }
 
-    public static int GetCardGoldCost(Card c)
+    public static int GetCardCoinCost(Card c)
     {
-        int goldCost = c.cfg.goldCost;
-        if(c.cfg.cardType == 0)
-            goldCost = Mathf.Max(0, (goldCost - GetBuffNum(33)));
-        goldCost *= (100 + GetBuffNum(34)) / 100;
-        if (GetBuffNum(31) > 0 && c.cfg.cardType == 0 && Cfg.venues[c.uid].isX == 1)
+        int coinCost = c.cfg.coinCost;
+        if(c.cfg.cardType == CardType.Exhibit)
+            coinCost = Mathf.Max(0, (coinCost - GetBuffNum(33)));
+        coinCost *= (100 + GetBuffNum(34)) / 100;
+        if (GetBuffNum(31) > 0 && c.cfg.cardType == CardType.Exhibit && Cfg.exhibits[c.uid].isX == 1)
         {
-            goldCost = Mathf.Max(0, goldCost * (100 - GetBuffNum(31)) / 100);
+            coinCost = Mathf.Max(0, coinCost * (100 - GetBuffNum(31)) / 100);
         }
-        return goldCost;
+        return coinCost;
     }
     public static int GetCardTimeCost(Card c)
     {
         int timeCost = c.cfg.timeCost;
-        if(c.cfg.cardType == 0)
+        if(c.cfg.cardType == CardType.Exhibit)
             timeCost = Mathf.Max(0, timeCost - GetBuffNum(32));
         return timeCost;
     }
 
 
-    public static int GetWorkPosNeed(WorkPos wp)
+    public static int GetActionSpaceNeed(ActionSpace wp)
     {
         return GetBuffNum(41) > 0 ? 1 : Mathf.Max(1, wp.needNum - GetBuffNum(40));
     }
@@ -497,21 +479,21 @@ public class EcsUtil
     public static InterestInfo GetInterestInfo()
     {
         InterestInfo info = new();
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-        info.interestPart = gComp.interestPart * (100 + GetBuffNum(24)) / 100;
-        info.interestRate = gComp.interestRate * (100 + GetBuffNum(25)) / 100;
-        int interest = Mathf.Min(gComp.gold, info.interestPart) * info.interestRate / 100;
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
+        info.interestPart = cComp.interestPart * (100 + GetBuffNum(24)) / 100;
+        info.interestRate = cComp.interestRate * (100 + GetBuffNum(25)) / 100;
+        int interest = Mathf.Min(cComp.coin, info.interestPart) * info.interestRate / 100;
         if (GetBuffNum(26) > 0)
         {
             info.interest = interest * (100 - GetBuffNum(26)) / 100;
-            info.popRGet = interest * GetBuffNum(26) / 100;
+            info.popularityGet = interest * GetBuffNum(26) / 100;
         }
         else
         {
             info.interest = interest;
-            info.popRGet = 0;
+            info.popularityGet = 0;
         }
-        info.currGold = gComp.gold;
+        info.currCoin = cComp.coin;
         return info;
     }
 
@@ -528,9 +510,9 @@ public class EcsUtil
         Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { buff, -GetBuffNum(buff) });
     }
 
-    public static int GetMapBonusVal(MapBonus mb)
+    public static int GetPlotRewardVal(PlotReward pr)
     {
-        return mb.val * (1 + GetBuffNum(49));
+        return pr.val * (1 + GetBuffNum(49));
     }
 
 
@@ -539,11 +521,11 @@ public class EcsUtil
        return "[color=" + colorStr + "]" + val + "[/color]";
     }
 
-    public static int GetStatisticNum(string uid,Venue v = null) {
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+    public static int GetStatisticNum(string uid,Exhibit v = null) {
+        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
+        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
         int statisticNum = 0;
         switch (uid)
         {
@@ -560,13 +542,13 @@ public class EcsUtil
                     statisticNum = 0;
                 break;
             case "mi_monkey":
-                statisticNum = GetAdjacentMonkeyVenueNum();
+                statisticNum = GetAdjacentMonkeyExhibitNum();
                 break;
             case "rong_monkey":
-                statisticNum = vComp.venues.Count;
+                statisticNum = eComp.exhibits.Count;
                 break;
             case "spider_monkey":
-                statisticNum = gComp.gold/2;
+                statisticNum = cComp.coin / 2;
                 break;
             case "shayu":
                 statisticNum = sComp.workerUsedThisTurn;
@@ -575,43 +557,43 @@ public class EcsUtil
                 statisticNum = sComp.badIdeaNumTotally;
                 break;
             case "yanshiyu":
-                statisticNum = Util.Count(vComp.venues, b => IsAdjacentRock(b));
+                statisticNum = Util.Count(eComp.exhibits, b => IsAdjacentRock(b));
                 break;
             case "shenhaiyu":
-                statisticNum = Util.Count(vComp.venues, b => IsAdjacentWater(b));
+                statisticNum = Util.Count(eComp.exhibits, b => IsAdjacentWater(b));
                 break;
             case "jinli":
-                statisticNum = Util.Count(vComp.venues, b => b.cfg.aniModule == 3);
+                statisticNum = Util.Count(eComp.exhibits, b => b.cfg.aniModule == Module.Aquatic);
                 break;
             case "lianyu":
                 statisticNum = sComp.bookNumUsedTotally;
                 break;
             case "qunjuyu":
-                statisticNum = Util.Count(vComp.venues, b => b.cfg.landType <= 2);
+                statisticNum = Util.Count(eComp.exhibits, b => b.cfg.IsSmallExhibit());
                 break;
             case "denglongyu":
-                statisticNum = sComp.mapBonusCntTotally;
+                statisticNum = sComp.plotRewardCntTotally;
                 break;
             case "jinyu":
                 statisticNum = sComp.achiNumTotally;
                 break;
             case "yagualabihu":
-                statisticNum = Util.Count(zgComp.grounds, g => g.isTouchedLand && !g.hasBuilt && g.state == GroundStatus.CanBuild);
+                statisticNum = Util.Count(plotsComp.plots, g => g.isTouchedLand && !g.hasBuilt && g.state == PlotStatus.CanBuild);
                 break;
         }
         return statisticNum;
     }
 
-    public static string GetCardCont(string uid,Venue v = null) {
+    public static string GetCardCont(string uid,Exhibit v = null) {
         CardCfg cfg = Cfg.cards[uid];
         string cont = cfg.GetCont();
         cont = cont.Replace("$1", cfg.val1.ToString());
         cont = cont.Replace("$2", cfg.val2.ToString());
         cont = cont.Replace("$3", cfg.val3.ToString());
         if (cont.Contains("$w1"))
-            cont = cont.Replace("$w1", Cfg.workPoses[cfg.uid].GetDesc1Str());
+            cont = cont.Replace("$w1", Cfg.actionSpaces[cfg.uid].GetDesc1Str());
         if (cont.Contains("$w2"))
-            cont = cont.Replace("$w2", Cfg.workPoses[cfg.uid].GetDesc2Str());
+            cont = cont.Replace("$w2", Cfg.actionSpaces[cfg.uid].GetDesc2Str());
         if (cont.Contains("$wr1"))
             cont = cont.Replace("$wr1", GetSpecWorkerVal(cfg.uid).ToString());
         cont = cont.Replace("$d",GetStatisticNum(cfg.uid, v).ToString());
@@ -626,20 +608,21 @@ public class EcsUtil
         sound.PlaySound("SoundEffect/"+s);
     }
 
-    public static int GetRecruitCost() { 
+    public static int GetRecruitCost()
+    {
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
         int val1 = 0;
-        foreach (WorkPos w in wpComp.workPoses)
+        foreach (ActionSpace w in asComp.actionSpace)
         {
-            if (w.uid == "dep_3") val1 = w.cfg.val1[w.level-1];
+            if (w.uid == "dep_3") val1 = w.cfg.val1[w.level - 1];
         }
-        return (wComp.workerPrice + wComp.recruitTime * val1) * (GetBuffNum(67) > 0 ? 2 : 1);
+        return wComp.recruitTime * (1 + val1) * (GetBuffNum(67) > 0 ? 2 : 1);
     }
 
-    public static bool AllWorkPosMaxLv() { 
-        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-        return Util.All(wpComp.workPoses,wp=>wp.level == 5);
+    public static bool AllActionSpaceMaxLv() { 
+        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
+        return Util.All(asComp.actionSpace,wp=>wp.level == Consts.maxActionSpaceLv);
     }
 }
 
@@ -648,6 +631,6 @@ public class InterestInfo
     public int interestPart;
     public int interest;
     public int interestRate;
-    public int popRGet;
-    public int currGold;
+    public int popularityGet;
+    public int currCoin;
 }

@@ -18,7 +18,7 @@ public class ResolveEventChoiceEffectSys : ISystem
     private void DealEventChoice(object[] p)
     {
 
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         string uid = (string)p[0];
         switch (uid)
         {
@@ -32,7 +32,7 @@ public class ResolveEventChoiceEffectSys : ISystem
                 break;
             case "event_3":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 52, 30 });
-                Msg.Dispatch(MsgID.ActionGainIncome, new object[] { gComp.income });
+                Msg.Dispatch(MsgID.ActionGainIncome, new object[] { cComp.income });
                 break;
             case "event_4":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 18, 100 });
@@ -62,11 +62,11 @@ public class ResolveEventChoiceEffectSys : ISystem
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 53, 1 });
                 break;
             case "event_11":
-                EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionGainGold, new object[] { 50 }));
-                EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionPayGold, new object[] { 50 }), false);
+                EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 50 }));
+                EcsUtil.RandomlyDoSth(50, () => Msg.Dispatch(MsgID.ActionPayCoin, new object[] { 50 }), false);
                 break;
             case "event_12":
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { 200 });
+                Msg.Dispatch(MsgID.ActionGainCoin, new object[] { 200 });
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 27, 1 });
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 50, 1 });
                 break;

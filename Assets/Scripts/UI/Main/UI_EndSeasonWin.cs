@@ -10,7 +10,7 @@ namespace Main
         public UI_EndSeasonCont m_cont;
         public GButton m_btnHide;
         public GButton m_btnBack;
-        public const string URL = "ui://zqdehm1vz1411w";
+        public const string URL = "ui://zqdehm1vnkfbea";
 
         public static UI_EndSeasonWin CreateInstance()
         {

@@ -43,7 +43,7 @@
   <string name="zqdehm1vnkfbed-n80_z141" mz="n80">Drag Exhibit to decide the resolving order</string>
   <string name="zqdehm1vnkfbed-n81_z141" mz="btnSettle">Start Resolving</string>
   <string name="zqdehm1vnkfbed-n82_z141" mz="txtPopularity">Target:{aim=500} </string>
-  <!-- Main/Conts/ExpandGroundCont.xml -->
+  <!-- Main/Conts/ExpandPlotCont.xml -->
   <string name="zqdehm1vd2b23h-n74_z141" mz="txtTitle">Expand {num=3} plots.</string>
   <string name="zqdehm1vd2b23h-n78_pz64" mz="btnFinish">finish</string>
   <!-- Main/Conts/MainCont.xml -->

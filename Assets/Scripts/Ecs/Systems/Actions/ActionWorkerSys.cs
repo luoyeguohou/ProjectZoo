@@ -27,7 +27,7 @@ public class ActionWorkerSys : ISystem
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
             for (int i = 0; i < gainNum; i++)
             {
-                Worker w = new Worker("normalWorker");
+                Worker w = new ("normalWorker");
                 wComp.normalWorkers.Add(w);
                 wComp.normalWorkerLimit.Add(w);
                 wComp.recruitTime++;
@@ -58,7 +58,7 @@ public class ActionWorkerSys : ISystem
         {
             string specWorker = (string)p[0];
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-            Worker w = new Worker(specWorker);
+            Worker w = new(specWorker);
             wComp.specialWorker.Add(w);
             wComp.specialWorkerLimit.Add(w);
             Msg.Dispatch(MsgID.AfterWorkerChanged);

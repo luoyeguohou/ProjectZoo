@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" opaque="false">
   <displayList>
-    <component id="n62_g9th" name="cont" src="d2b23f" fileName="Conts/EndSeasonCont.xml" xy="230,63" size="1488,930">
+    <component id="n62_g9th" name="cont" src="nkfbeb" fileName="Conts/EndSeason/NewEndSeasonCont.xml" xy="190,51" size="1488,940">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
     <component id="n84_d2b2" name="btnHide" src="rd0816" fileName="Components/ButtonNormal.xml" xy="46,110">
       <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="隐藏"/>
     </component>
-    <component id="n85_d2b2" name="btnBack" src="rd0816" fileName="Components/ButtonNormal.xml" xy="49,888">
+    <component id="n85_d2b2" name="btnBack" src="rd0816" fileName="Components/ButtonNormal.xml" xy="45,198">
       <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="退出"/>
     </component>

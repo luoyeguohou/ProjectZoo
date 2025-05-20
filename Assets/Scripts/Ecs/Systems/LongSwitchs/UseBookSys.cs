@@ -35,7 +35,7 @@ public class UseBookSys : ISystem
                 break;
             case "investment":
                 for (int i = 1; i <= val; i++)
-                    Msg.Dispatch(MsgID.ActionDoubleGold, new object[] { val2 });
+                    Msg.Dispatch(MsgID.ActionDoubleCoin, new object[] { val2 });
                 break;
             case "research":
                 Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { val });
@@ -71,21 +71,21 @@ public class UseBookSys : ISystem
                 Msg.Dispatch(MsgID.ActionDiscardCardFromDrawPile, new object[] { val });
                 break;
             case "promotion":
-                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { val });
+                Msg.Dispatch(MsgID.ActionGainPopularity, new object[] { val });
                 break;
             case "adBombardment":
-                Msg.Dispatch(MsgID.ActionGainPopR, new object[] { val });
+                Msg.Dispatch(MsgID.ActionGainPopularity, new object[] { val });
                 Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 });
                 break;
             case "hiddenTreasure":
-                Msg.Dispatch(MsgID.ActionGainMapBonus5Gold, new object[] { val, val2 });
+                Msg.Dispatch(MsgID.ActionGainPlotReward5Coin, new object[] { val, val2 });
                 break;
             case "internalPurge":
                 for (int i = 1; i <= val; i++)
                     Msg.Dispatch(MsgID.ActionDiscardCardAndDrawSame, new object[] { });
                 break;
             case "projectSale":
-                Msg.Dispatch(MsgID.ActionDiscardCardAndGainGold, new object[] { val });
+                Msg.Dispatch(MsgID.ActionDiscardCardAndGainCoin, new object[] { val });
                 break;
             case "building":
                 Msg.Dispatch(MsgID.ActionPlayAHandFreely, new object[] { val });
@@ -94,7 +94,7 @@ public class UseBookSys : ISystem
                 Msg.Dispatch(MsgID.ActionCopyCard, new object[] { val });
                 break;
             case "newDepartment":
-                Msg.Dispatch(MsgID.ActionGainRandomDepCard, new object[] { val });
+                Msg.Dispatch(MsgID.ActionGainRandomActionSpaceCard, new object[] { val });
                 break;
             case "warehouseExpansion":
                 Msg.Dispatch(MsgID.ActionAddHandLimit, new object[] { val });

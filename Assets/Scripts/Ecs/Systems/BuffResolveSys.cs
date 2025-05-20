@@ -23,7 +23,7 @@ public class BuffResolveSys : ISystem
     private void AfterUseBook(object[] param = null)
     {
         if (EcsUtil.GetBuffNum(43) > 0)
-            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { EcsUtil.GetBuffNum(43) });
+            Msg.Dispatch(MsgID.ActionGainPopularity, new object[] { EcsUtil.GetBuffNum(43) });
 
         if (EcsUtil.GetBuffNum(44) > 0)
         {
@@ -37,16 +37,16 @@ public class BuffResolveSys : ISystem
     private void OnTurnEnd(object[] param = null)
     {
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         if (EcsUtil.GetBuffNum(28) > 0)
         {
             int workerNumUnused = wComp.specialWorker.Count + wComp.tempWorkers.Count + wComp.normalWorkers.Count;
             if (workerNumUnused > 0)
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { EcsUtil.GetBuffNum(28) * workerNumUnused });
+                Msg.Dispatch(MsgID.ActionGainCoin, new object[] { EcsUtil.GetBuffNum(28) * workerNumUnused });
         }
         if (EcsUtil.GetBuffNum(29) > 0)
         {
-            Msg.Dispatch(MsgID.ActionPayGold, new object[] { gComp.gold / 2 });
+            Msg.Dispatch(MsgID.ActionPayCoin, new object[] { cComp.coin / 2 });
         }
 
         EcsUtil.MinusAllBuff(20);
@@ -68,7 +68,7 @@ public class BuffResolveSys : ISystem
     private void AfterResolveCard(object[] param = null)
     {
         Card c = (Card)param[0];
-        if (c.cfg.cardType == 3 && c.cfg.oneTime == 0)
+        if (c.cfg.cardType == CardType.Project && c.cfg.oneTime == 0)
         {
             // just for display
             Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 70, 1 });

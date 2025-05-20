@@ -44,6 +44,19 @@
     <image id="n142_p0wl" name="n142" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="733,1135"/>
     <image id="n143_p0wl" name="n143" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="2047,703"/>
     <image id="n144_p0wl" name="n144" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="1987,176" pivot="0.5,1" skew="1,0"/>
+    <image id="n148_julu" name="n148" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="-41,902"/>
+    <image id="n149_julu" name="n149" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="183,574"/>
+    <image id="n150_julu" name="n150" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="202,295"/>
+    <image id="n151_julu" name="n151" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="18,504"/>
+    <image id="n152_julu" name="n152" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="149,51"/>
+    <image id="n153_julu" name="n153" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="141,984"/>
+    <image id="n154_julu" name="n154" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="316,758"/>
+    <image id="n155_julu" name="n155" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="317,465"/>
+    <image id="n156_julu" name="n156" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="175,466"/>
+    <image id="n157_julu" name="n157" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="271,379"/>
+    <image id="n158_julu" name="n158" src="p0wlfg" fileName="Images/Bg/新建项目 (11).png" xy="238,714"/>
+    <image id="n159_julu" name="n159" src="p0wlff" fileName="Images/Bg/新建项目 (10).png" xy="429,661"/>
+    <image id="n160_julu" name="n160" src="p0wlfd" fileName="Images/Bg/新建项目 (8).png" xy="369,134" pivot="0.5,1" skew="1,0"/>
     <component id="n43_rd08" name="cont" src="ep2ze6" fileName="Conts/MainCont.xml" xy="0,0">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>

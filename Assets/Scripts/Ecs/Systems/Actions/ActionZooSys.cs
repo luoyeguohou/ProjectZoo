@@ -10,23 +10,23 @@ public class ActionZooSys : ISystem
     public override void OnAddToEngine()
     {
         Msg.Bind(MsgID.ActionPlayAHandFreely, PlayAHandFreely);
-        Msg.Bind(MsgID.ActionBuildBigVenueFreely, BuildBigVenueFreely);
-        Msg.Bind(MsgID.ActionBuildMonkeyVenue, BuildMonkeyVenue);
-        Msg.Bind(MsgID.ActionDemolitionVenueWithCost, DemolitionVenueWithCost);
+        Msg.Bind(MsgID.ActionBuildBigExhibitFreely, BuildBigExhibitFreely);
+        Msg.Bind(MsgID.ActionBuildMonkeyExhibit, BuildMonkeyExhibit);
+        Msg.Bind(MsgID.ActionDemolitionExhibitWithCost, DemolitionExhibitWithCost);
         Msg.Bind(MsgID.ActionExpand, Expand);
         Msg.Bind(MsgID.ActionExpandRandomly, ExpandRandomly);
-        Msg.Bind(MsgID.ActionDemolitionVenue, DemolitionVenue);
+        Msg.Bind(MsgID.ActionDemolitionExhibit, DemolitionExhibit);
     }
 
     public override void OnRemoveFromEngine()
     {
         Msg.UnBind(MsgID.ActionPlayAHandFreely, PlayAHandFreely);
-        Msg.UnBind(MsgID.ActionBuildBigVenueFreely, BuildBigVenueFreely);
-        Msg.UnBind(MsgID.ActionBuildMonkeyVenue, BuildMonkeyVenue);
-        Msg.UnBind(MsgID.ActionDemolitionVenueWithCost, DemolitionVenueWithCost);
+        Msg.UnBind(MsgID.ActionBuildBigExhibitFreely, BuildBigExhibitFreely);
+        Msg.UnBind(MsgID.ActionBuildMonkeyExhibit, BuildMonkeyExhibit);
+        Msg.UnBind(MsgID.ActionDemolitionExhibitWithCost, DemolitionExhibitWithCost);
         Msg.UnBind(MsgID.ActionExpand, Expand);
         Msg.UnBind(MsgID.ActionExpandRandomly, ExpandRandomly);
-        Msg.UnBind(MsgID.ActionDemolitionVenue, DemolitionVenue);
+        Msg.UnBind(MsgID.ActionDemolitionExhibit, DemolitionExhibit);
     }
 
     private void PlayAHandFreely(object[] p)
@@ -40,7 +40,7 @@ public class ActionZooSys : ISystem
             Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
-    private void BuildBigVenueFreely(object[] p)
+    private void BuildBigExhibitFreely(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
@@ -49,24 +49,24 @@ public class ActionZooSys : ISystem
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
             List<Card> cards = new List<Card>();
             foreach (Card c in cmComp.hands)
-                if (c.cfg.cardType == 0 && c.cfg.landType >= 4)
+                if (c.cfg.cardType == CardType.Exhibit && (int)c.cfg.landType >= 4)
                     cards.Add(c);
             if (cards.Count == 0) return;
-            List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("playBigVenueFreely"), Cfg.GetSTexts("selected"),cards, gainNum, false);
+            List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("playBigExhibitFreely"), Cfg.GetSTexts("selected"),cards, gainNum, false);
             Msg.Dispatch(MsgID.ActionTryToPlayHandsFreely, new object[] { chosen });
         });
     }
 
-    private void BuildMonkeyVenue(object[] p)
+    private void BuildMonkeyExhibit(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> cards = new List<Card>();
+            List<Card> cards = new ();
             foreach (Card c in cmComp.hands)
-                if (c.cfg.cardType == 0 && c.cfg.module == 0)
+                if (c.cfg.cardType == CardType.Exhibit && c.cfg.module == 0)
                     cards.Add(c);
             if (cards.Count == 0) return;
             List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("playMonkeyFreely"), Cfg.GetSTexts("selected"), cards, gainNum, false); 
@@ -77,9 +77,9 @@ public class ActionZooSys : ISystem
     private void DoExpand(List<Vector2Int> poses)
     {
         foreach (Vector2Int pos in poses)
-            EcsUtil.GetGroundByPos(pos).isTouchedLand = true;
-        Msg.Dispatch(MsgID.AfterMapChanged);
-        Msg.Dispatch(MsgID.AfterGainMapBonues, new object[] { poses.Count });
+            EcsUtil.GetPlotByPos(pos).isTouchedLand = true;
+        Msg.Dispatch(MsgID.AfterPlotChanged);
+        Msg.Dispatch(MsgID.AfterGainPlotReward, new object[] { poses.Count });
     }
 
     private void Expand(object[] p)
@@ -89,7 +89,7 @@ public class ActionZooSys : ISystem
         {
             int gainNum = (int)p[0];
             Logger.AddOpe(OpeType.ExpandChoose);
-            List<Vector2Int> poses = await FGUIUtil.ChooseExpandGrounds(gainNum);
+            List<Vector2Int> poses = await FGUIUtil.ChooseExpandPlot(gainNum);
             Logger.AddOpe(OpeType.Expand);
             DoExpand(poses);
         });
@@ -98,47 +98,47 @@ public class ActionZooSys : ISystem
     private void ExpandRandomly(object[] p)
     {
         int gainNum = (int)p[0];
-        ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-        List<ZooGround> allGrounds = new List<ZooGround>(zgComp.grounds);
-        Util.Shuffle(allGrounds, new System.Random());
-        List<ZooGround> zgs = Util.Filter(allGrounds, g => !g.isTouchedLand, gainNum);
+        PlotsComp pComp = World.e.sharedConfig.GetComp<PlotsComp>();
+        List<Plot> allPlots = new List<Plot>(pComp.plots);
+        Util.Shuffle(allPlots, new System.Random());
+        List<Plot> zgs = Util.Filter(allPlots, g => !g.isTouchedLand, gainNum);
         DoExpand(Util.Map(zgs, g => g.pos));
     }
 
-    private void DoDemolition(Venue v)
+    private void DoDemolition(Exhibit v)
     {
-        Msg.Dispatch(MsgID.RemoveVenue, new object[] { v });
-        Msg.Dispatch(MsgID.AfterMapChanged);
+        Msg.Dispatch(MsgID.RemoveExhibit, new object[] { v });
+        Msg.Dispatch(MsgID.AfterPlotChanged);
         Msg.Dispatch(MsgID.AfterDemolition);
     }
 
-    private void DemolitionVenueWithCost(object[] p)
+    private void DemolitionExhibitWithCost(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
 
             if (EcsUtil.GetBuffNum(38) > 0) return;
-            VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-            if (vComp.venues.Count == 0) return;
+            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            if (eComp.exhibits.Count == 0) return;
             int gainNum = (int)p[0];
-            Venue zb = await FGUIUtil.SelectVenue(Cfg.GetSTexts("chooseVenueDemolish"));
+            Exhibit zb = await FGUIUtil.SelectExhibit(Cfg.GetSTexts("chooseExhibitDemolish"));
             DoDemolition(zb);
-            Msg.Dispatch(MsgID.ActionGainGold, new object[] { Cfg.cards[zb.uid].goldCost * gainNum / 100 });
+            Msg.Dispatch(MsgID.ActionGainCoin, new object[] { Cfg.cards[zb.uid].coinCost * gainNum / 100 });
         });
     }
 
 
-    private void DemolitionVenue(object[] p)
+    private void DemolitionExhibit(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
         {
 
             if (EcsUtil.GetBuffNum(38) > 0) return;
-            VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-            if (vComp.venues.Count == 0) return;
-            Venue zb = await FGUIUtil.SelectVenue(Cfg.GetSTexts("chooseVenueDemolish"));
+            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            if (eComp.exhibits.Count == 0) return;
+            Exhibit zb = await FGUIUtil.SelectExhibit(Cfg.GetSTexts("chooseExhibitDemolish"));
             DoDemolition(zb);
         });
     }

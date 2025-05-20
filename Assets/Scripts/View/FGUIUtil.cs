@@ -101,21 +101,21 @@ public class FGUIUtil
         return tcs.Task;
     }
 
-    public static Task<Venue> SelectVenue(string title)
+    public static Task<Exhibit> SelectExhibit(string title)
     {
-        var tcs = new TaskCompletionSource<Venue>();
-        UI_SelectVenueWin dbWin = CreateWindow<UI_SelectVenueWin>("SelectVenueWin");
-        dbWin.Init(title ,(Venue zb) =>
+        var tcs = new TaskCompletionSource<Exhibit>();
+        UI_SelectExhibitWin dbWin = CreateWindow<UI_SelectExhibitWin>("SelectExhibitWin");
+        dbWin.Init(title ,(Exhibit zb) =>
         {
             tcs.SetResult(zb);
         });
         return tcs.Task;
     }
 
-    public static Task<List<Vector2Int>> SelectVenuePlace (Card c)
+    public static Task<List<Vector2Int>> SelectExhibitLocation (Card c)
     {
         var tcs = new TaskCompletionSource<List<Vector2Int>>();
-        UI_DealVenueWin ui = CreateWindow<UI_DealVenueWin>("DealVenueWin");
+        UI_PutExhibitWin ui = CreateWindow<UI_PutExhibitWin>("PutExhibitWin");
         ui.Init(c,(List<Vector2Int> poses) =>
         {
             tcs.SetResult(poses);
@@ -123,10 +123,10 @@ public class FGUIUtil
         return tcs.Task;
     }
 
-    public static Task<List<Vector2Int>> ChooseExpandGrounds(int gainNum)
+    public static Task<List<Vector2Int>> ChooseExpandPlot(int gainNum)
     {
         var tcs = new TaskCompletionSource<List<Vector2Int>>();
-        UI_ExpandGroundWin exWin = CreateWindow<UI_ExpandGroundWin>("ExpandGroundWin");
+        UI_ExpandPlotWin exWin = CreateWindow<UI_ExpandPlotWin>("ExpandPlotWin");
         exWin.Init(gainNum, (List<Vector2Int> poses) =>
         {
             tcs.SetResult(poses);
@@ -137,37 +137,26 @@ public class FGUIUtil
     public static string ZooBlockProvider(int index)
     {
         MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
-        return index % (msComp.width * 2) == msComp.width ? "ui://Main/MapPointEmp" : "ui://Main/MapPoint";
+        return index % (msComp.width * 2) == msComp.width ? "ui://Main/PlotEmp" : "ui://Main/Plot";
     }
 
-    public static void InitMapList(GList lst,Action<UI_MapPoint,ZooGround> action,string selectedText = "") {
+    public static void InitPlotList(GList lst,Action<UI_Plot,Plot> action,string selectedText = "") {
         lst.itemProvider = ZooBlockProvider;
         MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
         lst.columnCount = msComp.width;
         lst.itemRenderer = (int index, GObject g) => {
-            ZooGround zg = EcsUtil.GetGroundByIndex(index);
+            Plot zg = EcsUtil.GetPlotByIndex(index);
             if (zg == null) return;
-            UI_MapPoint ui = (UI_MapPoint)g;
+            UI_Plot ui = (UI_Plot)g;
             ui.Init(zg, selectedText);
             action(ui,zg);
         };
     }
 
-    public static Task<bool> DealEvent(ZooEvent curEvent)
+    public static Task<bool> PlayCoinAni()
     {
         var tcs = new TaskCompletionSource<bool>();
-        UI_EventPanelWin ui = CreateWindow<UI_EventPanelWin>("EventPanelWin");
-        ui.Init(curEvent, () =>
-        {
-            tcs.SetResult(true);
-        });
-        return tcs.Task;
-    }
-
-    public static Task<bool> PlayGoldAni()
-    {
-        var tcs = new TaskCompletionSource<bool>();
-        GComponent gcom = UIPackage.CreateObject("Main", "GoldAni").asCom;
+        GComponent gcom = UIPackage.CreateObject("Main", "CoinAni").asCom;
         GRoot.inst.AddChild(gcom);
         gcom.MakeFullScreen();
         gcom.GetTransition("idle").Play(() => {

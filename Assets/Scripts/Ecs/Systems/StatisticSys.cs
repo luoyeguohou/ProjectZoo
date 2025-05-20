@@ -10,11 +10,11 @@ public class StatisticSys : ISystem
         Msg.Bind(MsgID.AfterUseWorker, AfterUseWorker);
         Msg.Bind(MsgID.AfterUseBook, AfterUseBook);
         Msg.Bind(MsgID.OnTurnEnd, OnTurnEnd);
-        Msg.Bind(MsgID.BeforeVenueTakeEffect, BeforeVenueTakeEffect);
-        Msg.Bind(MsgID.AfterVenueTakeEffect, AfterVenueTakeEffect);
-        Msg.Bind(MsgID.AfterGainMapBonues, AfterGainMapBonues);
+        Msg.Bind(MsgID.BeforeExhibitTakeEffect, BeforeExhibitTakeEffect);
+        Msg.Bind(MsgID.AfterExhibitTakeEffect, AfterExhibitTakeEffect);
+        Msg.Bind(MsgID.AfterGainPlotReward, AfterGainPlotReward);
         Msg.Bind(MsgID.AfterGainACard, AfterGainACard);
-        Msg.Bind(MsgID.AfterGainPopRByVenue, AfterGainPopR);
+        Msg.Bind(MsgID.AfterGainPopularityByExhibit, AfterGainPopularity);
         Msg.Bind(MsgID.AfterExpand, AfterExpand);
     }
 
@@ -24,11 +24,11 @@ public class StatisticSys : ISystem
         Msg.UnBind(MsgID.AfterUseWorker, AfterUseWorker);
         Msg.UnBind(MsgID.AfterUseBook, AfterUseBook);
         Msg.UnBind(MsgID.OnTurnEnd, OnTurnEnd);
-        Msg.UnBind(MsgID.BeforeVenueTakeEffect, BeforeVenueTakeEffect);
-        Msg.UnBind(MsgID.AfterVenueTakeEffect, AfterVenueTakeEffect);
-        Msg.UnBind(MsgID.AfterGainMapBonues, AfterGainMapBonues); 
+        Msg.UnBind(MsgID.BeforeExhibitTakeEffect, BeforeExhibitTakeEffect);
+        Msg.UnBind(MsgID.AfterExhibitTakeEffect, AfterExhibitTakeEffect);
+        Msg.UnBind(MsgID.AfterGainPlotReward, AfterGainPlotReward); 
         Msg.UnBind(MsgID.AfterGainACard, AfterGainACard);
-        Msg.UnBind(MsgID.AfterGainPopRByVenue, AfterGainPopR);
+        Msg.UnBind(MsgID.AfterGainPopularityByExhibit, AfterGainPopularity);
         Msg.UnBind(MsgID.AfterExpand, AfterExpand);
     }
 
@@ -38,10 +38,10 @@ public class StatisticSys : ISystem
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         switch (c.cfg.cardType)
         {
-            case 1:
+            case CardType.Achivement:
                 sComp.achiNumTotally++;
                 break;
-            case 3:
+            case CardType.Project:
                 if (c.cfg.oneTime == 0) sComp.permanentProjectCard++;
                 if (c.cfg.oneTime == 1) sComp.lastProjectCardPlayed = c.uid;
                 break;
@@ -66,46 +66,46 @@ public class StatisticSys : ISystem
     private void OnTurnEnd(object[] param = null)
     {
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        sComp.numEffectedVenuesThisTurn = 0;
-        sComp.numEffectedPaChongVenuesThisTurn = 0;
+        sComp.numEffectedExhibitsThisTurn = 0;
+        sComp.numEffectedPaChongExhibitsThisTurn = 0;
         sComp.workerUsedThisTurn = 0;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
-    private void BeforeVenueTakeEffect(object[] param = null)
+    private void BeforeExhibitTakeEffect(object[] param = null)
     {
-        Venue v = (Venue)param[0];
+        Exhibit v = (Exhibit)param[0];
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        sComp.popRLastVenue = sComp.popRThisVenue;
-        sComp.popRThisVenue = 0;
-        sComp.numEffectedVenuesThisTurn++;
-        if (v.cfg.aniModule == 2)
-            sComp.numEffectedPaChongVenuesThisTurn++;
+        sComp.pLastExhibit = sComp.pThisExhibit;
+        sComp.pThisExhibit = 0;
+        sComp.numEffectedExhibitsThisTurn++;
+        if (v.cfg.aniModule == Module.Reptile)
+            sComp.numEffectedPaChongExhibitsThisTurn++;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
-    private void AfterVenueTakeEffect(object[] param = null)
+    private void AfterExhibitTakeEffect(object[] param = null)
     {
-        Venue v = (Venue)param[0];
+        Exhibit v = (Exhibit)param[0];
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        if (v.cfg.aniModule == 0 && sComp.popRThisVenue > sComp.highestPopRFromMonkeyVenue)
-            sComp.highestPopRFromMonkeyVenue = sComp.popRThisVenue;
+        if (v.cfg.aniModule == 0 && sComp.pThisExhibit > sComp.highestPFromMonkeyExhibit)
+            sComp.highestPFromMonkeyExhibit = sComp.pThisExhibit;
 
-        if (sComp.popRThisVenue >= 20)
+        if (sComp.pThisExhibit >= 20)
         {
-            sComp.threeVenuesPopRMoreThat20Cnt++;
-            if (sComp.threeVenuesPopRMoreThat20Cnt > 3)
-                sComp.threeVenuesPopRMoreThat20 = true;
+            sComp.threeExhibitsPMoreThat20Cnt++;
+            if (sComp.threeExhibitsPMoreThat20Cnt > 3)
+                sComp.threeExhibitsPMoreThat20 = true;
         }
         else
-            sComp.threeVenuesPopRMoreThat20Cnt = 0;
+            sComp.threeExhibitsPMoreThat20Cnt = 0;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
-    private void AfterGainMapBonues(object[] param = null)
+    private void AfterGainPlotReward(object[] param = null)
     {
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        sComp.mapBonusCntTotally++;
+        sComp.plotRewardCntTotally++;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
@@ -115,17 +115,17 @@ public class StatisticSys : ISystem
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         foreach (Card c in cards)
         {
-            if (c.cfg.module == -1)
+            if (c.cfg.module == Module.BadIdea)
                 sComp.badIdeaNumTotally++;
         }
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
-    private void AfterGainPopR(object[] param = null)
+    private void AfterGainPopularity(object[] param = null)
     {
         int gainNum = (int)param[0];
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        sComp.popRThisVenue += gainNum;
+        sComp.pThisExhibit += gainNum;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 

@@ -1,4 +1,168 @@
 {
+  "chineseActionSpace": [
+    {
+      "cont": "抽牌堆展示$1张牌，保留$2张牌。",
+      "detailCont": "",
+      "name": "研发部",
+      "uid": "dep_0"
+    },
+    {
+      "cont": "获得$1点时间点数。",
+      "detailCont": "",
+      "name": "建设部",
+      "uid": "dep_1"
+    },
+    {
+      "cont": "获得$1金钱，获得$2人气值。",
+      "detailCont": "",
+      "name": "宣传部",
+      "uid": "dep_2"
+    },
+    {
+      "cont": "花费$r金币招募1名工人。",
+      "detailCont": "花费$r(10+13/12/11/10/9*招募次数【当前为$rt】)金币招募1名工人。",
+      "name": "人力部",
+      "uid": "dep_3"
+    },
+    {
+      "cont": "进行一次采购，商品价格变为原本的$1%。",
+      "detailCont": "",
+      "name": "采购部",
+      "uid": "dep_4"
+    },
+    {
+      "cont": "花费15金钱，升级部门1次。(每季度限$1次)",
+      "detailCont": "",
+      "name": "培训部",
+      "uid": "dep_5"
+    },
+    {
+      "cont": "支付$1%的建造金钱，拆除一个场馆。",
+      "detailCont": "",
+      "name": "清理部门",
+      "uid": "dep_6"
+    },
+    {
+      "cont": "花费$1金钱，扩建$2块未知地块。",
+      "detailCont": "",
+      "name": "扩建部门",
+      "uid": "dep_7"
+    },
+    {
+      "cont": "仅春季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
+      "name": "春日装扮",
+      "uid": "dep_spring"
+    },
+    {
+      "cont": "花费$1金钱，获得抽牌堆中的下一张猿猴场馆牌。",
+      "detailCont": "",
+      "name": "猿猴研究部门",
+      "uid": "dep_devmonkey"
+    },
+    {
+      "cont": "删除手上的$1张诅咒牌。",
+      "detailCont": "",
+      "name": "后勤部门",
+      "uid": "dep_houqin"
+    },
+    {
+      "cont": "该部门为当前等级的研究部门。",
+      "detailCont": "",
+      "name": "研究部分部门",
+      "uid": "dep_yanjiu"
+    },
+    {
+      "cont": "打出手牌中1张猿猴场馆。(每季度限$1次)",
+      "detailCont": "",
+      "name": "猿猴场馆建设部门",
+      "uid": "dep_conmonkey"
+    },
+    {
+      "cont": "仅夏季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
+      "name": "夏日装扮",
+      "uid": "dep_summer"
+    },
+    {
+      "cont": "花费$1金钱，获得抽牌堆中的下一张哺乳类场馆牌。",
+      "detailCont": "",
+      "name": "哺乳类研究部门",
+      "uid": "dep_devburu"
+    },
+    {
+      "cont": "拆除一个场馆，返还建造成本$1%的金钱。",
+      "detailCont": "",
+      "name": "清理部门",
+      "uid": "dep_qingli"
+    },
+    {
+      "cont": "雇佣$1名临时员工。",
+      "detailCont": "",
+      "name": "人才市场",
+      "uid": "dep_rencai"
+    },
+    {
+      "cont": "仅秋季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
+      "name": "秋季装扮",
+      "uid": "dep_august"
+    },
+    {
+      "cont": "免费建造$1个大型场馆。",
+      "detailCont": "",
+      "name": "大型场馆建设部门",
+      "uid": "dep_daxing"
+    },
+    {
+      "cont": "获得10金钱。每次执行都会永久提升该数值$1点。",
+      "detailCont": "",
+      "name": "投资部门",
+      "uid": "dep_investment"
+    },
+    {
+      "cont": "花费$1金钱，获得抽牌堆中的下一张爬虫类场馆牌。",
+      "detailCont": "",
+      "name": "爬虫类研究部门",
+      "uid": "dep_pachong"
+    },
+    {
+      "cont": "免费扩建$1块地。",
+      "detailCont": "",
+      "name": "扩建部门",
+      "uid": "dep_kuojian"
+    },
+    {
+      "cont": "仅冬季可用，从场馆获得的人气值增加$1%。",
+      "detailCont": "",
+      "name": "冬季装扮",
+      "uid": "dep_winter"
+    },
+    {
+      "cont": "花费$1金钱，获得抽牌堆中的下一张海洋场馆牌。",
+      "detailCont": "",
+      "name": "鱼类研究部门",
+      "uid": "dep_yu"
+    },
+    {
+      "cont": "抽$1张牌。",
+      "detailCont": "",
+      "name": "项目研发部门",
+      "uid": "dep_dev"
+    },
+    {
+      "cont": "弃掉最多$1张手牌，收取等量的牌。",
+      "detailCont": "",
+      "name": "专案优化部门",
+      "uid": "dep_youhua"
+    },
+    {
+      "cont": "获得$1个随机书籍。",
+      "detailCont": "",
+      "name": "书籍出版部门",
+      "uid": "dep_book"
+    }
+  ],
   "chineseBook": [
     {
       "cont": "招募$1名员工",
@@ -724,7 +888,7 @@
       "aniName": "虎",
       "className": "哺乳类场馆",
       "condition": "",
-      "cont": "获得$1人气值。获得$1人气值。获得$1人气值。获得$1人气值。获得$1人气值。",
+      "cont": "获得$1人气值。\n获得$1人气值。\n获得$1人气值。\n获得$1人气值。\n获得$1人气值。",
       "name": "华南虎",
       "uid": "huananhu"
     },
@@ -732,7 +896,7 @@
       "aniName": "犬",
       "className": "哺乳类场馆",
       "condition": "",
-      "cont": "获得$1人气值。每次结算后永久提升$2点该数值。(当前$d)",
+      "cont": "获得$1人气值。\n获得$1人气值。\n获得$1人气值。\n获得$1人气值。\n获得$1人气值。",
       "name": "澳洲野犬",
       "uid": "aozhouyequan"
     },
@@ -750,7 +914,7 @@
       "condition": "连续三个场馆提供总计大于等于20点人气值。",
       "cont": "你可以直接弃掉诅咒牌。",
       "name": "人气爆满成就",
-      "uid": "achi_poprating"
+      "uid": "achi_popularity"
     },
     {
       "aniName": "",
@@ -1759,307 +1923,7 @@
       "uid": "event_20"
     }
   ],
-  "chineseSpecWorker": [
-    {
-      "cont": "该员工被派遣时，抽$1张牌。之后额外获得一张随机诅咒牌。",
-      "uid": "yanjiurenyuan"
-    },
-    {
-      "cont": "该员工被派遣时，获得$1点时间点数。",
-      "uid": "jiansherenyuan"
-    },
-    {
-      "cont": "该员工被派遣时，扩建$1块随机地块。",
-      "uid": "kuojianrenyuan"
-    },
-    {
-      "cont": "该员工被派遣时，获得$1名临时员工。",
-      "uid": "guyongrenyuuan"
-    },
-    {
-      "cont": "该员工被派遣时，抽$1张牌。",
-      "uid": "xiangmurenyuan"
-    }
-  ],
-  "chineseStaticText": [
-    {
-      "cont": "丢弃",
-      "uid": "discarded"
-    },
-    {
-      "cont": "选择",
-      "uid": "selected"
-    },
-    {
-      "cont": "扩建",
-      "uid": "expand"
-    },
-    {
-      "cont": "选择{num=5}张牌弃置",
-      "uid": "chooseToDiscard"
-    },
-    {
-      "cont": "选择{num=1}张牌加入手牌",
-      "uid": "chooseToHand"
-    },
-    {
-      "cont": "选择{num=1}张牌丢弃到弃牌堆",
-      "uid": "chooseToDiscard"
-    },
-    {
-      "cont": "选择任意张牌丢弃到弃牌堆，之后抽取等量",
-      "uid": "chooseToDiscardAndDrawSame"
-    },
-    {
-      "cont": "选择最多{num=1}张牌丢弃到弃牌堆，之后抽取等量",
-      "uid": "chooseUpToDiscardAndDrawSame"
-    },
-    {
-      "cont": "选择最多{num=1}张牌丢弃到弃牌堆，之后获取金钱",
-      "uid": "chooseUpToDiscardAndGetMoney"
-    },
-    {
-      "cont": "复制1张牌",
-      "uid": "copyCard"
-    },
-    {
-      "cont": "选择一个场馆复制其场馆牌到手牌。",
-      "uid": "copyVenue"
-    },
-    {
-      "cont": "删除最多{num=1}张诅咒牌",
-      "uid": "deleteBadIdea"
-    },
-    {
-      "cont": "(当前等级:{0})",
-      "uid": "currRank"
-    },
-    {
-      "cont": "免费打出最多{num=1}张牌",
-      "uid": "playHandFreely"
-    },
-    {
-      "cont": "免费打出最多{num=1}张大型场馆",
-      "uid": "playBigVenueFreely"
-    },
-    {
-      "cont": "免费打出最多{num=1}张猿猴场馆",
-      "uid": "playMonkeyFreely"
-    },
-    {
-      "cont": "选择一个场馆拆除",
-      "uid": "chooseVenueDemolish"
-    },
-    {
-      "cont": "普通工人，新的回合会刷新！！！",
-      "uid": "normalWorker"
-    },
-    {
-      "cont": "临时工人，回合结束时消失！！！",
-      "uid": "tempWorker"
-    },
-    {
-      "cont": "抽牌堆",
-      "uid": "drawPile"
-    },
-    {
-      "cont": "弃牌堆",
-      "uid": "discardPile"
-    },
-    {
-      "cont": "等待开采",
-      "uid": "waitToTouch"
-    },
-    {
-      "cont": "岩石",
-      "uid": "rock"
-    },
-    {
-      "cont": "湖泊",
-      "uid": "lack"
-    },
-    {
-      "cont": "可建造",
-      "uid": "canBuild"
-    },
-    {
-      "cont": "没有足够的时间点数或金钱",
-      "uid": "notEnoughMoney"
-    },
-    {
-      "cont": "不能打出",
-      "uid": "cantPlayIt"
-    },
-    {
-      "cont": "不能打出成就牌",
-      "uid": "CantPlayAchiCard"
-    },
-    {
-      "cont": "不满足打出的条件",
-      "uid": "DontMeetReq"
-    },
-    {
-      "cont": "没有足够的空间建造这个场馆",
-      "uid": "DontHaveRoom"
-    },
-    {
-      "cont": "不能打出成就牌，停止打出",
-      "uid": "CantPlayAchiCardStop"
-    },
-    {
-      "cont": "不满足打出的条件，停止打出",
-      "uid": "DontMeetReqStop"
-    },
-    {
-      "cont": "没有足够的空间建造这个场馆，停止打出",
-      "uid": "DontHaveRoomStop"
-    },
-    {
-      "cont": "获得金钱 {0}",
-      "uid": "GetGold"
-    },
-    {
-      "cont": "一回合最多使用一次",
-      "uid": "OncePerTurn"
-    },
-    {
-      "cont": "你没有任何场馆",
-      "uid": "DontHaveVenue"
-    },
-    {
-      "cont": "你不能拆除场馆",
-      "uid": "CantDemolish"
-    },
-    {
-      "cont": "仅春季可用",
-      "uid": "OnlyInSpring"
-    },
-    {
-      "cont": "仅夏季可用",
-      "uid": "OnlyInSummer"
-    },
-    {
-      "cont": "仅秋季可用",
-      "uid": "OnlyInAugust"
-    },
-    {
-      "cont": "仅冬季可用",
-      "uid": "OnlyInWinter"
-    },
-    {
-      "cont": "打出条件：\n{cond=至少拥有10个海洋场馆}\n\n{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}",
-      "uid": "cardContWithCond"
-    },
-    {
-      "cont": "大型场馆",
-      "uid": "bigExhibit"
-    },
-    {
-      "cont": "小型场馆",
-      "uid": "smallExhibit"
-    },
-    {
-      "cont": "通过收入获得{0}金钱。",
-      "uid": "ssIncome"
-    },
-    {
-      "cont": "获得{0}人气值。",
-      "uid": "ssPopularity"
-    },
-    {
-      "cont": "获得{0}本随机书籍。",
-      "uid": "ssBook"
-    },
-    {
-      "cont": "成功通过50%概率获得{0}金钱。",
-      "uid": "ssHalfChange"
-    },
-    {
-      "cont": "获得{0}个随机地图奖励。",
-      "uid": "ssPlotRewards"
-    },
-    {
-      "cont": "获得{0}张随机诅咒牌。",
-      "uid": "ssCurse"
-    },
-    {
-      "cont": "抽{0}张牌。",
-      "uid": "ssCard"
-    },
-    {
-      "cont": "获得随机项： ",
-      "uid": "ssRandomGain"
-    },
-    {
-      "cont": "{0}金钱。",
-      "uid": "ssRCoin"
-    },
-    {
-      "cont": "{0}人气值。",
-      "uid": "ssRPopularity"
-    },
-    {
-      "cont": "{0}个临时工人。",
-      "uid": "sRTWorker"
-    },
-    {
-      "cont": "{0}张随机诅咒牌。",
-      "uid": "ssRCurse"
-    },
-    {
-      "cont": "{0}本随机书籍。",
-      "uid": "ssRBook"
-    },
-    {
-      "cont": "{0}个工人。",
-      "uid": "prWorker"
-    },
-    {
-      "cont": "{0}金钱。",
-      "uid": "prCoin"
-    },
-    {
-      "cont": "{0}个临时工人。",
-      "uid": "prTWorker"
-    },
-    {
-      "cont": "{0}收入。",
-      "uid": "prIncome"
-    },
-    {
-      "cont": "{0}随机书籍。",
-      "uid": "prBook"
-    },
-    {
-      "cont": "抽{0}张牌。",
-      "uid": "prDraw"
-    },
-    {
-      "cont": "地图奖励：",
-      "uid": "plotReward"
-    },
-    {
-      "cont": "待扩建的未知地块。",
-      "uid": "unknowPlot"
-    },
-    {
-      "cont": "不能在结算的时候离开这个页面。",
-      "uid": "cantLeaveWhenResolving"
-    },
-    {
-      "cont": "什么事情也没发生。",
-      "uid": "nothingHappened"
-    },
-    {
-      "cont": "获得{0}收入。",
-      "uid": "gainIncome"
-    },
-    {
-      "cont": "你已经有15个部门了，不能再打出新的部门牌了。",
-      "uid": "cantPlayActionSpaceCard"
-    }
-  ],
-  "chineseVenue": [
+  "chineseExhibit": [
     {
       "aniName": "猿猴",
       "className": "猿猴场馆",
@@ -2325,2832 +2189,307 @@
       "uid": "jinyu"
     }
   ],
-  "chineseWorkPos": [
+  "chineseSpecWorker": [
     {
-      "cont": "抽牌堆展示$1张牌，保留$2张牌。",
-      "detailCont": "",
-      "name": "研发部",
-      "uid": "dep_0"
+      "cont": "该员工被派遣时，抽$1张牌。之后额外获得一张随机诅咒牌。",
+      "uid": "yanjiurenyuan"
     },
     {
-      "cont": "获得$1点时间点数。",
-      "detailCont": "",
-      "name": "建设部",
-      "uid": "dep_1"
+      "cont": "该员工被派遣时，获得$1点时间点数。",
+      "uid": "jiansherenyuan"
     },
     {
-      "cont": "获得$1金钱，获得$2人气值。",
-      "detailCont": "",
-      "name": "宣传部",
-      "uid": "dep_2"
+      "cont": "该员工被派遣时，扩建$1块随机地块。",
+      "uid": "kuojianrenyuan"
     },
     {
-      "cont": "花费$r金币招募1名工人。",
-      "detailCont": "花费$r(10+13/12/11/10/9*招募次数【当前为$rt】)金币招募1名工人。",
-      "name": "人力部",
-      "uid": "dep_3"
+      "cont": "该员工被派遣时，获得$1名临时员工。",
+      "uid": "guyongrenyuuan"
     },
     {
-      "cont": "进行一次采购，商品价格变为原本的$1%。",
-      "detailCont": "",
-      "name": "采购部",
-      "uid": "dep_4"
-    },
-    {
-      "cont": "花费15金钱，升级部门1次。(每季度限$1次)",
-      "detailCont": "",
-      "name": "培训部",
-      "uid": "dep_5"
-    },
-    {
-      "cont": "支付$1%的建造金钱，拆除一个场馆。",
-      "detailCont": "",
-      "name": "清理部门",
-      "uid": "dep_6"
-    },
-    {
-      "cont": "花费$1金钱，扩建$2块未知地块。",
-      "detailCont": "",
-      "name": "扩建部门",
-      "uid": "dep_7"
-    },
-    {
-      "cont": "仅春季可用，从场馆获得的人气值增加$1%。",
-      "detailCont": "",
-      "name": "春日装扮",
-      "uid": "dep_spring"
-    },
-    {
-      "cont": "花费$1金钱，获得抽牌堆中的下一张猿猴场馆牌。",
-      "detailCont": "",
-      "name": "猿猴研究部门",
-      "uid": "dep_devmonkey"
-    },
-    {
-      "cont": "删除手上的$1张诅咒牌。",
-      "detailCont": "",
-      "name": "后勤部门",
-      "uid": "dep_houqin"
-    },
-    {
-      "cont": "该部门为当前等级的研究部门。",
-      "detailCont": "",
-      "name": "研究部分部门",
-      "uid": "dep_yanjiu"
-    },
-    {
-      "cont": "打出手牌中1张猿猴场馆。(每季度限$1次)",
-      "detailCont": "",
-      "name": "猿猴场馆建设部门",
-      "uid": "dep_conmonkey"
-    },
-    {
-      "cont": "仅夏季可用，从场馆获得的人气值增加$1%。",
-      "detailCont": "",
-      "name": "夏日装扮",
-      "uid": "dep_summer"
-    },
-    {
-      "cont": "花费$1金钱，获得抽牌堆中的下一张哺乳类场馆牌。",
-      "detailCont": "",
-      "name": "哺乳类研究部门",
-      "uid": "dep_devburu"
-    },
-    {
-      "cont": "拆除一个场馆，返还建造成本$1%的金钱。",
-      "detailCont": "",
-      "name": "清理部门",
-      "uid": "dep_qingli"
-    },
-    {
-      "cont": "雇佣$1名临时员工。",
-      "detailCont": "",
-      "name": "人才市场",
-      "uid": "dep_rencai"
-    },
-    {
-      "cont": "仅秋季可用，从场馆获得的人气值增加$1%。",
-      "detailCont": "",
-      "name": "秋季装扮",
-      "uid": "dep_august"
-    },
-    {
-      "cont": "免费建造$1个大型场馆。",
-      "detailCont": "",
-      "name": "大型场馆建设部门",
-      "uid": "dep_daxing"
-    },
-    {
-      "cont": "获得10金钱。每次执行都会永久提升该数值$1点。",
-      "detailCont": "",
-      "name": "投资部门",
-      "uid": "dep_investment"
-    },
-    {
-      "cont": "花费$1金钱，获得抽牌堆中的下一张爬虫类场馆牌。",
-      "detailCont": "",
-      "name": "爬虫类研究部门",
-      "uid": "dep_pachong"
-    },
-    {
-      "cont": "免费扩建$1块地。",
-      "detailCont": "",
-      "name": "扩建部门",
-      "uid": "dep_kuojian"
-    },
-    {
-      "cont": "仅冬季可用，从场馆获得的人气值增加$1%。",
-      "detailCont": "",
-      "name": "冬季装扮",
-      "uid": "dep_winter"
-    },
-    {
-      "cont": "花费$1金钱，获得抽牌堆中的下一张海洋场馆牌。",
-      "detailCont": "",
-      "name": "鱼类研究部门",
-      "uid": "dep_yu"
-    },
-    {
-      "cont": "抽$1张牌。",
-      "detailCont": "",
-      "name": "项目研发部门",
-      "uid": "dep_dev"
-    },
-    {
-      "cont": "弃掉最多$1张手牌，收取等量的牌。",
-      "detailCont": "",
-      "name": "专案优化部门",
-      "uid": "dep_youhua"
-    },
-    {
-      "cont": "获得$1个随机书籍。",
-      "detailCont": "",
-      "name": "书籍出版部门",
-      "uid": "dep_book"
+      "cont": "该员工被派遣时，抽$1张牌。",
+      "uid": "xiangmurenyuan"
     }
   ],
-  "dataBook": [
+  "chineseStaticText": [
     {
-      "order": 1,
-      "uid": "oneWorker",
-      "val1": 1,
-      "val2": 0
+      "cont": "丢弃",
+      "uid": "discarded"
     },
     {
-      "order": 2,
-      "uid": "threeWorker",
-      "val1": 3,
-      "val2": 0
+      "cont": "选择",
+      "uid": "selected"
     },
     {
-      "order": 3,
-      "uid": "newIndustry",
-      "val1": 5,
-      "val2": 0
+      "cont": "扩建",
+      "uid": "expand"
     },
     {
-      "order": 4,
-      "uid": "investment",
-      "val1": 1,
-      "val2": 20
+      "cont": "选择{num=5}张牌弃置",
+      "uid": "chooseToDiscard"
     },
     {
-      "order": 5,
-      "uid": "research",
-      "val1": 2,
-      "val2": 0
+      "cont": "选择{num=1}张牌加入手牌",
+      "uid": "chooseToHand"
     },
     {
-      "order": 6,
-      "uid": "expand",
-      "val1": 3,
-      "val2": 0
+      "cont": "选择{num=1}张牌丢弃到弃牌堆",
+      "uid": "chooseToDiscard"
     },
     {
-      "order": 7,
-      "uid": "training",
-      "val1": 1,
-      "val2": 0
+      "cont": "选择任意张牌丢弃到弃牌堆，之后抽取等量",
+      "uid": "chooseToDiscardAndDrawSame"
     },
     {
-      "order": 8,
-      "uid": "trainingCrazyly",
-      "val1": 2,
-      "val2": 0
+      "cont": "选择最多{num=1}张牌丢弃到弃牌堆，之后抽取等量",
+      "uid": "chooseUpToDiscardAndDrawSame"
     },
     {
-      "order": 9,
-      "uid": "shadowIndustry",
-      "val1": 8,
-      "val2": 0
+      "cont": "选择最多{num=1}张牌丢弃到弃牌堆，之后获取金钱",
+      "uid": "chooseUpToDiscardAndGetMoney"
     },
     {
-      "order": 10,
-      "uid": "rockFree",
-      "val1": 2,
-      "val2": 0
+      "cont": "复制1张牌",
+      "uid": "copyCard"
     },
     {
-      "order": 11,
-      "uid": "lakeFree",
-      "val1": 2,
-      "val2": 0
+      "cont": "选择一个场馆复制其场馆牌到手牌。",
+      "uid": "copyExhibit"
     },
     {
-      "order": 12,
-      "uid": "expandOvernight",
-      "val1": 5,
-      "val2": 0
+      "cont": "删除最多{num=1}张诅咒牌",
+      "uid": "deleteBadIdea"
     },
     {
-      "order": 13,
-      "uid": "caseRecycle",
-      "val1": 1,
-      "val2": 0
+      "cont": "(当前等级:{0})",
+      "uid": "currRank"
     },
     {
-      "order": 14,
-      "uid": "projectScreening",
-      "val1": 3,
-      "val2": 0
+      "cont": "免费打出最多{num=1}张牌",
+      "uid": "playHandFreely"
     },
     {
-      "order": 15,
-      "uid": "promotion",
-      "val1": 5,
-      "val2": 0
+      "cont": "免费打出最多{num=1}张大型场馆",
+      "uid": "playBigExhibitFreely"
     },
     {
-      "order": 16,
-      "uid": "adBombardment",
-      "val1": 15,
-      "val2": 0
+      "cont": "免费打出最多{num=1}张猿猴场馆",
+      "uid": "playMonkeyFreely"
     },
     {
-      "order": 17,
-      "uid": "hiddenTreasure",
-      "val1": 1,
-      "val2": 5
+      "cont": "选择一个场馆拆除",
+      "uid": "chooseExhibitDemolish"
     },
     {
-      "order": 18,
-      "uid": "internalPurge",
-      "val1": 1,
-      "val2": 0
+      "cont": "普通工人，新的回合会刷新！！！",
+      "uid": "normalWorker"
     },
     {
-      "order": 19,
-      "uid": "projectSale",
-      "val1": 3,
-      "val2": 0
+      "cont": "临时工人，回合结束时消失！！！",
+      "uid": "tempWorker"
     },
     {
-      "order": 20,
-      "uid": "building",
-      "val1": 1,
-      "val2": 0
+      "cont": "抽牌堆",
+      "uid": "drawPile"
     },
     {
-      "order": 21,
-      "uid": "copy",
-      "val1": 1,
-      "val2": 0
+      "cont": "弃牌堆",
+      "uid": "discardPile"
     },
     {
-      "order": 22,
-      "uid": "newDepartment",
-      "val1": 1,
-      "val2": 0
+      "cont": "等待开采",
+      "uid": "waitToTouch"
     },
     {
-      "order": 23,
-      "uid": "warehouseExpansion",
-      "val1": 1,
-      "val2": 0
+      "cont": "岩石",
+      "uid": "rock"
     },
     {
-      "order": 24,
-      "uid": "promotionDepartmentExpansion",
-      "val1": 2,
-      "val2": 0
+      "cont": "湖泊",
+      "uid": "lack"
+    },
+    {
+      "cont": "可建造",
+      "uid": "canBuild"
+    },
+    {
+      "cont": "没有足够的时间点数或金钱",
+      "uid": "notEnoughMoney"
+    },
+    {
+      "cont": "不能打出",
+      "uid": "cantPlayIt"
+    },
+    {
+      "cont": "不能打出成就牌",
+      "uid": "CantPlayAchiCard"
+    },
+    {
+      "cont": "不满足打出的条件",
+      "uid": "DontMeetReq"
+    },
+    {
+      "cont": "没有足够的空间建造这个场馆",
+      "uid": "DontHaveRoom"
+    },
+    {
+      "cont": "不能打出成就牌，停止打出",
+      "uid": "CantPlayAchiCardStop"
+    },
+    {
+      "cont": "不满足打出的条件，停止打出",
+      "uid": "DontMeetReqStop"
+    },
+    {
+      "cont": "没有足够的空间建造这个场馆，停止打出",
+      "uid": "DontHaveRoomStop"
+    },
+    {
+      "cont": "获得金钱 {0}",
+      "uid": "GetCoin"
+    },
+    {
+      "cont": "一回合最多使用一次",
+      "uid": "OncePerTurn"
+    },
+    {
+      "cont": "你没有任何场馆",
+      "uid": "DontHaveExhibit"
+    },
+    {
+      "cont": "你不能拆除场馆",
+      "uid": "CantDemolish"
+    },
+    {
+      "cont": "仅春季可用",
+      "uid": "OnlyInSpring"
+    },
+    {
+      "cont": "仅夏季可用",
+      "uid": "OnlyInSummer"
+    },
+    {
+      "cont": "仅秋季可用",
+      "uid": "OnlyInAugust"
+    },
+    {
+      "cont": "仅冬季可用",
+      "uid": "OnlyInWinter"
+    },
+    {
+      "cont": "打出条件：\n{cond=至少拥有10个海洋场馆}\n\n{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}",
+      "uid": "cardContWithCond"
+    },
+    {
+      "cont": "大型场馆",
+      "uid": "bigExhibit"
+    },
+    {
+      "cont": "小型场馆",
+      "uid": "smallExhibit"
+    },
+    {
+      "cont": "通过收入获得{0}金钱。",
+      "uid": "ssIncome"
+    },
+    {
+      "cont": "获得{0}人气值。",
+      "uid": "ssPopularity"
+    },
+    {
+      "cont": "获得{0}本随机书籍。",
+      "uid": "ssBook"
+    },
+    {
+      "cont": "成功通过50%概率获得{0}金钱。",
+      "uid": "ssHalfChange"
+    },
+    {
+      "cont": "获得{0}个随机地图奖励。",
+      "uid": "ssPlotRewards"
+    },
+    {
+      "cont": "获得{0}张随机诅咒牌。",
+      "uid": "ssCurse"
+    },
+    {
+      "cont": "抽{0}张牌。",
+      "uid": "ssCard"
+    },
+    {
+      "cont": "获得随机项： ",
+      "uid": "ssRandomGain"
+    },
+    {
+      "cont": "{0}金钱。",
+      "uid": "ssRCoin"
+    },
+    {
+      "cont": "{0}人气值。",
+      "uid": "ssRPopularity"
+    },
+    {
+      "cont": "{0}个临时工人。",
+      "uid": "sRTWorker"
+    },
+    {
+      "cont": "{0}张随机诅咒牌。",
+      "uid": "ssRCurse"
+    },
+    {
+      "cont": "{0}本随机书籍。",
+      "uid": "ssRBook"
+    },
+    {
+      "cont": "{0}个工人。",
+      "uid": "prWorker"
+    },
+    {
+      "cont": "{0}金钱。",
+      "uid": "prCoin"
+    },
+    {
+      "cont": "{0}个临时工人。",
+      "uid": "prTWorker"
+    },
+    {
+      "cont": "{0}收入。",
+      "uid": "prIncome"
+    },
+    {
+      "cont": "{0}随机书籍。",
+      "uid": "prBook"
+    },
+    {
+      "cont": "抽{0}张牌。",
+      "uid": "prDraw"
+    },
+    {
+      "cont": "地图奖励：",
+      "uid": "plotReward"
+    },
+    {
+      "cont": "待扩建的未知地块。",
+      "uid": "unknowPlot"
+    },
+    {
+      "cont": "不能在结算的时候离开这个页面。",
+      "uid": "cantLeaveWhenResolving"
+    },
+    {
+      "cont": "什么事情也没发生。",
+      "uid": "nothingHappened"
+    },
+    {
+      "cont": "获得{0}收入。",
+      "uid": "gainIncome"
+    },
+    {
+      "cont": "你已经有15个部门了，不能再打出新的部门牌了。",
+      "uid": "cantPlayActionSpaceCard"
     }
   ],
-  "dataBuff": [
-    {
-      "uid": 1
-    },
-    {
-      "uid": 2
-    },
-    {
-      "uid": 3
-    },
-    {
-      "uid": 4
-    },
-    {
-      "uid": 5
-    },
-    {
-      "uid": 6
-    },
-    {
-      "uid": 7
-    },
-    {
-      "uid": 8
-    },
-    {
-      "uid": 9
-    },
-    {
-      "uid": 10
-    },
-    {
-      "uid": 11
-    },
-    {
-      "uid": 12
-    },
-    {
-      "uid": 13
-    },
-    {
-      "uid": 14
-    },
-    {
-      "uid": 15
-    },
-    {
-      "uid": 16
-    },
-    {
-      "uid": 17
-    },
-    {
-      "uid": 18
-    },
-    {
-      "uid": 19
-    },
-    {
-      "uid": 20
-    },
-    {
-      "uid": 21
-    },
-    {
-      "uid": 22
-    },
-    {
-      "uid": 23
-    },
-    {
-      "uid": 24
-    },
-    {
-      "uid": 25
-    },
-    {
-      "uid": 26
-    },
-    {
-      "uid": 27
-    },
-    {
-      "uid": 28
-    },
-    {
-      "uid": 29
-    },
-    {
-      "uid": 30
-    },
-    {
-      "uid": 31
-    },
-    {
-      "uid": 32
-    },
-    {
-      "uid": 33
-    },
-    {
-      "uid": 34
-    },
-    {
-      "uid": 35
-    },
-    {
-      "uid": 36
-    },
-    {
-      "uid": 37
-    },
-    {
-      "uid": 38
-    },
-    {
-      "uid": 39
-    },
-    {
-      "uid": 40
-    },
-    {
-      "uid": 41
-    },
-    {
-      "uid": 42
-    },
-    {
-      "uid": 43
-    },
-    {
-      "uid": 44
-    },
-    {
-      "uid": 45
-    },
-    {
-      "uid": 46
-    },
-    {
-      "uid": 47
-    },
-    {
-      "uid": 48
-    },
-    {
-      "uid": 49
-    },
-    {
-      "uid": 50
-    },
-    {
-      "uid": 51
-    },
-    {
-      "uid": 52
-    },
-    {
-      "uid": 53
-    },
-    {
-      "uid": 54
-    },
-    {
-      "uid": 55
-    },
-    {
-      "uid": 56
-    },
-    {
-      "uid": 57
-    },
-    {
-      "uid": 58
-    },
-    {
-      "uid": 59
-    },
-    {
-      "uid": 60
-    },
-    {
-      "uid": 61
-    },
-    {
-      "uid": 62
-    },
-    {
-      "uid": 63
-    },
-    {
-      "uid": 64
-    },
-    {
-      "uid": 65
-    },
-    {
-      "uid": 66
-    },
-    {
-      "uid": 67
-    },
-    {
-      "uid": 68
-    },
-    {
-      "uid": 69
-    },
-    {
-      "uid": 70
-    },
-    {
-      "uid": 71
-    }
-  ],
-  "dataCard": [
-    {
-      "cardType": 0,
-      "goldCost": 9,
-      "landType": 3,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "jinsi_monkey",
-      "val1": 2,
-      "val2": 6,
-      "val3": 10
-    },
-    {
-      "cardType": 0,
-      "goldCost": 17,
-      "landType": 1,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "mi_monkey",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "changbi_monkey",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 6,
-      "landType": 2,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "rong_monkey",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 15,
-      "landType": 5,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "spider_monkey",
-      "val1": 50,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 7,
-      "landType": 1,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "juanwei_monkey",
-      "val1": 4,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 2,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "hou_monkey",
-      "val1": 8,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 19,
-      "landType": 6,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "ye_monkey",
-      "val1": 9,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 2,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "huiye_monkey",
-      "val1": 3,
-      "val2": 1,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 14,
-      "landType": 7,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "yuan_monkey",
-      "val1": 25,
-      "val2": 3,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_danyi",
-      "val1": 20,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_yuanhou",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_duty",
-      "val1": 2,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_houxuanchuan",
-      "val1": 20,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_spring",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_devmonkey",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 15,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_houqin",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_yanjiu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 14,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_conmonkey",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 7,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "yizhaoxian",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 3,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "houzifanlan",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "yuanhouzhuti",
-      "val1": 20,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 6,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 2,
-      "timeCost": 5,
-      "uid": "yanjiurenyuan",
-      "val1": 2,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 2,
-      "timeCost": 5,
-      "uid": "jiansherenyuan",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 3,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 5,
-      "timeCost": 5,
-      "uid": "shenjianshuzhi",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 27,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 5,
-      "uid": "guanlidashi",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 0,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "feianliyong",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "taojiahuanjia",
-      "val1": 15,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 6,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "yejiedaheng",
-      "val1": 2,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 6,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 6,
-      "uid": "sixsixsix",
-      "val1": 90,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 0,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "yanfazhiyan",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 7,
-      "landType": 1,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "duanmianxiong",
-      "val1": 6,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 15,
-      "landType": 3,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "huixiong",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 22,
-      "landType": 7,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "feizhoushi",
-      "val1": 15,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 17,
-      "landType": 4,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "meizhoushi",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 4,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 1,
-      "uid": "yazhoushi",
-      "val1": 1,
-      "val2": 1,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 14,
-      "landType": 2,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "guzhonghuabao",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 13,
-      "landType": 3,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "meizhoubao",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 1,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "dongbeihu",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 10,
-      "landType": 5,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "huananhu",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 3,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "aozhouyequan",
-      "val1": 1,
-      "val2": 1,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 17,
-      "landType": 2,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "ouzhouguan",
-      "val1": 2,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_poprating",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_buru",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_duozhonglei",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_hbxs",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_summer",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_devburu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "dep_qingli",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 2,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_rencai",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "heishi",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 15,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "renqibaopeng",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 5,
-      "timeCost": 4,
-      "uid": "renmanweifu",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 3,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "renmanweian",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 3,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "dubo",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "gouwudaheng",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 10,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "baocang",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "minjiekaifa",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "duokuaihaosheng",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 10,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "caipiao",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 4,
-      "uid": "mailiang",
-      "val1": 50,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 2,
-      "timeCost": 5,
-      "uid": "lixifanbei",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 2,
-      "timeCost": 5,
-      "uid": "junhengtouzi",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 1,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 2,
-      "timeCost": 5,
-      "uid": "kuojianrenyuan",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 3,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "guowangbsl",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 17,
-      "landType": 3,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "gaoguanbsl",
-      "val1": 2,
-      "val2": 15,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 22,
-      "landType": 6,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "duojiesenbsl",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 10,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "kemoduojx",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 27,
-      "landType": 7,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "juxinghuanweixi",
-      "val1": 15,
-      "val2": 25,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 22,
-      "landType": 6,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "jiaoxi",
-      "val1": 10,
-      "val2": 25,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 13,
-      "landType": 1,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "yagualabihu",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 23,
-      "landType": 3,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "jinqiangui",
-      "val1": 15,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 7,
-      "landType": 1,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "toucejingui",
-      "val1": 4,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 11,
-      "landType": 2,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "baxihaigui",
-      "val1": 6,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_pachong",
-      "val1": 25,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_duoyangxing",
-      "val1": 30,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_kongjiangongji",
-      "val1": 20,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_daxing",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_august",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 3,
-      "uid": "dep_daxing",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 15,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 5,
-      "uid": "dep_investment",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_pachong",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 7,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 3,
-      "uid": "dep_kuojian",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "zhanluejia",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "gailvdashi",
-      "val1": 15,
-      "val2": 2,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 15,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "zhaoshangyinzi",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "teshuzhaomu",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 3,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "huaidianzi",
-      "val1": 10,
-      "val2": 60,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 10,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "kuozhangdipan",
-      "val1": 4,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "shuangbei",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 25,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "haoyunlai",
-      "val1": 15,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 5,
-      "uid": "miansijinpai",
-      "val1": 50,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "kaishan",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 17,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "changjiuzhiji",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "linshiguyong",
-      "val1": 4,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 2,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "guyongrenyuuan",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 13,
-      "landType": 2,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "shayu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 1,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "shirenyu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 13,
-      "landType": 3,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "yanshiyu",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 13,
-      "landType": 3,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "shenhaiyu",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 18,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "jinli",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 20,
-      "landType": 3,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "douyu",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 14,
-      "landType": 2,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "lianyu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 14,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "qunjuyu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 3,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "denglongyu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 7,
-      "landType": 1,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "xiami",
-      "val1": 3,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 12,
-      "landType": 2,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "xiaoxingyulei",
-      "val1": 6,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 19,
-      "landType": 6,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "daxingyulei",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 0,
-      "goldCost": 4,
-      "landType": 2,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "jinyu",
-      "val1": 10,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_yu",
-      "val1": 50,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_weizhi",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_heliu",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 1,
-      "goldCost": 5,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "achi_xiaoxing",
-      "val1": 1,
-      "val2": 1,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_winter",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 2,
-      "uid": "dep_yu",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 3,
-      "uid": "dep_dev",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 14,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 1,
-      "uid": "dep_youhua",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 2,
-      "goldCost": 14,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 4,
-      "uid": "dep_book",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "haiyangzhixin",
-      "val1": 2,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "dixiakuangmai",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 14,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "kantangaoshou",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 16,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "feianliyong2",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 1,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 2,
-      "uid": "pianhao",
-      "val1": 5,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 1,
-      "timeCost": 3,
-      "uid": "buhuo",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 15,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "dashuaimai",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 13,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "shencengguwu",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 16,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "kaimenhong",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 10,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "chaimendaji",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 12,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 3,
-      "uid": "fengkuangkuojian",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 19,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 4,
-      "uid": "rencaiyinjin",
-      "val1": 1,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": 3,
-      "goldCost": 9,
-      "landType": 0,
-      "module": 3,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 3,
-      "timeCost": 5,
-      "uid": "xiangmurenyuan",
-      "val1": 1,
-      "val2": 1,
-      "val3": 0
-    },
-    {
-      "cardType": -1,
-      "goldCost": 7,
-      "landType": 0,
-      "module": -1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 0,
-      "timeCost": 5,
-      "uid": "xiedai",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": -1,
-      "goldCost": 2,
-      "landType": 0,
-      "module": -1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 0,
-      "timeCost": 2,
-      "uid": "hanchao",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": -1,
-      "goldCost": 15,
-      "landType": 0,
-      "module": -1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 0,
-      "timeCost": 3,
-      "uid": "tonghuopengzhang",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": -1,
-      "goldCost": 4,
-      "landType": 0,
-      "module": -1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 0,
-      "timeCost": 8,
-      "uid": "eyishougou",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    },
-    {
-      "cardType": -1,
-      "goldCost": 3,
-      "landType": 0,
-      "module": -1,
-      "oneTime": 0,
-      "rare": 0,
-      "repeatNum": 0,
-      "timeCost": 3,
-      "uid": "jiabi",
-      "val1": 0,
-      "val2": 0,
-      "val3": 0
-    }
-  ],
-  "dataEvent": [
-    {
-      "uid": "event_1"
-    },
-    {
-      "uid": "event_2"
-    },
-    {
-      "uid": "event_3"
-    },
-    {
-      "uid": "event_4"
-    },
-    {
-      "uid": "event_5"
-    },
-    {
-      "uid": "event_6"
-    },
-    {
-      "uid": "event_7"
-    },
-    {
-      "uid": "event_8"
-    },
-    {
-      "uid": "event_9"
-    },
-    {
-      "uid": "event_10"
-    },
-    {
-      "uid": "event_11"
-    },
-    {
-      "uid": "event_12"
-    },
-    {
-      "uid": "event_13"
-    },
-    {
-      "uid": "event_14"
-    },
-    {
-      "uid": "event_15"
-    },
-    {
-      "uid": "event_16"
-    },
-    {
-      "uid": "event_17"
-    },
-    {
-      "uid": "event_18"
-    },
-    {
-      "uid": "event_19"
-    },
-    {
-      "uid": "event_20"
-    }
-  ],
-  "dataSpecWorker": [
-    {
-      "uid": "yanjiurenyuan",
-      "val": 2
-    },
-    {
-      "uid": "jiansherenyuan",
-      "val": 4
-    },
-    {
-      "uid": "kuojianrenyuan",
-      "val": 1
-    },
-    {
-      "uid": "guyongrenyuuan",
-      "val": 1
-    },
-    {
-      "uid": "xiangmurenyuan",
-      "val": 1
-    }
-  ],
-  "dataVenue": [
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 3,
-      "uid": "jinsi_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 1,
-      "uid": "mi_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 0,
-      "uid": "changbi_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 1,
-      "landType": 2,
-      "uid": "rong_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 5,
-      "uid": "spider_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 1,
-      "uid": "juanwei_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 2,
-      "uid": "hou_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 6,
-      "uid": "ye_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 2,
-      "uid": "huiye_monkey"
-    },
-    {
-      "aniModule": 0,
-      "aniType": "monkey",
-      "isX": 0,
-      "landType": 7,
-      "uid": "yuan_monkey"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "bear",
-      "isX": 0,
-      "landType": 1,
-      "uid": "duanmianxiong"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "bear",
-      "isX": 0,
-      "landType": 3,
-      "uid": "huixiong"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "lion",
-      "isX": 0,
-      "landType": 7,
-      "uid": "feizhoushi"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "lion",
-      "isX": 0,
-      "landType": 4,
-      "uid": "meizhoushi"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "lion",
-      "isX": 0,
-      "landType": 0,
-      "uid": "yazhoushi"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "leopard",
-      "isX": 1,
-      "landType": 2,
-      "uid": "guzhonghuabao"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "leopard",
-      "isX": 1,
-      "landType": 3,
-      "uid": "meizhoubao"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "tiger",
-      "isX": 0,
-      "landType": 1,
-      "uid": "dongbeihu"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "tiger",
-      "isX": 0,
-      "landType": 5,
-      "uid": "huananhu"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "dog",
-      "isX": 0,
-      "landType": 3,
-      "uid": "aozhouyequan"
-    },
-    {
-      "aniModule": 1,
-      "aniType": "badger",
-      "isX": 0,
-      "landType": 2,
-      "uid": "ouzhouguan"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "chameleon",
-      "isX": 1,
-      "landType": 3,
-      "uid": "guowangbsl"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "chameleon",
-      "isX": 1,
-      "landType": 3,
-      "uid": "gaoguanbsl"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "chameleon",
-      "isX": 1,
-      "landType": 6,
-      "uid": "duojiesenbsl"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "lizard",
-      "isX": 0,
-      "landType": 0,
-      "uid": "kemoduojx"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "lizard",
-      "isX": 0,
-      "landType": 7,
-      "uid": "juxinghuanweixi"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "lizard",
-      "isX": 0,
-      "landType": 6,
-      "uid": "jiaoxi"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "gecko",
-      "isX": 0,
-      "landType": 1,
-      "uid": "yagualabihu"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "turtle",
-      "isX": 0,
-      "landType": 3,
-      "uid": "jinqiangui"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "turtle",
-      "isX": 0,
-      "landType": 1,
-      "uid": "toucejingui"
-    },
-    {
-      "aniModule": 2,
-      "aniType": "turtle",
-      "isX": 0,
-      "landType": 2,
-      "uid": "baxihaigui"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 2,
-      "uid": "shayu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 1,
-      "uid": "shirenyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 3,
-      "uid": "yanshiyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 3,
-      "uid": "shenhaiyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 0,
-      "uid": "jinli"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 3,
-      "uid": "douyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 2,
-      "uid": "lianyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 0,
-      "uid": "qunjuyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 3,
-      "uid": "denglongyu"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 1,
-      "uid": "xiami"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 2,
-      "uid": "xiaoxingyulei"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 6,
-      "uid": "daxingyulei"
-    },
-    {
-      "aniModule": 3,
-      "aniType": "fish",
-      "isX": 1,
-      "landType": 12,
-      "uid": "jinyu"
-    }
-  ],
-  "dataWorkPos": [
+  "dataActionSpace": [
     {
       "limitTime_1": 0,
       "limitTime_2": 0,
@@ -5636,6 +2975,2831 @@
       "val_2_3": 0,
       "val_2_4": 0,
       "val_2_5": 0
+    }
+  ],
+  "dataBook": [
+    {
+      "order": 1,
+      "uid": "oneWorker",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 2,
+      "uid": "threeWorker",
+      "val1": 3,
+      "val2": 0
+    },
+    {
+      "order": 3,
+      "uid": "newIndustry",
+      "val1": 5,
+      "val2": 0
+    },
+    {
+      "order": 4,
+      "uid": "investment",
+      "val1": 1,
+      "val2": 20
+    },
+    {
+      "order": 5,
+      "uid": "research",
+      "val1": 2,
+      "val2": 0
+    },
+    {
+      "order": 6,
+      "uid": "expand",
+      "val1": 3,
+      "val2": 0
+    },
+    {
+      "order": 7,
+      "uid": "training",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 8,
+      "uid": "trainingCrazyly",
+      "val1": 2,
+      "val2": 0
+    },
+    {
+      "order": 9,
+      "uid": "shadowIndustry",
+      "val1": 8,
+      "val2": 0
+    },
+    {
+      "order": 10,
+      "uid": "rockFree",
+      "val1": 2,
+      "val2": 0
+    },
+    {
+      "order": 11,
+      "uid": "lakeFree",
+      "val1": 2,
+      "val2": 0
+    },
+    {
+      "order": 12,
+      "uid": "expandOvernight",
+      "val1": 5,
+      "val2": 0
+    },
+    {
+      "order": 13,
+      "uid": "caseRecycle",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 14,
+      "uid": "projectScreening",
+      "val1": 3,
+      "val2": 0
+    },
+    {
+      "order": 15,
+      "uid": "promotion",
+      "val1": 5,
+      "val2": 0
+    },
+    {
+      "order": 16,
+      "uid": "adBombardment",
+      "val1": 15,
+      "val2": 0
+    },
+    {
+      "order": 17,
+      "uid": "hiddenTreasure",
+      "val1": 1,
+      "val2": 5
+    },
+    {
+      "order": 18,
+      "uid": "internalPurge",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 19,
+      "uid": "projectSale",
+      "val1": 3,
+      "val2": 0
+    },
+    {
+      "order": 20,
+      "uid": "building",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 21,
+      "uid": "copy",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 22,
+      "uid": "newDepartment",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 23,
+      "uid": "warehouseExpansion",
+      "val1": 1,
+      "val2": 0
+    },
+    {
+      "order": 24,
+      "uid": "promotionDepartmentExpansion",
+      "val1": 2,
+      "val2": 0
+    }
+  ],
+  "dataBuff": [
+    {
+      "uid": 1
+    },
+    {
+      "uid": 2
+    },
+    {
+      "uid": 3
+    },
+    {
+      "uid": 4
+    },
+    {
+      "uid": 5
+    },
+    {
+      "uid": 6
+    },
+    {
+      "uid": 7
+    },
+    {
+      "uid": 8
+    },
+    {
+      "uid": 9
+    },
+    {
+      "uid": 10
+    },
+    {
+      "uid": 11
+    },
+    {
+      "uid": 12
+    },
+    {
+      "uid": 13
+    },
+    {
+      "uid": 14
+    },
+    {
+      "uid": 15
+    },
+    {
+      "uid": 16
+    },
+    {
+      "uid": 17
+    },
+    {
+      "uid": 18
+    },
+    {
+      "uid": 19
+    },
+    {
+      "uid": 20
+    },
+    {
+      "uid": 21
+    },
+    {
+      "uid": 22
+    },
+    {
+      "uid": 23
+    },
+    {
+      "uid": 24
+    },
+    {
+      "uid": 25
+    },
+    {
+      "uid": 26
+    },
+    {
+      "uid": 27
+    },
+    {
+      "uid": 28
+    },
+    {
+      "uid": 29
+    },
+    {
+      "uid": 30
+    },
+    {
+      "uid": 31
+    },
+    {
+      "uid": 32
+    },
+    {
+      "uid": 33
+    },
+    {
+      "uid": 34
+    },
+    {
+      "uid": 35
+    },
+    {
+      "uid": 36
+    },
+    {
+      "uid": 37
+    },
+    {
+      "uid": 38
+    },
+    {
+      "uid": 39
+    },
+    {
+      "uid": 40
+    },
+    {
+      "uid": 41
+    },
+    {
+      "uid": 42
+    },
+    {
+      "uid": 43
+    },
+    {
+      "uid": 44
+    },
+    {
+      "uid": 45
+    },
+    {
+      "uid": 46
+    },
+    {
+      "uid": 47
+    },
+    {
+      "uid": 48
+    },
+    {
+      "uid": 49
+    },
+    {
+      "uid": 50
+    },
+    {
+      "uid": 51
+    },
+    {
+      "uid": 52
+    },
+    {
+      "uid": 53
+    },
+    {
+      "uid": 54
+    },
+    {
+      "uid": 55
+    },
+    {
+      "uid": 56
+    },
+    {
+      "uid": 57
+    },
+    {
+      "uid": 58
+    },
+    {
+      "uid": 59
+    },
+    {
+      "uid": 60
+    },
+    {
+      "uid": 61
+    },
+    {
+      "uid": 62
+    },
+    {
+      "uid": 63
+    },
+    {
+      "uid": 64
+    },
+    {
+      "uid": 65
+    },
+    {
+      "uid": 66
+    },
+    {
+      "uid": 67
+    },
+    {
+      "uid": 68
+    },
+    {
+      "uid": 69
+    },
+    {
+      "uid": 70
+    },
+    {
+      "uid": 71
+    }
+  ],
+  "dataCard": [
+    {
+      "cardType": 0,
+      "coinCost": 9,
+      "landType": 3,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "jinsi_monkey",
+      "val1": 2,
+      "val2": 6,
+      "val3": 10
+    },
+    {
+      "cardType": 0,
+      "coinCost": 17,
+      "landType": 1,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "mi_monkey",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "changbi_monkey",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 6,
+      "landType": 2,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "rong_monkey",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 15,
+      "landType": 5,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "spider_monkey",
+      "val1": 50,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 7,
+      "landType": 1,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "juanwei_monkey",
+      "val1": 4,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 2,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "hou_monkey",
+      "val1": 8,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 19,
+      "landType": 6,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "ye_monkey",
+      "val1": 9,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 2,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "huiye_monkey",
+      "val1": 3,
+      "val2": 1,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 14,
+      "landType": 7,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "yuan_monkey",
+      "val1": 25,
+      "val2": 3,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_danyi",
+      "val1": 20,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_yuanhou",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_duty",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_houxuanchuan",
+      "val1": 20,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_spring",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_devmonkey",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 15,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_houqin",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_yanjiu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 14,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_conmonkey",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 7,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "yizhaoxian",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 3,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "houzifanlan",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "yuanhouzhuti",
+      "val1": 20,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 6,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 2,
+      "timeCost": 5,
+      "uid": "yanjiurenyuan",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 2,
+      "timeCost": 5,
+      "uid": "jiansherenyuan",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 3,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 5,
+      "timeCost": 5,
+      "uid": "shenjianshuzhi",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 27,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 5,
+      "uid": "guanlidashi",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 0,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "feianliyong",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "taojiahuanjia",
+      "val1": 15,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 6,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "yejiedaheng",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 6,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 6,
+      "uid": "sixsixsix",
+      "val1": 90,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 0,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "yanfazhiyan",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 7,
+      "landType": 1,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "duanmianxiong",
+      "val1": 6,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 15,
+      "landType": 3,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "huixiong",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 22,
+      "landType": 7,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "feizhoushi",
+      "val1": 15,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 17,
+      "landType": 4,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "meizhoushi",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 4,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 1,
+      "uid": "yazhoushi",
+      "val1": 1,
+      "val2": 1,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 14,
+      "landType": 2,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "guzhonghuabao",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 13,
+      "landType": 3,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "meizhoubao",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 1,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "dongbeihu",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 10,
+      "landType": 5,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "huananhu",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 3,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "aozhouyequan",
+      "val1": 1,
+      "val2": 1,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 17,
+      "landType": 2,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "ouzhouguan",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_popularity",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_buru",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_duozhonglei",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_hbxs",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_summer",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_devburu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "dep_qingli",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 2,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_rencai",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "heishi",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 15,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "renqibaopeng",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 5,
+      "timeCost": 4,
+      "uid": "renmanweifu",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 3,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "renmanweian",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 3,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "dubo",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "gouwudaheng",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 10,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "baocang",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "minjiekaifa",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "duokuaihaosheng",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 10,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "caipiao",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 4,
+      "uid": "mailiang",
+      "val1": 50,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 2,
+      "timeCost": 5,
+      "uid": "lixifanbei",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 2,
+      "timeCost": 5,
+      "uid": "junhengtouzi",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 1,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 2,
+      "timeCost": 5,
+      "uid": "kuojianrenyuan",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 3,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "guowangbsl",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 17,
+      "landType": 3,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "gaoguanbsl",
+      "val1": 2,
+      "val2": 15,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 22,
+      "landType": 6,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "duojiesenbsl",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 10,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "kemoduojx",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 27,
+      "landType": 7,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "juxinghuanweixi",
+      "val1": 15,
+      "val2": 25,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 22,
+      "landType": 6,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "jiaoxi",
+      "val1": 10,
+      "val2": 25,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 13,
+      "landType": 1,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "yagualabihu",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 23,
+      "landType": 3,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "jinqiangui",
+      "val1": 15,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 7,
+      "landType": 1,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "toucejingui",
+      "val1": 4,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 11,
+      "landType": 2,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "baxihaigui",
+      "val1": 6,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_pachong",
+      "val1": 25,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_duoyangxing",
+      "val1": 30,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_kongjiangongji",
+      "val1": 20,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_daxing",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_august",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 3,
+      "uid": "dep_daxing",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 15,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 5,
+      "uid": "dep_investment",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_pachong",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 7,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 3,
+      "uid": "dep_kuojian",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "zhanluejia",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "gailvdashi",
+      "val1": 15,
+      "val2": 2,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 15,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "zhaoshangyinzi",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "teshuzhaomu",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 3,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "huaidianzi",
+      "val1": 10,
+      "val2": 60,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 10,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "kuozhangdipan",
+      "val1": 4,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "shuangbei",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 25,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "haoyunlai",
+      "val1": 15,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 5,
+      "uid": "miansijinpai",
+      "val1": 50,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "kaishan",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 17,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "changjiuzhiji",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "linshiguyong",
+      "val1": 4,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 2,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "guyongrenyuuan",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 13,
+      "landType": 2,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "shayu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 1,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "shirenyu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 13,
+      "landType": 3,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "yanshiyu",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 13,
+      "landType": 3,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "shenhaiyu",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 18,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "jinli",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 20,
+      "landType": 3,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "douyu",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 14,
+      "landType": 2,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "lianyu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 14,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "qunjuyu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 3,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "denglongyu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 7,
+      "landType": 1,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "xiami",
+      "val1": 3,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 12,
+      "landType": 2,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "xiaoxingyulei",
+      "val1": 6,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 19,
+      "landType": 6,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "daxingyulei",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 0,
+      "coinCost": 4,
+      "landType": 2,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "jinyu",
+      "val1": 10,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_yu",
+      "val1": 50,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_weizhi",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_heliu",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 1,
+      "coinCost": 5,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "achi_xiaoxing",
+      "val1": 1,
+      "val2": 1,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_winter",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 2,
+      "uid": "dep_yu",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 3,
+      "uid": "dep_dev",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 14,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 1,
+      "uid": "dep_youhua",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 2,
+      "coinCost": 14,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 4,
+      "uid": "dep_book",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "haiyangzhixin",
+      "val1": 2,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "dixiakuangmai",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 14,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "kantangaoshou",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 16,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "feianliyong2",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 1,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 2,
+      "uid": "pianhao",
+      "val1": 5,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 1,
+      "timeCost": 3,
+      "uid": "buhuo",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 15,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "dashuaimai",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 13,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "shencengguwu",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 16,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "kaimenhong",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 10,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "chaimendaji",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 12,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 3,
+      "uid": "fengkuangkuojian",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 19,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 4,
+      "uid": "rencaiyinjin",
+      "val1": 1,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": 3,
+      "coinCost": 9,
+      "landType": 0,
+      "module": 3,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 3,
+      "timeCost": 5,
+      "uid": "xiangmurenyuan",
+      "val1": 1,
+      "val2": 1,
+      "val3": 0
+    },
+    {
+      "cardType": -1,
+      "coinCost": 7,
+      "landType": 0,
+      "module": -1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 0,
+      "timeCost": 5,
+      "uid": "xiedai",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": -1,
+      "coinCost": 2,
+      "landType": 0,
+      "module": -1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 0,
+      "timeCost": 2,
+      "uid": "hanchao",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": -1,
+      "coinCost": 15,
+      "landType": 0,
+      "module": -1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 0,
+      "timeCost": 3,
+      "uid": "tonghuopengzhang",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": -1,
+      "coinCost": 4,
+      "landType": 0,
+      "module": -1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 0,
+      "timeCost": 8,
+      "uid": "eyishougou",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    },
+    {
+      "cardType": -1,
+      "coinCost": 3,
+      "landType": 0,
+      "module": -1,
+      "oneTime": 0,
+      "rare": 0,
+      "repeatNum": 0,
+      "timeCost": 3,
+      "uid": "jiabi",
+      "val1": 0,
+      "val2": 0,
+      "val3": 0
+    }
+  ],
+  "dataEvent": [
+    {
+      "uid": "event_1"
+    },
+    {
+      "uid": "event_2"
+    },
+    {
+      "uid": "event_3"
+    },
+    {
+      "uid": "event_4"
+    },
+    {
+      "uid": "event_5"
+    },
+    {
+      "uid": "event_6"
+    },
+    {
+      "uid": "event_7"
+    },
+    {
+      "uid": "event_8"
+    },
+    {
+      "uid": "event_9"
+    },
+    {
+      "uid": "event_10"
+    },
+    {
+      "uid": "event_11"
+    },
+    {
+      "uid": "event_12"
+    },
+    {
+      "uid": "event_13"
+    },
+    {
+      "uid": "event_14"
+    },
+    {
+      "uid": "event_15"
+    },
+    {
+      "uid": "event_16"
+    },
+    {
+      "uid": "event_17"
+    },
+    {
+      "uid": "event_18"
+    },
+    {
+      "uid": "event_19"
+    },
+    {
+      "uid": "event_20"
+    }
+  ],
+  "dataExhibit": [
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 3,
+      "uid": "jinsi_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 1,
+      "uid": "mi_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 0,
+      "uid": "changbi_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 1,
+      "landType": 2,
+      "uid": "rong_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 5,
+      "uid": "spider_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 1,
+      "uid": "juanwei_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 2,
+      "uid": "hou_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 6,
+      "uid": "ye_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 2,
+      "uid": "huiye_monkey"
+    },
+    {
+      "aniModule": 0,
+      "aniType": "monkey",
+      "isX": 0,
+      "landType": 7,
+      "uid": "yuan_monkey"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "bear",
+      "isX": 0,
+      "landType": 1,
+      "uid": "duanmianxiong"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "bear",
+      "isX": 0,
+      "landType": 3,
+      "uid": "huixiong"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "lion",
+      "isX": 0,
+      "landType": 7,
+      "uid": "feizhoushi"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "lion",
+      "isX": 0,
+      "landType": 4,
+      "uid": "meizhoushi"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "lion",
+      "isX": 0,
+      "landType": 0,
+      "uid": "yazhoushi"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "leopard",
+      "isX": 1,
+      "landType": 2,
+      "uid": "guzhonghuabao"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "leopard",
+      "isX": 1,
+      "landType": 3,
+      "uid": "meizhoubao"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "tiger",
+      "isX": 0,
+      "landType": 1,
+      "uid": "dongbeihu"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "tiger",
+      "isX": 0,
+      "landType": 5,
+      "uid": "huananhu"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "dog",
+      "isX": 0,
+      "landType": 3,
+      "uid": "aozhouyequan"
+    },
+    {
+      "aniModule": 1,
+      "aniType": "badger",
+      "isX": 0,
+      "landType": 2,
+      "uid": "ouzhouguan"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "chameleon",
+      "isX": 1,
+      "landType": 3,
+      "uid": "guowangbsl"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "chameleon",
+      "isX": 1,
+      "landType": 3,
+      "uid": "gaoguanbsl"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "chameleon",
+      "isX": 1,
+      "landType": 6,
+      "uid": "duojiesenbsl"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "lizard",
+      "isX": 0,
+      "landType": 0,
+      "uid": "kemoduojx"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "lizard",
+      "isX": 0,
+      "landType": 7,
+      "uid": "juxinghuanweixi"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "lizard",
+      "isX": 0,
+      "landType": 6,
+      "uid": "jiaoxi"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "gecko",
+      "isX": 0,
+      "landType": 1,
+      "uid": "yagualabihu"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "turtle",
+      "isX": 0,
+      "landType": 3,
+      "uid": "jinqiangui"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "turtle",
+      "isX": 0,
+      "landType": 1,
+      "uid": "toucejingui"
+    },
+    {
+      "aniModule": 2,
+      "aniType": "turtle",
+      "isX": 0,
+      "landType": 2,
+      "uid": "baxihaigui"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 2,
+      "uid": "shayu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 1,
+      "uid": "shirenyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 3,
+      "uid": "yanshiyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 3,
+      "uid": "shenhaiyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 0,
+      "uid": "jinli"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 3,
+      "uid": "douyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 2,
+      "uid": "lianyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 0,
+      "uid": "qunjuyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 3,
+      "uid": "denglongyu"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 1,
+      "uid": "xiami"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 2,
+      "uid": "xiaoxingyulei"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 6,
+      "uid": "daxingyulei"
+    },
+    {
+      "aniModule": 3,
+      "aniType": "fish",
+      "isX": 1,
+      "landType": 12,
+      "uid": "jinyu"
+    }
+  ],
+  "dataSpecWorker": [
+    {
+      "uid": "yanjiurenyuan",
+      "val": 2
+    },
+    {
+      "uid": "jiansherenyuan",
+      "val": 4
+    },
+    {
+      "uid": "kuojianrenyuan",
+      "val": 1
+    },
+    {
+      "uid": "guyongrenyuuan",
+      "val": 1
+    },
+    {
+      "uid": "xiangmurenyuan",
+      "val": 1
+    }
+  ],
+  "englishActionSpace": [
+    {
+      "cont": "Reveal $1 card(s) from the draw pile, keep $2 card(s).",
+      "detailCont": "",
+      "name": "Research Lab",
+      "uid": "dep_0"
+    },
+    {
+      "cont": "Gain $1 time point(s).",
+      "detailCont": "",
+      "name": "建设部",
+      "uid": "dep_1"
+    },
+    {
+      "cont": "Gain $1 coins and $2 popularity.",
+      "detailCont": "",
+      "name": "Open Exhibit",
+      "uid": "dep_2"
+    },
+    {
+      "cont": "Recruit 1 new worker at a cost of $r.",
+      "detailCont": "Recruit 1 new worker at a cost of $r(10+13/12/11/10/9 * recruitTime[current:$rt]). ",
+      "name": "人力部",
+      "uid": "dep_3"
+    },
+    {
+      "cont": "Make one purchase in the Shop at $1% of the original price.",
+      "detailCont": "",
+      "name": "采购部",
+      "uid": "dep_4"
+    },
+    {
+      "cont": "Spend 15 coins to upgrade the Action Space once. (Limit time: $1)",
+      "detailCont": "",
+      "name": "培训部",
+      "uid": "dep_5"
+    },
+    {
+      "cont": "Pay $1% of the coin cost to demolish an exhibit.",
+      "detailCont": "",
+      "name": "清理部门",
+      "uid": "dep_6"
+    },
+    {
+      "cont": "Spend $1 coins to expand $2 plots.",
+      "detailCont": "",
+      "name": "扩建部门",
+      "uid": "dep_7"
+    },
+    {
+      "cont": "Spring only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
+      "name": "春日装扮",
+      "uid": "dep_spring"
+    },
+    {
+      "cont": "Pay $1 coin(s). Gain the next Primate Exhibit card(s) from the draw pile.",
+      "detailCont": "",
+      "name": "猿猴研究部门",
+      "uid": "dep_devmonkey"
+    },
+    {
+      "cont": "Remove $1 Curse card(s) from your hand.",
+      "detailCont": "",
+      "name": "后勤部门",
+      "uid": "dep_houqin"
+    },
+    {
+      "cont": "This action space always uses the effect of the Research Lab at its current level.",
+      "detailCont": "",
+      "name": "研究部分部门",
+      "uid": "dep_yanjiu"
+    },
+    {
+      "cont": "Play 1 Primate Exhibit card from your hand for free. (Limit time: $1)",
+      "detailCont": "",
+      "name": "猿猴场馆建设部门",
+      "uid": "dep_conmonkey"
+    },
+    {
+      "cont": "Summer only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
+      "name": "夏日装扮",
+      "uid": "dep_summer"
+    },
+    {
+      "cont": "Pay $1 coin(s). Gain the next 1 Mammal Exhibit card(s) from the draw pile.",
+      "detailCont": "",
+      "name": "哺乳类研究部门",
+      "uid": "dep_devburu"
+    },
+    {
+      "cont": "Demolish an exhibit and refund $1% of its coin cost.",
+      "detailCont": "",
+      "name": "清理部门",
+      "uid": "dep_qingli"
+    },
+    {
+      "cont": "Recruit $1 temporary worker(s).",
+      "detailCont": "",
+      "name": "人才市场",
+      "uid": "dep_rencai"
+    },
+    {
+      "cont": "August only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
+      "name": "秋季装扮",
+      "uid": "dep_august"
+    },
+    {
+      "cont": "Play $1 Large Exhibit card(s) for free.",
+      "detailCont": "",
+      "name": "大型场馆建设部门",
+      "uid": "dep_daxing"
+    },
+    {
+      "cont": "Gain $1 coin(s). Each time this is triggered, permanently increase the amount by $2.",
+      "detailCont": "",
+      "name": "投资部门",
+      "uid": "dep_investment"
+    },
+    {
+      "cont": "Pay $1 coin(s). Gain the next 1 Reptile Exhibit card(s) from the draw pile.",
+      "detailCont": "",
+      "name": "爬虫类研究部门",
+      "uid": "dep_pachong"
+    },
+    {
+      "cont": "Expand $1 plot(s) for free.",
+      "detailCont": "",
+      "name": "扩建部门",
+      "uid": "dep_kuojian"
+    },
+    {
+      "cont": "Winter only. Gain $1% popularity after resolving all exhibits.",
+      "detailCont": "",
+      "name": "冬季装扮",
+      "uid": "dep_winter"
+    },
+    {
+      "cont": "Pay $1 coin(s). Gain the next 1 Aquatic Exhibit cards from the draw pile.",
+      "detailCont": "",
+      "name": "鱼类研究部门",
+      "uid": "dep_yu"
+    },
+    {
+      "cont": "Draw $1 card(s).",
+      "detailCont": "",
+      "name": "项目研发部门",
+      "uid": "dep_dev"
+    },
+    {
+      "cont": "Discard up to $1 cards from your hand and draw the same number of card(s).",
+      "detailCont": "",
+      "name": "项目优化部门",
+      "uid": "dep_youhua"
+    },
+    {
+      "cont": "Gain $1 random book(s).",
+      "detailCont": "",
+      "name": "书籍出版部门",
+      "uid": "dep_book"
     }
   ],
   "englishBook": [
@@ -6323,7 +6487,7 @@
     {
       "className": "Mammal Exhibits",
       "condition": "",
-      "cont": "Gain $1 popularity. Gain $1 popularity. Gain $1 popularity. Gain $1 popularity. Gain $1 popularity. ",
+      "cont": "Gain $1 popularity. \nGain $1 popularity. \nGain $1 popularity. \nGain $1 popularity. \nGain $1 popularity. ",
       "name": "South China Tiger",
       "uid": "huananhu"
     },
@@ -6346,7 +6510,7 @@
       "condition": "Three consecutive exhibits provide at least 20 Popularity.",
       "cont": "You may discard Curse card(s) directly.",
       "name": "Max Pop",
-      "uid": "achi_poprating"
+      "uid": "achi_popularity"
     },
     {
       "className": "",
@@ -7262,307 +7426,7 @@
       "uid": "event_20"
     }
   ],
-  "englishSpecWorker": [
-    {
-      "cont": "When assigned, draw $1 card(s).",
-      "uid": "yanjiurenyuan"
-    },
-    {
-      "cont": "When assigned, gain $1 Time Points.",
-      "uid": "jiansherenyuan"
-    },
-    {
-      "cont": "When assigned, additionally expand $1 random plots.",
-      "uid": "kuojianrenyuan"
-    },
-    {
-      "cont": "When assigned, gain $wr1 temporary workers.",
-      "uid": "guyongrenyuuan"
-    },
-    {
-      "cont": "When assigned, draw $1 card(s).",
-      "uid": "xiangmurenyuan"
-    }
-  ],
-  "englishStaticText": [
-    {
-      "cont": "discarded",
-      "uid": "discarded"
-    },
-    {
-      "cont": "selected",
-      "uid": "selected"
-    },
-    {
-      "cont": "expand",
-      "uid": "expand"
-    },
-    {
-      "cont": "Discard {num=5} cards.",
-      "uid": "chooseToDiscard"
-    },
-    {
-      "cont": "Choose {num=1} card(s) and add it to your hand.",
-      "uid": "chooseToHand"
-    },
-    {
-      "cont": "Choose {num=1} card(s) and discard it to the discard pile.",
-      "uid": "chooseToDiscard"
-    },
-    {
-      "cont": "Discard any number of cards to the discard pile, then draw an equal number of cards.",
-      "uid": "chooseToDiscardAndDrawSame"
-    },
-    {
-      "cont": "Discard up to {num=1} card(s) to the discard pile, then draw the same number of cards.",
-      "uid": "chooseUpToDiscardAndDrawSame"
-    },
-    {
-      "cont": "Discard up to {num=1} card(s) to the discard pile, then gain Coins.",
-      "uid": "chooseUpToDiscardAndGetMoney"
-    },
-    {
-      "cont": "Copy 1 card.",
-      "uid": "copyCard"
-    },
-    {
-      "cont": "Choose an exhibit and copy it to your hand.",
-      "uid": "copyVenue"
-    },
-    {
-      "cont": "Remove up to {num=1} Curse card(s).",
-      "uid": "deleteBadIdea"
-    },
-    {
-      "cont": "(Current level: {0})",
-      "uid": "currRank"
-    },
-    {
-      "cont": "Play up to {num=1} card(s) for free.",
-      "uid": "playHandFreely"
-    },
-    {
-      "cont": "Play up to {num=1} Large Exhibit card(s) for free.",
-      "uid": "playBigVenueFreely"
-    },
-    {
-      "cont": "Play up to {num=1} Primate Exhibit card(s) for free.",
-      "uid": "playMonkeyFreely"
-    },
-    {
-      "cont": "Choose an exhibit to demolish.",
-      "uid": "chooseVenueDemolish"
-    },
-    {
-      "cont": "Regular Workers, they will refresh at the start of each new turn.",
-      "uid": "normalWorker"
-    },
-    {
-      "cont": "Temporary Workers, disappear at the end of the turn!",
-      "uid": "tempWorker"
-    },
-    {
-      "cont": "draw pile",
-      "uid": "drawPile"
-    },
-    {
-      "cont": "discard pile",
-      "uid": "discardPile"
-    },
-    {
-      "cont": "Waiting to expand",
-      "uid": "waitToTouch"
-    },
-    {
-      "cont": "rocky",
-      "uid": "rock"
-    },
-    {
-      "cont": "lake",
-      "uid": "lack"
-    },
-    {
-      "cont": "buildable",
-      "uid": "canBuild"
-    },
-    {
-      "cont": "Not enough Time Points or Coins.",
-      "uid": "notEnoughMoney"
-    },
-    {
-      "cont": "Can't play it.",
-      "uid": "cantPlayIt"
-    },
-    {
-      "cont": "Can't play any achievement card.",
-      "uid": "CantPlayAchiCard"
-    },
-    {
-      "cont": "Don't  meet the requiremant.",
-      "uid": "DontMeetReq"
-    },
-    {
-      "cont": "Don't have enough room for this exhibit.",
-      "uid": "DontHaveRoom"
-    },
-    {
-      "cont": "Can't play any achievement card. Stop play.",
-      "uid": "CantPlayAchiCardStop"
-    },
-    {
-      "cont": "Don't  meet the requiremant. Stop play.",
-      "uid": "DontMeetReqStop"
-    },
-    {
-      "cont": "Don't have enough room for this exhibit. Stop play.",
-      "uid": "DontHaveRoomStop"
-    },
-    {
-      "cont": "get coins {0}",
-      "uid": "GetGold"
-    },
-    {
-      "cont": "can only be used once per quarter.",
-      "uid": "OncePerTurn"
-    },
-    {
-      "cont": "You don't have any exhibit.",
-      "uid": "DontHaveVenue"
-    },
-    {
-      "cont": "You can not demolish exhibit.",
-      "uid": "CantDemolish"
-    },
-    {
-      "cont": "Only in Spring",
-      "uid": "OnlyInSpring"
-    },
-    {
-      "cont": "Only in Summer",
-      "uid": "OnlyInSummer"
-    },
-    {
-      "cont": "Only in August",
-      "uid": "OnlyInAugust"
-    },
-    {
-      "cont": "Only in Winter",
-      "uid": "OnlyInWinter"
-    },
-    {
-      "cont": "Play condition:\n{cond=至少拥有10个海洋场馆}\n\n{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}",
-      "uid": "cardContWithCond"
-    },
-    {
-      "cont": "Large Exhibit",
-      "uid": "bigExhibit"
-    },
-    {
-      "cont": "Small Exhibit",
-      "uid": "smallExhibit"
-    },
-    {
-      "cont": "Gain {0} coin(s) by income.",
-      "uid": "ssIncome"
-    },
-    {
-      "cont": "Gain {0} popularity.",
-      "uid": "ssPopularity"
-    },
-    {
-      "cont": "Gain {0} book(s).",
-      "uid": "ssBook"
-    },
-    {
-      "cont": "Successfully gain {0} Coins with a 50% chance.",
-      "uid": "ssHalfChange"
-    },
-    {
-      "cont": "Gain {0} random plot reward(s).",
-      "uid": "ssPlotRewards"
-    },
-    {
-      "cont": "Gain {0} random curse card(s).",
-      "uid": "ssCurse"
-    },
-    {
-      "cont": "Draw {0} card(s).",
-      "uid": "ssCard"
-    },
-    {
-      "cont": "Gain random item:   ",
-      "uid": "ssRandomGain"
-    },
-    {
-      "cont": "{0} coin(s).",
-      "uid": "ssRCoin"
-    },
-    {
-      "cont": "{0} popularity.",
-      "uid": "ssRPopularity"
-    },
-    {
-      "cont": "{0} temporary worker(s).",
-      "uid": "sRTWorker"
-    },
-    {
-      "cont": "{0} curse card(s).",
-      "uid": "ssRCurse"
-    },
-    {
-      "cont": "{0} book(s). ",
-      "uid": "ssRBook"
-    },
-    {
-      "cont": "{0} workers.",
-      "uid": "prWorker"
-    },
-    {
-      "cont": "{0} coin(s).",
-      "uid": "prCoin"
-    },
-    {
-      "cont": "{0} temporary worker(s).",
-      "uid": "prTWorker"
-    },
-    {
-      "cont": "{0} income",
-      "uid": "prIncome"
-    },
-    {
-      "cont": "{0} book(s). ",
-      "uid": "prBook"
-    },
-    {
-      "cont": "Draw {0} card(s).",
-      "uid": "prDraw"
-    },
-    {
-      "cont": "Plot rewards: ",
-      "uid": "plotReward"
-    },
-    {
-      "cont": "unknown plot to be expanded",
-      "uid": "unknowPlot"
-    },
-    {
-      "cont": "cannot leave this page when resolving.",
-      "uid": "cantLeaveWhenResolving"
-    },
-    {
-      "cont": "nothing happened",
-      "uid": "nothingHappened"
-    },
-    {
-      "cont": "Gain {0} income.",
-      "uid": "gainIncome"
-    },
-    {
-      "cont": "You already have 15 action spaces, cannot play any more.",
-      "uid": "cantPlayActionSpaceCard"
-    }
-  ],
-  "englishVenue": [
+  "englishExhibit": [
     {
       "aniName": "猿猴",
       "className": "猿猴场馆",
@@ -7828,168 +7692,304 @@
       "uid": "jinyu"
     }
   ],
-  "englishWorkPos": [
+  "englishSpecWorker": [
     {
-      "cont": "Reveal $1 card(s) from the draw pile, keep $2 card(s).",
-      "detailCont": "",
-      "name": "Research Lab",
-      "uid": "dep_0"
+      "cont": "When assigned, draw $1 card(s).",
+      "uid": "yanjiurenyuan"
     },
     {
-      "cont": "Gain $1 time point(s).",
-      "detailCont": "",
-      "name": "建设部",
-      "uid": "dep_1"
+      "cont": "When assigned, gain $1 Time Points.",
+      "uid": "jiansherenyuan"
     },
     {
-      "cont": "Gain $1 coins and $2 popularity.",
-      "detailCont": "",
-      "name": "Open Exhibit",
-      "uid": "dep_2"
+      "cont": "When assigned, additionally expand $1 random plots.",
+      "uid": "kuojianrenyuan"
     },
     {
-      "cont": "Recruit 1 new worker at a cost of $r.",
-      "detailCont": "Recruit 1 new worker at a cost of $r(10+13/12/11/10/9 * recruitTime[current:$rt]). ",
-      "name": "人力部",
-      "uid": "dep_3"
+      "cont": "When assigned, gain $wr1 temporary workers.",
+      "uid": "guyongrenyuuan"
     },
     {
-      "cont": "Make one purchase in the Shop at $1% of the original price.",
-      "detailCont": "",
-      "name": "采购部",
-      "uid": "dep_4"
+      "cont": "When assigned, draw $1 card(s).",
+      "uid": "xiangmurenyuan"
+    }
+  ],
+  "englishStaticText": [
+    {
+      "cont": "discarded",
+      "uid": "discarded"
     },
     {
-      "cont": "Spend 15 coins to upgrade the Action Space once. (Limit time: $1)",
-      "detailCont": "",
-      "name": "培训部",
-      "uid": "dep_5"
+      "cont": "selected",
+      "uid": "selected"
     },
     {
-      "cont": "Pay $1% of the coin cost to demolish an exhibit.",
-      "detailCont": "",
-      "name": "清理部门",
-      "uid": "dep_6"
+      "cont": "expand",
+      "uid": "expand"
     },
     {
-      "cont": "Spend $1 coins to expand $2 plots.",
-      "detailCont": "",
-      "name": "扩建部门",
-      "uid": "dep_7"
+      "cont": "Discard {num=5} cards.",
+      "uid": "chooseToDiscard"
     },
     {
-      "cont": "Spring only. Gain $1% popularity after resolving all exhibits.",
-      "detailCont": "",
-      "name": "春日装扮",
-      "uid": "dep_spring"
+      "cont": "Choose {num=1} card(s) and add it to your hand.",
+      "uid": "chooseToHand"
     },
     {
-      "cont": "Pay $1 coin(s). Gain the next Primate Exhibit card(s) from the draw pile.",
-      "detailCont": "",
-      "name": "猿猴研究部门",
-      "uid": "dep_devmonkey"
+      "cont": "Choose {num=1} card(s) and discard it to the discard pile.",
+      "uid": "chooseToDiscard"
     },
     {
-      "cont": "Remove $1 Curse card(s) from your hand.",
-      "detailCont": "",
-      "name": "后勤部门",
-      "uid": "dep_houqin"
+      "cont": "Discard any number of cards to the discard pile, then draw an equal number of cards.",
+      "uid": "chooseToDiscardAndDrawSame"
     },
     {
-      "cont": "This action space always uses the effect of the Research Lab at its current level.",
-      "detailCont": "",
-      "name": "研究部分部门",
-      "uid": "dep_yanjiu"
+      "cont": "Discard up to {num=1} card(s) to the discard pile, then draw the same number of cards.",
+      "uid": "chooseUpToDiscardAndDrawSame"
     },
     {
-      "cont": "Play 1 Primate Exhibit card from your hand for free. (Limit time: $1)",
-      "detailCont": "",
-      "name": "猿猴场馆建设部门",
-      "uid": "dep_conmonkey"
+      "cont": "Discard up to {num=1} card(s) to the discard pile, then gain Coins.",
+      "uid": "chooseUpToDiscardAndGetMoney"
     },
     {
-      "cont": "Summer only. Gain $1% popularity after resolving all exhibits.",
-      "detailCont": "",
-      "name": "夏日装扮",
-      "uid": "dep_summer"
+      "cont": "Copy 1 card.",
+      "uid": "copyCard"
     },
     {
-      "cont": "Pay $1 coin(s). Gain the next 1 Mammal Exhibit card(s) from the draw pile.",
-      "detailCont": "",
-      "name": "哺乳类研究部门",
-      "uid": "dep_devburu"
+      "cont": "Choose an exhibit and copy it to your hand.",
+      "uid": "copyVenue"
     },
     {
-      "cont": "Demolish an exhibit and refund $1% of its coin cost.",
-      "detailCont": "",
-      "name": "清理部门",
-      "uid": "dep_qingli"
+      "cont": "Remove up to {num=1} Curse card(s).",
+      "uid": "deleteBadIdea"
     },
     {
-      "cont": "Recruit $1 temporary worker(s).",
-      "detailCont": "",
-      "name": "人才市场",
-      "uid": "dep_rencai"
+      "cont": "(Current level: {0})",
+      "uid": "currRank"
     },
     {
-      "cont": "August only. Gain $1% popularity after resolving all exhibits.",
-      "detailCont": "",
-      "name": "秋季装扮",
-      "uid": "dep_august"
+      "cont": "Play up to {num=1} card(s) for free.",
+      "uid": "playHandFreely"
     },
     {
-      "cont": "Play $1 Large Exhibit card(s) for free.",
-      "detailCont": "",
-      "name": "大型场馆建设部门",
-      "uid": "dep_daxing"
+      "cont": "Play up to {num=1} Large Exhibit card(s) for free.",
+      "uid": "playBigExhibitFreely"
     },
     {
-      "cont": "Gain $1 coin(s). Each time this is triggered, permanently increase the amount by $2.",
-      "detailCont": "",
-      "name": "投资部门",
-      "uid": "dep_investment"
+      "cont": "Play up to {num=1} Primate Exhibit card(s) for free.",
+      "uid": "playMonkeyFreely"
     },
     {
-      "cont": "Pay $1 coin(s). Gain the next 1 Reptile Exhibit card(s) from the draw pile.",
-      "detailCont": "",
-      "name": "爬虫类研究部门",
-      "uid": "dep_pachong"
+      "cont": "Choose an exhibit to demolish.",
+      "uid": "chooseExhibitDemolish"
     },
     {
-      "cont": "Expand $1 plot(s) for free.",
-      "detailCont": "",
-      "name": "扩建部门",
-      "uid": "dep_kuojian"
+      "cont": "Regular Workers, they will refresh at the start of each new turn.",
+      "uid": "normalWorker"
     },
     {
-      "cont": "Winter only. Gain $1% popularity after resolving all exhibits.",
-      "detailCont": "",
-      "name": "冬季装扮",
-      "uid": "dep_winter"
+      "cont": "Temporary Workers, disappear at the end of the turn!",
+      "uid": "tempWorker"
     },
     {
-      "cont": "Pay $1 coin(s). Gain the next 1 Aquatic Exhibit cards from the draw pile.",
-      "detailCont": "",
-      "name": "鱼类研究部门",
-      "uid": "dep_yu"
+      "cont": "draw pile",
+      "uid": "drawPile"
     },
     {
-      "cont": "Draw $1 card(s).",
-      "detailCont": "",
-      "name": "项目研发部门",
-      "uid": "dep_dev"
+      "cont": "discard pile",
+      "uid": "discardPile"
     },
     {
-      "cont": "Discard up to $1 cards from your hand and draw the same number of card(s).",
-      "detailCont": "",
-      "name": "项目优化部门",
-      "uid": "dep_youhua"
+      "cont": "Waiting to expand",
+      "uid": "waitToTouch"
     },
     {
-      "cont": "Gain $1 random book(s).",
-      "detailCont": "",
-      "name": "书籍出版部门",
-      "uid": "dep_book"
+      "cont": "rocky",
+      "uid": "rock"
+    },
+    {
+      "cont": "lake",
+      "uid": "lack"
+    },
+    {
+      "cont": "buildable",
+      "uid": "canBuild"
+    },
+    {
+      "cont": "Not enough Time Points or Coins.",
+      "uid": "notEnoughMoney"
+    },
+    {
+      "cont": "Can't play it.",
+      "uid": "cantPlayIt"
+    },
+    {
+      "cont": "Can't play any achievement card.",
+      "uid": "CantPlayAchiCard"
+    },
+    {
+      "cont": "Don't  meet the requiremant.",
+      "uid": "DontMeetReq"
+    },
+    {
+      "cont": "Don't have enough room for this exhibit.",
+      "uid": "DontHaveRoom"
+    },
+    {
+      "cont": "Can't play any achievement card. Stop play.",
+      "uid": "CantPlayAchiCardStop"
+    },
+    {
+      "cont": "Don't  meet the requiremant. Stop play.",
+      "uid": "DontMeetReqStop"
+    },
+    {
+      "cont": "Don't have enough room for this exhibit. Stop play.",
+      "uid": "DontHaveRoomStop"
+    },
+    {
+      "cont": "get coins {0}",
+      "uid": "GetCoin"
+    },
+    {
+      "cont": "can only be used once per quarter.",
+      "uid": "OncePerTurn"
+    },
+    {
+      "cont": "You don't have any exhibit.",
+      "uid": "DontHaveExhibit"
+    },
+    {
+      "cont": "You can not demolish exhibit.",
+      "uid": "CantDemolish"
+    },
+    {
+      "cont": "Only in Spring",
+      "uid": "OnlyInSpring"
+    },
+    {
+      "cont": "Only in Summer",
+      "uid": "OnlyInSummer"
+    },
+    {
+      "cont": "Only in August",
+      "uid": "OnlyInAugust"
+    },
+    {
+      "cont": "Only in Winter",
+      "uid": "OnlyInWinter"
+    },
+    {
+      "cont": "Play condition:\n{cond=至少拥有10个海洋场馆}\n\n{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}",
+      "uid": "cardContWithCond"
+    },
+    {
+      "cont": "Large Exhibit",
+      "uid": "bigExhibit"
+    },
+    {
+      "cont": "Small Exhibit",
+      "uid": "smallExhibit"
+    },
+    {
+      "cont": "Gain {0} coin(s) by income.",
+      "uid": "ssIncome"
+    },
+    {
+      "cont": "Gain {0} popularity.",
+      "uid": "ssPopularity"
+    },
+    {
+      "cont": "Gain {0} book(s).",
+      "uid": "ssBook"
+    },
+    {
+      "cont": "Successfully gain {0} Coins with a 50% chance.",
+      "uid": "ssHalfChange"
+    },
+    {
+      "cont": "Gain {0} random plot reward(s).",
+      "uid": "ssPlotRewards"
+    },
+    {
+      "cont": "Gain {0} random curse card(s).",
+      "uid": "ssCurse"
+    },
+    {
+      "cont": "Draw {0} card(s).",
+      "uid": "ssCard"
+    },
+    {
+      "cont": "Gain random item:   ",
+      "uid": "ssRandomGain"
+    },
+    {
+      "cont": "{0} coin(s).",
+      "uid": "ssRCoin"
+    },
+    {
+      "cont": "{0} popularity.",
+      "uid": "ssRPopularity"
+    },
+    {
+      "cont": "{0} temporary worker(s).",
+      "uid": "sRTWorker"
+    },
+    {
+      "cont": "{0} curse card(s).",
+      "uid": "ssRCurse"
+    },
+    {
+      "cont": "{0} book(s). ",
+      "uid": "ssRBook"
+    },
+    {
+      "cont": "{0} workers.",
+      "uid": "prWorker"
+    },
+    {
+      "cont": "{0} coin(s).",
+      "uid": "prCoin"
+    },
+    {
+      "cont": "{0} temporary worker(s).",
+      "uid": "prTWorker"
+    },
+    {
+      "cont": "{0} income",
+      "uid": "prIncome"
+    },
+    {
+      "cont": "{0} book(s). ",
+      "uid": "prBook"
+    },
+    {
+      "cont": "Draw {0} card(s).",
+      "uid": "prDraw"
+    },
+    {
+      "cont": "Plot rewards: ",
+      "uid": "plotReward"
+    },
+    {
+      "cont": "unknown plot to be expanded",
+      "uid": "unknowPlot"
+    },
+    {
+      "cont": "cannot leave this page when resolving.",
+      "uid": "cantLeaveWhenResolving"
+    },
+    {
+      "cont": "nothing happened",
+      "uid": "nothingHappened"
+    },
+    {
+      "cont": "Gain {0} income.",
+      "uid": "gainIncome"
+    },
+    {
+      "cont": "You already have 15 action spaces, cannot play any more.",
+      "uid": "cantPlayActionSpaceCard"
     }
   ]
 }

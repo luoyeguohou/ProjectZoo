@@ -27,10 +27,10 @@
     <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/goldIcon.png" xy="82,226" size="35,33">
       <gearDisplay controller="status" pages="0,1"/>
     </image>
-    <text id="n73_g9th" name="txtGoldCost" xy="114,226" size="37,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="10">
+    <text id="n73_g9th" name="txtCoinCost" xy="114,226" size="37,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="10">
       <gearDisplay controller="status" pages="0,1"/>
     </text>
-    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/VenueSmall.xml" xy="229,335" size="77,80">
+    <component id="n74_z141" name="buildCost" src="z1411x" fileName="Components/ExhibitSmall.xml" xy="229,335" size="77,80">
       <gearDisplay controller="color" pages="0"/>
     </component>
     <graph id="n75_pz64" name="n75" xy="0,0" size="319,462" type="rect" lineSize="0" fillColor="#b5000000">

@@ -22,15 +22,15 @@ public class EndSeasonSys : ISystem
 
     private async void EndSeason(object[] p)
     {
-        UI_NewEndSeasonWin win = (UI_NewEndSeasonWin)p[0];
+        UI_EndSeasonWin win = (UI_EndSeasonWin)p[0];
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         if (tComp.step != EndSeasonStep.ChooseRoutine) return;
         tComp.step = EndSeasonStep.GainInterest;
         Msg.Dispatch(MsgID.AfterTurnStepChanged);
         await GainInterest(win);
-        tComp.step = EndSeasonStep.DealEveryVenue;
+        tComp.step = EndSeasonStep.ResolveEveryExhibit;
         Msg.Dispatch(MsgID.AfterTurnStepChanged);
-        await DealEveryVenue(win);
+        await DealEveryExhibit(win);
         if (!CheckAim())
         {
             EndGame();
@@ -49,7 +49,7 @@ public class EndSeasonSys : ISystem
         win.Dispose();
     }
 
-    private async Task GainInterest(UI_NewEndSeasonWin win)
+    private async Task GainInterest(UI_EndSeasonWin win)
     {
         if (EcsUtil.GetBuffNum(27) > 0)
         {
@@ -57,38 +57,38 @@ public class EndSeasonSys : ISystem
         }
         await win.m_cont.m_interest.Init();
         InterestInfo info = EcsUtil.GetInterestInfo();
-        Msg.Dispatch(MsgID.ActionGainGold, new object[] { info.interest });
-        if (info.popRGet > 0)
-            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { info.popRGet });
-        await FGUIUtil.PlayGoldAni();
+        Msg.Dispatch(MsgID.ActionGainCoin, new object[] { info.interest });
+        if (info.popularityGet > 0)
+            Msg.Dispatch(MsgID.ActionGainPopularity, new object[] { info.popularityGet });
+        await FGUIUtil.PlayCoinAni();
         Debug.Log("finish playing");
     }
 
-    private async Task DealEveryVenue(UI_NewEndSeasonWin win)
+    private async Task DealEveryExhibit(UI_EndSeasonWin win)
     {
-        win.m_cont.m_dealVenue.Init();
+        win.m_cont.m_resolveExhibit.Init();
         await Task.Delay(1000);
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-        foreach (Venue b in new List<Venue>(vComp.venues))
+        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+        foreach (Exhibit b in new List<Exhibit>(eComp.exhibits))
         {
-            if (EcsUtil.GetBuffNum(48) > 0 && vComp.venues.IndexOf(b) >= 5)
+            if (EcsUtil.GetBuffNum(48) > 0 && eComp.exhibits.IndexOf(b) >= 5)
                 continue;
             if (EcsUtil.TryToMinusBuff(15))
-                await TakeEffectVenue(b);
-            if (EcsUtil.RandomlyDoSth(EcsUtil.GetBuffNum(14)) && b.cfg.aniModule == 2)
-                await TakeEffectVenue(b);
-            if (EcsUtil.GetBuffNum(16) > 0 && vComp.venues.IndexOf(b) == 0)
+                await TakeEffectExhibit(b);
+            if (EcsUtil.RandomlyDoSth(EcsUtil.GetBuffNum(14)) && b.cfg.aniModule == Module.Reptile)
+                await TakeEffectExhibit(b);
+            if (EcsUtil.GetBuffNum(16) > 0 && eComp.exhibits.IndexOf(b) == 0)
                 for (int i = 0; i < EcsUtil.GetBuffNum(16); i++)
-                    await TakeEffectVenue(b);
-            await TakeEffectVenue(b);
+                    await TakeEffectExhibit(b);
+            await TakeEffectExhibit(b);
         }
     }
 
-    private async Task TakeEffectVenue(Venue b)
+    private async Task TakeEffectExhibit(Exhibit b)
     {
-        GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
+        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        Msg.Dispatch(MsgID.BeforeVenueTakeEffect, new object[] { b });
+        Msg.Dispatch(MsgID.BeforeExhibitTakeEffect, new object[] { b });
         int statisticNum = EcsUtil.GetStatisticNum(b.uid,b);
         int val1 = Cfg.cards[b.uid].val1;
         int val2 = Cfg.cards[b.uid].val2;
@@ -108,7 +108,7 @@ public class EndSeasonSys : ISystem
             case "xiami":
             case "xiaoxingyulei":
             case "daxingyulei":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 break;
             case "rong_monkey":
             case "yagualabihu":
@@ -118,101 +118,101 @@ public class EndSeasonSys : ISystem
             case "qunjuyu":
             case "denglongyu":
             case "jinyu":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { statisticNum, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { statisticNum, b });
                 break;
             case "jinli":
             case "yanshiyu":
             case "shenhaiyu":
             case "mi_monkey":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1 * statisticNum, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1 * statisticNum, b });
                 break;
             case "spider_monkey":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { statisticNum, b });
-                Msg.Dispatch(MsgID.ActionPayGold, new object[] { statisticNum });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { statisticNum, b });
+                Msg.Dispatch(MsgID.ActionPayCoin, new object[] { statisticNum });
                 break;
             case "jinsi_monkey":
                 int extra = statisticNum >= val2 ? val3 : 0;
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { b.adjacents.Count * val1 + extra, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { b.adjacents.Count * val1 + extra, b });
                 break;
             case "huiye_monkey":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 Msg.Dispatch(MsgID.ActionDrawCardAndMayDiscard, new object[] { val2 });
                 break;
             case "yuan_monkey":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 b.effectCnt++;
-                if (b.effectCnt >= val2) Msg.Dispatch(MsgID.RemoveVenue, new object[] { b });
+                if (b.effectCnt >= val2) Msg.Dispatch(MsgID.RemoveExhibit, new object[] { b });
                 break;
             case "meizhoushi":
                 if (b.adjacents.Count == 1)
                 {
-                    b.timePopR++;
-                    b.adjacents[0].timePopR++;
+                    b.timeRopularity++;
+                    b.adjacents[0].timeRopularity++;
                 }
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 break;
             case "yazhoushi":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { "yazhoushi" });
                 break;
             case "guzhonghuabao":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { sComp.popRLastVenue, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { sComp.pLastExhibit, b });
                 break;
             case "meizhoubao":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { sComp.numEffectedVenuesThisTurn, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { sComp.numEffectedExhibitsThisTurn, b });
                 break;
             case "dongbeihu":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 20, 1 });
                 break;
             case "huananhu":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
         await Task.Delay(200);
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
         await Task.Delay(200);
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
         await Task.Delay(200);
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
         await Task.Delay(200);
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 break;
             case "aozhouyequan":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1+b.effectCnt, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1+b.effectCnt, b });
                 b.effectCnt += val2;
                 break;
             case "ouzhouguan":
                 Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 15, 1 });
                 break;
             case "guowangbsl":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { sComp.numEffectedPaChongVenuesThisTurn, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { sComp.numEffectedPaChongExhibitsThisTurn, b });
                 break;
             case "gaoguanbsl":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1 * sComp.numEffectedPaChongVenuesThisTurn, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1 * sComp.numEffectedPaChongExhibitsThisTurn, b });
                 EcsUtil.RandomlyDoSth(val2, () => Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 }), false);
                 break;
             case "duojiesenbsl":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1 * sComp.numEffectedPaChongVenuesThisTurn, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1 * sComp.numEffectedPaChongExhibitsThisTurn, b });
                 break;
             case "juxinghuanweixi":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 EcsUtil.RandomlyDoSth(val2, () => Msg.Dispatch(MsgID.ActionGainRandomBadIdeaCard, new object[] { 1 }), false);
                 break;
             case "jiaoxi":
                 if (b.adjacents.Count == 0)
-                    Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val2, b });
+                    Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val2, b });
                 else
-                    Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { val1, b });
+                    Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { val1, b });
                 break;
             case "douyu":
-                Msg.Dispatch(MsgID.ActionGainVenuePopR, new object[] { gComp.gold / val1, b });
+                Msg.Dispatch(MsgID.ActionGainExhibitPopularity, new object[] { cComp.coin / val1, b });
                 break;
             case "jinqiangui":
-                Msg.Dispatch(MsgID.ActionGainGold, new object[] { val1, b });
+                Msg.Dispatch(MsgID.ActionGainCoin, new object[] { val1, b });
                 break;
         }
-        Msg.Dispatch(MsgID.AfterVenueTakeEffect, new object[] { b });
+        Msg.Dispatch(MsgID.AfterExhibitTakeEffect, new object[] { b });
         // ani
-        Msg.Dispatch(MsgID.VenueTakeEffectAni, new object[] { b });
+        Msg.Dispatch(MsgID.ExhibitTakeEffectAni, new object[] { b });
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         await Task.Delay((int)(2000/tComp.endTurnSpeed));
         tComp.endTurnSpeed += 0.2f;
@@ -221,12 +221,12 @@ public class EndSeasonSys : ISystem
     private bool CheckAim()
     {
         AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
-        PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
+        PopularityComp pComp = World.e.sharedConfig.GetComp<PopularityComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         int aim = aComp.aims[tComp.turn - 1];
-        if (prComp.popRating < aim && EcsUtil.TryToMinusBuff(47))
-            Msg.Dispatch(MsgID.ActionGainPopR, new object[] { prComp.popRating / 2 });
-        return prComp.popRating >= aim;
+        if (pComp.p < aim && EcsUtil.TryToMinusBuff(47))
+            Msg.Dispatch(MsgID.ActionGainPopularity, new object[] { pComp.p / 2 });
+        return pComp.p >= aim;
     }
 
     private void EndGame()
@@ -234,7 +234,7 @@ public class EndSeasonSys : ISystem
         FGUIUtil.CreateWindow<UI_EndWin>("EndWin");
     }
 
-    private Task GoNextEvent(UI_NewEndSeasonWin win)
+    private Task GoNextEvent(UI_EndSeasonWin win)
     {
         EventComp eComp = World.e.sharedConfig.GetComp<EventComp>();
         string curEventUid = eComp.eventIDs.Shift();
@@ -245,15 +245,15 @@ public class EndSeasonSys : ISystem
 
     private void DoSpecificEvent(object[] p)
     {
-        string eventID = (string)p[0];
-        ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
-        aComp.queue.PushData(async () =>
-        {
-            await FGUIUtil.DealEvent(new ZooEvent( eventID));
-        });
+        //string eventID = (string)p[0];
+        //ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
+        //aComp.queue.PushData(async () =>
+        //{
+        //    await FGUIUtil.DealEvent(new ZooEvent( eventID));
+        //});
     }
 
-    private async Task DealEvent(string curEventUid, UI_NewEndSeasonWin win)
+    private async Task DealEvent(string curEventUid, UI_EndSeasonWin win)
     {
         ZooEvent curEvent = new(curEventUid);
         await win.m_cont.m_event.Init(curEvent);
@@ -261,18 +261,18 @@ public class EndSeasonSys : ISystem
 
     private void GoNextTurn()
     {
-        PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
+        PopularityComp pComp = World.e.sharedConfig.GetComp<PopularityComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
-        // venue
-        foreach (Venue v in vComp.venues)
-            v.timePopR = 1;
-        // popRating
-        prComp.popRating = 0;
-        // workPos
-        foreach (WorkPos wp in wpComp.workPoses)
+        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+        // exhibit
+        foreach (Exhibit v in eComp.exhibits)
+            v.timeRopularity = 1;
+        // popularity
+        pComp.p = 0;
+        // action space
+        foreach (ActionSpace wp in asComp.actionSpace)
         {
             wp.currNum = 0;
             wp.needNum = 1;
@@ -293,7 +293,7 @@ public class EndSeasonSys : ISystem
 
         // turn&season
 
-        if (tComp.turn == 24) {
+        if (tComp.turn == Consts.turnNum) {
             // finish the game
             FGUIUtil.CreateWindow<UI_SucceedWin>("SucceedWin");
             return;
@@ -310,14 +310,14 @@ public class EndSeasonSys : ISystem
         Msg.Dispatch(MsgID.ResolveStartSeason);
     }
 
-    private async Task DiscardCard(UI_NewEndSeasonWin win)
+    private async Task DiscardCard(UI_EndSeasonWin win)
     {
         if (EcsUtil.GetBuffNum(46) > 0) return;
         CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
         if (cmComp.hands.Count <= cmComp.handsLimit) return;
         List<Card> pool = new();
         foreach (Card c in cmComp.hands)
-            if (c.cfg.module != -1 || EcsUtil.GetBuffNum(36) > 0)
+            if (c.cfg.module != Module.BadIdea || EcsUtil.GetBuffNum(36) > 0)
                 pool.Add(c);
         List<Card> discards = await win.m_cont.m_discardCard.Init(pool, Mathf.Min(pool.Count, cmComp.hands.Count - cmComp.handsLimit));
         Msg.Dispatch(MsgID.DiscardCard, new object[] { discards });

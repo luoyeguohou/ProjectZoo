@@ -13,12 +13,11 @@ namespace Main
         {
             base.ConstructFromResource();
             m_cont.m_lstBook.itemRenderer = BookIR;
-            m_cont.m_lstWorkPos.itemRenderer = WorkPosIR;
-            FGUIUtil.InitMapList(m_cont.m_lstMap, ZooBlockIniter);
+            FGUIUtil.InitPlotList(m_cont.m_lstMap, ZooBlockIniter);
             m_cont.m_lstMap.onTouchEnd.Add(() =>
             {
-                ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-                zgComp.mapOffset = new Vector2Int((int)m_cont.m_lstMap.scrollPane.posX, (int)m_cont.m_lstMap.scrollPane.posY);
+                PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
+                plotsComp.mapOffset = new Vector2Int((int)m_cont.m_lstMap.scrollPane.posX, (int)m_cont.m_lstMap.scrollPane.posY);
             });
             m_cont.m_lstSpecWorker.itemRenderer = WorkerIR;
             m_cont.m_btnDrawPile.onClick.Add(OnClickDrawPile);
@@ -40,18 +39,16 @@ namespace Main
                 vdComp.viewDetailed = m_cont.m_viewDetailed.selectedIndex == 1;
                 Msg.Dispatch(MsgID.AfterViewDetailChange);
             });
-            Msg.Bind(MsgID.AfterMapChanged, UpdateZooBlockView);
+            Msg.Bind(MsgID.AfterPlotChanged, UpdateZooBlockView);
             Msg.Bind(MsgID.AfterBookChanged, UpdateBookView);
-            Msg.Bind(MsgID.AfterWorkPosChanged, UpdateWorkPosView);
             Msg.Bind(MsgID.AfterWorkerChanged, UpdateWorkerView);
-            Msg.Bind(MsgID.AfterPopRatingChanged, UpdatePopRatingView);
-            Msg.Bind(MsgID.AfterGoldChanged, UpdateGoldView);
+            Msg.Bind(MsgID.AfterPopularityChanged, UpdatePopularityView);
+            Msg.Bind(MsgID.AfterCoinChanged, UpdateCoinView);
             Msg.Bind(MsgID.AfterCardChanged, UpdateDrawPileView);
             Msg.Bind(MsgID.AfterCardChanged, UpdateDiscardPileView);
             Msg.Bind(MsgID.AfterTimeResChanged, UpdateTimeResView);
             Msg.Bind(MsgID.AfterTurnChanged, UpdateAllView);
             Msg.Bind(MsgID.AfterBuffChanged, UpdateBuffView);
-            Msg.Bind(MsgID.AfterBuffChanged, UpdateWorkPosView);
             Msg.Bind(MsgID.AfterHandLimitChange, UpdateHandLimitView);
         }
 
@@ -66,10 +63,9 @@ namespace Main
             UpdateTimeResView();
             UpdateZooBlockView();
             UpdateBookView();
-            UpdateWorkPosView();
             UpdateWorkerView();
-            UpdatePopRatingView();
-            UpdateGoldView();
+            UpdatePopularityView();
+            UpdateCoinView();
             UpdateDrawPileView();
             UpdateDiscardPileView();
             UpdateBuffView();
@@ -98,9 +94,9 @@ namespace Main
         {
             MapSizeComp cmComp = World.e.sharedConfig.GetComp<MapSizeComp>();
             m_cont.m_lstMap.numItems = cmComp.width * cmComp.height;
-            ZooGroundComp zgComp = World.e.sharedConfig.GetComp<ZooGroundComp>();
-            m_cont.m_lstMap.scrollPane.posX = zgComp.mapOffset.x;
-            m_cont.m_lstMap.scrollPane.posY = zgComp.mapOffset.y;
+            PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
+            m_cont.m_lstMap.scrollPane.posX = plotsComp.mapOffset.x;
+            m_cont.m_lstMap.scrollPane.posY = plotsComp.mapOffset.y;
         }
 
         private void UpdateBookView(object[] p = null)
@@ -109,12 +105,6 @@ namespace Main
             m_cont.m_lstBook.numItems = iComp.bookLimit;
         }
 
-        private void UpdateWorkPosView(object[] p = null)
-        {
-            WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-            m_cont.m_lstWorkPos.numItems = wComp.workPoses.Count;
-            m_cont.m_workPosAmount.selectedIndex = wComp.workPoses.Count > 10 ? 1 : 0;
-        }
         private void UpdateWorkerView(object[] p = null)
         {
             WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
@@ -124,20 +114,20 @@ namespace Main
             m_cont.m_lstSpecWorker.numItems = wComp.specialWorker.Count;
         }
 
-        private void UpdatePopRatingView(object[] p = null)
+        private void UpdatePopularityView(object[] p = null)
         {
-            PopRatingComp prComp = World.e.sharedConfig.GetComp<PopRatingComp>();
+            PopularityComp pComp = World.e.sharedConfig.GetComp<PopularityComp>();
             TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
             AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
-            m_cont.m_txtAim.SetVar("cur", prComp.popRating.ToString());
+            m_cont.m_txtAim.SetVar("cur", pComp.p.ToString());
             m_cont.m_txtAim.SetVar("aim", aComp.aims[tComp.turn - 1].ToString());
             m_cont.m_txtAim.FlushVars();
         }
 
-        private void UpdateGoldView(object[] p = null)
+        private void UpdateCoinView(object[] p = null)
         {
-            GoldComp gComp = World.e.sharedConfig.GetComp<GoldComp>();
-            m_cont.m_txtGold.text = gComp.gold.ToString() + "(" + gComp.income + ")";
+            CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
+            m_cont.m_txtCoin.text = cComp.coin.ToString() + "(" + cComp.income + ")";
         }
 
         private void OnClickDrawPile()
@@ -194,35 +184,6 @@ namespace Main
                 FGUIUtil.SetSamePos(win.m_book, ui.m_img);
             });
             FGUIUtil.SetHint(ui, () => EcsUtil.GetBookCont(b.uid));
-        }
-
-        private void WorkPosIR(int index, GObject g)
-        {
-            WorkPosComp wComp = World.e.sharedConfig.GetComp<WorkPosComp>();
-            UI_WorkPos ui = (UI_WorkPos)g;
-            WorkPos wp = wComp.workPoses[index];
-            ui.SetWorkPos(wp);
-            ui.onDrop.Clear();
-            ui.onDrop.Add((EventContext context) =>
-            {
-                if (!UIManager.IsCurrMainWin()) return;
-                Msg.Dispatch(MsgID.UseWorker, new object[] { context.data, index });
-                for (int i = 0; i < m_cont.m_lstWorkPos.numChildren; i++)
-                    ((UI_WorkPos)m_cont.m_lstWorkPos.GetChildAt(i)).m_overView.selectedIndex = 0;
-            });
-            FGUIUtil.SetHint(ui, wp.GetCont,new Vector2Int(30,30));
-
-            ui.m_img.onRollOver.Clear();
-            ui.m_img.onRollOver.Add((EventContext context) =>
-            {
-                if (!DragDropManager.inst.dragging) return;
-                ui.m_overView.selectedIndex = 1;
-            });
-            ui.m_img.onRollOut.Clear();
-            ui.m_img.onRollOut.Add((EventContext context) =>
-            {
-                ui.m_overView.selectedIndex = 0;
-            });
         }
 
         private void WorkerIR(int index, GObject g)
@@ -305,17 +266,17 @@ namespace Main
             };
         }
 
-        private void ZooBlockIniter(UI_MapPoint ui, ZooGround zg)
+        private void ZooBlockIniter(UI_Plot ui, Plot zg)
         {
             FGUIUtil.SetHint(ui, () =>
             {
                 ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
                 string s = "";
-                if (zg.hasBuilt) s += EcsUtil.GetCardCont(zg.venue.cfg.uid,zg.venue);
+                if (zg.hasBuilt) s += EcsUtil.GetCardCont(zg.exhibit.cfg.uid,zg.exhibit);
                 else if (!zg.isTouchedLand) s += Cfg.GetSTexts("unknowPlot");
-                else if (zg.bonus != null) s += Cfg.GetSTexts("canBuild") + "\n" + GetPlotRewardStr(zg.bonus);
-                else if (zg.state == GroundStatus.Rock) s += Cfg.GetSTexts("rock");
-                else if (zg.state == GroundStatus.Water) s += Cfg.GetSTexts("lack");
+                else if (zg.reward != null) s += Cfg.GetSTexts("canBuild") + "\n" + GetPlotRewardStr(zg.reward);
+                else if (zg.state == PlotStatus.Rock) s += Cfg.GetSTexts("rock");
+                else if (zg.state == PlotStatus.Water) s += Cfg.GetSTexts("lack");
                 else s += Cfg.GetSTexts("canBuild");
 
                 if (vdComp.viewDetailed)
@@ -326,28 +287,28 @@ namespace Main
             });
         }
 
-        private string GetPlotRewardStr(MapBonus mp)
+        private string GetPlotRewardStr(PlotReward mp)
         {
             string s = Cfg.GetSTexts("plotReward");
-            switch (mp.bonusType)
+            switch (mp.rewardType)
             {
-                case MapBonusType.RandomBook:
-                    s += string.Format(Cfg.GetSTexts("prBook"), EcsUtil.GetMapBonusVal(mp));
+                case PlotRewardType.RandomBook:
+                    s += string.Format(Cfg.GetSTexts("prBook"), EcsUtil.GetPlotRewardVal(mp));
                     break;
-                case MapBonusType.DrawCard:
-                    s += string.Format(Cfg.GetSTexts("prDraw"), EcsUtil.GetMapBonusVal(mp));
+                case PlotRewardType.DrawCard:
+                    s += string.Format(Cfg.GetSTexts("prDraw"), EcsUtil.GetPlotRewardVal(mp));
                     break;
-                case MapBonusType.Gold:
-                    s += string.Format(Cfg.GetSTexts("prCoin"), EcsUtil.GetMapBonusVal(mp));
+                case PlotRewardType.Coin:
+                    s += string.Format(Cfg.GetSTexts("prCoin"), EcsUtil.GetPlotRewardVal(mp));
                     break;
-                case MapBonusType.TmpWorker:
-                    s += string.Format(Cfg.GetSTexts("prTWorker"), EcsUtil.GetMapBonusVal(mp));
+                case PlotRewardType.TmpWorker:
+                    s += string.Format(Cfg.GetSTexts("prTWorker"), EcsUtil.GetPlotRewardVal(mp));
                     break;
-                case MapBonusType.Income:
-                    s += string.Format(Cfg.GetSTexts("prIncome"), EcsUtil.GetMapBonusVal(mp));
+                case PlotRewardType.Income:
+                    s += string.Format(Cfg.GetSTexts("prIncome"), EcsUtil.GetPlotRewardVal(mp));
                     break;
-                case MapBonusType.Worker:
-                    s += string.Format(Cfg.GetSTexts("prWorker"), EcsUtil.GetMapBonusVal(mp));
+                case PlotRewardType.Worker:
+                    s += string.Format(Cfg.GetSTexts("prWorker"), EcsUtil.GetPlotRewardVal(mp));
                     break;
             }
             return s;
@@ -360,7 +321,7 @@ namespace Main
 
         private void OnClickEndSesson()
         {
-            FGUIUtil.CreateWindow<UI_NewEndSeasonWin>("NewEndSeasonWin").Init();
+            FGUIUtil.CreateWindow<UI_EndSeasonWin>("EndSeasonWin").Init();
         }
     }
 }

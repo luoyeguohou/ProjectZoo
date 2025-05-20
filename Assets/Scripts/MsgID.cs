@@ -6,9 +6,9 @@ public enum MsgID
     ActionDiscardCardFromDrawPile,
     ActionDiscardCardAndDrawSame,
     ActionDiscardCardAndDrawSameWithLimit,
-    ActionDiscardCardAndGainGold,
+    ActionDiscardCardAndGainCoin,
     ActionCopyCard,
-    ActionGainRandomDepCard,
+    ActionGainRandomActionSpaceCard,
     ActionGainRandomBadIdeaCard,
     ActionGainLastProjectCard,
     ActionGainSpecificCard,
@@ -20,24 +20,24 @@ public enum MsgID
     ActionDeleteBadIdeaCard,
     // buff
     ActionBuffChanged,
-    // gold
+    // coin
     ActionGainIncome,
-    ActionDoubleGold,
-    ActionGainGold,
-    ActionPayGold,
-    // map bonus
-    ActionGainMapBonus5Gold,
-    ActionGainRandomMapBonus,
-    // popR
-    ActionGainPopR,
-    ActionGainVenuePopR,
+    ActionDoubleCoin,
+    ActionGainCoin,
+    ActionPayCoin,
+    // plot reward
+    ActionGainPlotReward5Coin,
+    ActionGainRandomPlotReward,
+    // popularity
+    ActionGainPopularity,
+    ActionGainExhibitPopularity,
     // time
     ActionGainTime,
     ActionPayTime,
-    // workPos
+    // action space
     ActionTraining,
     ActionTrainingPromotionDep,
-    ActionGainWorkPos,
+    ActionGainActionSpace,
     // worker
     ActionGainWorker,
     ActionGainTWorker,
@@ -51,15 +51,15 @@ public enum MsgID
     // zoo land
     ActionClearRock,
     ActionClearLake,
-    ActionGainMapBonus,
+    ActionGainPlotReward,
     // zoo
     ActionPlayAHandFreely,
-    ActionBuildBigVenueFreely,
-    ActionBuildMonkeyVenue,
-    ActionDemolitionVenueWithCost,
+    ActionBuildBigExhibitFreely,
+    ActionBuildMonkeyExhibit,
+    ActionDemolitionExhibitWithCost,
     ActionExpand,
     ActionExpandRandomly,
-    ActionDemolitionVenue,
+    ActionDemolitionExhibit,
     // shop
     ActionGoShop,
     ActionBuyBook,
@@ -70,13 +70,13 @@ public enum MsgID
     ResolveEventChoiceEffect,
     ResolveCardEffect,
     ResolveCardsEffect,
-    ResolveWorkPosEffect,
+    ResolveActionSpaceEffect,
     ResolveEndSeason,
     ResolveStartSeason,
     ResolveEvent,
     UseWorker,
-    AddVenue,
-    RemoveVenue,
+    AddExhibit,
+    RemoveExhibit,
     // card inner
     DiscardCard,
     CardFromDrawToHand,
@@ -88,12 +88,12 @@ public enum MsgID
     CardFromNoWhereToDiscard,
     // used to update view or trigger passive
     AfterGainCard,
-    AfterMapChanged,
+    AfterPlotChanged,
     AfterBookChanged,
-    AfterWorkPosChanged,
+    AfterActionSpaceChanged,
     AfterWorkerChanged,
-    AfterPopRatingChanged,
-    AfterGoldChanged,
+    AfterPopularityChanged,
+    AfterCoinChanged,
     AfterTimeResChanged,
     AfterCardChanged,
     AfterShopChanged,
@@ -104,11 +104,11 @@ public enum MsgID
     AfterUseWorker,
     AfterUseBook,
     OnTurnEnd,
-    BeforeVenueTakeEffect,
-    AfterVenueTakeEffect,
-    AfterGainMapBonues,
+    BeforeExhibitTakeEffect,
+    AfterExhibitTakeEffect,
+    AfterGainPlotReward,
     AfterGainACard,
-    AfterGainPopRByVenue,
+    AfterGainPopularityByExhibit,
     AfterExpand,
     AfterDemolition,
     AfterStatisticChange,
@@ -120,5 +120,5 @@ public enum MsgID
     // Console
     ConsoleMsg,
     // Ani
-    VenueTakeEffectAni,
+    ExhibitTakeEffectAni,
 }

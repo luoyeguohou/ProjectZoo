@@ -18,10 +18,10 @@ public class UseWorkerSys : ISystem
 
     private void OnUseWorker(object[] p)
     {
-        WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
         Worker worker = (Worker)p[0];
-        int workPosIdx = (int)p[1];
-        WorkPos wp = wpComp.workPoses[workPosIdx];
+        int actionSpaceIdx = (int)p[1];
+        ActionSpace wp = asComp.actionSpace[actionSpaceIdx];
 
         if (EcsUtil.GetBuffNum(60) > 0 && worker.age < 2) return;
 
@@ -40,22 +40,22 @@ public class UseWorkerSys : ISystem
         EcsUtil.PlaySound("bubble");
 
         // check can take effect
-        if (wp.currNum >= EcsUtil.GetWorkPosNeed(wp))
+        if (wp.currNum >= EcsUtil.GetActionSpaceNeed(wp))
         {
             // take effect
             wp.currNum = 0;
             wp.needNum++;
-            Msg.Dispatch(MsgID.ResolveWorkPosEffect, new object[] { workPosIdx });
+            Msg.Dispatch(MsgID.ResolveActionSpaceEffect, new object[] { actionSpaceIdx });
         }
-        Msg.Dispatch(MsgID.AfterWorkPosChanged);
+        Msg.Dispatch(MsgID.AfterActionSpaceChanged);
         Msg.Dispatch(MsgID.AfterWorkerChanged);
         Msg.Dispatch(MsgID.AfterUseWorker);
     }
 
-    private bool CheckCanPut(WorkPos wp, Worker worker)
+    private bool CheckCanPut(ActionSpace wp, Worker worker)
     {
         WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        VenueComp vComp = World.e.sharedConfig.GetComp<VenueComp>();
+        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
         TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
         int limitTime = wp.cfg.limitTime[wp.level - 1];
         if (limitTime != 0 && wp.workTimeThisTurn >= limitTime)
@@ -73,30 +73,30 @@ public class UseWorkerSys : ISystem
         switch (wp.uid)
         {
             case "dep_3":
-                if (!EcsUtil.HaveEnoughGold(EcsUtil.GetRecruitCost()))
+                if (!EcsUtil.HaveEnoughCoin(EcsUtil.GetRecruitCost()))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
             case "dep_5":
-                if (!EcsUtil.HaveEnoughGold(15))
+                if (!EcsUtil.HaveEnoughCoin(15))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
             case "dep_7":
-                if (!EcsUtil.HaveEnoughGold(Cfg.workPoses[wp.uid].val1[wp.level - 1] * (1 + EcsUtil.GetBuffNum(63))))
+                if (!EcsUtil.HaveEnoughCoin(Cfg.actionSpaces[wp.uid].val1[wp.level - 1] * (1 + EcsUtil.GetBuffNum(63))))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;
                 }
                 break;
             case "dep_6":
-                if (vComp.venues.Count == 0)
+                if (eComp.exhibits.Count == 0)
                 {
-                    FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveVenue"));
+                    FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveExhibit"));
                     return false;
                 }
                 if (EcsUtil.GetBuffNum(38) > 0)
@@ -151,8 +151,8 @@ public class UseWorkerSys : ISystem
             case "dep_yu":
             case "dep_pachong":
             case "dep_devburu":
-                int val = Cfg.workPoses[wp.uid].val1[wp.level - 1];
-                if (!EcsUtil.HaveEnoughGold(val))
+                int val = Cfg.actionSpaces[wp.uid].val1[wp.level - 1];
+                if (!EcsUtil.HaveEnoughCoin(val))
                 {
                     FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                     return false;

@@ -18,26 +18,26 @@ public class Logger
         operates.Add(new Operate(ope, param));
         switch (ope)
         {
-            case OpeType.AddGold:
-                AddMsg("gain gold " + param[0] + " (" + param[1] + ")");
+            case OpeType.AddCoin:
+                AddMsg("gain coin " + param[0] + " (" + param[1] + ")");
                 break;
-            case OpeType.PayGold:
-                AddMsg("pay gold " + param[0] + " (" + param[1] + ")");
+            case OpeType.PayCoin:
+                AddMsg("pay coin " + param[0] + " (" + param[1] + ")");
                 break;
-            case OpeType.DoubleGold:
-                AddMsg("double gold now you have " + param[0]);
+            case OpeType.DoubleCoin:
+                AddMsg("double coin now you have " + param[0]);
                 break;
             case OpeType.GainIncome:
                 AddMsg("gain income " + param[0] + " (" + param[1] + ")");
                 break;
-            case OpeType.CheckIsValidGround:
-                AddMsg("check is valid ground " + GetJsonStr(param[0]) + " landType: " + param[1]);
+            case OpeType.CheckIsValidPlot:
+                AddMsg("check is valid plot " + GetJsonStr(param[0]) + " landType: " + param[1]);
                 break;
-            case OpeType.StartCheckHasValidGround:
-                AddMsg("start check has valid ground. can build area is " + GetJsonStr(param[0]) + " landType: " + param[1]);
+            case OpeType.StartCheckHasValidPlot:
+                AddMsg("start check has valid plot. can build area is " + GetJsonStr(param[0]) + " landType: " + param[1]);
                 break;
-            case OpeType.CheckHasValidGround:
-                AddMsg("check has valid ground. start with " + GetJsonStr(param[0]) + " the relative coor is " + GetJsonStr(param[1]) + " landType: " + param[2]);
+            case OpeType.CheckHasValidPlot:
+                AddMsg("check has valid plot. start with " + GetJsonStr(param[0]) + " the relative coor is " + GetJsonStr(param[1]) + " landType: " + param[2]);
                 break;
             case OpeType.GainCard:
                 AddMsg("gain card " + GetJsonStr(param[0]));
@@ -48,7 +48,7 @@ public class Logger
                 AddMsg("change buff " + cfg.GetCont() + " from "+ (bComp.buffs[(int)param[0]] - (int)param[1]) + " to " + bComp.buffs[(int)param[0]]);
                 break;
             case OpeType.ExpandChoose:
-                AddMsg("choosing expand ground");
+                AddMsg("choosing expand plot");
                 break;
             case OpeType.Expand:
                 AddMsg("do expand");
@@ -66,10 +66,10 @@ public class Logger
             s += "]";
             return s;
         }
-        if (o is List<ZooGround> zooGrounds)
+        if (o is List<Plot> zooPlots)
         {
             string s = "[";
-            foreach (ZooGround item in zooGrounds)
+            foreach (Plot item in zooPlots)
             {
                 s += "[" + item.pos.x + "," + item.pos.y + "]";
             }
@@ -97,16 +97,16 @@ public class Operate {
 
 public enum OpeType 
 { 
-    AddGold,
-    PayGold,
-    DoubleGold,
+    AddCoin,
+    PayCoin,
+    DoubleCoin,
     GainIncome,
     GainCard,
     BuffChanged,
     Expand,
     ExpandChoose,
 
-    CheckIsValidGround,
-    StartCheckHasValidGround,
-    CheckHasValidGround,
+    CheckIsValidPlot,
+    StartCheckHasValidPlot,
+    CheckHasValidPlot,
 }

@@ -16,9 +16,9 @@ public class ActionCardSys : ISystem
         Msg.Bind(MsgID.ActionDiscardCardFromDrawPile, DiscardCardFromDrawPile);
         Msg.Bind(MsgID.ActionDiscardCardAndDrawSame, DiscardCardAndDrawSame);
         Msg.Bind(MsgID.ActionDiscardCardAndDrawSameWithLimit, DiscardCardAndDrawSameWithLimit);
-        Msg.Bind(MsgID.ActionDiscardCardAndGainGold, DiscardCardAndGainGold);
+        Msg.Bind(MsgID.ActionDiscardCardAndGainCoin, DiscardCardAndGainCoin);
         Msg.Bind(MsgID.ActionCopyCard, CopyCard);
-        Msg.Bind(MsgID.ActionGainRandomDepCard, GainRandomDepCard);
+        Msg.Bind(MsgID.ActionGainRandomActionSpaceCard, GainRandomActionSpaceCard);
         Msg.Bind(MsgID.ActionGainRandomBadIdeaCard, GainRandomBadIdeaCard);
         Msg.Bind(MsgID.ActionGainLastProjectCard, GainLastProjectCard);
         Msg.Bind(MsgID.ActionGainSpecificCard, GainSpecificCard);
@@ -48,9 +48,9 @@ public class ActionCardSys : ISystem
         Msg.UnBind(MsgID.ActionDiscardCardFromDrawPile, DiscardCardFromDrawPile);
         Msg.UnBind(MsgID.ActionDiscardCardAndDrawSame, DiscardCardAndDrawSame);
         Msg.UnBind(MsgID.ActionDiscardCardAndDrawSameWithLimit, DiscardCardAndDrawSameWithLimit);
-        Msg.UnBind(MsgID.ActionDiscardCardAndGainGold, DiscardCardAndGainGold);
+        Msg.UnBind(MsgID.ActionDiscardCardAndGainCoin, DiscardCardAndGainCoin);
         Msg.UnBind(MsgID.ActionCopyCard, CopyCard);
-        Msg.UnBind(MsgID.ActionGainRandomDepCard, GainRandomDepCard);
+        Msg.UnBind(MsgID.ActionGainRandomActionSpaceCard, GainRandomActionSpaceCard);
         Msg.UnBind(MsgID.ActionGainRandomBadIdeaCard, GainRandomBadIdeaCard);
         Msg.UnBind(MsgID.ActionGainLastProjectCard, GainLastProjectCard);
         Msg.UnBind(MsgID.ActionGainSpecificCard, GainSpecificCard);
@@ -162,7 +162,7 @@ public class ActionCardSys : ISystem
             await tcs.Task;
         });
     }
-    private void DiscardCardAndGainGold(object[] p)
+    private void DiscardCardAndGainCoin(object[] p)
     {
         ActionComp aComp = World.e.sharedConfig.GetComp<ActionComp>();
         aComp.queue.PushData(async () =>
@@ -172,7 +172,7 @@ public class ActionCardSys : ISystem
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
             List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("chooseUpToDiscardAndGetMoney"), Cfg.GetSTexts("selected"), cmComp.hands, -1);
             Msg.Dispatch(MsgID.DiscardCard, new object[] { chosen });
-            Msg.Dispatch(MsgID.ActionGainGold, new object[] { chosen.Count * gainNum });
+            Msg.Dispatch(MsgID.ActionGainCoin, new object[] { chosen.Count * gainNum });
             tcs.SetResult(true);
             await tcs.Task;
         });
@@ -198,11 +198,11 @@ public class ActionCardSys : ISystem
         });
     }
 
-    private void GainRandomDepCard(object[] p)
+    private void GainRandomActionSpaceCard(object[] p)
     {
         int gainNum = (int)p[0];
         CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-        List<Card> pool = Util.Filter(cmComp.drawPile, c => c.cfg.cardType == 2);
+        List<Card> pool = Util.Filter(cmComp.drawPile, c => c.cfg.cardType == CardType.ActionSpace);
         pool = pool.GetRange(0, Math.Min(gainNum, pool.Count));
         if (pool.Count == 0) return;
         Util.Shuffle(pool, new System.Random());
@@ -242,7 +242,7 @@ public class ActionCardSys : ISystem
         aComp.queue.PushData(async () =>
         {
             var tcs = new TaskCompletionSource<bool>();
-            Venue zb = await FGUIUtil.SelectVenue(Cfg.GetSTexts("copyVenue"));
+            Exhibit zb = await FGUIUtil.SelectExhibit(Cfg.GetSTexts("copyExhibit"));
             Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { zb.uid });
             tcs.SetResult(true);
             await tcs.Task;
@@ -257,7 +257,7 @@ public class ActionCardSys : ISystem
             int module = (int)p[0];
             int gainNum = (int)p[1];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> cards = Util.Filter(cmComp.drawPile, c => c.cfg.module == module && c.cfg.cardType == 0, gainNum);
+            List<Card> cards = Util.Filter(cmComp.drawPile, c => (int)c.cfg.module == module && c.cfg.cardType == CardType.Exhibit, gainNum);
             Msg.Dispatch(MsgID.CardFromDrawToHand, new object[] { cards });
             await Task.CompletedTask;
         });
@@ -272,7 +272,7 @@ public class ActionCardSys : ISystem
             var tcs = new TaskCompletionSource<bool>();
             int gainNum = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            List<Card> cards = Util.Filter(cmComp.hands, c => c.cfg.module == -1);
+            List<Card> cards = Util.Filter(cmComp.hands, c => c.cfg.module == Module.BadIdea);
             List<Card> chosen = await FGUIUtil.SelectCards(Cfg.GetSTexts("deleteBadIdea"), Cfg.GetSTexts("selected"), cards, Mathf.Min(gainNum, cards.Count), false);
             Msg.Dispatch(MsgID.DeleteCardFromHand, new object[] { chosen });
 
@@ -429,7 +429,7 @@ public class ActionCardSys : ISystem
             cards = lstCard;
         if (EcsUtil.GetBuffNum(46) > 0) return;
         if (EcsUtil.GetBuffNum(37) > 0)
-            Msg.Dispatch(MsgID.ActionGainGold, new object[] { EcsUtil.GetBuffNum(37) * cards.Count });
+            Msg.Dispatch(MsgID.ActionGainCoin, new object[] { EcsUtil.GetBuffNum(37) * cards.Count });
         Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { cards });
     }
 
@@ -453,13 +453,13 @@ public class ActionCardSys : ISystem
 
             int index = (int)p[0];
             CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+            ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
             Card c = cmComp.hands[index];
 
             // calculate cost
-            int goldCost = EcsUtil.GetCardGoldCost(c);
+            int coinCost = EcsUtil.GetCardCoinCost(c);
             int timeCost = EcsUtil.GetCardTimeCost(c);
-            if (!EcsUtil.HaveEnoughTimeAndGold(timeCost, goldCost))
+            if (!EcsUtil.HaveEnoughTimeAndCoin(timeCost, coinCost))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("notEnoughMoney"));
                 return;
@@ -471,25 +471,19 @@ public class ActionCardSys : ISystem
                 return;
             }
 
-            if (c.cfg.cardType == 1 && EcsUtil.GetBuffNum(53) > 0)
+            if (c.cfg.cardType == CardType.Achivement && EcsUtil.GetBuffNum(53) > 0)
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("CantPlayAchiCard"));
                 return;
             }
 
-            if (c.cfg.cardType == 2 && wpComp.workPoses.Count == 15)
-            {
-                FGUIUtil.ShowMsg(Cfg.GetSTexts("cantPlayActionSpaceCard"));
-                return;
-            }
-
-            if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
+            if (c.cfg.cardType == CardType.Achivement && !EcsUtil.CheckAchiCondition(c.uid))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontMeetReq"));
                 return;
             }
 
-            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c))
+            if (c.cfg.cardType == CardType.Exhibit && !EcsUtil.HasValidPlot(c))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveRoom"));
                 return;
@@ -501,10 +495,10 @@ public class ActionCardSys : ISystem
                 return;
             }
 
-            Msg.Dispatch(MsgID.ActionPayGold, new object[] { goldCost });
+            Msg.Dispatch(MsgID.ActionPayCoin, new object[] { coinCost });
             Msg.Dispatch(MsgID.ActionPayTime, new object[] { timeCost });
             Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { c });
-            if (c.cfg.cardType == 1 || c.cfg.cardType == 2 || (c.cfg.cardType == 3 && c.cfg.oneTime == 0))
+            if (c.cfg.cardType == CardType.Achivement || c.cfg.cardType == CardType.ActionSpace || (c.cfg.cardType == CardType.Project && c.cfg.oneTime == 0))
             {
                 Msg.Dispatch(MsgID.DeleteCardFromHand, new object[] { c });
             }
@@ -512,7 +506,8 @@ public class ActionCardSys : ISystem
             {
 
             }
-            else { 
+            else
+            {
                 Msg.Dispatch(MsgID.CardFromHandToDiscard, new object[] { c });
             }
             await Task.CompletedTask;
@@ -521,36 +516,30 @@ public class ActionCardSys : ISystem
 
     private void TryToPlayHandsFreely(object[] p)
     {
-            WorkPosComp wpComp = World.e.sharedConfig.GetComp<WorkPosComp>();
+        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
         List<Card> cards = (List<Card>)p[0];
         foreach (Card c in cards)
         {
-            if (c.cfg.cardType == 1 && EcsUtil.GetBuffNum(53) > 0)
+            if (c.cfg.cardType == CardType.Achivement && EcsUtil.GetBuffNum(53) > 0)
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("CantPlayAchiCardStop"));
                 return;
             }
 
-            if (c.cfg.cardType == 1 && !EcsUtil.CheckAchiCondition(c.uid))
+            if (c.cfg.cardType == CardType.Achivement && !EcsUtil.CheckAchiCondition(c.uid))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontMeetReqStop"));
                 return;
             }
 
-            if (c.cfg.cardType == 0 && !EcsUtil.HasValidGround(c))
+            if (c.cfg.cardType == 0 && !EcsUtil.HasValidPlot(c))
             {
                 FGUIUtil.ShowMsg(Cfg.GetSTexts("DontHaveRoomStop"));
                 return;
             }
 
-            if (c.cfg.cardType == 2 && wpComp.workPoses.Count == 15)
-            {
-                FGUIUtil.ShowMsg(Cfg.GetSTexts("cantPlayActionSpaceCard"));
-                return;
-            }
-
             Msg.Dispatch(MsgID.ResolveCardEffect, new object[] { c });
-            if (c.cfg.cardType == 1 || c.cfg.cardType == 2 || (c.cfg.cardType == 3 && c.cfg.oneTime == 0))
+            if (c.cfg.cardType == CardType.Achivement || c.cfg.cardType == CardType.ActionSpace || (c.cfg.cardType == CardType.Project && c.cfg.oneTime == 0))
             {
                 Msg.Dispatch(MsgID.DeleteCardFromHand, new object[] { c });
             }

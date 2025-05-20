@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1366,773">
   <displayList>
-    <list id="n79_z141" name="lstVenue" xy="9,192" size="3290,1060" scale="0.4,0.4" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center" vAlign="middle">
+    <list id="n79_z141" name="lstExhibit" xy="9,192" size="3290,1060" scale="0.4,0.4" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center" vAlign="middle">
       <item/>
       <item/>
       <item/>
@@ -38,7 +38,7 @@
     <component id="n81_z141" name="btnSettle" src="rd0816" fileName="Components/ButtonNormal.xml" xy="546,637" size="290,96">
       <Button title="结算" titleFontSize="42"/>
     </component>
-    <text id="n82_z141" name="txtPopRating" xy="261,111" size="852,69" fontSize="44" align="center" vars="true" autoSize="shrink" text="Target :{aim=500}"/>
+    <text id="n82_z141" name="txtPopularity" xy="261,111" size="852,69" fontSize="44" align="center" vars="true" autoSize="shrink" text="目标值:{aim=500}"/>
     <image id="n83_qbvj" name="n83" src="u37uep" fileName="Images/popR.png" xy="489,97" size="68,83"/>
   </displayList>
 </component>
