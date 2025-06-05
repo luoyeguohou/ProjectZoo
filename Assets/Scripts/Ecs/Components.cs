@@ -1,65 +1,33 @@
 using System.Collections.Generic;
 using TinyECS;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class CoinComp : IComponent {
-    public int coin = 0;
-    public int income = 0;
-    public int interestPart = 0;
-    public int interestRate = 0;
-}
-
-public class PopularityComp :IComponent
+public class ResComp : IComponent
 {
-    public int p;
+    public Dictionary<ResType, int> res = new();
 }
-
 public class PlotsComp : IComponent
 {
     public List<Plot> plots = new();
     public Vector2Int mapOffset = new();
 }
-
 public class CardManageComp : IComponent
-{ 
-    public List<Card> drawPile = new ();
-    public List<Card> hands = new ();
-    public List<Card> discardPile = new ();
+{
+    public List<Card> drawPile = new();
+    public List<Card> hands = new();
+    public List<Card> discardPile = new();
     public int handsLimit = 0;
 }
-
-public class ExhibitComp : IComponent
-{ 
-    public List<Exhibit> exhibits = new ();
-}
-
 public class BookComp : IComponent
-{ 
-    public List<Book> books = new ();
+{
+    public List<Book> books = new();
     public int bookLimit = 0;
 }
-
-public class ActionSpaceComp : IComponent
-{ 
-    public List<ActionSpace> actionSpace = new ();
-}
-
 public class WorkerComp : IComponent
-{ 
-    public List<Worker> specialWorker = new ();
-    public List<Worker> specialWorkerLimit = new();
-    public List<Worker> normalWorkers = new();
-    public List<Worker> normalWorkerLimit = new();
-    public List<Worker> tempWorkers = new();
-    public int recruitTime = 0;
-}
-
-public class AimComp : IComponent
 {
-    public List<int> aims = new ();
+    public List<Worker> currWorkers = new();
+    public List<Worker> workers = new();
 }
-
 public class TurnComp : IComponent
 {
     public Season season = Season.Spring;
@@ -67,86 +35,77 @@ public class TurnComp : IComponent
     public EndSeasonStep step = EndSeasonStep.ChooseRoutine;
     public float endTurnSpeed = 1;
     public List<string> startOfSeasonInfo;
+    public List<int> aims = new();
+    public List<int> winterDebuffs = new();
 }
-
 public class ShopComp : IComponent
 {
-    public int DeleteCost = 0;
-    public int DeleteCostAddon = 0;
-    public bool deleteThisTime = false;
-    public List<ShopBook> books = new ();
-    public List<ShopCard> cards= new ();
+    public List<ShopBook> books = new();
+    public List<ShopCard> cards = new();
 }
-
-public class EventComp : IComponent
-{
-    public ZooEvent currEvent;
-    public List<string> eventIDs = new ();
-}
-
 public class ModuleComp : IComponent
 {
-    public List<Module> modules = new ();
+    public List<Module> modules = new();
 }
-
-public class TimeResComp : IComponent
-{
-    public int time = 0;
-}
-
-public class WorldIDComp : IComponent 
+public class WorldIDComp : IComponent
 {
     public int worldID = 0;
 }
-
 public class BuffComp : IComponent
 {
     public Dictionary<int, int> buffs = new();
 }
-
 public class StatisticComp : IComponent
 {
     public int bookNumUsedTotally = 0;
     public int expandCntTotally = 0;
     public int badIdeaNumTotally = 0;
     public int plotRewardCntTotally = 0;
-    public int achiNumTotally = 0;
-    public int permanentProjectCard = 0;
-
     public int numEffectedExhibitsThisTurn = 0;
-    public int numEffectedPaChongExhibitsThisTurn = 0;
     public int workerUsedThisTurn = 0;
-
-    public int highestPFromMonkeyExhibit = 0;
-    public bool threeExhibitsPMoreThat20 = false;
-    public int threeExhibitsPMoreThat20Cnt = 0;
-
     public int pLastExhibit = 0;
     public int pThisExhibit = 0;
     public string lastProjectCardPlayed = "";
+    public int plotRewardGainedThisTurn;
+    public int spendOfWoodThisTurn;
+    public int discardNumThisTurn;
+    public int tWorkerThisGame;
+    public int workerAdjustThisTurn;
 }
-
 public class ActionComp : IComponent
-{ 
-   public QueueHandler queue = new();
+{
+    public QueueHandler queue = new();
 }
-
 public class ConsoleComp : IComponent
 {
     public List<string> histories = new();
     public int luckPoint = -1;
 }
-
-public class MapSizeComp : IComponent {
+public class MapSizeComp : IComponent
+{
     public int width;
     public int height;
 }
-
 public class ViewDetailedComp : IComponent
 {
     public bool viewDetailed = false;
 }
+public class BuildingComp : IComponent
+{
+    public List<Building> buildings = new();
+}
+public class ActionSpaceComp : IComponent 
+{
+    public List<string> toBeBuilt = new();
+}
 
+public class Worker
+{
+    public bool isTemp;
+    public List<int> points;
+    public int point;
+    public bool hungry = false;
+}
 public class ShopBook
 {
     public Book book;
@@ -164,14 +123,13 @@ public class ShopCard
     public Card card;
     public int price;
     public int oriPrice;
-    public ShopCard(Card card, int price,int oriPrice)
+    public ShopCard(Card card, int price, int oriPrice)
     {
         this.card = card;
         this.price = price;
         this.oriPrice = oriPrice;
     }
 }
-
 public enum Season
 {
     Spring = 0,
@@ -179,47 +137,35 @@ public enum Season
     August = 2,
     Winter = 3,
 }
-
 public enum EndSeasonStep
 {
     ChooseRoutine = 0,
-    GainInterest = 1,
-    ResolveEveryExhibit = 2,
-    DiscardCard = 3,
-    GoNextEvent = 4,
+    ResolveEveryExhibit = 1,
+    DiscardCard = 2,
+    FoodConsume = 3,
 }
-
 public class ActionSpace
 {
     public string uid = "";
-    public int currNum = 0;
-    public int needNum = 1;
+    public int wid;
     public int level = 1;
     public int workTime = 0;
     public int workTimeThisTurn = 0;
+    public int numOfSeasonNotResloved = 0;
     public ActionSpaceCfg cfg;
+    public Building belongBuilding;
+    public List<int> pointsIn = new();
     public ActionSpace(string uid)
     {
         this.uid = uid;
         cfg = Cfg.actionSpaces[uid];
+        wid = EcsUtil.GeneNextWorldID();
     }
-
-    public string GetCont()
+    public bool MaxLv()
     {
-        WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        ViewDetailedComp vdComp = World.e.sharedConfig.GetComp<ViewDetailedComp>();
-        string s = Cfg.actionSpaces[uid].GetCont();
-        if (cfg.GetDetailCont() != "" && vdComp.viewDetailed)
-            s = Cfg.actionSpaces[uid].GetDetailCont();
-        s = s.Replace("$1", cfg.GetDesc1Str(level));
-        s = s.Replace("$2", cfg.GetDesc2Str(level));
-        s = s.Replace("$rt", wComp.recruitTime.ToString());
-        s = s.Replace("$r", EcsUtil.GetRecruitCost().ToString());
-        s += "\n" + string.Format(Cfg.GetSTexts("currRank"), level.ToString());
-        return s;
+        return level == Consts.maxActionSpaceLv;
     }
 }
-
 public class Plot
 {
     public Vector2Int pos;
@@ -229,15 +175,19 @@ public class Plot
     public PlotStatus state = PlotStatus.CanBuild;
     public bool isTouchedLand = false;
     public bool hasBuilt = false;
-    public Exhibit exhibit;
-}
+    public Building building;
 
-public enum PlotStatus { 
+    public bool CanBuild()
+    {
+        return state == PlotStatus.CanBuild & isTouchedLand && !hasBuilt;
+    }
+}
+public enum PlotStatus
+{
     CanBuild = 0,
     Water = 1,
     Rock = 2,
 }
-
 public class PlotReward
 {
     public PlotRewardType rewardType;
@@ -248,82 +198,93 @@ public class PlotReward
         this.val = val;
     }
 }
-
 public enum PlotRewardType
 {
-    Worker = 0,
-    Coin = 1,
-    TmpWorker = 2,
-    Income = 3,
-    RandomBook = 4,
-    DrawCard = 5,
+    Coin = 0,
+    TmpWorker = 1,
+    Income = 2,
+    RandomBook = 3,
+    DrawCard = 4,
 }
-
 public enum CardType
 {
     Exhibit = 0,
-    Achivement = 1,
-    ActionSpace = 2,
-    Project = 3,
+    ActionSpace = 1,
+    OneTime = 2,
+    Perm = 3,
     BadIdea = 4,
 }
-
 public class Card
 {
     public string uid;
     public CardCfg cfg;
+    public bool returnToHand = false;
     public Card(string uid)
     {
         this.uid = uid;
         cfg = Cfg.cards[uid];
     }
 }
+public class Building
+{
+    public string uid;
+    public List<Vector2Int> location = new();
+    public List<Building> adjacent = new();
+    public BuildingType buildingType;
+    public Exhibit exhibit;
+    public ActionSpace actionSpace;
+    public int autoDemolish = -1;
+    public int age = 0;
+    public Building(Exhibit exhibit, List<Vector2Int> location)
+    {
+        this.exhibit = exhibit;
+        uid = exhibit.uid;
+        this.location = location;
+        buildingType = BuildingType.Exhibit;
+    }
+    public Building(ActionSpace actionSpace, List<Vector2Int> location)
+    {
+        this.actionSpace = actionSpace;
+        uid = actionSpace.uid;
+        this.location = location;
+        buildingType = BuildingType.ActionSpace;
+    }
 
+    public bool IsPrimateExhibit()
+    {
+        return buildingType == BuildingType.Exhibit && Cfg.cards[uid].module == Module.Primate;
+    }
+
+    public bool IsExhibit()
+    {
+        return buildingType == BuildingType.Exhibit;
+    }
+
+    public bool IsActionSpace()
+    {
+        return buildingType == BuildingType.ActionSpace;
+    }
+}
+public enum BuildingType
+{
+    Exhibit = 0,
+    ActionSpace = 1,
+}
 public class Exhibit
 {
     public int wid;
     public string uid;
     public ExhibitCfg cfg;
-    public List<Vector2Int> location = new ();
-    public List<Exhibit> adjacents = new ();
-    public int timeRopularity = 1;
-    public int effectCnt = 0;
-    public Exhibit(string uid, List<Vector2Int> location, bool genWorldID = true)
+    public Building belongBuilding;
+    public int timeRop = 1;
+    public int extraRop = 0;
+    public Exhibit(string uid, bool genWorldID = true)
     {
         this.uid = uid;
         cfg = Cfg.exhibits[uid];
-        this.location = location;
         if (genWorldID) wid = EcsUtil.GeneNextWorldID();
     }
-    public Exhibit() { }
 }
-
-public class ZooEvent
-{
-    public string uid;
-    public EventCfg cfg;
-    public List<ZooEventChoice> zooEventChoices = new List<ZooEventChoice>();
-    public ZooEvent(string uid) { 
-        this.uid = uid;
-        cfg = Cfg.events[uid];
-        List<string> choices = cfg.GetChoices();
-        List<string> choiceUids = cfg.GetChoiceUids();
-        for (int i = 0; i < choices.Count; i++)
-            zooEventChoices.Add(new ZooEventChoice(choices[i], choiceUids[i]));
-    }
-}
-
-public class ZooEventChoice
-{
-    public string cont;
-    public string uid;
-    public ZooEventChoice(string cont, string uid)
-    {
-        this.cont = cont;
-        this.uid = uid;
-    }
-}
-
 public class Book
 {
     public string uid;
@@ -336,18 +297,7 @@ public class Book
         this.price = price;
     }
 }
-
-public class Worker
-{
-    public string uid;//-1 normal -2 temp >0 spec
-    public int age = 0;
-    public Worker(string uid)
-    {
-        this.uid = uid;
-    }
-}
-
-public enum Module 
+public enum Module
 {
     Primate = 0,
     Mammal = 1,
@@ -355,8 +305,8 @@ public enum Module
     Aquatic = 3,
     BadIdea = -1,
 }
-
-public enum LandType { 
+public enum LandType
+{
     One = 0,
     Two = 1,
     Three = 2,
@@ -365,4 +315,27 @@ public enum LandType {
     Five_2 = 5,
     Six = 6,
     Seven = 7,
+}
+
+public enum ResType { 
+    Coin = 0,
+    Wood = 1,
+    Iron = 2,
+    Popularity = 3,
+    Food = 4,
+    Income = 5,
+    RatingScore = 6,
+    RatingLevel = 7,
+}
+public class MsgData {
+    public MsgID msgID;
+    public object[] p;
+    public MsgData(MsgID msgID, object[] p) { 
+        this.msgID = msgID;
+        this.p = p;
+    }
+    public MsgData(MsgID msgID)
+    {
+        this.msgID = msgID;
+    }
 }

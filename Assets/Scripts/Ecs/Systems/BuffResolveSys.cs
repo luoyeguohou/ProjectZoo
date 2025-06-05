@@ -1,77 +1,80 @@
 using TinyECS;
+using System.Collections.Generic;
 
 public class BuffResolveSys : ISystem
 {
     public override void OnAddToEngine()
     {
-        Msg.Bind(MsgID.AfterUseBook, AfterUseBook);
-        Msg.Bind(MsgID.OnTurnEnd, OnTurnEnd);
-        Msg.Bind(MsgID.AfterExpand, AfterExpand);
-        Msg.Bind(MsgID.AfterDemolition, AfterDemolition);
-        Msg.Bind(MsgID.AfterResolveCard, AfterResolveCard);
+        Msg.Bind(MsgID.AfterDiscardCard, AfterDiscardCard);
+        Msg.Bind(MsgID.AfterResChanged, AfterResChanged);
+        Msg.Bind(MsgID.AfterExhibitTakeEffect, AfterExhibitTakeEffect);
+        Msg.Bind(MsgID.AfterGainPlotReward, AfterGainPlotReward);
+        Msg.Bind(MsgID.AfterUseWorker, AfterUseWorker);
+        Msg.Bind(MsgID.AfterTurnChanged, AfterEndSeason);
     }
+    
 
     public override void OnRemoveFromEngine()
     {
-        Msg.UnBind(MsgID.AfterUseBook, AfterUseBook);
-        Msg.UnBind(MsgID.OnTurnEnd, OnTurnEnd);
-        Msg.UnBind(MsgID.AfterExpand, AfterExpand);
-        Msg.UnBind(MsgID.AfterDemolition, AfterDemolition);
-        Msg.UnBind(MsgID.AfterResolveCard, AfterResolveCard);
+        Msg.UnBind(MsgID.AfterDiscardCard, AfterDiscardCard);
+        Msg.UnBind(MsgID.AfterResChanged, AfterResChanged);
+        Msg.UnBind(MsgID.AfterExhibitTakeEffect, AfterExhibitTakeEffect);
+        Msg.UnBind(MsgID.AfterGainPlotReward, AfterGainPlotReward);
+        Msg.UnBind(MsgID.AfterUseWorker, AfterUseWorker);
+        Msg.UnBind(MsgID.AfterTurnChanged, AfterEndSeason);
     }
 
-    private void AfterUseBook(object[] param = null)
+    private void AfterDiscardCard(object[] p)
     {
-        if (EcsUtil.GetBuffNum(43) > 0)
-            Msg.Dispatch(MsgID.ActionGainPopularity, new object[] { EcsUtil.GetBuffNum(43) });
-
-        if (EcsUtil.GetBuffNum(44) > 0)
-        {
-            EcsUtil.RandomlyDoSth(EcsUtil.GetBuffNum(44), () =>
-            {
-                Msg.Dispatch(MsgID.ActionGainRandomBook, new object[] { 1 });
-            });
-        }
+        List<Card> cards = (List<Card>)p[0];
+        if (EcsUtil.GetBuffNum("coinAfterDiscard") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Coin, EcsUtil.GetBuffNum("coinAfterDiscard") * cards.Count });
+        if (EcsUtil.GetBuffNum("woodAfterDiscard") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Wood, EcsUtil.GetBuffNum("woodAfterDiscard") * cards.Count });
+        if (EcsUtil.GetBuffNum("popAfterDiscard") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Popularity, EcsUtil.GetBuffNum("popAfterDiscard") * cards.Count });
+    }
+    private void AfterResChanged(object[] p)
+    {
+        ResType t = (ResType)p[0];
+        int num = (int)p[1];
+        if (t == ResType.Iron && EcsUtil.GetBuffNum("woodAfterGainIron") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Wood, EcsUtil.GetBuffNum("woodAfterGainIron") });
+        if (t == ResType.Iron && EcsUtil.GetBuffNum("foodAffterGainIron") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Food, EcsUtil.GetBuffNum("foodAffterGainIron") });
+        if (t == ResType.Iron && EcsUtil.GetBuffNum("coinAfterGainIron") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Coin, EcsUtil.GetBuffNum("coinAfterGainIron") });
+        if (t == ResType.Iron && EcsUtil.GetBuffNum("popAfterGainIron") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Popularity, EcsUtil.GetBuffNum("popAfterGainIron") });
     }
 
-    private void OnTurnEnd(object[] param = null)
+    private void AfterExhibitTakeEffect(object[] p)
     {
-        WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
-        if (EcsUtil.GetBuffNum(28) > 0)
-        {
-            int workerNumUnused = wComp.specialWorker.Count + wComp.tempWorkers.Count + wComp.normalWorkers.Count;
-            if (workerNumUnused > 0)
-                Msg.Dispatch(MsgID.ActionGainCoin, new object[] { EcsUtil.GetBuffNum(28) * workerNumUnused });
-        }
-        if (EcsUtil.GetBuffNum(29) > 0)
-        {
-            Msg.Dispatch(MsgID.ActionPayCoin, new object[] { cComp.coin / 2 });
-        }
-
-        EcsUtil.MinusAllBuff(20);
-        EcsUtil.MinusAllBuff(66);
+        Exhibit exhibit = (Exhibit)p[0];
+        if (exhibit.cfg.isX == 1 && EcsUtil.GetBuffNum("ratingScoreAfterXExhibit") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.RatingScore, EcsUtil.GetBuffNum("ratingScoreAfterXExhibit") });
     }
 
-    private void AfterExpand(object[] param = null)
+    private void AfterGainPlotReward(object[] p)
     {
-        if (EcsUtil.GetBuffNum(55) > 0)
-            Msg.Dispatch(MsgID.ActionGainTWorker, new object[] { EcsUtil.GetBuffNum(55) });
+        if (EcsUtil.GetBuffNum("popAfterFinishPlotReward") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Popularity, EcsUtil.GetBuffNum("popAfterFinishPlotReward") });
+    }
+    private void AfterUseWorker(object[] p)
+    {
+        Worker worker = (Worker)p[0];
+        if (worker.isTemp && EcsUtil.GetBuffNum("coinAfterTWorker") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Coin, EcsUtil.GetBuffNum("coinAfterTWorker") });
+        if (worker.isTemp && EcsUtil.GetBuffNum("popAfterTWorker") > 0)
+            Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Popularity, EcsUtil.GetBuffNum("popAfterTWorker") });
     }
 
-    private void AfterDemolition(object[] param = null)
-    {
-        if (EcsUtil.GetBuffNum(54) > 0)
-            Msg.Dispatch(MsgID.ActionGainWorker, new object[] { EcsUtil.GetBuffNum(54) });
-    }
-
-    private void AfterResolveCard(object[] param = null)
-    {
-        Card c = (Card)param[0];
-        if (c.cfg.cardType == CardType.Project && c.cfg.oneTime == 0)
-        {
-            // just for display
-            Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 70, 1 });
+    private void AfterEndSeason(object[] p) {
+        BuffComp bComp = World.e.sharedConfig.GetComp<BuffComp>();
+        foreach (int key in new List<int>(bComp.buffs.Keys)) { 
+            BuffCfg cfg = Cfg.buffCfgs[key];
+            if (cfg.removeOnEndOfSeason == 1)
+                EcsUtil.MinusAllBuff(cfg.uid);
         }
     }
 }

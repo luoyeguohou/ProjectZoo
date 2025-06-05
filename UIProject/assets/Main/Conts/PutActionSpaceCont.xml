@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1696,991">
+  <displayList>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1696,991"/>
+    <text id="n74_z141" name="txtTitle" xy="180,32" size="1302,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="选择建造地点"/>
+    <image id="n79_ehbe" name="n79" src="rd089" fileName="Images/zooBack.png" xy="584,146"/>
+    <list id="n80_ehbe" name="lstMap" xy="608,173" size="884,637" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-86" colGap="75" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n82_ehbe" name="btnConfirm" src="rd0816" fileName="Components/ButtonNormal.xml" xy="731,841" size="300,104">
+      <Button title="确认" titleFontSize="53"/>
+    </component>
+    <component id="n83_w7gc" name="actionSpace" src="rd0817" fileName="Components/ActionSpace.xml" xy="285,338" scale="2,2"/>
+  </displayList>
+</component>

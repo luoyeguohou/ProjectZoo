@@ -9,13 +9,17 @@ public class StatisticSys : ISystem
         Msg.Bind(MsgID.AfterResolveCard, AfterResolveCard);
         Msg.Bind(MsgID.AfterUseWorker, AfterUseWorker);
         Msg.Bind(MsgID.AfterUseBook, AfterUseBook);
-        Msg.Bind(MsgID.OnTurnEnd, OnTurnEnd);
+        Msg.Bind(MsgID.AfterTurnChanged, OnTurnEnd);
         Msg.Bind(MsgID.BeforeExhibitTakeEffect, BeforeExhibitTakeEffect);
-        Msg.Bind(MsgID.AfterExhibitTakeEffect, AfterExhibitTakeEffect);
         Msg.Bind(MsgID.AfterGainPlotReward, AfterGainPlotReward);
         Msg.Bind(MsgID.AfterGainACard, AfterGainACard);
         Msg.Bind(MsgID.AfterGainPopularityByExhibit, AfterGainPopularity);
         Msg.Bind(MsgID.AfterExpand, AfterExpand);
+        Msg.Bind(MsgID.AfterPayRes, AfterPayRes);
+        Msg.Bind(MsgID.AfterDiscardCard, AfterDiscardCard);
+        Msg.Bind(MsgID.AfterGainWorker, AfterGainWorker);
+        Msg.Bind(MsgID.AfterAdjustWorker, AfterAdjustWorker);
+        Msg.Bind(MsgID.AfterUseActionSpace, AfterUseActionSpace);
     }
 
     public override void OnRemoveFromEngine()
@@ -23,13 +27,17 @@ public class StatisticSys : ISystem
         Msg.UnBind(MsgID.AfterResolveCard, AfterResolveCard);
         Msg.UnBind(MsgID.AfterUseWorker, AfterUseWorker);
         Msg.UnBind(MsgID.AfterUseBook, AfterUseBook);
-        Msg.UnBind(MsgID.OnTurnEnd, OnTurnEnd);
+        Msg.UnBind(MsgID.AfterTurnChanged, OnTurnEnd);
         Msg.UnBind(MsgID.BeforeExhibitTakeEffect, BeforeExhibitTakeEffect);
-        Msg.UnBind(MsgID.AfterExhibitTakeEffect, AfterExhibitTakeEffect);
-        Msg.UnBind(MsgID.AfterGainPlotReward, AfterGainPlotReward); 
+        Msg.UnBind(MsgID.AfterGainPlotReward, AfterGainPlotReward);
         Msg.UnBind(MsgID.AfterGainACard, AfterGainACard);
         Msg.UnBind(MsgID.AfterGainPopularityByExhibit, AfterGainPopularity);
         Msg.UnBind(MsgID.AfterExpand, AfterExpand);
+        Msg.UnBind(MsgID.AfterPayRes, AfterPayRes);
+        Msg.UnBind(MsgID.AfterDiscardCard, AfterDiscardCard);
+        Msg.UnBind(MsgID.AfterGainWorker, AfterGainWorker);
+        Msg.UnBind(MsgID.AfterAdjustWorker, AfterAdjustWorker);
+        Msg.UnBind(MsgID.AfterUseActionSpace, AfterUseActionSpace);
     }
 
     private void AfterResolveCard(object[] param = null)
@@ -38,12 +46,8 @@ public class StatisticSys : ISystem
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         switch (c.cfg.cardType)
         {
-            case CardType.Achivement:
-                sComp.achiNumTotally++;
-                break;
-            case CardType.Project:
-                if (c.cfg.oneTime == 0) sComp.permanentProjectCard++;
-                if (c.cfg.oneTime == 1) sComp.lastProjectCardPlayed = c.uid;
+            case CardType.OneTime:
+                sComp.lastProjectCardPlayed = c.uid;
                 break;
         }
         Msg.Dispatch(MsgID.AfterStatisticChange);
@@ -67,45 +71,29 @@ public class StatisticSys : ISystem
     {
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         sComp.numEffectedExhibitsThisTurn = 0;
-        sComp.numEffectedPaChongExhibitsThisTurn = 0;
         sComp.workerUsedThisTurn = 0;
+        sComp.discardNumThisTurn = 0;
+        sComp.plotRewardGainedThisTurn = 0;
+        sComp.spendOfWoodThisTurn = 0;
+        sComp.workerAdjustThisTurn = 0;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
     private void BeforeExhibitTakeEffect(object[] param = null)
     {
-        Exhibit v = (Exhibit)param[0];
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         sComp.pLastExhibit = sComp.pThisExhibit;
         sComp.pThisExhibit = 0;
         sComp.numEffectedExhibitsThisTurn++;
-        if (v.cfg.aniModule == Module.Reptile)
-            sComp.numEffectedPaChongExhibitsThisTurn++;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
-    private void AfterExhibitTakeEffect(object[] param = null)
-    {
-        Exhibit v = (Exhibit)param[0];
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        if (v.cfg.aniModule == 0 && sComp.pThisExhibit > sComp.highestPFromMonkeyExhibit)
-            sComp.highestPFromMonkeyExhibit = sComp.pThisExhibit;
-
-        if (sComp.pThisExhibit >= 20)
-        {
-            sComp.threeExhibitsPMoreThat20Cnt++;
-            if (sComp.threeExhibitsPMoreThat20Cnt > 3)
-                sComp.threeExhibitsPMoreThat20 = true;
-        }
-        else
-            sComp.threeExhibitsPMoreThat20Cnt = 0;
-        Msg.Dispatch(MsgID.AfterStatisticChange);
-    }
 
     private void AfterGainPlotReward(object[] param = null)
     {
         StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
         sComp.plotRewardCntTotally++;
+        sComp.plotRewardGainedThisTurn++;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
 
@@ -136,4 +124,52 @@ public class StatisticSys : ISystem
         sComp.expandCntTotally += gainNum;
         Msg.Dispatch(MsgID.AfterStatisticChange);
     }
+
+    private void AfterPayRes(object[] p)
+    {
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        List<MsgData> msgDatas = (List<MsgData>)p[0];
+        int spendOfWood = 0;
+        foreach (MsgData data in msgDatas)
+        {
+            if (data.msgID == MsgID.ChangeRes)
+            {
+                ResType resType = (ResType)data.p[0];
+                if (resType == ResType.Wood)
+                {
+                    int num = (int)data.p[1];
+                    if (num < 0) spendOfWood -= num;
+                }
+            }
+        }
+        sComp.spendOfWoodThisTurn += spendOfWood;
+    }
+
+    private void AfterDiscardCard(object[] p)
+    {
+        List<Card> cards = (List<Card>)p[0];
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        sComp.discardNumThisTurn += cards.Count;
+    }
+    private void AfterGainWorker(object[] p)
+    {
+        List<Worker> workers = (List<Worker>)p[0];
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        sComp.tWorkerThisGame += workers.Count;
+    }
+
+    private void AfterAdjustWorker(object[] p)
+    {
+        List<Worker> workers = (List<Worker>)p[0];
+        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
+        sComp.workerAdjustThisTurn += workers.Count;
+    }
+
+    private void AfterUseActionSpace(object[] p)
+    {
+        ActionSpace  actionSpace = (ActionSpace)p[0];
+        actionSpace.workTimeThisTurn++;
+        actionSpace.workTime++;
+    }
 }
+

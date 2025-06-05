@@ -11,23 +11,37 @@ public class QueueHandler
     private bool isHandling = false;
     public void PushData(Func<Task> data)
     {
-        handlers.Enqueue(data);
-        if (!isHandling)
+        try
         {
-            _ = DoHandle();
+            handlers.Enqueue(data);
+            if (!isHandling)
+            {
+                _ = DoHandle();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError(ex);
         }
     }
 
     private async Task DoHandle()
     {
-        if (isHandling) return;
-        if (handlers.Count == 0) return;
-        isHandling = true;
-        while (handlers.Count > 0)
+        try
         {
-            Func<Task> handler = handlers.Dequeue();
-            await handler();
+            if (isHandling) return;
+            if (handlers.Count == 0) return;
+            isHandling = true;
+            while (handlers.Count > 0)
+            {
+                Func<Task> handler = handlers.Dequeue();
+                await handler();
+            }
+            isHandling = false;
         }
-        isHandling = false;
+        catch (Exception ex)
+        {
+            Debug.LogError(ex);
+        }
     }
 }

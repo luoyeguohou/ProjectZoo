@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="0,47">
+  <controller name="status" exported="true" pages="3,coin,6,wood,2,food,5,iron,1,coin&amp;wood,4,coin&amp;wood&amp;iron,7,nothing" selected="6"/>
+  <displayList>
+    <graph id="n89_fxtz" name="n89" xy="0,0" size="0,47" alpha="0" type="rect" lineSize="0">
+      <gearSize controller="status" pages="3,6,2,5,1,4,7" values="68,47,1,1|68,47,1,1|68,47,1,1|68,47,1,1|125,47,1,1|176,47,1,1|0,47,1,1"/>
+    </graph>
+    <image id="n81_p0wl" name="n81" src="p0wlfb" fileName="Images/Cards/costPanel.png" xy="0,0" size="0,117" scale="0.4,0.4">
+      <gearSize controller="status" pages="3,6,2,5,1,4,7" values="172,117,0.4,0.4|172,117,0.4,0.4|172,114,0.4,0.4|172,117,0.4,0.4|312,117,0.4,0.4|442,117,0.4,0.4|0,117,0.4,0.4"/>
+    </image>
+    <image id="n64_rd08" name="n64" src="rd08r" fileName="Images/Resources/goldIcon.png" xy="6,7" size="35,33">
+      <gearDisplay controller="status" pages="3,1,4"/>
+    </image>
+    <image id="n85_fxtz" name="n85" src="w7gcfw" fileName="Images/Resources/food.png" xy="5,10" size="35,33">
+      <gearDisplay controller="status" pages="2"/>
+    </image>
+    <image id="n86_fxtz" name="n86" src="w7gcfu" fileName="Images/Resources/iron.png" xy="117,16" size="33,16">
+      <gearDisplay controller="status" pages="5,4"/>
+      <gearXY controller="status" pages="5" values="7,16" default="117,16"/>
+    </image>
+    <image id="n88_fxtz" name="n88" src="w7gcfv" fileName="Images/Resources/wood.png" xy="3,17" size="37,15">
+      <gearDisplay controller="status" pages="6,1,4"/>
+      <gearXY controller="status" pages="1,4" values="61,17|61,17" default="3,17"/>
+    </image>
+    <text id="n72_g9th" name="txtCoinCost" xy="34,7" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="[color=#000000]15[/color]">
+      <gearDisplay controller="status" pages="3,1,4"/>
+    </text>
+    <text id="n73_g9th" name="txtWoodCost" xy="39,7" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="10">
+      <gearDisplay controller="status" pages="6,1,4"/>
+      <gearXY controller="status" pages="6,1,4" values="34,7|90,7|90,7" default="39,7"/>
+    </text>
+    <text id="n82_fxtz" name="txtFoodCost" xy="34,7" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="[color=#000000]15[/color]">
+      <gearDisplay controller="status" pages="2"/>
+    </text>
+    <text id="n83_fxtz" name="txtIronCost" xy="34,7" size="34,36" fontSize="17" align="center" vAlign="middle" ubb="true" autoSize="none" autoClearText="true" text="[color=#000000]15[/color]">
+      <gearDisplay controller="status" pages="5,4"/>
+      <gearXY controller="status" pages="4" values="143,7" default="34,7"/>
+    </text>
+  </displayList>
+  <relation target="n89_fxtz" sidePair="width-width"/>
+</component>

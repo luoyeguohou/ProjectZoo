@@ -4,7 +4,7 @@
     <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1696,991"/>
     <text id="n74_z141" name="txtTitle" xy="180,32" size="1302,93" fontSize="67" align="center" vAlign="middle" vars="true" autoSize="none" text="选择建造地点"/>
     <image id="n79_ehbe" name="n79" src="rd089" fileName="Images/zooBack.png" xy="584,146"/>
-    <list id="n80_ehbe" name="lstMap" xy="608,172" size="884,637" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-45" colGap="52" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
+    <list id="n80_ehbe" name="lstMap" xy="608,172" size="884,637" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-86" colGap="75" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
       <item/>
       <item/>
       <item/>

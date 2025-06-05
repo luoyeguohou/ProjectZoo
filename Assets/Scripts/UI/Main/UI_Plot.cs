@@ -10,10 +10,12 @@ namespace Main
         public Controller m_hasReward;
         public Controller m_type;
         public Controller m_selected;
+        public Controller m_IsExhibit;
         public GLoader m_img;
         public UI_PlotReward m_reward;
-        public GTextField m_txtSelected;
         public GLoader m_img_anim;
+        public UI_ActionSpace m_actionSpace;
+        public GTextField m_txtSelected;
         public const string URL = "ui://zqdehm1vrd0818";
 
         public static UI_Plot CreateInstance()
@@ -28,10 +30,12 @@ namespace Main
             m_hasReward = GetControllerAt(0);
             m_type = GetControllerAt(1);
             m_selected = GetControllerAt(2);
+            m_IsExhibit = GetControllerAt(3);
             m_img = (GLoader)GetChildAt(0);
             m_reward = (UI_PlotReward)GetChildAt(1);
-            m_txtSelected = (GTextField)GetChildAt(3);
-            m_img_anim = (GLoader)GetChildAt(4);
+            m_img_anim = (GLoader)GetChildAt(3);
+            m_actionSpace = (UI_ActionSpace)GetChildAt(4);
+            m_txtSelected = (GTextField)GetChildAt(6);
         }
     }
 }

@@ -15,25 +15,17 @@ namespace Main
             imgs.Add(m_img1);
             imgs.Add(m_img2);
             imgs.Add(m_img3);
-            imgs.Add(m_img4);
-            imgs.Add(m_img5);
-            imgs.Add(m_img6);
-            imgs.Add(m_img7);
             imgs.Add(m_img8);
             imgs.Add(m_img9);
-            imgs.Add(m_img10);
-            imgs.Add(m_img11);
-            imgs.Add(m_img12);
-            imgs.Add(m_img13);
         }
 
         public void Init(Exhibit exhibit)
         {
             v = exhibit;
-            m_type.selectedIndex = (int)exhibit.cfg.landType;
+            m_type.selectedIndex = (int)Cfg.cards[exhibit.uid].landType;
             foreach (var item in imgs)
             {
-                item.url = "ui://Main/" + exhibit.uid + "S";
+                //item.url = "ui://Main/" + exhibit.uid + "S";
             }
         }
 

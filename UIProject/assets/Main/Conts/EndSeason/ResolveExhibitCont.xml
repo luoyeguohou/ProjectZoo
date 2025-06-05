@@ -1,42 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1311,681">
+  <controller name="winter" pages="0,,1," selected="0"/>
   <displayList>
-    <list id="n98_nkfb" name="lstExhibit" xy="0,168" size="3278,1257" scale="0.4,0.4" layout="flow_hz" overflow="scroll" defaultItem="ui://zqdehm1vb26m3q" align="center" vAlign="middle">
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
+    <list id="n98_nkfb" name="lstExhibit" xy="0,112" size="1501,599" scale="0.8,0.8" layout="flow_hz" overflow="scroll" lineGap="-2" colGap="50" defaultItem="ui://zqdehm1vb26m3q" align="center" vAlign="middle">
       <item/>
       <item/>
       <item/>
     </list>
-    <component id="n103_nkfb" name="prgPopularity" src="nkfbei" fileName="Conts/CommonProg.xml" xy="239,0" size="1037,110">
+    <component id="n103_nkfb" name="prgPopularity" src="nkfbei" fileName="Components/CommonProg.xml" xy="214,61" size="1037,110">
       <ProgressBar value="21" max="100"/>
     </component>
-    <image id="n105_qbvj" name="n105" src="u37uep" fileName="Images/popR.png" xy="100,-29" size="121,147"/>
+    <image id="n105_qbvj" name="n105" src="u37uep" fileName="Images/Resources/popR.png" xy="64,11" size="121,147"/>
+    <component id="n106_w7gc" name="wood" src="w7gcfx" fileName="Components/ResBar.xml" xy="1123,0" controller="type,1"/>
   </displayList>
 </component>

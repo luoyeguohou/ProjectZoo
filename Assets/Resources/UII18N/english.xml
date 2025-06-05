@@ -1,58 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- Main/Components/ActionSpace.xml -->
-	<string name="zqdehm1vrd0817-n55_rd08" mz="txtInfo">{curNum=01}/{limit=1}</string>
-	<string name="zqdehm1vrd0817-n57_pz64" mz="n57">Max Level</string>
-	<string name="zqdehm1vrd0817-n61_pz64" mz="txtUpgrade">+{num=2}</string>
+  <!-- Main/Components/ActionSpaceWithPrice.xml -->
+  <string name="zqdehm1vw7gcfn-n64_w7gc" mz="btnPrice">build</string>
+  <!-- Main/Components/BookWithPrice.xml -->
+  <string name="zqdehm1vrd0815-n46_g9th" mz="btnBuy">     {price=58}</string>
   <!-- Main/Components/BuffItem.xml -->
   <string name="zqdehm1vea443u-n101_ea44" mz="txtBuff">X{num=10}</string>
   <!-- Main/Components/ButtonNormal.xml -->
   <string name="zqdehm1vrd0816-n1_rd08" mz="title">button</string>
   <!-- Main/Components/Card.xml -->
-  <string name="zqdehm1vrd081a-n76_pz64" mz="txtSelect">Discarded</string>
+  <string name="zqdehm1vrd081a-n70_g9th-texts_0" mz="txtCont">Unlock blue print:
+{name=建设场馆}
+{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}</string>
+  <string name="zqdehm1vrd081a-n70_g9th-texts_def" mz="txtCont">{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}</string>
+  <string name="zqdehm1vrd081a-n83_gf10" mz="txtLv">Level {lv=4}</string>
+  <string name="zqdehm1vrd081a-n76_pz64" mz="txtSelect">discarded</string>
+  <!-- Main/Components/CardWithPrice.xml -->
+  <string name="zqdehm1vg9th1d-n75_g9th" mz="btnBuy">     {price=58}</string>
   <!-- Main/Components/Plot.xml -->
   <string name="zqdehm1vrd0818-n66_pz64" mz="txtSelected">select</string>
   <!-- Main/Components/Popularity.xml -->
   <string name="zqdehm1vu37ueq-n92_oa6n" mz="txtNum">+{num=5}</string>
+  <!-- Main/Components/ResBar.xml -->
+  <string name="zqdehm1vw7gcfx-n87_sr8r-texts_0" mz="txtRes">{coin=15}({income=0})</string>
+  <string name="zqdehm1vw7gcfx-n87_sr8r-texts_1" mz="txtRes">{curr=100}/{aim=100}</string>
   <!-- Main/Components/UseBookPanelItem.xml -->
-  <string name="zqdehm1vwitr20-n47_witr" mz="btnSell">Sell</string>
   <string name="zqdehm1vwitr20-n56_witr" mz="btnUse">Use</string>
   <string name="zqdehm1vwitr20-n57_witr" mz="btnDiscard">Discard</string>
+  <!-- Main/Conts/BuildActionSpaceCont.xml -->
+  <string name="zqdehm1vd2b23o-n74_z141" mz="txtTitle">Choose action space to build</string>
+  <string name="zqdehm1vd2b23o-n78_pz64" mz="btnFinish">Finish</string>
+  <string name="zqdehm1vd2b23o-n83_w7gc" mz="n0">The action spaces to build
+Click to cancel</string>
+  <string name="zqdehm1vd2b23o-n83_w7gc-texts_0" mz="n0">The action spaces to build
+Click to cancel
+[color=#FF0000]Over budget[/color]</string>
+  <string name="zqdehm1vd2b23o-n83_w7gc-texts_def" mz="n0">The action spaces to build
+Click to cancel</string>
   <!-- Main/Conts/EndSeason/DiscardHandsCont.xml -->
   <string name="zqdehm1vnkfbee-n100_nkfb" mz="txtTitle">chpose {num=5} to discard</string>
   <string name="zqdehm1vnkfbee-n101_nkfb" mz="btnFinish">finish</string>
   <!-- Main/Conts/EndSeason/EndSeasonCont.xml -->
-  <string name="zqdehm1vnkfbeb-n89_nkfb" mz="n89">Plan display order</string>
-  <string name="zqdehm1vnkfbeb-n90_nkfb" mz="n90">Gain interest</string>
+  <string name="zqdehm1vnkfbeb-n90_nkfb" mz="n90">Plan display order</string>
   <string name="zqdehm1vnkfbeb-n91_nkfb" mz="n91">Resolve exhibits</string>
   <string name="zqdehm1vnkfbeb-n92_nkfb" mz="n92">Discard hands</string>
-  <string name="zqdehm1vnkfbeb-n94_nkfb" mz="n94">Event</string>
-  <!-- Main/Conts/EndSeason/EventCont.xml -->
-  <string name="zqdehm1vnkfbef-n75_g9th" mz="btnChoose1">找回来
-（+20%好概率，但是不能抽牌了）</string>
-  <string name="zqdehm1vnkfbef-n76_g9th" mz="btnChoose2">什么也不做</string>
-  <!-- Main/Conts/EndSeason/InterestCont.xml -->
-  <string name="zqdehm1vnkfbec-n74_z141" mz="txtTitle">Gain interest</string>
-  <string name="zqdehm1vnkfbec-n78_pz64" mz="btnFinish">Get</string>
-  <string name="zqdehm1vnkfbec-n84_rr6n" mz="txtCurr">Current Coins:{num=5}</string>
-  <string name="zqdehm1vnkfbec-n81_rr6n" mz="txtRange">Portion eligible for earning interest:{num=5}</string>
-  <string name="zqdehm1vnkfbec-n82_rr6n" mz="txtRate">Interest Rate:{num=5}%</string>
-  <string name="zqdehm1vnkfbec-n83_rr6n" mz="txtGet">Interest earned:{num=5}</string>
-  <string name="zqdehm1vnkfbec-n85_rr6n" mz="txtPopularity">Popularity converted from interest:{num=5}</string>
+  <string name="zqdehm1vnkfbeb-n94_nkfb" mz="n94">Restaurant supply</string>
   <!-- Main/Conts/EndSeason/RoutineCont.xml -->
   <string name="zqdehm1vnkfbed-n80_z141" mz="n80">Drag Exhibit to decide the resolving order</string>
   <string name="zqdehm1vnkfbed-n81_z141" mz="btnSettle">Start Resolving</string>
   <string name="zqdehm1vnkfbed-n82_z141" mz="txtPopularity">Target:{aim=500} </string>
+  <string name="zqdehm1vnkfbed-n85_w7gc" mz="n85"></string>
   <!-- Main/Conts/ExpandPlotCont.xml -->
   <string name="zqdehm1vd2b23h-n74_z141" mz="txtTitle">Expand {num=3} plots.</string>
   <string name="zqdehm1vd2b23h-n78_pz64" mz="btnFinish">finish</string>
   <!-- Main/Conts/MainCont.xml -->
   <string name="zqdehm1vep2ze6-n47_rd08" mz="btnInfo">info</string>
   <string name="zqdehm1vep2ze6-n48_rd08" mz="btnEndTurn">End quarter</string>
-  <string name="zqdehm1vep2ze6-n61_g9th" mz="txtWorker">X{num=10}</string>
-  <string name="zqdehm1vep2ze6-n76_z141" mz="txtAim">{cur=100}/{aim=100}</string>
   <string name="zqdehm1vep2ze6-n92_qev6" mz="btnLog">log</string>
-  <string name="zqdehm1vep2ze6-n94_qev6" mz="txtTmpWorker">X{num=10}</string>
   <string name="zqdehm1vep2ze6-n99_d2b2" mz="btnConsole">console</string>
   <string name="zqdehm1vep2ze6-n107_nkfb" mz="txtHandLimit">Hand limits:{num=3}</string>
   <string name="zqdehm1vep2ze6-n108_nkfb" mz="n0">Display:detailed</string>
@@ -61,22 +65,13 @@
   <string name="zqdehm1vep2ze6-n109_nkfb" mz="n1">Display:detailed</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_0" mz="n1">Display:detailed</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_def" mz="n1">Display:omitted</string>
-  <!-- Main/Conts/NewBieCont.xml -->
-  <string name="zqdehm1vpxbkeu-n3_pxbk" mz="txtCont">You have some Workers under your control, and you can assign them to complete various tasks. They become available again at the end of each quarter.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_0" mz="txtCont">You can check the zoo’s Popularity plan here anytime. It shows the Popularity targets you need to meet each quarter.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_1" mz="txtCont">You have some Workers under your control, and you can assign them to complete various tasks. They become available again at the end of each quarter.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_2" mz="txtCont">This is where your Workers perform their tasks. Drag Workers here to carry out various actions. Repeating the same action each quarter requires more Workers.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_3" mz="txtCont">This is your zoo layout. Build animal exhibits in the zoo to gain Popularity. Note that you cannot build exhibits on rocky or lakeside plots.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_4" mz="txtCont">This action is temporarily available. It grants Coins and a small amount of Popularity. When no exhibits have been built early on, this action provides an important, modest Popularity boost.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_5" mz="txtCont">This action provides you with Time Points. You need Time Points and Coins to play cards.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_6" mz="txtCont">This action allows you to obtain Plan cards. Red Exhibit cards provide Popularity each quarter after construction and are an important source of Popularity.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_7" mz="txtCont">Your Plan cards will be displayed here. Swipe up on a card to play it. Note that you need enough Coins and Time Points to play them.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_8" mz="txtCont">When you no longer wish to take any actions, you can click here to end the current quarter. At that time, your exhibits will provide Popularity, and we will check if you have met the KPIs.</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_9" mz="txtCont">That’s the general overview of the game. One last thing — have fun playing!</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_def" mz="txtCont">Welcome to the Zoo, where you will manage your very own zoo. Our contract lasts for 6 years, and each quarter your zoo’s Popularity will be assessed against the target plan.</string>
+  <string name="zqdehm1vep2ze6-n127_fxtz" mz="n127">Choose {num=5} cards to discard.</string>
+  <!-- Main/Conts/PutActionSpaceCont.xml -->
+  <string name="zqdehm1vw7gcfp-n74_z141" mz="txtTitle">Choose place to build</string>
+  <string name="zqdehm1vw7gcfp-n82_ehbe" mz="btnConfirm">Confirm</string>
   <!-- Main/Conts/PutExhibitCont.xml -->
-  <string name="zqdehm1vd2b23e-n74_z141" mz="txtTitle">Choose build location</string>
-  <string name="zqdehm1vd2b23e-n82_ehbe" mz="btnConfirm">confirm</string>
+  <string name="zqdehm1vd2b23e-n74_z141" mz="txtTitle">Choose place to build</string>
+  <string name="zqdehm1vd2b23e-n82_ehbe" mz="btnConfirm">Confirm</string>
   <!-- Main/Conts/SeasonInfoCont.xml -->
   <string name="zqdehm1vep2ze7-n85_z141" mz="n85">1st
 2nd
@@ -90,9 +85,6 @@
   <!-- Main/Conts/SelectExhibitCont.xml -->
   <string name="zqdehm1vrr6ne1-n74_z141" mz="txtTitle">Choose an exhibit to demolish.</string>
   <string name="zqdehm1vrr6ne1-n78_pz64" mz="btnFinish">finish</string>
-  <!-- Main/Conts/ShopCont.xml -->
-  <string name="zqdehm1vd2b23m-n68_g9th" mz="n68">Discard cards from the draw pile.</string>
-  <string name="zqdehm1vd2b23m-n71_sy7u" mz="n71">sold out</string>
   <!-- Main/Conts/StartOfSeasonCont.xml -->
   <string name="zqdehm1vrr6ne3-n74_z141" mz="txtTitle">Quarterly Briefing</string>
   <string name="zqdehm1vrr6ne3-n78_pz64" mz="btnFinish">Finish</string>
@@ -110,40 +102,55 @@
   <string name="zqdehm1vrr6ne3-n103_pxbk-texts_3" mz="txtYearAfter">5th year</string>
   <string name="zqdehm1vrr6ne3-n103_pxbk-texts_4" mz="txtYearAfter">6th year</string>
   <string name="zqdehm1vrr6ne3-n103_pxbk-texts_def" mz="txtYearAfter">1st year</string>
-  <!-- Main/Conts/UpgradeActionSpaceCont.xml -->
-  <string name="zqdehm1vd2b23o-n74_z141" mz="txtTitle">upgrade {num=3} work spaces</string>
-  <string name="zqdehm1vd2b23o-n78_pz64" mz="btnFinish">finish</string>
-  <!-- Main/Panels/CardOverviewWin.xml -->
+  <!-- Main/Conts/UpRatingLvCont.xml -->
+  <string name="zqdehm1vj7jegh-n132_j7je" mz="txtCost">Congratulations!!
+    Unlock 1 worker
+    Unlock all {lv=1} level cards
+    Increase all workers' point by 1</string>
+  <string name="zqdehm1vj7jegh-n132_j7je-texts_0" mz="txtCost">Congratulations!!
+    Unlock 1 worker
+    Unlock all {lv=1} level cards
+    Increase all workers' point by 1</string>
+  <string name="zqdehm1vj7jegh-n132_j7je-texts_def" mz="txtCost">Pay {num=5} coin to reach next rating level?</string>
+  <string name="zqdehm1vj7jegh-n133_j7je" mz="btnConfirm">Confirm</string>
+  <!-- Main/Conts/UpWorkerCont.xml -->
+  <string name="zqdehm1vj7jegg-n133_j7je" mz="btnConfirm">Confirm</string>
+  <string name="zqdehm1vj7jegg-n136_j7je" mz="n136">Choose any worker.</string>
+  <!-- Main/Windows/BuildActionSpaceWin.xml -->
+  <string name="zqdehm1vw7gcfl-n82_d2b2" mz="btnHide">Hide</string>
+  <!-- Main/Windows/CardOverviewWin.xml -->
   <string name="zqdehm1vz1411k-n80_d2b2" mz="btnBack">Close</string>
-  <!-- Main/Panels/EndSeasonWin.xml -->
+  <!-- Main/Windows/EndSeasonWin.xml -->
   <string name="zqdehm1vnkfbea-n84_d2b2" mz="btnHide">Hide</string>
-  <string name="zqdehm1vnkfbea-n85_d2b2" mz="btnBack">Back</string>
-  <!-- Main/Panels/EndWin.xml -->
+  <string name="zqdehm1vnkfbea-n85_d2b2" mz="btnBack">Quit</string>
+  <!-- Main/Windows/EndWin.xml -->
   <string name="zqdehm1vea443s-n51_ea44" mz="n51">GameOver</string>
   <string name="zqdehm1vea443s-n52_ea44" mz="btnRestart">Back to main</string>
-  <!-- Main/Panels/ExpandPlotWin.xml -->
+  <!-- Main/Windows/ExpandPlotWin.xml -->
   <string name="zqdehm1vpz6422-n81_d2b2" mz="btnHide">Hide</string>
-  <!-- Main/Panels/FConsoleWin.xml -->
+  <!-- Main/Windows/FConsoleWin.xml -->
   <string name="zqdehm1vd2b23p-n93_d2b2-prompt" mz="txtInput">input commend here...........</string>
   <string name="zqdehm1vd2b23p-n95_d2b2" mz="btnEnter">Enter</string>
-  <!-- Main/Panels/HomeWin.xml -->
+  <!-- Main/Windows/HomeWin.xml -->
   <string name="zqdehm1vp0wlez-n1_p0wl" mz="n1">project zoo</string>
   <string name="zqdehm1vp0wlez-n6_p0wl" mz="n6">Start game</string>
   <string name="zqdehm1vp0wlez-n8_p0wl" mz="n8">Quit</string>
-  <!-- Main/Panels/PutExhibitWin.xml -->
+  <!-- Main/Windows/PutActionSpaceWin.xml -->
+  <string name="zqdehm1vw7gcfo-n83_d2b2" mz="btnHide">Hide</string>
+  <!-- Main/Windows/PutExhibitWin.xml -->
   <string name="zqdehm1vehbe2e-n83_d2b2" mz="btnHide">Hide</string>
-  <!-- Main/Panels/SelectCardsWin.xml -->
+  <!-- Main/Windows/SelectCardsWin.xml -->
   <string name="zqdehm1vpz6421-n79_d2b2" mz="btnHide">Hide</string>
-  <!-- Main/Panels/SelectExhibitWin.xml -->
+  <!-- Main/Windows/SelectExhibitWin.xml -->
   <string name="zqdehm1vehbe2d-n81_d2b2" mz="btnHide">Hide</string>
-  <!-- Main/Panels/ShopWin.xml -->
+  <!-- Main/Windows/ShopWin.xml -->
   <string name="zqdehm1vg9th1e-n72_d2b2" mz="btnHide">Hide</string>
-  <string name="zqdehm1vg9th1e-n73_d2b2" mz="btnBack">Leave</string>
-  <!-- Main/Panels/StartOfSeasonWin.xml -->
+  <string name="zqdehm1vg9th1e-n73_d2b2" mz="btnBack">Quit</string>
+  <!-- Main/Windows/StartOfSeasonWin.xml -->
   <string name="zqdehm1vrr6ne2-n81_d2b2" mz="btnHide">Hide</string>
-  <!-- Main/Panels/SucceedWin.xml -->
+  <!-- Main/Windows/SucceedWin.xml -->
   <string name="zqdehm1vqbvjfi-n51_ea44" mz="n51">Succeed</string>
   <string name="zqdehm1vqbvjfi-n52_ea44" mz="btnRestart">Back to main</string>
-  <!-- Main/Panels/UpgradeActionSpaceWin.xml -->
-  <string name="zqdehm1vpz6423-n82_d2b2" mz="btnHide">Hide</string>
+  <!-- Main/Windows/ViewToBeBuiltActionSpaceWin.xml -->
+  <string name="zqdehm1vgf10gj-n82_d2b2" mz="btnBack">Quit</string>
 </resources>

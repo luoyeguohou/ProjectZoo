@@ -9,10 +9,9 @@ namespace Main
     {
         public Controller m_step;
         public UI_RoutineCont m_routine;
-        public UI_InterestCont m_interest;
         public UI_ResolveExhibitCont m_resolveExhibit;
         public UI_DiscardHandsCont m_discardCard;
-        public UI_EventCont m_event;
+        public UI_FoodConsume m_food;
         public const string URL = "ui://zqdehm1vnkfbeb";
 
         public static UI_EndSeasonCont CreateInstance()
@@ -25,11 +24,10 @@ namespace Main
             base.ConstructFromXML(xml);
 
             m_step = GetControllerAt(0);
-            m_routine = (UI_RoutineCont)GetChildAt(12);
-            m_interest = (UI_InterestCont)GetChildAt(13);
-            m_resolveExhibit = (UI_ResolveExhibitCont)GetChildAt(14);
-            m_discardCard = (UI_DiscardHandsCont)GetChildAt(15);
-            m_event = (UI_EventCont)GetChildAt(16);
+            m_routine = (UI_RoutineCont)GetChildAt(10);
+            m_resolveExhibit = (UI_ResolveExhibitCont)GetChildAt(11);
+            m_discardCard = (UI_DiscardHandsCont)GetChildAt(12);
+            m_food = (UI_FoodConsume)GetChildAt(13);
         }
     }
 }

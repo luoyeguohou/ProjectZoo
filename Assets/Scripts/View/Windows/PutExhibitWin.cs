@@ -43,7 +43,7 @@ namespace Main
             ui.onClick.Add(() =>
             {
                 bool canChoose = ui.m_type.selectedIndex == 0;
-                if (c.uid == "kemoduojx" && ui.m_type.selectedIndex == 4 && zg.exhibit.uid == "kemoduojx")
+                if (c.uid == "kemoduojx" && ui.m_type.selectedIndex == 4 && zg.building.uid == "kemoduojx")
                     canChoose = true;
                 if (!canChoose) return;
 

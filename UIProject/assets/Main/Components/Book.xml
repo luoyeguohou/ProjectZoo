@@ -3,7 +3,7 @@
   <controller name="emp" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n44_rd08" name="n44" src="rd08l" fileName="Images/itemBg.png" xy="-4,0"/>
-    <loader id="n45_rd08" name="img" xy="73,63" pivot="0.5,0.5" anchor="true" size="101,100" url="ui://zqdehm1vqff22u" align="center" vAlign="middle" fill="scale">
+    <loader id="n45_rd08" name="img" xy="73,63" pivot="0.5,0.5" anchor="true" size="101,100" url="ui://zqdehm1vnm3eg2" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="emp" pages="0"/>
     </loader>
   </displayList>

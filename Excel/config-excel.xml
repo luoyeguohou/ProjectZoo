@@ -6,33 +6,31 @@
 	<client_side output_db="./data/design.db" no_comment="1">
 		<tableinfo default_key="id,idx" invalid_col="index,default">
 			<file name="excel/chinese.xlsx">
-				<chineseCard name="card" firstcol="uid" key="uid" />
-				<chineseBook name="book" firstcol="uid" key="uid" />
-				<chineseExhibit name="exhibit" firstcol="uid" key="uid" />
-				<chineseEvent name="event" firstcol="uid" key="uid" />
-				<chineseActionSpace name="actionSpace" firstcol="uid" key="uid" />
-				<chineseSpecWorker name="specWorker" firstcol="uid" key="uid" />
-				<chineseBuff name="buff" firstcol="uid" key="uid" />
+				<chineseCard name="newCard" firstcol="uid" key="uid" />
+				<chineseBook name="newBook" firstcol="uid" key="uid" />
+				<chineseExhibit name="newExhibit" firstcol="uid" key="uid" />
+				<chineseActionSpace name="newActionSpace" firstcol="uid" key="uid" />
+				<chineseBuff name="newBuff" firstcol="uid" key="uid" />
+				<chineseNegativeBuff name="newNegativeBuff" firstcol="uid" key="uid" />
 				<chineseStaticText name="staticText" firstcol="uid" key="uid" />
 			</file>
 			<file name="excel/english.xlsx">
-				<englishCard name="card" firstcol="uid" key="uid" />
-				<englishBook name="book" firstcol="uid" key="uid" />
-				<englishExhibit name="exhibit" firstcol="uid" key="uid" />
-				<englishEvent name="event" firstcol="uid" key="uid" />
-				<englishActionSpace name="actionSpace" firstcol="uid" key="uid" />
-				<englishSpecWorker name="specWorker" firstcol="uid" key="uid" />
-				<englishBuff name="buff" firstcol="uid" key="uid" />
+				<englishCard name="newCard" firstcol="uid" key="uid" />
+				<englishBook name="newBook" firstcol="uid" key="uid" />
+				<englishExhibit name="newExhibit" firstcol="uid" key="uid" />
+				<englishActionSpace name="newActionSpace" firstcol="uid" key="uid" />
+				<englishBuff name="newBuff" firstcol="uid" key="uid" />
+				<englishNegativeBuff name="newNegativeBuff" firstcol="uid" key="uid" />
 				<englishStaticText name="staticText" firstcol="uid" key="uid" />
 			</file>
 			<file name="excel/data.xlsx">
-				<dataCard name="card" firstcol="uid" key="uid" />
-				<dataBook name="book" firstcol="uid" key="uid" />
-				<dataExhibit name="exhibit" firstcol="uid" key="uid" />
-				<dataActionSpace name="actionSpace" firstcol="uid" key="uid" />
-				<dataSpecWorker name="specWorker" firstcol="uid" key="uid" />
-				<dataBuff name="buff" firstcol="uid" key="uid" />
-				<dataEvent name="event" firstcol="uid" key="uid" />
+				<dataCard name="newCard" firstcol="uid" key="uid" />
+				<dataBook name="newBook" firstcol="uid" key="uid" />
+				<dataExhibit name="newExhibit" firstcol="uid" key="uid" />
+				<dataActionSpace name="newActionSpace" firstcol="uid" key="uid" />
+				<dataBuff name="newBuff" firstcol="uid" key="uid" />
+				<dataPlaceholder name="placeholder" firstcol="uid" key="uid" />
+				<dataNegativeBuff name="newNegativeBuff" firstcol="uid" key="uid" />
 			</file>
 		</tableinfo>
 	</client_side>

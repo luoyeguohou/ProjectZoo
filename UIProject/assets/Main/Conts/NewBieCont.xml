@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImage="ui://zqdehm1vpjwc0">
-  <controller name="step" homePageType="specific" homePage="0" pages="0,intro,1,aim,2,worker,3,workpos,4,map,5,展览行动,6,获取时间点数,7,抽取项目牌,8,打牌,9,结束季节,10,lastThing" selected="7">
+  <controller name="step" homePageType="specific" homePage="0" pages="0,intro,1,aim,2,worker,3,workpos,4,map,5,展览行动,6,获取时间点数,7,抽取项目牌,8,打牌,9,结束季节,10,lastThing" selected="0">
     <action type="play_transition" fromPage="" toPage="3" transition="t0" repeat="-1" stopOnExit="true"/>
     <action type="play_transition" fromPage="" toPage="4" transition="t1"/>
     <action type="play_transition" fromPage="" toPage="8" transition="t2" repeat="-1" stopOnExit="true"/>
     <action type="play_transition" fromPage="" toPage="9" transition="t3"/>
   </controller>
   <displayList>
-    <component id="n5_pxbk" name="infoWin" src="z1411t" fileName="Panels/SeasonInfoWin.xml" xy="0,0">
+    <component id="n5_pxbk" name="infoWin" src="z1411t" fileName="Windows/SeasonInfoWin.xml" xy="0,0">
       <gearDisplay controller="step" pages="1"/>
     </component>
     <image id="n0_nkfb" name="n0" src="nkfbek" fileName="Images/panel2.png" xy="166,672" size="1530,349">
@@ -19,14 +19,10 @@
     <image id="n2_nkfb" name="n2" src="nkfbem" fileName="Images/dialog.png" xy="467,718" size="1174,242">
       <gearXY controller="step" pages="8,9" values="521,133|521,133" default="467,718"/>
     </image>
-    <text id="n3_pxbk" name="txtCont" xy="530,749" size="1070,171" fontSize="39" autoSize="none" text="这个行动可以让你获得项目牌。红色场馆牌在建造完毕之后每季度会提供人气值。是人气值的重要来源。">
-      <gearXY controller="step" pages="8,9" values="584,164|584,164" default="530,749"/>
-      <gearText controller="step" pages="1,2,3,4,5,6,7,8,9,10" values="你可以随时在这里查看动物园的人气值计划表。上面显示了你每个季度需要达到的人气值。|你手下有一些工人，你可以派遣他们去完成各式各样的工作。季度结束时他们会恢复成可用状态。|这里是工人们工作的场所。拖拽工人们到这里来执行各种效果。每个季度重复执行同一个行动时会需要更多的工人。|这里是你的动物园平面图。在动物园里建设动物场馆来获得人气值。注意，你不能在岩石与湖泊地块上建造场馆。|这个行动为临时开放。会获得金钱跟少量人气值。前期没有建造任何场馆时，这个行动可以提供很重要的少量人气值。|这个行动为你提供时间点数。你需要时间点数与金钱来打出卡牌。|这个行动可以让你获得项目牌。红色场馆牌在建造完毕之后每季度会提供人气值。是人气值的重要来源。|你的项目卡牌会展示在这里。上划卡牌来打出。注意你需要有足够的金钱和时间点数来打出它们。|当你不想再执行任何行动之后，你可以点击这里来结束这个季节。届时你的场馆会提供人气值，我们会检查你是否达到了KPI。|这就是大致的游戏介绍了。最后一件事，玩的开心！！！" default="欢迎来到卡其动物园，在这里你将经营自己的动物园。我们的合同将持续6年，每个季度会考核你的动物园有没有达到计划的人气值。"/>
-    </text>
     <component id="n7_pxbk" name="card" src="rd081a" fileName="Components/Card.xml" xy="820,720" scale="0.8,0.8">
       <gearDisplay controller="step" pages="8"/>
     </component>
-    <component id="n6_pxbk" name="n6" src="pxbket" fileName="Panels/Finger.xml" xy="1013,374">
+    <component id="n6_pxbk" name="n6" src="pxbket" fileName="Components/Finger.xml" xy="453,230">
       <gearDisplay controller="step" pages="1,2,3,4,5,6,7,8,9"/>
       <gearXY controller="step" pages="0,1,2,3,5,6,7,8,9" values="453,230|1693,47|986,266|1323,441|1303,373|1161,383|1013,374|886,864|1675,787" default="387,441"/>
     </component>

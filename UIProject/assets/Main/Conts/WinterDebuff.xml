@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="52,52">
+  <controller name="state" pages="0,unknown,1,curr,2,down" selected="0"/>
+  <displayList>
+    <image id="n86_m2vd" name="n86" src="blnq9e" fileName="Images/Buffs/buff_35.png" xy="0,0" size="52,52"/>
+    <graph id="n87_m2vd" name="n87" xy="0,0" size="52,52" alpha="0.542" type="rect" lineSize="0" fillColor="#ff000000">
+      <gearDisplay controller="state" pages="0,2"/>
+    </graph>
+    <text id="n88_m2vd" name="n88" xy="6,7" size="40,38" fontSize="25" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="?">
+      <gearDisplay controller="state" pages="0"/>
+    </text>
+    <image id="n89_m2vd" name="n89" src="z1411s" fileName="Images/Plans/planFInished.png" xy="4,13" size="43,26">
+      <gearDisplay controller="state" pages="2"/>
+    </image>
+  </displayList>
+</component>

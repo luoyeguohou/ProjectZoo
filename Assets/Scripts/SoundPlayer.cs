@@ -8,7 +8,6 @@ public class SoundPlayer : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(audioSource);
     }
 
     public void PlaySound(string name)

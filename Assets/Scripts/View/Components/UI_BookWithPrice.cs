@@ -18,12 +18,12 @@ namespace Main
         {
             this.i = i;
             m_book.Init(i.book);
-            m_btnBuy.title = EcsUtil.GetValStr(i.price, i.oriPrice);
+            m_btnBuy.GetTextField().SetVar("price", EcsUtil.GetValStr(i.price, i.oriPrice)).FlushVars();
         }
 
         private void OnClickBuy()
         {
-            Msg.Dispatch(MsgID.ActionBuyBook, new object[] { i });
+            Msg.Dispatch(MsgID.BuyBook, new object[] { i });
         }
     }
 }

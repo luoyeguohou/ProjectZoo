@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="319,545">
   <displayList>
-    <component id="n77_cjlr" name="card" src="rd081a" fileName="Card.xml" xy="0,0"/>
-    <component id="n75_g9th" name="btnBuy" src="rd0816" fileName="ButtonNormal.xml" xy="71,463" size="174,69" scale="0.7,0.7">
-      <Button title="     58"/>
+    <component id="n77_cjlr" name="card" src="rd081a" fileName="Components/Card.xml" xy="0,0"/>
+    <component id="n75_g9th" name="btnBuy" src="rd0816" fileName="Components/ButtonNormal.xml" xy="71,463" size="174,69" scale="0.7,0.7">
+      <Button title="     {price=58}"/>
     </component>
     <image id="n76_g9th" name="n76" src="rd08r" fileName="Images/goldIcon.png" xy="115,480" size="33,32"/>
   </displayList>

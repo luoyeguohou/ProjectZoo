@@ -19,12 +19,12 @@ namespace Main
         {
             card = c;
             m_card.SetCard(c.card);
-            m_btnBuy.title = EcsUtil.GetValStr(c.price,c.oriPrice);
+            m_btnBuy.GetTextField().SetVar("price", EcsUtil.GetValStr(c.price, c.oriPrice)).FlushVars();
         }
 
         private void OnClickBuy()
         {
-            Msg.Dispatch(MsgID.ActionBuyCard,new object[] { card });
+            Msg.Dispatch(MsgID.BuyCard,new object[] { card });
         }
     }
 }

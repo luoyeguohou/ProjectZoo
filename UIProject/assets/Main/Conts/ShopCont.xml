@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1497,930">
-  <controller name="hasDiscard" pages="0,,1," selected="1"/>
   <displayList>
     <loader id="n62_g9th" name="n62" xy="0,0" size="1497,930" url="ui://zqdehm1vrd08i" fill="scaleFree"/>
-    <list id="n63_g9th" name="lstBook" xy="111,78" size="803,222" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://zqdehm1vrd0815">
+    <list id="n63_g9th" name="lstBook" xy="161,74" size="1131,222" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://zqdehm1vrd0815" align="center">
       <item/>
       <item/>
       <item/>
@@ -16,18 +15,5 @@
       <item/>
       <item/>
     </list>
-    <component id="n68_g9th" name="n68" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1013,84" size="314,94" touchable="false">
-      <Button title="废除创意" titleFontSize="48"/>
-    </component>
-    <component id="n69_g9th" name="btnDelete" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1083,185" size="174,69" scale="0.7,0.7">
-      <gearDisplay controller="hasDiscard" pages="0"/>
-      <Button title="     5"/>
-    </component>
-    <image id="n70_g9th" name="n70" src="rd08r" fileName="Images/goldIcon.png" xy="1127,202" size="33,32">
-      <gearDisplay controller="hasDiscard" pages="0"/>
-    </image>
-    <text id="n71_sy7u" name="n71" xy="1083,196" size="179,60" fontSize="36" align="center" vAlign="middle" autoSize="none" text="售光啦">
-      <gearDisplay controller="hasDiscard" pages="1"/>
-    </text>
   </displayList>
 </component>

@@ -7,7 +7,7 @@
       <Button title="完成" titleFontSize="53"/>
     </component>
     <image id="n79_pz64" name="n79" src="rd089" fileName="Images/zooBack.png" xy="339,130"/>
-    <list id="n80_pz64" name="lstMap" xy="362,156" size="885,634" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-45" colGap="52" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
+    <list id="n80_pz64" name="lstMap" xy="362,156" size="885,634" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-86" colGap="75" lineItemCount="6" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
       <item/>
       <item/>
       <item/>

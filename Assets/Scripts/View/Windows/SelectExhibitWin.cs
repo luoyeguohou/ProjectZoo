@@ -9,7 +9,7 @@ namespace Main
     public partial class UI_SelectExhibitWin : FairyWindow
     {
         private Action<Exhibit> handler;
-        private Exhibit chosenOne;
+        private Building chosenOne;
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
@@ -32,17 +32,16 @@ namespace Main
         private void ZooBlockIniter(UI_Plot ui, Plot zg)
         {
             MapSizeComp msComp = World.e.sharedConfig.GetComp<MapSizeComp>();
-            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-            ui.m_selected.selectedIndex = zg.hasBuilt && zg.exhibit == chosenOne ? 1 : 0;
+            ui.m_selected.selectedIndex = zg.hasBuilt && zg.building == chosenOne ? 1 : 0;
             ui.onClick.Add(() =>
             {
                 if (ui.m_type.selectedIndex != 4) return;
-                if ((chosenOne != null && zg.exhibit != chosenOne) || chosenOne == null)
+                if ((chosenOne != null && zg.building != chosenOne && zg.building.IsExhibit()) || chosenOne == null)
                 {
                     // has chosen && new one => cancel it and choose a new one
                     // or
                     // hasn't chosen && valid => choose it
-                    chosenOne = zg.exhibit;
+                    chosenOne = zg.building;
                     m_cont.m_lstMap.numItems = msComp.width * msComp.height;
                 }
             });
@@ -52,7 +51,7 @@ namespace Main
         {
             if (chosenOne == null) return;
             Dispose();
-            handler(chosenOne);
+            handler(chosenOne.exhibit);
         }
     }
 }

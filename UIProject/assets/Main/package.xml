@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<packageDescription id="zqdehm1v">
+<packageDescription id="zqdehm1v" hasFavorites="true">
   <resources>
     <component id="pjwc0" name="MainWin.xml" path="/" exported="true"/>
     <image id="rd089" name="zooBack.png" path="/Images/" exported="true" scale="9grid" scale9grid="31,25,875,637"/>
     <image id="rd08g" name="timeIcon.png" path="/Images/" exported="true"/>
     <image id="rd08h" name="testCard.png" path="/Images/" exported="true"/>
     <image id="rd08i" name="panel.png" path="/Images/" exported="true" scale="9grid" scale9grid="249,163,498,326"/>
-    <image id="rd08j" name="meeple.png" path="/Images/" exported="true"/>
+    <image id="rd08j" name="meeple.png" path="/Images/Resources/" exported="true"/>
     <image id="rd08k" name="mapBonus.png" path="/Images/" exported="true" scale="9grid" scale9grid="39,23,78,46"/>
     <image id="rd08l" name="itemBg.png" path="/Images/" exported="true"/>
     <image id="rd08m" name="item1.png" path="/Images/" exported="true"/>
     <image id="rd08o" name="ground4.png" path="/Images/" exported="true"/>
     <image id="rd08p" name="ground2.png" path="/Images/" exported="true"/>
     <image id="rd08q" name="ground1.png" path="/Images/" exported="true"/>
-    <image id="rd08r" name="goldIcon.png" path="/Images/" exported="true"/>
-    <image id="rd08s" name="cardTop.png" path="/Images/Cards/" exported="true" scale="9grid" scale9grid="37,16,74,32"/>
-    <image id="rd08t" name="cardBg.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08u" name="cardBack.png" path="/Images/Cards/" exported="true"/>
-    <image id="rd08v" name="card5.png" path="/Images/Cards/"/>
-    <image id="rd08w" name="card4.png" path="/Images/Cards/"/>
-    <image id="rd08x" name="card3.png" path="/Images/Cards/"/>
-    <image id="rd08y" name="card2.png" path="/Images/Cards/"/>
-    <image id="rd08z" name="card1.png" path="/Images/Cards/"/>
+    <image id="rd08r" name="goldIcon.png" path="/Images/Resources/" exported="true"/>
+    <image id="rd08s" name="cardTop.png" path="/Images/CardsUI/" exported="true" scale="9grid" scale9grid="37,16,74,32"/>
+    <image id="rd08t" name="cardBg.png" path="/Images/CardsUI/" exported="true"/>
+    <image id="rd08u" name="cardBack.png" path="/Images/CardsUI/" exported="true"/>
+    <image id="rd08v" name="card5.png" path="/Images/CardsUI/"/>
+    <image id="rd08w" name="card4.png" path="/Images/CardsUI/"/>
+    <image id="rd08x" name="card3.png" path="/Images/CardsUI/"/>
+    <image id="rd08y" name="card2.png" path="/Images/CardsUI/"/>
+    <image id="rd08z" name="card1.png" path="/Images/CardsUI/"/>
     <image id="rd0810" name="button.png" path="/Images/" exported="true" scale="9grid" scale9grid="49,19,98,38"/>
     <image id="rd0811" name="back.png" path="/Images/" exported="true"/>
     <image id="rd0812" name="ground3.png" path="/Images/" exported="true"/>
@@ -32,15 +32,15 @@
     <component id="rd0818" name="Plot.xml" path="/Components/"/>
     <component id="rd0819" name="PlotReward.xml" path="/Components/"/>
     <component id="rd081a" name="Card.xml" path="/Components/"/>
-    <image id="g9th1b" name="cardBlock.png" path="/Images/Cards/" exported="true"/>
+    <image id="g9th1b" name="cardBlock.png" path="/Images/CardsUI/" exported="true"/>
     <component id="g9th1c" name="Book.xml" path="/Components/"/>
     <component id="g9th1d" name="CardWithPrice.xml" path="/Components/"/>
-    <component id="g9th1e" name="ShopWin.xml" path="/Panels/" exported="true"/>
+    <component id="g9th1e" name="ShopWin.xml" path="/Windows/" exported="true"/>
     <image id="g9th1f" name="test2.png" path="/Images/" exported="true"/>
     <component id="z1411h" name="Worker.xml" path="/Components/"/>
-    <image id="z1411i" name="meeple2.png" path="/Images/"/>
+    <image id="z1411i" name="meeple2.png" path="/Images/Resources/" exported="true"/>
     <component id="z1411j" name="PlotEmp.xml" path="/Components/" exported="true"/>
-    <component id="z1411k" name="CardOverviewWin.xml" path="/Panels/" exported="true"/>
+    <component id="z1411k" name="CardOverviewWin.xml" path="/Windows/" exported="true"/>
     <image id="z1411l" name="planCur.png" path="/Images/Plans/" exported="true"/>
     <image id="z1411m" name="planWinter.png" path="/Images/Plans/" exported="true"/>
     <image id="z1411n" name="planAugust.png" path="/Images/Plans/" exported="true"/>
@@ -49,310 +49,307 @@
     <image id="z1411q" name="planLineV.png" path="/Images/Plans/" exported="true"/>
     <image id="z1411r" name="planLineH.png" path="/Images/Plans/" exported="true"/>
     <image id="z1411s" name="planFInished.png" path="/Images/Plans/" exported="true"/>
-    <component id="z1411t" name="SeasonInfoWin.xml" path="/Panels/" exported="true"/>
+    <component id="z1411t" name="SeasonInfoWin.xml" path="/Windows/" exported="true"/>
     <component id="z1411u" name="PlanItem.xml" path="/Components/"/>
     <component id="z1411v" name="Exhibit.xml" path="/Components/"/>
     <component id="z1411x" name="ExhibitSmall.xml" path="/Components/"/>
     <image id="witr1y" name="itemUsePanel.png" path="/Images/" exported="true" scale9grid="0,80,177,25"/>
-    <component id="witr1z" name="UseBookPanelWin.xml" path="/Panels/" exported="true"/>
+    <component id="witr1z" name="UseBookPanelWin.xml" path="/Windows/" exported="true"/>
     <component id="witr20" name="UseBookPanelItem.xml" path="/Components/"/>
-    <component id="pz6421" name="SelectCardsWin.xml" path="/Panels/" exported="true"/>
-    <component id="pz6422" name="ExpandPlotWin.xml" path="/Panels/" exported="true"/>
-    <component id="pz6423" name="UpgradeActionSpaceWin.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2d" name="SelectExhibitWin.xml" path="/Panels/" exported="true"/>
-    <component id="ehbe2e" name="PutExhibitWin.xml" path="/Panels/" exported="true"/>
+    <component id="pz6421" name="SelectCardsWin.xml" path="/Windows/" exported="true"/>
+    <component id="pz6422" name="ExpandPlotWin.xml" path="/Windows/" exported="true"/>
+    <component id="ehbe2d" name="SelectExhibitWin.xml" path="/Windows/" exported="true"/>
+    <component id="ehbe2e" name="PutExhibitWin.xml" path="/Windows/" exported="true"/>
     <component id="c0b72f" name="MainHand.xml" path="/Components/"/>
-    <image id="qff22g" name="book24.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22h" name="book21.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22i" name="book20.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22j" name="book19.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22k" name="book18.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22l" name="book17.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22m" name="book16.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22n" name="book15.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22o" name="book14.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22p" name="book13.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22q" name="book12.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22r" name="book22.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22s" name="book11.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22t" name="book9.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22u" name="book8.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22v" name="book7.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22w" name="book6.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22x" name="book5.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22y" name="book4.png" path="/Images/Books/" exported="true"/>
-    <image id="qff22z" name="book3.png" path="/Images/Books/" exported="true"/>
-    <image id="qff230" name="book2.png" path="/Images/Books/" exported="true"/>
-    <image id="qff231" name="book1.png" path="/Images/Books/" exported="true"/>
-    <image id="qff232" name="book25.png" path="/Images/Books/" exported="true"/>
-    <image id="qff233" name="book10.png" path="/Images/Books/" exported="true"/>
-    <image id="qff234" name="book23.png" path="/Images/Books/" exported="true"/>
+    <image id="qff22g" name="book24.png" path="/Images/Books/"/>
+    <image id="qff22h" name="book21.png" path="/Images/Books/"/>
+    <image id="qff22i" name="book20.png" path="/Images/Books/"/>
+    <image id="qff22j" name="book19.png" path="/Images/Books/"/>
+    <image id="qff22k" name="book18.png" path="/Images/Books/"/>
+    <image id="qff22l" name="book17.png" path="/Images/Books/"/>
+    <image id="qff22m" name="book16.png" path="/Images/Books/"/>
+    <image id="qff22n" name="book15.png" path="/Images/Books/"/>
+    <image id="qff22o" name="book14.png" path="/Images/Books/"/>
+    <image id="qff22p" name="book13.png" path="/Images/Books/"/>
+    <image id="qff22q" name="book12.png" path="/Images/Books/"/>
+    <image id="qff22r" name="book22.png" path="/Images/Books/"/>
+    <image id="qff22s" name="book11.png" path="/Images/Books/"/>
+    <image id="qff22t" name="book9.png" path="/Images/Books/"/>
+    <image id="qff22u" name="book8.png" path="/Images/Books/"/>
+    <image id="qff22v" name="book7.png" path="/Images/Books/"/>
+    <image id="qff22w" name="book6.png" path="/Images/Books/"/>
+    <image id="qff22x" name="book5.png" path="/Images/Books/"/>
+    <image id="qff22y" name="book4.png" path="/Images/Books/"/>
+    <image id="qff22z" name="book3.png" path="/Images/Books/"/>
+    <image id="qff230" name="book2.png" path="/Images/Books/"/>
+    <image id="qff231" name="book1.png" path="/Images/Books/"/>
+    <image id="qff232" name="book25.png" path="/Images/Books/"/>
+    <image id="qff233" name="book10.png" path="/Images/Books/"/>
+    <image id="qff234" name="book23.png" path="/Images/Books/"/>
     <component id="qev635" name="LogItem.xml" path="/Components/"/>
     <component id="qev636" name="ScrollBar_arrow1.xml" path="/Components/"/>
     <component id="qev637" name="ScrollBar_arrow2.xml" path="/Components/"/>
     <component id="qev638" name="ScrollBar_grip.xml" path="/Components/"/>
     <component id="qev639" name="ScrollBar.xml" path="/Components/" exported="true"/>
-    <component id="qev63a" name="LoggerWin.xml" path="/Panels/" exported="true"/>
-    <component id="qev63b" name="HintMessage.xml" path="/Components/" exported="true"/>
-    <component id="d2b23c" name="ExplainPanel.xml" path="/Components/" exported="true"/>
+    <component id="qev63a" name="LoggerWin.xml" path="/Windows/" exported="true"/>
+    <component id="qev63b" name="HintMessage.xml" path="/Panel/" exported="true"/>
+    <component id="d2b23c" name="ExplainPanel.xml" path="/Panel/" exported="true"/>
     <component id="d2b23d" name="CardOverviewCont.xml" path="/Conts/"/>
     <component id="d2b23e" name="PutExhibitCont.xml" path="/Conts/"/>
-    <component id="d2b23g" name="EventPanelCont.xml" path="/Conts/"/>
     <component id="d2b23h" name="ExpandPlotCont.xml" path="/Conts/"/>
-    <component id="d2b23i" name="PlayHandsCont.xml" path="/Conts/"/>
     <component id="d2b23j" name="SelectCardsCont.xml" path="/Conts/"/>
     <component id="d2b23m" name="ShopCont.xml" path="/Conts/"/>
-    <component id="d2b23o" name="UpgradeActionSpaceCont.xml" path="/Conts/"/>
-    <component id="d2b23p" name="FConsoleWin.xml" path="/Panels/" exported="true"/>
+    <component id="d2b23o" name="BuildActionSpaceCont.xml" path="/Conts/"/>
+    <component id="d2b23p" name="FConsoleWin.xml" path="/Windows/" exported="true"/>
     <component id="b26m3q" name="ExhibitWithAni.xml" path="/Components/"/>
-    <component id="ea443s" name="EndWin.xml" path="/Panels/" exported="true"/>
+    <component id="ea443s" name="EndWin.xml" path="/Windows/" exported="true"/>
     <component id="ea443u" name="BuffItem.xml" path="/Components/"/>
-    <image id="blnq3v" name="yanjiurenyuan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq3w" name="sixsixsix.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq3x" name="heishi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq3y" name="yanfazhiyan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq3z" name="renqibaopeng.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq40" name="renmanweifu.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq41" name="haiyangzhixin.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq42" name="linshiguyong.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq43" name="renmanweian.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq44" name="huaidianzi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq45" name="gouwudaheng.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq46" name="baocang.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq47" name="minjiekaifa.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq48" name="duokuaihaosheng.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq49" name="caipiao.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4a" name="mailiang.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4b" name="zhanluejia.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4c" name="gailvdashi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4d" name="zhaoshangyinzi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4e" name="teshuzhaomu.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4f" name="kuozhangdipan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4g" name="shuangbei.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4h" name="haoyunlai.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4i" name="miansijinpai.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4j" name="kaishan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4k" name="changjiuzhiji.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4l" name="yejiedaheng.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4m" name="shenjianshuzhi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4n" name="taojiahuanjia.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4o" name="guanlidashi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4p" name="yuanhouzhuti.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4q" name="houzifanlan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4r" name="lixifanbei.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4s" name="junhengtouzi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4t" name="dubo.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4u" name="jiabi.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4v" name="eyishougou.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4w" name="tonghuopengzhang.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4x" name="hanchao.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4y" name="xiedai.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq4z" name="fengkuangkuojian.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq50" name="rencaiyinjin.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq51" name="chaimendaji.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq52" name="kaimenhong.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq53" name="buhuo.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq54" name="dashuaimai.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq55" name="shencengguwu.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq56" name="pianhao.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq57" name="feianliyong2.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq58" name="kantangaoshou.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq59" name="dixiakuangmai.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5a" name="yizhaoxian.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5b" name="kuojianrenyuan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5c" name="guyongrenyuuan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5d" name="xiangmurenyuan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5e" name="feianliyong.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5f" name="jiansherenyuan.png" path="/Images/ActionCards/" exported="true"/>
-    <image id="blnq5g" name="dongbeihu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5h" name="toucejinguiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5i" name="toucejingui.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5j" name="spider_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5k" name="spider_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5l" name="shirenyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5m" name="shirenyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5n" name="shenhaiyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5o" name="shenhaiyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5p" name="xiami.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5q" name="shayuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5r" name="rong_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5s" name="rong_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5t" name="qunjuyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5u" name="qunjuyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5v" name="ouzhouguanS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5w" name="ouzhouguan.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5x" name="mi_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5y" name="mi_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq5z" name="shayu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq60" name="meizhoushiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq61" name="xiamiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq62" name="xiaoxingyuleiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq63" name="daxingyuleiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq64" name="daxingyulei.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq65" name="changbi_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq66" name="changbi_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq67" name="baxihaiguiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq68" name="baxihaigui.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq69" name="aozhouyequanS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6a" name="aozhouyequan.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6b" name="xiaoxingyulei.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6c" name="yuan_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6d" name="ye_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6e" name="ye_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6f" name="yazhoushiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6g" name="yazhoushi.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6h" name="yanshiyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6i" name="yanshiyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6j" name="yagualabihuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6k" name="yagualabihu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6l" name="yuan_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6m" name="meizhoushi.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6n" name="meizhoubaoS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6o" name="meizhoubao.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6p" name="huananhu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6q" name="hou_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6r" name="hou_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6s" name="guzhonghuabaoS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6t" name="guzhonghuabao.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6u" name="guowangbslS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6v" name="guowangbsl.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6w" name="gaoguanbslS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6x" name="huananhuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6y" name="gaoguanbsl.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq6z" name="feizhoushi.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq70" name="duojiesenbslS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq71" name="duojiesenbsl.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq72" name="duanmianxiongS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq73" name="duanmianxiong.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq74" name="douyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq75" name="douyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq76" name="dongbeihuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq77" name="feizhoushiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq78" name="huixiong.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq79" name="huixiongS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7a" name="huiye_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7b" name="lianyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7c" name="lianyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7d" name="kemoduojxS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7e" name="kemoduojx.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7f" name="juxinghuanweixiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7g" name="juxinghuanweixi.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7h" name="juanwei_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7i" name="juanwei_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7j" name="jinyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7k" name="jinyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7l" name="jinsi_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7m" name="jinsi_monkey.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7n" name="jinqianguiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7o" name="jinqiangui.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7p" name="jinliS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7q" name="jinli.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7r" name="jiaoxiS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7s" name="jiaoxi.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7t" name="huiye_monkeyS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7u" name="denglongyu.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7v" name="denglongyuS.png" path="/Images/Animals/" exported="true"/>
-    <image id="blnq7w" name="achi_buru.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq7x" name="achi_danyi.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq7y" name="achi_daxing.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq7z" name="achi_duoyangxing.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq80" name="achi_duozhonglei.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq81" name="achi_duty.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq82" name="achi_hbxs.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq83" name="achi_heliu.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq84" name="achi_houxuanchuan.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq85" name="achi_kongjiangongji.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq86" name="achi_pachong.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq87" name="achi_poprating.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq88" name="achi_weizhi.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq89" name="achi_xiaoxing.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq8a" name="achi_yu.png" path="/Images/Achiments/" exported="true"/>
-    <image id="blnq8b" name="achi_yuanhou.png" path="/Images/Achiments/" exported="true"/>
+    <image id="blnq3v" name="yanjiurenyuan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq3w" name="sixsixsix.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq3x" name="heishi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq3y" name="yanfazhiyan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq3z" name="renqibaopeng.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq40" name="renmanweifu.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq41" name="haiyangzhixin.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq42" name="linshiguyong.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq43" name="renmanweian.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq44" name="huaidianzi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq45" name="gouwudaheng.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq46" name="baocang.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq47" name="minjiekaifa.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq48" name="duokuaihaosheng.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq49" name="caipiao.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4a" name="mailiang.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4b" name="zhanluejia.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4c" name="gailvdashi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4d" name="zhaoshangyinzi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4e" name="teshuzhaomu.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4f" name="kuozhangdipan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4g" name="shuangbei.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4h" name="haoyunlai.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4i" name="miansijinpai.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4j" name="kaishan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4k" name="changjiuzhiji.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4l" name="yejiedaheng.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4m" name="shenjianshuzhi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4n" name="taojiahuanjia.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4o" name="guanlidashi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4p" name="yuanhouzhuti.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4q" name="houzifanlan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4r" name="lixifanbei.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4s" name="junhengtouzi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4t" name="dubo.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4u" name="jiabi.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4v" name="eyishougou.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4w" name="tonghuopengzhang.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4x" name="hanchao.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4y" name="xiedai.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq4z" name="fengkuangkuojian.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq50" name="rencaiyinjin.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq51" name="chaimendaji.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq52" name="kaimenhong.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq53" name="buhuo.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq54" name="dashuaimai.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq55" name="shencengguwu.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq56" name="pianhao.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq57" name="feianliyong2.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq58" name="kantangaoshou.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq59" name="dixiakuangmai.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5a" name="yizhaoxian.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5b" name="kuojianrenyuan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5c" name="guyongrenyuuan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5d" name="xiangmurenyuan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5e" name="feianliyong.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5f" name="jiansherenyuan.png" path="/Images/CardImages/ActionCards/"/>
+    <image id="blnq5g" name="dongbeihu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5h" name="toucejinguiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5i" name="toucejingui.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5j" name="spider_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5k" name="spider_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5l" name="shirenyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5m" name="shirenyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5n" name="shenhaiyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5o" name="shenhaiyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5p" name="xiami.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5q" name="shayuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5r" name="rong_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5s" name="rong_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5t" name="qunjuyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5u" name="qunjuyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5v" name="ouzhouguanS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5w" name="ouzhouguan.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5x" name="mi_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5y" name="mi_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq5z" name="shayu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq60" name="meizhoushiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq61" name="xiamiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq62" name="xiaoxingyuleiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq63" name="daxingyuleiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq64" name="daxingyulei.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq65" name="changbi_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq66" name="changbi_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq67" name="baxihaiguiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq68" name="baxihaigui.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq69" name="aozhouyequanS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6a" name="aozhouyequan.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6b" name="xiaoxingyulei.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6c" name="yuan_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6d" name="ye_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6e" name="ye_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6f" name="yazhoushiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6g" name="yazhoushi.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6h" name="yanshiyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6i" name="yanshiyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6j" name="yagualabihuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6k" name="yagualabihu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6l" name="yuan_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6m" name="meizhoushi.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6n" name="meizhoubaoS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6o" name="meizhoubao.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6p" name="huananhu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6q" name="hou_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6r" name="hou_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6s" name="guzhonghuabaoS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6t" name="guzhonghuabao.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6u" name="guowangbslS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6v" name="guowangbsl.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6w" name="gaoguanbslS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6x" name="huananhuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6y" name="gaoguanbsl.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq6z" name="feizhoushi.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq70" name="duojiesenbslS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq71" name="duojiesenbsl.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq72" name="duanmianxiongS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq73" name="duanmianxiong.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq74" name="douyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq75" name="douyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq76" name="dongbeihuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq77" name="feizhoushiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq78" name="huixiong.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq79" name="huixiongS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7a" name="huiye_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7b" name="lianyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7c" name="lianyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7d" name="kemoduojxS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7e" name="kemoduojx.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7f" name="juxinghuanweixiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7g" name="juxinghuanweixi.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7h" name="juanwei_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7i" name="juanwei_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7j" name="jinyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7k" name="jinyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7l" name="jinsi_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7m" name="jinsi_monkey.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7n" name="jinqianguiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7o" name="jinqiangui.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7p" name="jinliS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7q" name="jinli.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7r" name="jiaoxiS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7s" name="jiaoxi.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7t" name="huiye_monkeyS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7u" name="denglongyu.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7v" name="denglongyuS.png" path="/Images/CardImages/Animals/"/>
+    <image id="blnq7w" name="achi_buru.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq7x" name="achi_danyi.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq7y" name="achi_daxing.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq7z" name="achi_duoyangxing.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq80" name="achi_duozhonglei.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq81" name="achi_duty.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq82" name="achi_hbxs.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq83" name="achi_heliu.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq84" name="achi_houxuanchuan.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq85" name="achi_kongjiangongji.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq86" name="achi_pachong.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq87" name="achi_poprating.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq88" name="achi_weizhi.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq89" name="achi_xiaoxing.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq8a" name="achi_yu.png" path="/Images/CardImages/Achiments/" favorite="true"/>
+    <image id="blnq8b" name="achi_yuanhou.png" path="/Images/CardImages/Achiments/" favorite="true"/>
     <image id="blnq9d" name="buff_1.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9e" name="buff_35.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9f" name="buff_36.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9g" name="buff_37.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9h" name="buff_38.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9i" name="buff_39.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9j" name="buff_40.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9k" name="buff_41.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9l" name="buff_42.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9m" name="buff_43.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9n" name="buff_44.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9o" name="buff_45.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9p" name="buff_46.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9q" name="buff_47.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9r" name="buff_48.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9s" name="buff_49.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9t" name="buff_50.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9u" name="buff_51.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9v" name="buff_52.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9w" name="buff_53.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9x" name="buff_54.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9y" name="buff_55.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnq9z" name="buff_56.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa0" name="buff_57.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa1" name="buff_58.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa2" name="buff_59.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa3" name="buff_60.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa4" name="buff_61.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa5" name="buff_62.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa6" name="buff_63.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa7" name="buff_34.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa8" name="buff_64.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqa9" name="buff_33.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqaa" name="buff_31.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqab" name="buff_2.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqac" name="buff_3.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqad" name="buff_4.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqae" name="buff_5.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqaf" name="buff_6.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqag" name="buff_7.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqah" name="buff_8.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqai" name="buff_9.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqaj" name="buff_10.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqak" name="buff_11.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqal" name="buff_12.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqam" name="buff_13.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqan" name="buff_14.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqao" name="buff_15.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqap" name="buff_16.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqaq" name="buff_17.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqar" name="buff_18.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqas" name="buff_19.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqat" name="buff_20.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqau" name="buff_21.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqav" name="buff_22.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqaw" name="buff_23.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqax" name="buff_24.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqay" name="buff_25.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqaz" name="buff_26.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqb0" name="buff_27.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqb1" name="buff_28.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqb2" name="buff_29.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqb3" name="buff_30.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqb4" name="buff_32.png" path="/Images/Buffs/" exported="true"/>
-    <image id="blnqb5" name="buff_65.png" path="/Images/Buffs/" exported="true"/>
+    <image id="blnq9e" name="buff_35.png" path="/Images/Buffs/"/>
+    <image id="blnq9f" name="buff_36.png" path="/Images/Buffs/"/>
+    <image id="blnq9g" name="buff_37.png" path="/Images/Buffs/"/>
+    <image id="blnq9h" name="buff_38.png" path="/Images/Buffs/"/>
+    <image id="blnq9i" name="buff_39.png" path="/Images/Buffs/"/>
+    <image id="blnq9j" name="buff_40.png" path="/Images/Buffs/"/>
+    <image id="blnq9k" name="buff_41.png" path="/Images/Buffs/"/>
+    <image id="blnq9l" name="buff_42.png" path="/Images/Buffs/"/>
+    <image id="blnq9m" name="buff_43.png" path="/Images/Buffs/"/>
+    <image id="blnq9n" name="buff_44.png" path="/Images/Buffs/"/>
+    <image id="blnq9o" name="buff_45.png" path="/Images/Buffs/"/>
+    <image id="blnq9p" name="buff_46.png" path="/Images/Buffs/"/>
+    <image id="blnq9q" name="buff_47.png" path="/Images/Buffs/"/>
+    <image id="blnq9r" name="buff_48.png" path="/Images/Buffs/"/>
+    <image id="blnq9s" name="buff_49.png" path="/Images/Buffs/"/>
+    <image id="blnq9t" name="buff_50.png" path="/Images/Buffs/"/>
+    <image id="blnq9u" name="buff_51.png" path="/Images/Buffs/"/>
+    <image id="blnq9v" name="buff_52.png" path="/Images/Buffs/"/>
+    <image id="blnq9w" name="buff_53.png" path="/Images/Buffs/"/>
+    <image id="blnq9x" name="buff_54.png" path="/Images/Buffs/"/>
+    <image id="blnq9y" name="buff_55.png" path="/Images/Buffs/"/>
+    <image id="blnq9z" name="buff_56.png" path="/Images/Buffs/"/>
+    <image id="blnqa0" name="buff_57.png" path="/Images/Buffs/"/>
+    <image id="blnqa1" name="buff_58.png" path="/Images/Buffs/"/>
+    <image id="blnqa2" name="buff_59.png" path="/Images/Buffs/"/>
+    <image id="blnqa3" name="buff_60.png" path="/Images/Buffs/"/>
+    <image id="blnqa4" name="buff_61.png" path="/Images/Buffs/"/>
+    <image id="blnqa5" name="buff_62.png" path="/Images/Buffs/"/>
+    <image id="blnqa6" name="buff_63.png" path="/Images/Buffs/"/>
+    <image id="blnqa7" name="buff_34.png" path="/Images/Buffs/"/>
+    <image id="blnqa8" name="buff_64.png" path="/Images/Buffs/"/>
+    <image id="blnqa9" name="buff_33.png" path="/Images/Buffs/"/>
+    <image id="blnqaa" name="buff_31.png" path="/Images/Buffs/"/>
+    <image id="blnqab" name="buff_2.png" path="/Images/Buffs/"/>
+    <image id="blnqac" name="buff_3.png" path="/Images/Buffs/"/>
+    <image id="blnqad" name="buff_4.png" path="/Images/Buffs/"/>
+    <image id="blnqae" name="buff_5.png" path="/Images/Buffs/"/>
+    <image id="blnqaf" name="buff_6.png" path="/Images/Buffs/"/>
+    <image id="blnqag" name="buff_7.png" path="/Images/Buffs/"/>
+    <image id="blnqah" name="buff_8.png" path="/Images/Buffs/"/>
+    <image id="blnqai" name="buff_9.png" path="/Images/Buffs/"/>
+    <image id="blnqaj" name="buff_10.png" path="/Images/Buffs/"/>
+    <image id="blnqak" name="buff_11.png" path="/Images/Buffs/"/>
+    <image id="blnqal" name="buff_12.png" path="/Images/Buffs/"/>
+    <image id="blnqam" name="buff_13.png" path="/Images/Buffs/"/>
+    <image id="blnqan" name="buff_14.png" path="/Images/Buffs/"/>
+    <image id="blnqao" name="buff_15.png" path="/Images/Buffs/"/>
+    <image id="blnqap" name="buff_16.png" path="/Images/Buffs/"/>
+    <image id="blnqaq" name="buff_17.png" path="/Images/Buffs/"/>
+    <image id="blnqar" name="buff_18.png" path="/Images/Buffs/"/>
+    <image id="blnqas" name="buff_19.png" path="/Images/Buffs/"/>
+    <image id="blnqat" name="buff_20.png" path="/Images/Buffs/"/>
+    <image id="blnqau" name="buff_21.png" path="/Images/Buffs/"/>
+    <image id="blnqav" name="buff_22.png" path="/Images/Buffs/"/>
+    <image id="blnqaw" name="buff_23.png" path="/Images/Buffs/"/>
+    <image id="blnqax" name="buff_24.png" path="/Images/Buffs/"/>
+    <image id="blnqay" name="buff_25.png" path="/Images/Buffs/"/>
+    <image id="blnqaz" name="buff_26.png" path="/Images/Buffs/"/>
+    <image id="blnqb0" name="buff_27.png" path="/Images/Buffs/"/>
+    <image id="blnqb1" name="buff_28.png" path="/Images/Buffs/"/>
+    <image id="blnqb2" name="buff_29.png" path="/Images/Buffs/"/>
+    <image id="blnqb3" name="buff_30.png" path="/Images/Buffs/"/>
+    <image id="blnqb4" name="buff_32.png" path="/Images/Buffs/"/>
+    <image id="blnqb5" name="buff_65.png" path="/Images/Buffs/"/>
     <component id="blnqbx" name="CardImg.xml" path="/Components/"/>
-    <image id="blnqby" name="dep_yu.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqbz" name="dep_winter.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc0" name="dep_summer.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc1" name="dep_spring.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc2" name="dep_rencai.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc3" name="dep_qingli.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc4" name="dep_pachong.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc5" name="dep_kuojian.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc6" name="dep_yanjiu.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc7" name="dep_investment.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc8" name="dep_devmonkey.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqc9" name="dep_devburu.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqca" name="dep_dev.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqcb" name="dep_daxing.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqcc" name="dep_conmonkey.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqcd" name="dep_book.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqce" name="dep_august.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqcf" name="dep_houqin.png" path="/Images/WorkPosCard/" exported="true"/>
-    <image id="blnqcg" name="dep_youhua.png" path="/Images/WorkPosCard/" exported="true"/>
+    <image id="blnqby" name="dep_yu.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqbz" name="dep_winter.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc0" name="dep_summer.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc1" name="dep_spring.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc2" name="dep_rencai.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc3" name="dep_qingli.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc4" name="dep_pachong.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc5" name="dep_kuojian.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc6" name="dep_yanjiu.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc7" name="dep_investment.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc8" name="dep_devmonkey.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqc9" name="dep_devburu.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqca" name="dep_dev.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqcb" name="dep_daxing.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqcc" name="dep_conmonkey.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqcd" name="dep_book.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqce" name="dep_august.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqcf" name="dep_houqin.png" path="/Images/CardImages/WorkPosCard/"/>
+    <image id="blnqcg" name="dep_youhua.png" path="/Images/CardImages/WorkPosCard/"/>
     <image id="i3x3ch" name="dep_0O.png" path="/Images/WorkPos/" exported="true"/>
     <image id="i3x3ci" name="dep_2W.png" path="/Images/WorkPos/bg/" exported="true"/>
     <image id="i3x3cj" name="dep_3W.png" path="/Images/WorkPos/bg/" exported="true"/>
@@ -407,58 +404,85 @@
     <image id="i3x3dw" name="dep_yanjiuO.png" path="/Images/WorkPos/" exported="true"/>
     <image id="i3x3dx" name="dep_devburuO.png" path="/Images/WorkPos/" exported="true"/>
     <image id="i3x3dy" name="dep_yuW.png" path="/Images/WorkPos/bg/" exported="true"/>
-    <image id="ltekdz" name="buff_66.png" path="/Images/Buffs/" exported="true"/>
+    <image id="ltekdz" name="buff_66.png" path="/Images/Buffs/"/>
     <component id="rr6ne1" name="SelectExhibitCont.xml" path="/Conts/"/>
-    <component id="rr6ne2" name="StartOfSeasonWin.xml" path="/Panels/" exported="true"/>
+    <component id="rr6ne2" name="StartOfSeasonWin.xml" path="/Windows/" exported="true"/>
     <component id="rr6ne3" name="StartOfSeasonCont.xml" path="/Conts/"/>
     <component id="rr6ne4" name="StartOfSeasonItem.xml" path="/Components/"/>
-    <image id="jrzxe5" name="IncomeIcon.png" path="/Images/" exported="true"/>
+    <image id="jrzxe5" name="IncomeIcon.png" path="/Images/Resources/" exported="true"/>
     <component id="ep2ze6" name="MainCont.xml" path="/Conts/"/>
     <component id="ep2ze7" name="SeasonInfoCont.xml" path="/Conts/"/>
-    <component id="nkfbea" name="EndSeasonWin.xml" path="/Panels/" exported="true"/>
+    <component id="nkfbea" name="EndSeasonWin.xml" path="/Windows/" exported="true"/>
     <component id="nkfbeb" name="EndSeasonCont.xml" path="/Conts/EndSeason/"/>
-    <component id="nkfbec" name="InterestCont.xml" path="/Conts/EndSeason/"/>
     <component id="nkfbed" name="RoutineCont.xml" path="/Conts/EndSeason/"/>
     <component id="nkfbee" name="DiscardHandsCont.xml" path="/Conts/EndSeason/"/>
-    <component id="nkfbef" name="EventCont.xml" path="/Conts/EndSeason/"/>
     <image id="nkfbeg" name="porg.png" path="/Images/" exported="true"/>
     <image id="nkfbeh" name="progCont.png" path="/Images/" exported="true" scale="9grid" scale9grid="49,25,616,2"/>
-    <component id="nkfbei" name="CommonProg.xml" path="/Conts/"/>
+    <component id="nkfbei" name="CommonProg.xml" path="/Components/"/>
     <component id="nkfbej" name="ResolveExhibitCont.xml" path="/Conts/EndSeason/"/>
     <image id="nkfbek" name="panel2.png" path="/Images/" exported="true" scale="9grid" scale9grid="231,156,462,312"/>
     <image id="nkfbel" name="person.png" path="/Images/" exported="true"/>
     <image id="nkfbem" name="dialog.png" path="/Images/" exported="true" scale="9grid" scale9grid="52,52,481,18"/>
-    <component id="nkfben" name="NewbieWin.xml" path="/Panels/" exported="true"/>
-    <component id="u37ueo" name="CoinAni.xml" path="/Conts/" exported="true"/>
-    <image id="u37uep" name="popR.png" path="/Images/" exported="true"/>
+    <component id="nkfben" name="NewbieWin.xml" path="/Windows/" exported="true"/>
+    <component id="u37ueo" name="CoinAni.xml" path="/Components/" exported="true"/>
+    <image id="u37uep" name="popR.png" path="/Images/Resources/" exported="true"/>
     <component id="u37ueq" name="Popularity.xml" path="/Components/" exported="true"/>
     <component id="oa6ner" name="TurnAni.xml" path="/Components/" exported="true"/>
     <image id="pxbkes" name="finger.png" path="/Images/" exported="true"/>
-    <component id="pxbket" name="Finger.xml" path="/Panels/"/>
+    <component id="pxbket" name="Finger.xml" path="/Components/"/>
     <component id="pxbkeu" name="NewBieCont.xml" path="/Conts/"/>
     <image id="p0wlev" name="mainBG.png" path="/Images/Main/" exported="true"/>
     <image id="p0wlew" name="chinese.png" path="/Images/Main/"/>
     <image id="p0wlex" name="english.png" path="/Images/Main/"/>
     <image id="p0wley" name="button.png" path="/Images/Main/"/>
-    <component id="p0wlez" name="HomeWin.xml" path="/Panels/" exported="true"/>
-    <image id="p0wlf0" name="buff_67.png" path="/Images/Buffs/" exported="true"/>
-    <image id="p0wlf1" name="buff_68.png" path="/Images/Buffs/" exported="true"/>
-    <image id="p0wlf2" name="buff_69.png" path="/Images/Buffs/" exported="true"/>
-    <image id="p0wlf3" name="buff_70.png" path="/Images/Buffs/" exported="true"/>
-    <image id="p0wlf4" name="buff_71.png" path="/Images/Buffs/" exported="true"/>
-    <image id="p0wlf5" name="cardNew4.png" path="/Images/Cards/" exported="true"/>
-    <image id="p0wlf6" name="cardNew3.png" path="/Images/Cards/" exported="true"/>
-    <image id="p0wlf7" name="cardNew5.png" path="/Images/Cards/"/>
-    <image id="p0wlf8" name="cardNew1.png" path="/Images/Cards/"/>
-    <image id="p0wlf9" name="cardNew2.png" path="/Images/Cards/" exported="true"/>
-    <image id="p0wlfb" name="costPanel.png" path="/Images/Cards/" exported="true" scale="9grid" scale9grid="52,53,290,5"/>
+    <component id="p0wlez" name="HomeWin.xml" path="/Windows/" exported="true"/>
+    <image id="p0wlf0" name="buff_67.png" path="/Images/Buffs/"/>
+    <image id="p0wlf1" name="buff_68.png" path="/Images/Buffs/"/>
+    <image id="p0wlf2" name="buff_69.png" path="/Images/Buffs/"/>
+    <image id="p0wlf3" name="buff_70.png" path="/Images/Buffs/"/>
+    <image id="p0wlf4" name="buff_71.png" path="/Images/Buffs/"/>
+    <image id="p0wlf5" name="cardNew4.png" path="/Images/CardsUI/" exported="true"/>
+    <image id="p0wlf6" name="cardNew3.png" path="/Images/CardsUI/" exported="true"/>
+    <image id="p0wlf7" name="cardNew5.png" path="/Images/CardsUI/"/>
+    <image id="p0wlf8" name="cardNew1.png" path="/Images/CardsUI/"/>
+    <image id="p0wlf9" name="cardNew2.png" path="/Images/CardsUI/" exported="true"/>
+    <image id="p0wlfb" name="costPanel.png" path="/Images/CardsUI/" exported="true" scale="9grid" scale9grid="52,53,290,5"/>
     <image id="p0wlfc" name="新建项目 (12).png" path="/Images/Bg/"/>
     <image id="p0wlfd" name="新建项目 (8).png" path="/Images/Bg/"/>
     <image id="p0wlfe" name="新建项目 (9).png" path="/Images/Bg/"/>
     <image id="p0wlff" name="新建项目 (10).png" path="/Images/Bg/"/>
     <image id="p0wlfg" name="新建项目 (11).png" path="/Images/Bg/"/>
     <sound id="p0wlfh" name="buttonEff.mp3" path="/" exported="true"/>
-    <component id="qbvjfi" name="SucceedWin.xml" path="/Panels/" exported="true"/>
+    <component id="qbvjfi" name="SucceedWin.xml" path="/Windows/" exported="true"/>
+    <image id="w7gcfj" name="dep_devRealO.png" path="/Images/WorkPos/" exported="true"/>
+    <image id="w7gcfk" name="dep_devRealW.png" path="/Images/WorkPos/bg/" exported="true"/>
+    <component id="w7gcfl" name="BuildActionSpaceWin.xml" path="/Windows/" exported="true"/>
+    <component id="w7gcfn" name="ActionSpaceWithPrice.xml" path="/Components/"/>
+    <component id="w7gcfo" name="PutActionSpaceWin.xml" path="/Windows/" exported="true"/>
+    <component id="w7gcfp" name="PutActionSpaceCont.xml" path="/Conts/"/>
+    <image id="w7gcfu" name="iron.png" path="/Images/Resources/" exported="true"/>
+    <image id="w7gcfv" name="wood.png" path="/Images/Resources/" exported="true"/>
+    <image id="w7gcfw" name="food.png" path="/Images/Resources/" exported="true"/>
+    <component id="w7gcfx" name="ResBar.xml" path="/Components/"/>
+    <component id="w7gcfy" name="FoodConsume.xml" path="/Conts/EndSeason/"/>
+    <image id="zdugfz" name="ratingScore.png" path="/Images/Resources/" exported="true"/>
+    <image id="nm3eg0" name="cardImgTemp.png" path="/Images/" exported="true"/>
+    <image id="nm3eg1" name="cardImgTempS.png" path="/Images/" exported="true"/>
+    <image id="nm3eg2" name="book26.png" path="/Images/Books/"/>
+    <component id="fxtzg3" name="CardCost.xml" path="/Components/"/>
+    <image id="uplfg4" name="sliver.png" path="/Images/Resources/" exported="true"/>
+    <image id="uplfg5" name="gold.png" path="/Images/Resources/" exported="true"/>
+    <image id="uplfg6" name="crown.png" path="/Images/Resources/" exported="true"/>
+    <image id="uplfg7" name="bronze.png" path="/Images/Resources/" exported="true"/>
+    <component id="uplfgc" name="RatingLvBar.xml" path="/Components/"/>
+    <image id="j7jegd" name="redNotice.png" path="/Images/"/>
+    <component id="j7jege" name="UpRatingLvWin.xml" path="/Windows/" exported="true"/>
+    <component id="j7jegf" name="UpWorkerWin.xml" path="/Windows/" exported="true"/>
+    <component id="j7jegg" name="UpWorkerCont.xml" path="/Conts/"/>
+    <component id="j7jegh" name="UpRatingLvCont.xml" path="/Conts/"/>
+    <component id="gf10gj" name="ViewToBeBuiltActionSpaceWin.xml" path="/Windows/" exported="true"/>
+    <component id="gf10gk" name="ViewToBeBuiltActionSpaceCont.xml" path="/Conts/"/>
+    <component id="m2vdgl" name="WinterDebuff.xml" path="/Conts/"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

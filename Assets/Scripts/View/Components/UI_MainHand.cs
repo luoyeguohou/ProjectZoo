@@ -73,7 +73,7 @@ namespace Main
                 if (ui.position.y < -0.33f * GRoot.inst.height)
                 {
                     CardManageComp cmComp = World.e.sharedConfig.GetComp<CardManageComp>();
-                    Msg.Dispatch(MsgID.ActionTryToPlayHand, new object[] { cmComp.hands.IndexOf(ui.c) });
+                    Msg.Dispatch(MsgID.TryToPlayHand, new object[] { cmComp.hands.IndexOf(ui.c) });
                     return;
                 }
                 Relocate();

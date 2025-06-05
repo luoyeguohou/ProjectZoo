@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class EcsUtil
@@ -58,44 +60,22 @@ public class EcsUtil
                 cmComp.discardPile.Clear();
                 Util.Shuffle(cmComp.drawPile, new System.Random());
             }
-
-            if (GetBuffNum(57) > 0)
-            {
-                bool hasMonkey = false;
-                foreach (Card c in cmComp.drawPile)
-                {
-                    if (c.cfg.module == Module.Primate)
-                    {
-                        hasMonkey = true;
-                        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { 57, -1 });
-                        cmComp.drawPile.Remove(c);
-                        ret.Add(c);
-                        break;
-                    }
-                }
-                if (!hasMonkey)
-                    ret.Add(cmComp.drawPile.Shift());
-            }
-            else
-            {
-                ret.Add(cmComp.drawPile.Shift());
-            }
-
+            ret.Add(cmComp.drawPile.Shift());
         }
         return ret;
     }
 
-    public static ActionSpace GetActionSpaceByUid(string uid)
+    public static ActionSpace GetActionSpaceByWid(int wid)
     {
-        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
-        foreach (ActionSpace wp in asComp.actionSpace)
-            if (wp.uid == uid) return wp;
+        BuildingComp bComp = World.e.sharedConfig.GetComp<BuildingComp>();
+        foreach (Building b in bComp.buildings)
+            if (b.IsActionSpace() && b.actionSpace.wid == wid) return b.actionSpace;
         return null;
     }
 
     public static bool RandomlyDoSth(int prop, Action handler = null, bool isGood = true)
     {
-        prop = prop + (isGood ? GetBuffNum(7) : -GetBuffNum(8));
+        prop = prop + (isGood ? GetBuffNum("positiveP") : -GetBuffNum("negetiveP"));
         ConsoleComp cComp = World.e.sharedConfig.GetComp<ConsoleComp>();
         int randomNum = cComp.luckPoint >= 0 ? cComp.luckPoint : new System.Random().Next(100);
         if (randomNum <= prop)
@@ -106,17 +86,44 @@ public class EcsUtil
         return false;
     }
 
-    public static bool HaveEnoughTimeAndCoin(int time, int coin)
+    public static int GetCoin()
     {
-        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
-        TimeResComp trComp = World.e.sharedConfig.GetComp<TimeResComp>();
-        return cComp.coin >= coin && trComp.time >= time;
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.Coin];
     }
 
+    public static int GetIncome()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.Income];
+    }
+
+    public static int GetPopularity()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.Popularity];
+    }
+
+    public static int GetWood()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.Wood];
+    }
+
+    public static int GetFood()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.Food];
+    }
+
+    public static int GetIron()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.Iron];
+    }
     public static bool HaveEnoughCoin(int coin)
     {
-        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
-        return cComp.coin >= coin;
+        return GetCoin() >= coin;
     }
 
     private static readonly List<List<List<Vector2Int>>> matchList = new()
@@ -188,13 +195,9 @@ public class EcsUtil
     {
         PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
         List<Plot> canBuild = new();
-        foreach (Plot zg in plotsComp.plots) { 
-            if (zg.state == PlotStatus.CanBuild && !zg.hasBuilt && zg.isTouchedLand) 
-                canBuild.Add(zg);
-            if(c.uid == "kemoduojx" && zg.hasBuilt &&zg.exhibit.uid == "kemoduojx")
-                canBuild.Add(zg);
-        }
-
+        foreach (Plot p in plotsComp.plots)
+            if (p.CanBuild())
+                canBuild.Add(p);
         Logger.AddOpe(OpeType.StartCheckHasValidPlot, new object[] { canBuild, c.cfg.landType });
         foreach (Plot p1 in canBuild)
         {
@@ -209,7 +212,7 @@ public class EcsUtil
         return false;
     }
 
-    private static bool TwoListPartMatch(List<Vector2Int> bigOne, List<Vector2Int> smallOne)
+    public static bool TwoListPartMatch(List<Vector2Int> bigOne, List<Vector2Int> smallOne)
     {
         foreach (Vector2Int smallItem in smallOne)
         {
@@ -221,60 +224,16 @@ public class EcsUtil
         return true;
     }
 
-    public static bool CheckAchiCondition(string uid)
+    public static bool TwoListPartMatch(List<int> bigOne, List<int> smallOne)
     {
-        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
-        int[] moduleNum = new int[4] { 0, 0, 0, 0 };
-        int hubaoxiongshi = 0;
-        int largeExhibit = 0;
-        int smallExhibit = 0;
-        int xExhibit = 0;
-        int nearLakeExhibit = 0;
-        foreach (Exhibit b in eComp.exhibits)
+        foreach (int smallItem in smallOne)
         {
-            moduleNum[(int)b.cfg.aniModule]++;
-            switch (b.cfg.aniType)
-            {
-                case "tiger":
-                    hubaoxiongshi = Util.SetBit(hubaoxiongshi, 0);
-                    break;
-                case "lion":
-                    hubaoxiongshi = Util.SetBit(hubaoxiongshi, 1);
-                    break;
-                case "bear":
-                    hubaoxiongshi = Util.SetBit(hubaoxiongshi, 2);
-                    break;
-                case "leopard":
-                    hubaoxiongshi = Util.SetBit(hubaoxiongshi, 3);
-                    break;
-            }
-            if (b.cfg.IsBigExhibit()) largeExhibit++;
-            if (b.cfg.IsSmallExhibit()) smallExhibit++;
-            if (b.cfg.isX == 1) xExhibit++;
-            if (IsAdjacentWater(b)) nearLakeExhibit++;
+            bool contain = false;
+            foreach (var bigItem in bigOne)
+                if (bigItem == smallItem) contain = true;
+            if (!contain) return false;
         }
-
-        return uid switch {
-            "achi_danyi" => Util.GetMax(moduleNum) >= 10,
-            "achi_yuanhou" => moduleNum[0] >= 10,
-            "achi_duty" => Util.Count(plotsComp.plots, g => g.isTouchedLand && g.state == PlotStatus.CanBuild && !g.hasBuilt) >= 20,
-            "achi_houxuanchuan" => sComp.highestPFromMonkeyExhibit >= 50,
-            "achi_popularity" => sComp.threeExhibitsPMoreThat20,
-            "achi_buru" => moduleNum[1] >= 10,
-            "achi_duozhonglei" => eComp.exhibits.Count >= 15,
-            "achi_hbxs" => hubaoxiongshi == 15,
-            "achi_pachong" => moduleNum[2] >= 8,
-            "achi_duoyangxing" => Util.GetMax(moduleNum) >= 5 && Util.GetSecondMax(moduleNum) >= 5,
-            "achi_kongjiangongji" => sComp.expandCntTotally >= 30,
-            "achi_daxing" => largeExhibit >= 3,
-            "achi_yu" => moduleNum[3] >= 10,
-            "achi_weizhi" => xExhibit >= 10,
-            "achi_heliu" => nearLakeExhibit >= 10,
-            "achi_xiaoxing" => smallExhibit >= 15,
-            _=>false,
-        };
+        return true;
     }
 
     public static int GetDistance(Vector2Int a, Vector2Int b)
@@ -308,7 +267,7 @@ public class EcsUtil
         return 0;
     }
 
-    public static bool IsAdjacent(Exhibit a, Exhibit b)
+    public static bool IsAdjacent(Building a, Building b)
     {
         if (a.uid == "changbi_monkey" || b.uid == "changbi_monkey")
             return true;
@@ -325,30 +284,30 @@ public class EcsUtil
     public static int GetAdjacentMonkeyExhibitNum()
     {
         int cnt = 0;
-        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-        foreach (Exhibit b1 in eComp.exhibits)
+        BuildingComp bComp = World.e.sharedConfig.GetComp<BuildingComp>();
+        foreach (Building b1 in bComp.buildings)
         {
-            if (b1.cfg.aniModule != 0) continue;
-            foreach (Exhibit b2 in eComp.exhibits)
+            if (!b1.IsPrimateExhibit()) continue;
+            foreach (Building b2 in bComp.buildings)
             {
-                if (b2.cfg.aniModule != 0 || b1 == b2) continue;
+                if (!b2.IsPrimateExhibit() || b1 == b2) continue;
                 if (IsAdjacent(b1, b2)) cnt++;
             }
         }
         return cnt / 2;
     }
 
-    public static bool IsAdjacent(Exhibit a, Vector2Int pos)
+    public static bool IsAdjacent(Building a, Vector2Int pos)
     {
         foreach (Vector2Int posA in a.location)
         {
-            if (GetDistance(posA, pos) <= (GetBuffNum(65) == 0 ? 1 : 2))
+            if (GetDistance(posA, pos) <= (GetBuffNum("distanceToBeAdj") == 0 ? 1 : 2))
                 return true;
         }
         return false;
     }
 
-    public static bool IsAdjacentWater(Exhibit b)
+    public static bool IsAdjacentWater(Building b)
     {
         PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
         foreach (Plot g in plotsComp.plots)
@@ -361,7 +320,7 @@ public class EcsUtil
         return false;
     }
 
-    public static bool IsAdjacentRock(Exhibit b)
+    public static bool IsAdjacentRock(Building b)
     {
         PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
         foreach (Plot g in plotsComp.plots)
@@ -378,16 +337,6 @@ public class EcsUtil
     {
 
         return Cfg.bookUids[new System.Random().Next(Cfg.bookUids.Count)];
-    }
-
-    public static List<string> GetRandomBooks(int time)
-    {
-        List<string> ret = new List<string>();
-        for (int i = 1; i <= time; i++)
-        {
-            ret.Add(GetRandomBook());
-        }
-        return ret;
     }
 
     public static int GeneNextWorldID()
@@ -413,216 +362,184 @@ public class EcsUtil
         if (!bComp.buffs.ContainsKey(buff)) return 0;
         return bComp.buffs[buff];
     }
-
-    public static int GetCardCoinCost(Card c)
+    public static int GetBuffNum(string buff)
     {
-        int coinCost = c.cfg.coinCost;
-        if(c.cfg.cardType == CardType.Exhibit)
-            coinCost = Mathf.Max(0, (coinCost - GetBuffNum(33)));
-        coinCost *= (100 + GetBuffNum(34)) / 100;
-        if (GetBuffNum(31) > 0 && c.cfg.cardType == CardType.Exhibit && Cfg.exhibits[c.uid].isX == 1)
-        {
-            coinCost = Mathf.Max(0, coinCost * (100 - GetBuffNum(31)) / 100);
-        }
-        return coinCost;
+        return GetBuffNum(Cfg.buffCfgsByStr[buff].numberID);
     }
-    public static int GetCardTimeCost(Card c)
-    {
-        int timeCost = c.cfg.timeCost;
-        if(c.cfg.cardType == CardType.Exhibit)
-            timeCost = Mathf.Max(0, timeCost - GetBuffNum(32));
-        return timeCost;
-    }
-
-
-    public static int GetActionSpaceNeed(ActionSpace wp)
-    {
-        return GetBuffNum(41) > 0 ? 1 : Mathf.Max(1, wp.needNum - GetBuffNum(40));
-    }
-
-    public static int GetBookVal1(string uid)
-    {
-        return Cfg.books[uid].val1 * (1 + GetBuffNum(56));
-    }
-    public static int GetBookVal2(string uid)
-    {
-        return Cfg.books[uid].val2 * (1 + GetBuffNum(56));
-    }
-
-    public static string GetBookCont(string uid)
-    {
-        string s = Cfg.books[uid].GetCont();
-        s = s.Replace("$1", GetBookVal1(uid).ToString());
-        s = s.Replace("$2", GetBookVal2(uid).ToString());
-        return s;
-    }
-
-    public static int GetSpecWorkerVal(string uid)
-    {
-        SpecWorkerCfg cfg = Cfg.specWorkers[uid];
-        return cfg.val * (GetBuffNum(58) + 1);
-    }
-
-    public static string GetSpecWorkerCont(Worker w)
-    {
-        if (w.uid == "normalWorker") return "";
-        if (w.uid == "tempWorker") return "";
-        string cont = Cfg.specWorkers[w.uid].GetCont();
-        return cont.Replace("$1", Cfg.specWorkers[w.uid].val.ToString());
-    }
-
-    public static int GetShopPrice()
-    {
-        return 0;
-    }
-
-    public static InterestInfo GetInterestInfo()
-    {
-        InterestInfo info = new();
-        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
-        info.interestPart = cComp.interestPart * (100 + GetBuffNum(24)) / 100;
-        info.interestRate = cComp.interestRate * (100 + GetBuffNum(25)) / 100;
-        int interest = Mathf.Min(cComp.coin, info.interestPart) * info.interestRate / 100;
-        if (GetBuffNum(26) > 0)
-        {
-            info.interest = interest * (100 - GetBuffNum(26)) / 100;
-            info.popularityGet = interest * GetBuffNum(26) / 100;
-        }
-        else
-        {
-            info.interest = interest;
-            info.popularityGet = 0;
-        }
-        info.currCoin = cComp.coin;
-        return info;
-    }
-
-    public static bool TryToMinusBuff(int buff)
-    {
-        if (GetBuffNum(buff) <= 0) return false;
-        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { buff, -1 });
-        return true;
-    }
-
-    public static void MinusAllBuff(int buff)
+    public static void MinusAllBuff(string buff)
     {
         if (GetBuffNum(buff) <= 0) return;
-        Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { buff, -GetBuffNum(buff) });
+        Msg.Dispatch(MsgID.BuffChanged, new object[] { Cfg.buffCfgsByStr[buff].numberID , -GetBuffNum(buff) });
     }
-
     public static int GetPlotRewardVal(PlotReward pr)
     {
-        return pr.val * (1 + GetBuffNum(49));
+        return pr.val + GetBuffNum("extraValInPlotReward");
     }
-
-
-    public static string GetValStr(int val,int oriVal) {
-       string colorStr = val == oriVal ? ("#000000") : val < oriVal ? "#009C00" : "#CC0000";
-       return "[color=" + colorStr + "]" + val + "[/color]";
-    }
-
-    public static int GetStatisticNum(string uid,Exhibit v = null) {
-        ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-        CoinComp cComp = World.e.sharedConfig.GetComp<CoinComp>();
-        StatisticComp sComp = World.e.sharedConfig.GetComp<StatisticComp>();
-        PlotsComp plotsComp = World.e.sharedConfig.GetComp<PlotsComp>();
-        int statisticNum = 0;
-        switch (uid)
-        {
-            case "aozhouyequan":
-                if (v != null)
-                    statisticNum = v.effectCnt;
-                else
-                    statisticNum = 0;
-                break;
-            case "jinsi_monkey":
-                if (v != null)
-                    statisticNum = v.adjacents.Count;
-                else
-                    statisticNum = 0;
-                break;
-            case "mi_monkey":
-                statisticNum = GetAdjacentMonkeyExhibitNum();
-                break;
-            case "rong_monkey":
-                statisticNum = eComp.exhibits.Count;
-                break;
-            case "spider_monkey":
-                statisticNum = cComp.coin / 2;
-                break;
-            case "shayu":
-                statisticNum = sComp.workerUsedThisTurn;
-                break;
-            case "shirenyu":
-                statisticNum = sComp.badIdeaNumTotally;
-                break;
-            case "yanshiyu":
-                statisticNum = Util.Count(eComp.exhibits, b => IsAdjacentRock(b));
-                break;
-            case "shenhaiyu":
-                statisticNum = Util.Count(eComp.exhibits, b => IsAdjacentWater(b));
-                break;
-            case "jinli":
-                statisticNum = Util.Count(eComp.exhibits, b => b.cfg.aniModule == Module.Aquatic);
-                break;
-            case "lianyu":
-                statisticNum = sComp.bookNumUsedTotally;
-                break;
-            case "qunjuyu":
-                statisticNum = Util.Count(eComp.exhibits, b => b.cfg.IsSmallExhibit());
-                break;
-            case "denglongyu":
-                statisticNum = sComp.plotRewardCntTotally;
-                break;
-            case "jinyu":
-                statisticNum = sComp.achiNumTotally;
-                break;
-            case "yagualabihu":
-                statisticNum = Util.Count(plotsComp.plots, g => g.isTouchedLand && !g.hasBuilt && g.state == PlotStatus.CanBuild);
-                break;
-        }
-        return statisticNum;
-    }
-
-    public static string GetCardCont(string uid,Exhibit v = null) {
-        CardCfg cfg = Cfg.cards[uid];
-        string cont = cfg.GetCont();
-        cont = cont.Replace("$1", cfg.val1.ToString());
-        cont = cont.Replace("$2", cfg.val2.ToString());
-        cont = cont.Replace("$3", cfg.val3.ToString());
-        if (cont.Contains("$w1"))
-            cont = cont.Replace("$w1", Cfg.actionSpaces[cfg.uid].GetDesc1Str());
-        if (cont.Contains("$w2"))
-            cont = cont.Replace("$w2", Cfg.actionSpaces[cfg.uid].GetDesc2Str());
-        if (cont.Contains("$wr1"))
-            cont = cont.Replace("$wr1", GetSpecWorkerVal(cfg.uid).ToString());
-        cont = cont.Replace("$d",GetStatisticNum(cfg.uid, v).ToString());
-        return cont;
+    public static string GetValStr(int val, int oriVal)
+    {
+        string colorStr = val == oriVal ? ("#000000") : val < oriVal ? "#009C00" : "#CC0000";
+        return "[color=" + colorStr + "]" + val + "[/color]";
     }
 
     private static GameObject prefab;
-    public static void PlaySound(string s) {
-        if(prefab == null)
+    public static void PlaySound(string s)
+    {
+        if (prefab == null)
             prefab = Resources.Load<GameObject>("SoundEffect/SoundGameObject");
         SoundPlayer sound = GameObject.Instantiate(prefab).GetComponent<SoundPlayer>(); ;
-        sound.PlaySound("SoundEffect/"+s);
+        sound.PlaySound("SoundEffect/" + s);
     }
-
-    public static int GetRecruitCost()
+    public static List<Exhibit> GetExhibits()
     {
-        WorkerComp wComp = World.e.sharedConfig.GetComp<WorkerComp>();
-        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
-        int val1 = 0;
-        foreach (ActionSpace w in asComp.actionSpace)
+        BuildingComp bComp = World.e.sharedConfig.GetComp<BuildingComp>();
+        List<Exhibit> list = new();
+        foreach (var item in bComp.buildings)
         {
-            if (w.uid == "dep_3") val1 = w.cfg.val1[w.level - 1];
+            if (item.IsExhibit()) list.Add(item.exhibit);
         }
-        return wComp.recruitTime * (1 + val1) * (GetBuffNum(67) > 0 ? 2 : 1);
+        return list;
     }
+    public static List<ActionSpace> GetActionSpace()
+    {
+        BuildingComp bComp = World.e.sharedConfig.GetComp<BuildingComp>();
+        List<ActionSpace> list = new();
+        foreach (var item in bComp.buildings)
+        {
+            if (item.IsActionSpace()) list.Add(item.actionSpace);
+        }
+        return list;
+    }
+    public static Building NewExhibitBuilding(string uid, List<Vector2Int> poses)
+    {
+        Exhibit e = new(uid);
+        Building b = new(e, poses);
+        e.belongBuilding = b;
+        return b;
+    }
+    public static Building NewActionSpaceBuilding(string uid, List<Vector2Int> poses)
+    {
+        ActionSpace actionSpace = new(uid);
+        Building b = new(actionSpace, poses);
+        actionSpace.belongBuilding = b;
+        return b;
+    }
+    public static string GetCont(string cont, string uid, object o = null)
+    {
+        if (Cfg.exhibits.ContainsKey(uid))
+        {
+            ExhibitCfg eCfg = Cfg.exhibits[uid];
+            // #eev11
+            if (cont.Contains("#eev11"))
+                cont = cont.Replace("#eev11", eCfg.effects[0].nums[0]);
+            // #eev12
+            if (cont.Contains("#eev12"))
+                cont = cont.Replace("#eev12", eCfg.effects[0].nums[1]);
+            // #eev21
+            if (cont.Contains("#eev21"))
+                cont = cont.Replace("#eev21", eCfg.effects[1].nums[0]);
+            // #eev22
+            if (cont.Contains("#eev22"))
+                cont = cont.Replace("#eev22", eCfg.effects[1].nums[1]);
+            // #eev21
+            if (cont.Contains("#eev31"))
+                cont = cont.Replace("#eev31", eCfg.effects[2].nums[0]);
+            // #eev22
+            if (cont.Contains("#eev32"))
+                cont = cont.Replace("#eev32", eCfg.effects[2].nums[1]);
+            // #epn
+            if (cont.Contains("#epn"))
+                cont = cont.Replace("#epn", eCfg.payInfos[0].val.ToString());
+            // #emax
+            if (cont.Contains("#emax"))
+                cont = cont.Replace("#emax", eCfg.max.ToString());
+        }
+        if (Cfg.actionSpaces.ContainsKey(uid))
+        {
+            ActionSpaceCfg asCfg = Cfg.actionSpaces[uid];
+            // #aev1
+            if (cont.Contains("#aev1"))
+                cont = cont.Replace("#aev1", asCfg.effects[0].nums[0]);
+            // #aev2
+            if (cont.Contains("#aev2"))
+                cont = cont.Replace("#aev2", asCfg.effects[1].nums[0]);
+            // #aev3
+            if (cont.Contains("#aev3"))
+                cont = cont.Replace("#aev3", asCfg.effects[2].nums[0]);
+            // #apn
+            if (cont.Contains("#apn"))
+                cont = cont.Replace("#apn", asCfg.payInfos[0].val.ToString());
+            // #ann
+            if (cont.Contains("#ann"))
+                cont = cont.Replace("#ann", asCfg.need_val_1.ToString());
+            // #limitTime
+            if (cont.Contains("#limitTime"))
+                cont = cont.Replace("#ann", asCfg.limitTime.ToString());
 
-    public static bool AllActionSpaceMaxLv() { 
-        ActionSpaceComp asComp = World.e.sharedConfig.GetComp<ActionSpaceComp>();
-        return Util.All(asComp.actionSpace,wp=>wp.level == Consts.maxActionSpaceLv);
+        }
+        if (Cfg.cards.ContainsKey(uid))
+        {
+            CardCfg cCfg = Cfg.cards[uid];
+            // #ccc
+            if (cont.Contains("#ccc"))
+                cont = cont.Replace("#ccc", cCfg.coinCost.ToString());
+            // #ccf
+            if (cont.Contains("#ccf"))
+                cont = cont.Replace("#ccf", cCfg.foodCost.ToString());
+            // #ccw
+            if (cont.Contains("#ccw"))
+                cont = cont.Replace("#ccw", cCfg.woodCost.ToString());
+            // #cci
+            if (cont.Contains("#cci"))
+                cont = cont.Replace("#cci", cCfg.ironCost.ToString());
+            // #cev11
+            if (cont.Contains("#cev11"))
+                cont = cont.Replace("#cev11", cCfg.effects[0].nums[0]);
+            // #cev12
+            if (cont.Contains("#cev12"))
+                cont = cont.Replace("#cev12", cCfg.effects[0].nums[1]);
+            // #cev13
+            if (cont.Contains("#cev13"))
+                cont = cont.Replace("#cev13", cCfg.effects[0].nums[2]);
+            // #cev21
+            if (cont.Contains("#cev21"))
+                cont = cont.Replace("#cev21", cCfg.effects[1].nums[0]);
+            // #cev22
+            if (cont.Contains("#cev22"))
+                cont = cont.Replace("#cev22", cCfg.effects[1].nums[1]);
+            // #cev23
+            if (cont.Contains("#cev23"))
+                cont = cont.Replace("#cev23", cCfg.effects[1].nums[2]);
+        }
+        foreach (string placeHolder in Cfg.placeHolders)
+        {
+            if (!cont.Contains(placeHolder)) continue;
+            cont = cont.Replace(placeHolder, ResolveEffectSys.GetNum(placeHolder, new object[] { o }).ToString());
+        }
+        return cont;
+    }
+    public static bool HaveEnoughRatingScore()
+    {
+        if (GetRatingLevel() == Consts.ratingLvMax) return false;
+        return GetRatingStar() >= Consts.ratingStarNeed[GetRatingLevel()];
+    }
+    public static int GetRatingStar()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.RatingScore];
+    }
+    public static int GetRatingLevel()
+    {
+        ResComp rComp = World.e.sharedConfig.GetComp<ResComp>();
+        return rComp.res[ResType.RatingLevel];
+    }
+    public static string GetBookCont(string uid)
+    {
+        BookCfg bCfg = Cfg.books[uid];
+        return bCfg.GetCont().Replace("#book", bCfg.effect.nums[0]);
+    }
+    public static List<Plot> GetValidPlots() { 
+        PlotsComp pComp = World.e.sharedConfig.GetComp<PlotsComp>();
+        return Util.Filter(pComp.plots, p => p.CanBuild());
     }
 }
 

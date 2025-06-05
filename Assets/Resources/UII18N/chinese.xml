@@ -1,58 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!-- Main/Components/ActionSpace.xml -->
-  <string name="zqdehm1vrd0817-n55_rd08" mz="txtInfo">{curNum=01}/{limit=1}</string>
-  <string name="zqdehm1vrd0817-n57_pz64" mz="n57">最高等级</string>
-  <string name="zqdehm1vrd0817-n61_pz64" mz="txtUpgrade">+{num=2}</string>
+  <!-- Main/Components/ActionSpaceWithPrice.xml -->
+  <string name="zqdehm1vw7gcfn-n64_w7gc" mz="btnPrice">build</string>
+  <!-- Main/Components/BookWithPrice.xml -->
+  <string name="zqdehm1vrd0815-n46_g9th" mz="btnBuy">     {price=58}</string>
   <!-- Main/Components/BuffItem.xml -->
   <string name="zqdehm1vea443u-n101_ea44" mz="txtBuff">X{num=10}</string>
   <!-- Main/Components/ButtonNormal.xml -->
   <string name="zqdehm1vrd0816-n1_rd08" mz="title">button</string>
   <!-- Main/Components/Card.xml -->
+  <string name="zqdehm1vrd081a-n70_g9th-texts_0" mz="txtCont">解锁建筑图纸：
+{name=建设场馆}
+{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}</string>
+  <string name="zqdehm1vrd081a-n70_g9th-texts_def" mz="txtCont">{cont=获得3点人气值.如果与3个澳洲野犬场馆相邻，额外获得3点人气值。}</string>
+  <string name="zqdehm1vrd081a-n83_gf10" mz="txtLv">等级{lv=4}</string>
   <string name="zqdehm1vrd081a-n76_pz64" mz="txtSelect">被弃置</string>
+  <!-- Main/Components/CardWithPrice.xml -->
+  <string name="zqdehm1vg9th1d-n75_g9th" mz="btnBuy">     {price=58}</string>
   <!-- Main/Components/Plot.xml -->
   <string name="zqdehm1vrd0818-n66_pz64" mz="txtSelected">选中</string>
   <!-- Main/Components/Popularity.xml -->
   <string name="zqdehm1vu37ueq-n92_oa6n" mz="txtNum">+{num=5}</string>
+  <!-- Main/Components/ResBar.xml -->
+  <string name="zqdehm1vw7gcfx-n87_sr8r-texts_0" mz="txtRes">{coin=15}({income=0})</string>
+  <string name="zqdehm1vw7gcfx-n87_sr8r-texts_1" mz="txtRes">{curr=100}/{aim=100}</string>
   <!-- Main/Components/UseBookPanelItem.xml -->
-  <string name="zqdehm1vwitr20-n47_witr" mz="btnSell">售卖</string>
   <string name="zqdehm1vwitr20-n56_witr" mz="btnUse">使用</string>
   <string name="zqdehm1vwitr20-n57_witr" mz="btnDiscard">丢弃</string>
+  <!-- Main/Conts/BuildActionSpaceCont.xml -->
+  <string name="zqdehm1vd2b23o-n74_z141" mz="txtTitle">建造最多{num=3}个工位。</string>
+  <string name="zqdehm1vd2b23o-n78_pz64" mz="btnFinish">完成</string>
+  <string name="zqdehm1vd2b23o-n83_w7gc" mz="n0">预建造的部门。
+点击来取消预建造。</string>
+  <string name="zqdehm1vd2b23o-n83_w7gc-texts_0" mz="n0">预建造的部门。
+点击来取消预建造。
+[color=#FF0000]超过预算[/color]</string>
+  <string name="zqdehm1vd2b23o-n83_w7gc-texts_def" mz="n0">预建造的部门。
+点击来取消预建造。</string>
   <!-- Main/Conts/EndSeason/DiscardHandsCont.xml -->
   <string name="zqdehm1vnkfbee-n100_nkfb" mz="txtTitle">选择{num=5}弃置。</string>
   <string name="zqdehm1vnkfbee-n101_nkfb" mz="btnFinish">完成</string>
   <!-- Main/Conts/EndSeason/EndSeasonCont.xml -->
-  <string name="zqdehm1vnkfbeb-n89_nkfb" mz="n89">决定场馆顺序</string>
-  <string name="zqdehm1vnkfbeb-n90_nkfb" mz="n90">获得利息</string>
+  <string name="zqdehm1vnkfbeb-n90_nkfb" mz="n90">决定场馆顺序</string>
   <string name="zqdehm1vnkfbeb-n91_nkfb" mz="n91">场馆生效</string>
   <string name="zqdehm1vnkfbeb-n92_nkfb" mz="n92">弃牌</string>
-  <string name="zqdehm1vnkfbeb-n94_nkfb" mz="n94">事件</string>
-  <!-- Main/Conts/EndSeason/EventCont.xml -->
-  <string name="zqdehm1vnkfbef-n75_g9th" mz="btnChoose1">找回来
-（+20%好概率，但是不能抽牌了）</string>
-  <string name="zqdehm1vnkfbef-n76_g9th" mz="btnChoose2">什么也不做</string>
-  <!-- Main/Conts/EndSeason/InterestCont.xml -->
-  <string name="zqdehm1vnkfbec-n74_z141" mz="txtTitle">获得利息</string>
-  <string name="zqdehm1vnkfbec-n78_pz64" mz="btnFinish">获得</string>
-  <string name="zqdehm1vnkfbec-n84_rr6n" mz="txtCurr">当前金额：{num=5}</string>
-  <string name="zqdehm1vnkfbec-n81_rr6n" mz="txtRange">可以获得利息的规模：{num=5}</string>
-  <string name="zqdehm1vnkfbec-n82_rr6n" mz="txtRate">利息倍率：{num=5}%</string>
-  <string name="zqdehm1vnkfbec-n83_rr6n" mz="txtGet">获得的利息：{num=5}</string>
-  <string name="zqdehm1vnkfbec-n85_rr6n" mz="txtPopularity">利息转化的人气值：{num=5}</string>
+  <string name="zqdehm1vnkfbeb-n94_nkfb" mz="n94">餐厅供给</string>
   <!-- Main/Conts/EndSeason/RoutineCont.xml -->
   <string name="zqdehm1vnkfbed-n80_z141" mz="n80">拖拽场馆来决定生效顺序。</string>
   <string name="zqdehm1vnkfbed-n81_z141" mz="btnSettle">结算</string>
   <string name="zqdehm1vnkfbed-n82_z141" mz="txtPopularity">目标值:{aim=500}</string>
+  <string name="zqdehm1vnkfbed-n85_w7gc" mz="n85"></string>
   <!-- Main/Conts/ExpandPlotCont.xml -->
   <string name="zqdehm1vd2b23h-n74_z141" mz="txtTitle">扩建{num=3}个地块。</string>
   <string name="zqdehm1vd2b23h-n78_pz64" mz="btnFinish">完成</string>
   <!-- Main/Conts/MainCont.xml -->
   <string name="zqdehm1vep2ze6-n47_rd08" mz="btnInfo">信息</string>
   <string name="zqdehm1vep2ze6-n48_rd08" mz="btnEndTurn">结束本季</string>
-  <string name="zqdehm1vep2ze6-n61_g9th" mz="txtWorker">X{num=10}</string>
-  <string name="zqdehm1vep2ze6-n76_z141" mz="txtAim">{cur=100}/{aim=100}</string>
   <string name="zqdehm1vep2ze6-n92_qev6" mz="btnLog">log</string>
-  <string name="zqdehm1vep2ze6-n94_qev6" mz="txtTmpWorker">X{num=10}</string>
   <string name="zqdehm1vep2ze6-n99_d2b2" mz="btnConsole">console</string>
   <string name="zqdehm1vep2ze6-n107_nkfb" mz="txtHandLimit">手牌上限：{num=3}</string>
   <string name="zqdehm1vep2ze6-n108_nkfb" mz="n0">显示：省略</string>
@@ -61,19 +65,10 @@
   <string name="zqdehm1vep2ze6-n109_nkfb" mz="n1">显示：省略</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_0" mz="n1">显示：详细</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_def" mz="n1">显示：省略</string>
-  <!-- Main/Conts/NewBieCont.xml -->
-  <string name="zqdehm1vpxbkeu-n3_pxbk" mz="txtCont">这个行动可以让你获得项目牌。红色场馆牌在建造完毕之后每季度会提供人气值。是人气值的重要来源。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_0" mz="txtCont">你可以随时在这里查看动物园的人气值计划表。上面显示了你每个季度需要达到的人气值。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_1" mz="txtCont">你手下有一些工人，你可以派遣他们去完成各式各样的工作。季度结束时他们会恢复成可用状态。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_2" mz="txtCont">这里是工人们工作的场所。拖拽工人们到这里来执行各种效果。每个季度重复执行同一个行动时会需要更多的工人。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_3" mz="txtCont">这里是你的动物园平面图。在动物园里建设动物场馆来获得人气值。注意，你不能在岩石与湖泊地块上建造场馆。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_4" mz="txtCont">这个行动为临时开放。会获得金钱跟少量人气值。前期没有建造任何场馆时，这个行动可以提供很重要的少量人气值。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_5" mz="txtCont">这个行动为你提供时间点数。你需要时间点数与金钱来打出卡牌。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_6" mz="txtCont">这个行动可以让你获得项目牌。红色场馆牌在建造完毕之后每季度会提供人气值。是人气值的重要来源。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_7" mz="txtCont">你的项目卡牌会展示在这里。上划卡牌来打出。注意你需要有足够的金钱和时间点数来打出它们。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_8" mz="txtCont">当你不想再执行任何行动之后，你可以点击这里来结束这个季节。届时你的场馆会提供人气值，我们会检查你是否达到了KPI。</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_9" mz="txtCont">这就是大致的游戏介绍了。最后一件事，玩的开心！！！</string>
-  <string name="zqdehm1vpxbkeu-n3_pxbk-texts_def" mz="txtCont">欢迎来到卡其动物园，在这里你将经营自己的动物园。我们的合同将持续6年，每个季度会考核你的动物园有没有达到计划的人气值。</string>
+  <string name="zqdehm1vep2ze6-n127_fxtz" mz="n127">选择{num=5}张牌丢弃。</string>
+  <!-- Main/Conts/PutActionSpaceCont.xml -->
+  <string name="zqdehm1vw7gcfp-n74_z141" mz="txtTitle">选择建造地点</string>
+  <string name="zqdehm1vw7gcfp-n82_ehbe" mz="btnConfirm">确认</string>
   <!-- Main/Conts/PutExhibitCont.xml -->
   <string name="zqdehm1vd2b23e-n74_z141" mz="txtTitle">选择建造地点</string>
   <string name="zqdehm1vd2b23e-n82_ehbe" mz="btnConfirm">确认</string>
@@ -90,9 +85,6 @@
   <!-- Main/Conts/SelectExhibitCont.xml -->
   <string name="zqdehm1vrr6ne1-n74_z141" mz="txtTitle">选择拆除场馆。</string>
   <string name="zqdehm1vrr6ne1-n78_pz64" mz="btnFinish">完成</string>
-  <!-- Main/Conts/ShopCont.xml -->
-  <string name="zqdehm1vd2b23m-n68_g9th" mz="n68">废除创意</string>
-  <string name="zqdehm1vd2b23m-n71_sy7u" mz="n71">售光啦</string>
   <!-- Main/Conts/StartOfSeasonCont.xml -->
   <string name="zqdehm1vrr6ne3-n74_z141" mz="txtTitle">季度开始简报</string>
   <string name="zqdehm1vrr6ne3-n78_pz64" mz="btnFinish">完成</string>
@@ -110,40 +102,55 @@
   <string name="zqdehm1vrr6ne3-n103_pxbk-texts_3" mz="txtYearAfter">第五年</string>
   <string name="zqdehm1vrr6ne3-n103_pxbk-texts_4" mz="txtYearAfter">第六年</string>
   <string name="zqdehm1vrr6ne3-n103_pxbk-texts_def" mz="txtYearAfter">第一年</string>
-  <!-- Main/Conts/UpgradeActionSpaceCont.xml -->
-  <string name="zqdehm1vd2b23o-n74_z141" mz="txtTitle">升级{num=3}个工位。</string>
-  <string name="zqdehm1vd2b23o-n78_pz64" mz="btnFinish">完成</string>
-  <!-- Main/Panels/CardOverviewWin.xml -->
+  <!-- Main/Conts/UpRatingLvCont.xml -->
+  <string name="zqdehm1vj7jegh-n132_j7je" mz="txtCost">恭喜达到新的评级！！！
+    解锁1名新工人
+    解锁所有{lv=1}级卡牌
+    所有工人点数永久提升2点</string>
+  <string name="zqdehm1vj7jegh-n132_j7je-texts_0" mz="txtCost">恭喜达到新的评级！！！
+    解锁1名新工人
+    解锁所有{lv=1}级卡牌
+    所有工人点数永久提升2点</string>
+  <string name="zqdehm1vj7jegh-n132_j7je-texts_def" mz="txtCost">花费{num=5}块钱来进入下一个评级？</string>
+  <string name="zqdehm1vj7jegh-n133_j7je" mz="btnConfirm">确认</string>
+  <!-- Main/Conts/UpWorkerCont.xml -->
+  <string name="zqdehm1vj7jegg-n133_j7je" mz="btnConfirm">确认</string>
+  <string name="zqdehm1vj7jegg-n136_j7je" mz="n136">选择任意工人</string>
+  <!-- Main/Windows/BuildActionSpaceWin.xml -->
+  <string name="zqdehm1vw7gcfl-n82_d2b2" mz="btnHide">隐藏</string>
+  <!-- Main/Windows/CardOverviewWin.xml -->
   <string name="zqdehm1vz1411k-n80_d2b2" mz="btnBack">Close</string>
-  <!-- Main/Panels/EndSeasonWin.xml -->
+  <!-- Main/Windows/EndSeasonWin.xml -->
   <string name="zqdehm1vnkfbea-n84_d2b2" mz="btnHide">隐藏</string>
   <string name="zqdehm1vnkfbea-n85_d2b2" mz="btnBack">退出</string>
-  <!-- Main/Panels/EndWin.xml -->
+  <!-- Main/Windows/EndWin.xml -->
   <string name="zqdehm1vea443s-n51_ea44" mz="n51">游戏结束</string>
   <string name="zqdehm1vea443s-n52_ea44" mz="btnRestart">回到主界面</string>
-  <!-- Main/Panels/ExpandPlotWin.xml -->
+  <!-- Main/Windows/ExpandPlotWin.xml -->
   <string name="zqdehm1vpz6422-n81_d2b2" mz="btnHide">隐藏</string>
-  <!-- Main/Panels/FConsoleWin.xml -->
+  <!-- Main/Windows/FConsoleWin.xml -->
   <string name="zqdehm1vd2b23p-n93_d2b2-prompt" mz="txtInput">input commend here...........</string>
   <string name="zqdehm1vd2b23p-n95_d2b2" mz="btnEnter">Enter</string>
-  <!-- Main/Panels/HomeWin.xml -->
+  <!-- Main/Windows/HomeWin.xml -->
   <string name="zqdehm1vp0wlez-n1_p0wl" mz="n1">动物园计划</string>
   <string name="zqdehm1vp0wlez-n6_p0wl" mz="n6">开始游戏</string>
   <string name="zqdehm1vp0wlez-n8_p0wl" mz="n8">退出游戏</string>
-  <!-- Main/Panels/PutExhibitWin.xml -->
+  <!-- Main/Windows/PutActionSpaceWin.xml -->
+  <string name="zqdehm1vw7gcfo-n83_d2b2" mz="btnHide">隐藏</string>
+  <!-- Main/Windows/PutExhibitWin.xml -->
   <string name="zqdehm1vehbe2e-n83_d2b2" mz="btnHide">隐藏</string>
-  <!-- Main/Panels/SelectCardsWin.xml -->
+  <!-- Main/Windows/SelectCardsWin.xml -->
   <string name="zqdehm1vpz6421-n79_d2b2" mz="btnHide">隐藏</string>
-  <!-- Main/Panels/SelectExhibitWin.xml -->
+  <!-- Main/Windows/SelectExhibitWin.xml -->
   <string name="zqdehm1vehbe2d-n81_d2b2" mz="btnHide">隐藏</string>
-  <!-- Main/Panels/ShopWin.xml -->
+  <!-- Main/Windows/ShopWin.xml -->
   <string name="zqdehm1vg9th1e-n72_d2b2" mz="btnHide">隐藏</string>
   <string name="zqdehm1vg9th1e-n73_d2b2" mz="btnBack">退出</string>
-  <!-- Main/Panels/StartOfSeasonWin.xml -->
+  <!-- Main/Windows/StartOfSeasonWin.xml -->
   <string name="zqdehm1vrr6ne2-n81_d2b2" mz="btnHide">隐藏</string>
-  <!-- Main/Panels/SucceedWin.xml -->
+  <!-- Main/Windows/SucceedWin.xml -->
   <string name="zqdehm1vqbvjfi-n51_ea44" mz="n51">通关</string>
   <string name="zqdehm1vqbvjfi-n52_ea44" mz="btnRestart">回到主界面</string>
-  <!-- Main/Panels/UpgradeActionSpaceWin.xml -->
-  <string name="zqdehm1vpz6423-n82_d2b2" mz="btnHide">隐藏</string>
+  <!-- Main/Windows/ViewToBeBuiltActionSpaceWin.xml -->
+  <string name="zqdehm1vgf10gj-n82_d2b2" mz="btnBack">退出</string>
 </resources>

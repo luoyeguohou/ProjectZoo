@@ -9,7 +9,6 @@ namespace Main
         public override void ConstructFromResource()
         {
             base.ConstructFromResource();
-            m_book.m_btnSell.onClick.Add(OnClickSell);
             m_book.m_btnDiscard.onClick.Add(OnClickDiscard);
             m_book.m_btnUse.onClick.Add(OnClickUse);
         }
@@ -20,23 +19,18 @@ namespace Main
         {
             bookIndex = index;
             BookComp bComp = World.e.sharedConfig.GetComp<BookComp>();
-            m_book.m_txtCont.text = bComp.books[index].cfg.GetCont();
+            m_book.m_txtCont.text = EcsUtil.GetBookCont(bComp.books[index].uid);
         }
 
-        private void OnClickSell()
-        {
-            Msg.Dispatch(MsgID.ActionSellBook, new object[] { bookIndex });
-            Dispose();
-        }
         private void OnClickDiscard()
         {
-            Msg.Dispatch(MsgID.ActionDiscardBook, new object[] { bookIndex });
+            Msg.Dispatch(MsgID.DiscardBook, new object[] { bookIndex });
             Dispose();
         }
 
         private void OnClickUse()
         {
-            Msg.Dispatch(MsgID.ActionUseBook, new object[] { bookIndex });
+            Msg.Dispatch(MsgID.UseBook, new object[] { bookIndex });
             Dispose();
         }
     }

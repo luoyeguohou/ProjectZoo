@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n134_j7je" name="bg" xy="0,0" size="1920,1080" alpha="0.688" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <component id="n131_j7je" name="cont" src="j7jegg" fileName="Conts/UpWorkerCont.xml" xy="585,295"/>
+  </displayList>
+</component>

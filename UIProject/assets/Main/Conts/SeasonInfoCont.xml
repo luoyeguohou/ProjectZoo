@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1089,694">
   <displayList>
-    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="927,666"/>
+    <image id="n62_g9th" name="n62" src="rd08i" fileName="Images/panel.png" xy="0,0" size="1088,666"/>
     <image id="n71_z141" name="n71" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,221" scale="0.7,0.7"/>
     <image id="n72_z141" name="n72" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,410" scale="0.7,0.7"/>
     <image id="n73_z141" name="n73" src="z1411r" fileName="Images/Plans/planLineH.png" xy="179,347" scale="0.7,0.7"/>
@@ -41,5 +41,11 @@
     <image id="n83_z141" name="n83" src="z1411p" fileName="Images/Plans/planSummer.png" xy="365,86" size="79,75"/>
     <image id="n84_z141" name="n84" src="z1411m" fileName="Images/Plans/planWinter.png" xy="706,85" size="80,75"/>
     <text id="n85_z141" name="n85" xy="60,176" size="147,397" fontSize="38" leading="16" autoSize="none" text="第一年&#xA;第二年&#xA;第三年&#xA;第四年&#xA;第五年&#xA;第六年"/>
+    <component id="n86_m2vd" name="buff1" src="m2vdgl" fileName="Conts/WinterDebuff.xml" xy="643,172"/>
+    <component id="n87_m2vd" name="buff2" src="m2vdgl" fileName="Conts/WinterDebuff.xml" xy="643,235" size="52,52"/>
+    <component id="n88_m2vd" name="buff3" src="m2vdgl" fileName="Conts/WinterDebuff.xml" xy="643,298" size="52,52"/>
+    <component id="n89_m2vd" name="buff4" src="m2vdgl" fileName="Conts/WinterDebuff.xml" xy="643,363" size="52,52"/>
+    <component id="n90_m2vd" name="buff5" src="m2vdgl" fileName="Conts/WinterDebuff.xml" xy="643,428" size="52,52"/>
+    <component id="n91_m2vd" name="buff6" src="m2vdgl" fileName="Conts/WinterDebuff.xml" xy="643,491" size="52,52"/>
   </displayList>
 </component>

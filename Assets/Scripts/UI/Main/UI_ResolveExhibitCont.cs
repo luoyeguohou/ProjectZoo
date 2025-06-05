@@ -7,8 +7,10 @@ namespace Main
 {
     public partial class UI_ResolveExhibitCont : GComponent
     {
+        public Controller m_winter;
         public GList m_lstExhibit;
-        public GProgressBar m_prgPopularity;
+        public UI_CommonProg m_prgPopularity;
+        public UI_ResBar m_wood;
         public const string URL = "ui://zqdehm1vnkfbej";
 
         public static UI_ResolveExhibitCont CreateInstance()
@@ -20,8 +22,10 @@ namespace Main
         {
             base.ConstructFromXML(xml);
 
+            m_winter = GetControllerAt(0);
             m_lstExhibit = (GList)GetChildAt(0);
-            m_prgPopularity = (GProgressBar)GetChildAt(1);
+            m_prgPopularity = (UI_CommonProg)GetChildAt(1);
+            m_wood = (UI_ResBar)GetChildAt(3);
         }
     }
 }

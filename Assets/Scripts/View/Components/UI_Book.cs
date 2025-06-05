@@ -10,7 +10,7 @@ namespace Main
         public void Init(Book i,bool emp = false) {
             m_emp.selectedIndex = emp ? 1 : 0;
             if (emp) return; 
-            m_img.url = "ui://Main/book"+i.cfg.order;
+            //m_img.url = "ui://Main/book"+i.cfg.order;
         }
     }
 }

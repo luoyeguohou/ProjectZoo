@@ -112,11 +112,11 @@ public class FGUIUtil
         return tcs.Task;
     }
 
-    public static Task<List<Vector2Int>> SelectExhibitLocation (Card c)
+    public static Task<List<Vector2Int>> SelectCardLocation (string uid)
     {
         var tcs = new TaskCompletionSource<List<Vector2Int>>();
         UI_PutExhibitWin ui = CreateWindow<UI_PutExhibitWin>("PutExhibitWin");
-        ui.Init(c,(List<Vector2Int> poses) =>
+        ui.Init(new Card(uid),(List<Vector2Int> poses) =>
         {
             tcs.SetResult(poses);
         });

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="257,267">
-  <controller name="type" exported="true" homePageType="specific" homePage="7" pages="0,one,1,two,2,three,3,four,4,five,5,five-Ⅱ,6,six,7,seven" selected="0">
+<component size="152,166">
+  <controller name="type" exported="true" homePageType="specific" homePage="2" pages="0,one,1,two,2,three,3,four,4,five,5,five-Ⅱ,6,six,7,seven" selected="1">
     <action type="change_page" fromPage="" toPage="" objectId="n90_b26m" controller="type" targetPage="~1"/>
   </controller>
   <displayList>
-    <component id="n90_b26m" name="exhibit" src="z1411v" fileName="Components/Exhibit.xml" xy="129,131" pivot="0.5,0.5" anchor="true"/>
+    <component id="n90_b26m" name="exhibit" src="z1411v" fileName="Components/Exhibit.xml" xy="77,85" pivot="0.5,0.5" anchor="true"/>
   </displayList>
   <transition name="takeEffect">
     <item time="0" type="Scale" target="n90_b26m" tween="true" startValue="1,1" endValue="1.5,1.5" duration="3"/>

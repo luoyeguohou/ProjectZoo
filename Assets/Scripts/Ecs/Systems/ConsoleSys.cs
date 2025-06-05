@@ -9,51 +9,41 @@ public class ConsoleSys : ISystem
     {
         Msg.Bind(MsgID.ConsoleMsg, ResolveConsoleMsg);
     }
-
     public override void OnRemoveFromEngine()
     {
         Msg.UnBind(MsgID.ConsoleMsg, ResolveConsoleMsg);
     }
-
     private void ResolveConsoleMsg(object[] p)
     {
         string msg = (string)p[0];
         string[] msgs = msg.Split(' ');
-        ConsoleComp cComp  = World.e.sharedConfig.GetComp<ConsoleComp>();
+        ConsoleComp cComp = World.e.sharedConfig.GetComp<ConsoleComp>();
         cComp.histories.Add(msg);
         try
         {
             switch (msgs[0])
             {
-                case "AddCoin":
-                    Msg.Dispatch(MsgID.ActionGainCoin, new object[] { int.Parse(msgs[1]) });
+                case "AddRes":
+                    Msg.Dispatch(MsgID.ChangeRes, new object[] { (ResType)int.Parse(msgs[1]), int.Parse(msgs[2]) });
                     break;
                 case "AddCard":
-                    Msg.Dispatch(MsgID.ActionGainSpecificCard, new object[] { msgs[1] });
+                    Msg.Dispatch(MsgID.GainSpecificCard, new object[] { msgs[1] });
                     break;
                 case "Expand":
-                    Msg.Dispatch(MsgID.ActionExpand, new object[] { int.Parse(msgs[1]) });
+                    Msg.Dispatch(MsgID.Expand, new object[] { int.Parse(msgs[1]) });
                     break;
                 case "AddBook":
-                    Msg.Dispatch(MsgID.ActionGainBook, new object[] { msgs[1] });
-                    break;
-                case "Event":
-                    Msg.Dispatch(MsgID.ResolveEvent, new object[] { msgs[1] });
-                    break;
-                case "AddTime":
-                    Msg.Dispatch(MsgID.ActionGainTime, new object[] { int.Parse(msgs[1]) });
+                    Msg.Dispatch(MsgID.GainBook, new object[] { msgs[1] });
                     break;
                 case "LuckPoint":
                     cComp.luckPoint = int.Parse(msgs[1]);
                     break;
                 case "AddBuff":
-                    Msg.Dispatch(MsgID.ActionBuffChanged, new object[] { int.Parse(msgs[1]), int.Parse(msgs[2]) });
+                    Msg.Dispatch(MsgID.BuffChanged, new object[] { int.Parse(msgs[1]), int.Parse(msgs[2]) });
                     break;
             }
         }
         catch { }
-
         Msg.Dispatch(MsgID.AfterConsoleChanged);
     }
-
 }

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="79,72">
-  <controller name="type" exported="true" pages="0,normal,5,tmp,1,,2,,3,,4,,6," selected="6"/>
+  <controller name="type" exported="true" pages="0,normal,5,tmp,1,,2,,3,,4,,6," selected="0"/>
+  <controller name="selected" pages="0,,1," selected="0"/>
   <displayList>
-    <loader id="n56_rd08" name="worker" xy="0,0" size="79,72" url="ui://zqdehm1vz1411i" align="center" vAlign="middle" fill="scale" color="#cc00ff">
+    <loader id="n58_j7je" name="bg" xy="-12,-11" size="103,94" aspect="true" url="ui://zqdehm1vz1411i" align="center" vAlign="middle" fill="scale">
+      <gearDisplay controller="selected" pages="1"/>
+    </loader>
+    <loader id="n56_rd08" name="worker" xy="0,0" size="79,72" url="ui://zqdehm1vz1411i" align="center" vAlign="middle" fill="scale" color="#000000">
       <gearColor controller="type" pages="5,1,2,3,4,6" values="#999999|#116221|#a50517|#dfc200|#0506cc|#cc00ff" default="#000000"/>
     </loader>
+    <text id="n57_nm3e" name="txtPoint" xy="12,10" size="57,55" fontSize="23" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" autoClearText="true" text="10">
+      <gearColor controller="type" pages="5" values="#000000,#000000" default="#ffffff,#000000"/>
+    </text>
   </displayList>
 </component>

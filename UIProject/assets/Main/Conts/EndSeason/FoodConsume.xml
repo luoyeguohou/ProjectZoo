@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1385,647">
+  <displayList>
+    <component id="n105_w7gc" name="n105" src="w7gcfx" fileName="Components/ResBar.xml" xy="1183,10" controller="type,4"/>
+    <image id="n106_w7gc" name="n106" src="w7gcfw" fileName="Images/Resources/food.png" xy="524,95" size="111,109"/>
+    <image id="n107_w7gc" name="n107" src="w7gcfw" fileName="Images/Resources/food.png" xy="748,197" size="111,109"/>
+    <image id="n108_w7gc" name="n108" src="w7gcfw" fileName="Images/Resources/food.png" xy="470,286" size="111,109"/>
+    <image id="n109_w7gc" name="n109" src="w7gcfw" fileName="Images/Resources/food.png" xy="743,337" size="111,109"/>
+    <image id="n110_w7gc" name="n110" src="w7gcfw" fileName="Images/Resources/food.png" xy="634,429" size="111,109"/>
+    <image id="n111_w7gc" name="n111" src="w7gcfw" fileName="Images/Resources/food.png" xy="837,464" size="111,109"/>
+    <image id="n112_w7gc" name="n112" src="w7gcfw" fileName="Images/Resources/food.png" xy="877,109" size="111,109"/>
+    <image id="n113_w7gc" name="n113" src="w7gcfw" fileName="Images/Resources/food.png" xy="316,179" size="111,109"/>
+    <image id="n114_w7gc" name="n114" src="w7gcfw" fileName="Images/Resources/food.png" xy="401,407" size="111,109"/>
+  </displayList>
+  <transition name="idle">
+    <item time="0" type="Alpha" target="n106_w7gc" tween="true" startValue="1" endValue="0" duration="11"/>
+    <item time="0" type="Alpha" target="n107_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n108_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n109_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n110_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n111_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n112_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n113_w7gc" value="1"/>
+    <item time="0" type="Alpha" target="n114_w7gc" value="1"/>
+    <item time="0" type="XY" target="n106_w7gc" tween="true" startValue="524,95" endValue="524,-125" duration="11"/>
+    <item time="0" type="XY" target="n107_w7gc" value="748,197"/>
+    <item time="0" type="XY" target="n108_w7gc" value="470,286"/>
+    <item time="0" type="XY" target="n109_w7gc" value="743,337"/>
+    <item time="0" type="XY" target="n110_w7gc" value="634,429"/>
+    <item time="0" type="XY" target="n111_w7gc" value="837,464"/>
+    <item time="0" type="XY" target="n112_w7gc" value="877,109"/>
+    <item time="0" type="XY" target="n113_w7gc" value="316,179"/>
+    <item time="0" type="XY" target="n114_w7gc" value="401,407"/>
+    <item time="2" type="Alpha" target="n111_w7gc" tween="true" startValue="1" endValue="0" duration="11"/>
+    <item time="2" type="XY" target="n111_w7gc" tween="true" startValue="837,464" endValue="837,172" duration="11"/>
+    <item time="4" type="Alpha" target="n107_w7gc" tween="true" startValue="1" endValue="0" duration="12"/>
+    <item time="4" type="XY" target="n107_w7gc" tween="true" startValue="748,197" endValue="748,-76" duration="12"/>
+    <item time="7" type="Alpha" target="n109_w7gc" tween="true" startValue="1" endValue="0" duration="12"/>
+    <item time="7" type="XY" target="n109_w7gc" tween="true" startValue="743,337" endValue="743,155" duration="12"/>
+    <item time="8" type="Alpha" target="n114_w7gc" tween="true" startValue="1" endValue="0" duration="12"/>
+    <item time="8" type="XY" target="n114_w7gc" tween="true" startValue="401,407" endValue="401,158" duration="12"/>
+    <item time="9" type="Alpha" target="n108_w7gc" tween="true" startValue="1" endValue="0" duration="12"/>
+    <item time="9" type="XY" target="n108_w7gc" tween="true" startValue="470,286" endValue="470,-80" duration="12"/>
+    <item time="12" type="Alpha" target="n110_w7gc" tween="true" startValue="1" endValue="0" duration="12"/>
+    <item time="12" type="XY" target="n110_w7gc" tween="true" startValue="634,429" endValue="634,196" duration="12"/>
+    <item time="16" type="Alpha" target="n113_w7gc" tween="true" startValue="1" endValue="0" duration="14"/>
+    <item time="16" type="XY" target="n113_w7gc" tween="true" startValue="316,179" endValue="316,-23" duration="14"/>
+    <item time="19" type="Alpha" target="n112_w7gc" tween="true" startValue="1" endValue="0" duration="14"/>
+    <item time="19" type="XY" target="n112_w7gc" tween="true" startValue="877,109" endValue="877,-107" duration="14"/>
+  </transition>
+</component>

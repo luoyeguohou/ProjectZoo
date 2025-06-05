@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,183">
+  <displayList>
+    <component id="n63_w7gc" name="actionSpace" src="rd0817" fileName="Components/ActionSpace.xml" xy="0,0"/>
+    <component id="n64_w7gc" name="btnPrice" src="rd0816" fileName="Components/ButtonNormal.xml" xy="5,138" size="111,44" scale="0.8,0.8">
+      <Button title="build" titleFontSize="22"/>
+    </component>
+    <image id="n65_w7gc" name="n65" src="rd08r" fileName="Images/Resources/goldIcon.png" xy="11,108" size="26,26"/>
+    <text id="n68_nm3e" name="txtCoinCost" xy="39,106" size="60,33" fontSize="21" vAlign="middle" autoSize="none" text="5"/>
+    <image id="n69_nm3e" name="n69" src="w7gcfv" fileName="Images/Resources/wood.png" xy="55,114" size="36,15" aspect="true"/>
+    <text id="n70_nm3e" name="txtWoodCost" xy="91,106" size="60,33" fontSize="21" vAlign="middle" autoSize="none" text="5"/>
+  </displayList>
+</component>

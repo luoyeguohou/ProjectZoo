@@ -10,7 +10,6 @@ namespace Main
             Msg.Bind(MsgID.AfterTurnStepChanged, UpdateStepView);
             m_btnBack.onClick.Clear();
             m_btnBack.onClick.Add(TryToBack);
-
             m_btnHide.onClick.Clear();
             m_btnHide.onClick.Add(TryToHide);
         }

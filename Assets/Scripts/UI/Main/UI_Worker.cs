@@ -8,7 +8,10 @@ namespace Main
     public partial class UI_Worker : GComponent
     {
         public Controller m_type;
+        public Controller m_selected;
+        public GLoader m_bg;
         public GLoader m_worker;
+        public GTextField m_txtPoint;
         public const string URL = "ui://zqdehm1vz1411h";
 
         public static UI_Worker CreateInstance()
@@ -21,7 +24,10 @@ namespace Main
             base.ConstructFromXML(xml);
 
             m_type = GetControllerAt(0);
-            m_worker = (GLoader)GetChildAt(0);
+            m_selected = GetControllerAt(1);
+            m_bg = (GLoader)GetChildAt(0);
+            m_worker = (GLoader)GetChildAt(1);
+            m_txtPoint = (GTextField)GetChildAt(2);
         }
     }
 }

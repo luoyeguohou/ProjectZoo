@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="638,380">
+  <controller name="state" pages="0,,1," selected="1"/>
+  <displayList>
+    <image id="n131_j7je" name="n131" src="rd08i" fileName="Images/panel.png" xy="0,0" size="638,380"/>
+    <text id="n132_j7je" name="txtCost" xy="48,63" size="551,215" fontSize="39" vars="true" autoSize="none" text="恭喜达到新的评级！！！&#xA;    解锁1名新工人&#xA;    解锁所有{lv=1}级卡牌&#xA;    所有工人点数永久提升2点">
+      <gearText controller="state" pages="1" values="恭喜达到新的评级！！！&#xA;    解锁1名新工人&#xA;    解锁所有{lv=1}级卡牌&#xA;    所有工人点数永久提升2点" default="花费{num=5}块钱来进入下一个评级？"/>
+    </text>
+    <component id="n133_j7je" name="btnConfirm" src="rd0816" fileName="Components/ButtonNormal.xml" xy="244,275" size="178,60">
+      <Button title="确认"/>
+    </component>
+  </displayList>
+</component>

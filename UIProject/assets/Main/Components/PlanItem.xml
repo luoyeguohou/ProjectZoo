@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="168,53">
-  <controller name="state" pages="0,,1,cur,2,finished" selected="2"/>
+  <controller name="state" pages="0,,1,cur,2,finished" selected="0"/>
   <displayList>
-    <text id="n80_z141" name="txtNum" xy="2,2" size="164,50" fontSize="26" align="center" vAlign="middle" autoSize="none" text="10000"/>
+    <text id="n80_z141" name="txtNum" xy="2,2" size="164,50" fontSize="26" align="center" vAlign="middle" autoSize="none" autoClearText="true" text="10000"/>
     <image id="n81_z141" name="n81" src="z1411l" fileName="Images/Plans/planCur.png" xy="33,1" size="99,50">
       <gearDisplay controller="state" pages="1"/>
     </image>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
-  <controller name="hasTmpWorker" pages="0,,1," selected="0"/>
   <controller name="viewDetailed" pages="0,,1," selected="0"/>
+  <controller name="discardingCard" pages="0,,1," selected="0"/>
   <displayList>
-    <image id="n43_rd08" name="n43" src="rd089" fileName="Images/zooBack.png" xy="252,206" size="1304,712"/>
-    <list id="n103_ea44" name="lstMap" xy="283,232" size="1240,653" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-45" colGap="52" lineItemCount="8" defaultItem="ui://zqdehm1vrd0818" autoClearItems="true">
+    <image id="n43_rd08" name="n43" src="rd089" fileName="Images/zooBack.png" xy="365,206" size="1191,712"/>
+    <list id="n103_ea44" name="lstMap" xy="396,233" size="1128,653" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="384" lineGap="-86" colGap="75" lineItemCount="8" defaultItem="ui://zqdehm1vrd0818" align="center" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -22,7 +22,7 @@
       <item/>
       <item/>
     </list>
-    <list id="n45_rd08" name="lstBook" xy="36,162" size="144,677" defaultItem="ui://zqdehm1vg9th1c">
+    <list id="n45_rd08" name="lstBook" xy="38,143" size="144,677" defaultItem="ui://zqdehm1vg9th1c">
       <item/>
       <item/>
       <item/>
@@ -37,35 +37,17 @@
     </component>
     <loader id="n51_rd08" name="btnDrawPile" xy="37,859" size="128,187" url="ui://zqdehm1vrd08u"/>
     <loader id="n52_rd08" name="btnDiscardPile" xy="1735,859" size="128,187" url="ui://zqdehm1vrd08u"/>
-    <component id="n56_rd08" name="worker" src="z1411h" fileName="Components/Worker.xml" xy="272,138"/>
-    <text id="n61_g9th" name="txtWorker" xy="351,150" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}"/>
-    <list id="n73_z141" name="lstSpecWorker" xy="411,135" size="475,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
-      <relation target="n93_qev6" sidePair="left-left"/>
+    <list id="n73_z141" name="lstWorker" xy="378,134" size="1165,75" layout="row" defaultItem="ui://zqdehm1vz1411h">
       <item controllers="type,3"/>
       <item controllers="type,4"/>
       <item controllers="type,4"/>
       <item controllers="type,4"/>
     </list>
-    <image id="n77_gie4" name="n77" src="rd08k" fileName="Images/mapBonus.png" xy="1622,80" size="226,65"/>
-    <image id="n78_gie4" name="n78" src="rd08r" fileName="Images/goldIcon.png" xy="1629,85" size="55,53"/>
-    <text id="n79_gie4" name="txtCoin" xy="1693,89" size="142,47" fontSize="22" vAlign="middle" autoSize="none" text="100(10)"/>
-    <image id="n80_gie4" name="n80" src="rd08k" fileName="Images/mapBonus.png" xy="1620,222" size="194,65"/>
-    <text id="n76_z141" name="txtAim" xy="1694,230" size="110,46" fontSize="21" align="center" vAlign="middle" vars="true" autoSize="shrink" text="{cur=100}/{aim=100}"/>
     <text id="n81_gie4" name="txtDrawPile" xy="63,909" size="74,79" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="261"/>
     <text id="n82_gie4" name="txtDiscardPile" xy="1759,909" size="74,104" fontSize="45" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="26"/>
-    <image id="n86_sr8r" name="n86" src="rd08k" fileName="Images/mapBonus.png" xy="1620,146" size="185,65"/>
-    <image id="n85_sr8r" name="n85" src="rd08g" fileName="Images/timeIcon.png" xy="1642,155" size="32,46"/>
-    <text id="n87_sr8r" name="txtTimeRes" xy="1695,154" size="80,49" fontSize="27" vAlign="middle" autoSize="none" text="15"/>
     <component id="n92_qev6" name="btnLog" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1530,0" size="137,76">
       <Button title="log" titleFontSize="23"/>
     </component>
-    <component id="n93_qev6" name="tmpWorker" src="z1411h" fileName="Components/Worker.xml" xy="214,131" controller="type,5">
-      <gearDisplay controller="hasTmpWorker" pages="1"/>
-      <gearXY controller="hasTmpWorker" pages="0,1" values="214,131|399,134"/>
-    </component>
-    <text id="n94_qev6" name="txtTmpWorker" xy="480,148" size="110,52" fontSize="28" vAlign="middle" vars="true" autoSize="none" text="X{num=10}">
-      <gearDisplay controller="hasTmpWorker" pages="1"/>
-    </text>
     <component id="n99_d2b2" name="btnConsole" src="rd0816" fileName="Components/ButtonNormal.xml" xy="1387,0" size="137,76">
       <Button title="console"/>
     </component>
@@ -93,7 +75,19 @@
       <gearText controller="viewDetailed" pages="1" values="显示：详细" default="显示：省略"/>
       <Button title="显示：省略" controller="viewDetailed" page="1"/>
     </component>
+    <component id="n86_sr8r" name="coin" src="w7gcfx" fileName="Components/ResBar.xml" xy="1658,225" controller="type,0"/>
+    <component id="n122_w7gc" name="wood" src="w7gcfx" fileName="Components/ResBar.xml" xy="1658,297" controller="type,1"/>
+    <component id="n123_w7gc" name="iron" src="w7gcfx" fileName="Components/ResBar.xml" xy="1659,370" controller="type,2"/>
+    <component id="n124_w7gc" name="pupolarity" src="w7gcfx" fileName="Components/ResBar.xml" xy="1658,439" controller="type,3"/>
+    <component id="n125_w7gc" name="food" src="w7gcfx" fileName="Components/ResBar.xml" xy="1658,508" controller="type,4"/>
+    <component id="n130_uplf" name="ratingLv" src="uplfgc" fileName="Components/RatingLvBar.xml" xy="1640,102" size="215,114"/>
+    <loader id="n131_gf10" name="checkBuildList" xy="1669,575" size="158,136" url="ui://zqdehm1vw7gcfj" fill="scaleNoBorder"/>
+    <graph id="n126_fxtz" name="n126" xy="0,0" size="1920,1080" alpha="0.752" type="rect" lineSize="0" fillColor="#ff000000">
+      <gearDisplay controller="discardingCard" pages="1"/>
+    </graph>
+    <text id="n127_fxtz" name="n127" xy="469,46" size="982,128" fontSize="48" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="选择{num=5}张牌丢弃。">
+      <gearDisplay controller="discardingCard" pages="1"/>
+    </text>
     <component id="n84_gie4" name="hand" src="c0b72f" fileName="Components/MainHand.xml" xy="312,939"/>
-    <image id="n112_qbvj" name="n112" src="u37uep" fileName="Images/popR.png" xy="1635,219" size="49,60"/>
   </displayList>
 </component>

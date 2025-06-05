@@ -9,7 +9,6 @@ namespace Main
     {
         public Controller m_step;
         public UI_SeasonInfoWin m_infoWin;
-        public GTextField m_txtCont;
         public UI_Card m_card;
         public Transition m_t0;
         public Transition m_t1;
@@ -28,8 +27,7 @@ namespace Main
 
             m_step = GetControllerAt(0);
             m_infoWin = (UI_SeasonInfoWin)GetChildAt(0);
-            m_txtCont = (GTextField)GetChildAt(4);
-            m_card = (UI_Card)GetChildAt(5);
+            m_card = (UI_Card)GetChildAt(4);
             m_t0 = GetTransitionAt(0);
             m_t1 = GetTransitionAt(1);
             m_t2 = GetTransitionAt(2);

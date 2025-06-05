@@ -28,13 +28,17 @@ namespace Main
             Msg.UnBind(MsgID.AfterPopularityChanged, UpdatePopularityView);
         }
 
+        // todo 还是有些问题的这里，需要改
         private void OnDrop()
         {
             if (idxCurrDragExhibit == -1) return;
-            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-            Exhibit tmp = eComp.exhibits[idxCurrDragExhibit];
-            eComp.exhibits.RemoveAt(idxCurrDragExhibit);
-            eComp.exhibits.Insert(idxDragTo, tmp);
+            List<Exhibit> exhibits = EcsUtil.GetExhibits();
+            Exhibit e1 = exhibits[idxCurrDragExhibit];
+            Exhibit e2 = exhibits[idxDragTo];
+            BuildingComp bComp = World.e.sharedConfig.GetComp<BuildingComp>();
+            int idx =  bComp.buildings.IndexOf(e2.belongBuilding);
+            bComp.buildings.Remove(e1.belongBuilding);
+            bComp.buildings.Insert(idx, e1.belongBuilding);
             idxDragTo = -1;
             idxCurrDragExhibit = -1;
             UpdateExhibitView();
@@ -42,41 +46,42 @@ namespace Main
 
         public void Init(UI_EndSeasonWin win)
         {
-            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-            m_lstExhibit.numItems = eComp.exhibits.Count;
+            List<Exhibit> exhibits = EcsUtil.GetExhibits();
+            m_lstExhibit.numItems = exhibits.Count;
             UpdateExhibitView();
             UpdatePopularityView();
             this.win = win;
+            TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
+            m_winter.selectedIndex = tComp.season == Season.Winter ? 1 : 0;
+            m_wood.Init();
         }
 
         private void UpdateExhibitView()
         {
-            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
+            List<Exhibit> exhibits = EcsUtil.GetExhibits();
             for (int i = 0; i < m_lstExhibit.numChildren; i++)
             {
                 UI_ExhibitWithAni ui = (UI_ExhibitWithAni)m_lstExhibit.GetChildAt(i);
-                Exhibit v = eComp.exhibits[GetExhibitIdx(i)];
+                Exhibit v = exhibits[GetExhibitIdx(i)];
                 ui.m_exhibit.Init(v);
                 ui.m_exhibit.SetFaded(idxDragTo == i && idxCurrDragExhibit != -1);
-                FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid,v));
+                FGUIUtil.SetHint(ui, () => Cfg.cards[v.uid].GetName() + "\n" +EcsUtil.GetCont(v.cfg.GetCont(), v.uid, v));
             }
         }
         private void UpdatePopularityView(object[] p = null)
         {
-            PopularityComp pComp = World.e.sharedConfig.GetComp<PopularityComp>();
-            AimComp aComp = World.e.sharedConfig.GetComp<AimComp>();
             TurnComp tComp = World.e.sharedConfig.GetComp<TurnComp>();
-            m_txtPopularity.SetVar("hot", pComp.p.ToString())
-                .SetVar("aim", aComp.aims[tComp.turn - 1].ToString()).FlushVars();
+            m_txtPopularity.SetVar("hot", EcsUtil.GetPopularity().ToString())
+                .SetVar("aim", tComp.aims[tComp.turn - 1].ToString()).FlushVars();
         }
 
         private void ExhibitIR(int index, GObject g)
         {
-            ExhibitComp eComp = World.e.sharedConfig.GetComp<ExhibitComp>();
-            Exhibit v = eComp.exhibits[GetExhibitIdx(index)];
+            List<Exhibit> exhibits = EcsUtil.GetExhibits();
+            Exhibit v = exhibits[GetExhibitIdx(index)];
             UI_ExhibitWithAni ui = (UI_ExhibitWithAni)g;
             ui.m_exhibit.Init(v);
-            FGUIUtil.SetHint(ui, () => EcsUtil.GetCardCont(v.uid, v));
+            FGUIUtil.SetHint(ui, () => Cfg.cards[v.uid].GetName() + "\n" + EcsUtil.GetCont(v.cfg.GetCont(), v.uid, v));
             ui.draggable = true;
             ui.onDragStart.Add((EventContext context) =>
             {
@@ -84,7 +89,11 @@ namespace Main
                 context.PreventDefault();
                 DragDropManager.inst.StartDrag(ui, "ui://Main/Exhibit", index, (int)context.data);
                 UI_Exhibit dragUI = (UI_Exhibit)DragDropManager.inst.dragAgent.component;
+                List<Exhibit> exhibits = EcsUtil.GetExhibits();
+                Exhibit v = exhibits[GetExhibitIdx(index)];
                 dragUI.Init(v);
+                dragUI.SetPivot(0.5f, 0.5f, true);
+                dragUI.SetScale(1, 1);
                 idxCurrDragExhibit = index;
                 idxDragTo = index;
                 UpdateExhibitView();

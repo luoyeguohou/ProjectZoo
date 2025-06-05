@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,490">
+  <displayList>
+    <image id="n131_j7je" name="n131" src="rd08i" fileName="Images/panel.png" xy="0,0" size="750,490"/>
+    <component id="n133_j7je" name="btnConfirm" src="rd0816" fileName="Components/ButtonNormal.xml" xy="287,382" size="178,60">
+      <Button title="确认"/>
+    </component>
+    <list id="n135_j7je" name="lstWorker" xy="108,127" size="548,221" layout="flow_hz" defaultItem="ui://zqdehm1vz1411h" align="center" vAlign="middle">
+      <item controllers="type,3"/>
+      <item controllers="type,4"/>
+      <item controllers="type,4"/>
+      <item controllers="type,4"/>
+    </list>
+    <text id="n136_j7je" name="n136" xy="97,38" size="568,72" fontSize="36" align="center" vAlign="middle" autoSize="none" text="选择任意工人"/>
+  </displayList>
+</component>

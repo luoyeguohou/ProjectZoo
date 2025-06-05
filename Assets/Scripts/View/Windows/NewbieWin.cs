@@ -15,7 +15,7 @@ namespace Main
         public void Init()
         {
             m_cont.m_infoWin.Init();
-            m_cont.m_card.SetCard(new Card("juanwei_monkey"));
+            m_cont.m_card.SetCard(new Card("juanweihou"));
         }
 
         private void OnClickBack()

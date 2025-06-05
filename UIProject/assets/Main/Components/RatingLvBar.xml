@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="215,116">
+  <controller name="lv" pages="0,,1,,2,,3," selected="0"/>
+  <controller name="canUpdate" pages="0,,1," selected="0"/>
+  <displayList>
+    <loader id="n130_uplf" name="n130" xy="64,4" size="81,84" aspect="true" url="ui://zqdehm1vuplfg7" align="center" vAlign="middle" fill="scale">
+      <gearIcon controller="lv" pages="0,2,3" values="ui://zqdehm1vuplfg7|ui://zqdehm1vuplfg5|ui://zqdehm1vuplfg6" default="ui://zqdehm1vuplfg4"/>
+    </loader>
+    <component id="n128_uplf" name="prop" src="nkfbei" fileName="Components/CommonProg.xml" xy="19,87" size="611,95" scale="0.3,0.3">
+      <ProgressBar value="50" max="100"/>
+    </component>
+    <image id="n129_uplf" name="n129" src="zdugfz" fileName="Images/Resources/ratingScore.png" xy="0,77" size="48,48"/>
+    <image id="n131_j7je" name="n131" src="j7jegd" fileName="Images/redNotice.png" xy="101,-28" size="78,78">
+      <gearDisplay controller="canUpdate" pages="1"/>
+    </image>
+  </displayList>
+</component>

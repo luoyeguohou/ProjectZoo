@@ -10,7 +10,7 @@ namespace Main
         public void Init(int buff, int stack)
         {
             m_txtBuff.visible = stack > 1;
-            m_img.url = "ui://Main/buff_" +buff;
+            //m_img.url = "ui://Main/buff_" +buff;
             if (stack == 1) return;
             m_txtBuff.SetVar("num", stack.ToString()).FlushVars();
         }
