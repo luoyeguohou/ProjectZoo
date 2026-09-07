@@ -146,7 +146,8 @@ public class BuildingSys : ISystem
     private void ResolveActionSpace(object[] p)
     {
         ActionSpace actionSpace = (ActionSpace)p[0];
-        Worker lastWorker = (Worker)p[1];
+        Worker lastWorker = (Worker)p[1]; 
+        Debug.Log("building effect: "+ actionSpace.cfg.uid);
         Msg.Dispatch(MsgID.ResolveEffects, new object[] { actionSpace.cfg.effects, lastWorker, actionSpace });
         Msg.Dispatch(MsgID.AfterUseActionSpace,new object[] {actionSpace });
     }

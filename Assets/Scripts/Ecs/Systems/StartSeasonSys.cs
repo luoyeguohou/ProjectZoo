@@ -66,7 +66,7 @@ public class StartSeasonSys : ISystem
 
         if (tComp.turn == 1)
         {
-            //FGUIUtil.CreateWindow<UI_NewbieWin>("NewbieWin").Init();
+            FGUIUtil.CreateWindow<UI_NewbieWin>("NewbieWin").Init();
             return;
         }
         FGUIUtil.CreateWindow<UI_StartOfSeasonWin>("StartOfSeasonWin").Init();

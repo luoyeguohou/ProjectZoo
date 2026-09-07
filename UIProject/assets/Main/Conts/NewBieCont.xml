@@ -1,38 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImage="ui://zqdehm1vpjwc0">
-  <controller name="step" homePageType="specific" homePage="0" pages="0,intro,1,aim,2,worker,3,workpos,4,map,5,展览行动,6,获取时间点数,7,抽取项目牌,8,打牌,9,结束季节,10,lastThing" selected="0">
+  <controller name="step" homePageType="specific" homePage="0" pages="0,intro,1,aim,2,worker,3,workpos,4,draw cards,8,打牌1,5,打牌2,6,打牌34,7,popAim,9,结束季节,10,评级分数1,11,评级分数2,12,投喂食物,13,玩的开心" selected="4">
     <action type="play_transition" fromPage="" toPage="3" transition="t0" repeat="-1" stopOnExit="true"/>
     <action type="play_transition" fromPage="" toPage="4" transition="t1"/>
     <action type="play_transition" fromPage="" toPage="8" transition="t2" repeat="-1" stopOnExit="true"/>
-    <action type="play_transition" fromPage="" toPage="9" transition="t3"/>
+    <action type="play_transition" fromPage="" toPage="5" transition="t3"/>
   </controller>
   <displayList>
     <component id="n5_pxbk" name="infoWin" src="z1411t" fileName="Windows/SeasonInfoWin.xml" xy="0,0">
       <gearDisplay controller="step" pages="1"/>
     </component>
     <image id="n0_nkfb" name="n0" src="nkfbek" fileName="Images/panel2.png" xy="166,672" size="1530,349">
-      <gearXY controller="step" pages="8,9" values="220,87|220,87" default="166,672"/>
+      <gearXY controller="step" pages="8,5,6,9" values="220,87|220,87|220,87|166,672" default="166,672"/>
     </image>
     <image id="n1_nkfb" name="n1" src="nkfbel" fileName="Images/person.png" xy="205,700">
-      <gearXY controller="step" pages="8,9" values="259,115|259,115" default="205,700"/>
+      <gearXY controller="step" pages="8,5,6,9" values="259,115|259,115|259,115|205,700" default="205,700"/>
     </image>
     <image id="n2_nkfb" name="n2" src="nkfbem" fileName="Images/dialog.png" xy="467,718" size="1174,242">
-      <gearXY controller="step" pages="8,9" values="521,133|521,133" default="467,718"/>
+      <gearXY controller="step" pages="8,5,6,9" values="521,133|521,133|521,133|467,718" default="467,718"/>
     </image>
     <component id="n7_pxbk" name="card" src="rd081a" fileName="Components/Card.xml" xy="820,720" scale="0.8,0.8">
-      <gearDisplay controller="step" pages="8"/>
+      <gearDisplay controller="step" pages="8,5,6"/>
+      <gearXY controller="step" pages="6" values="703,718" default="820,720"/>
     </component>
-    <component id="n6_pxbk" name="n6" src="pxbket" fileName="Components/Finger.xml" xy="453,230">
-      <gearDisplay controller="step" pages="1,2,3,4,5,6,7,8,9"/>
-      <gearXY controller="step" pages="0,1,2,3,5,6,7,8,9" values="453,230|1693,47|986,266|1323,441|1303,373|1161,383|1013,374|886,864|1675,787" default="387,441"/>
+    <component id="n6_pxbk" name="n6" src="pxbket" fileName="Components/Finger.xml" xy="383,434">
+      <gearDisplay controller="step" pages="1,2,3,4,8,7,9"/>
+      <gearXY controller="step" pages="0,1,2,3,4,8,5,6,7,9" values="453,230|1693,47|328,173|397,319|383,434|886,864|1303,373|1161,383|1688,489|1675,787" default="387,441"/>
+    </component>
+    <text id="n8_bbv2" name="n8" xy="524,737" size="1078,194" fontSize="48" autoSize="shrink" text="比如这个地方可以让你抽牌。抽多少张牌取决于工人的点数。">
+      <gearXY controller="step" pages="8,5,6,9" values="569,156|578,152|578,152|524,737" default="524,737"/>
+      <gearText controller="step" pages="1,2,3,4,8,5,6,7,9,10,11,12,13" values="你的合同持续6年，你可以随时在这里查看你每个季度的目标。注意，每个冬季你都会拥有一个随机的负面增益。|这些是你动物园的工人，每个工人都有一个点数，就像骰子一样。|这些是你的工作地点，你可以拖拽你的工人到这里执行各种不同的效果。|比如这个地方可以让你抽牌。抽多少张牌取决于工人的点数。|这张牌是一张动物场馆牌。会在每个季度结束给你提供人气值。向上滑动来打出牌。|蓝色的牌是新的工作场所牌，打出它只会让你解锁这个场所的蓝图，你仍需要花费资源来建造它。|黄色或者绿色的牌是一次性/永久卡牌，你会获得卡牌上描述的效果。|这里显示了你的当前人气值/目标人气值。|点击这里结束季节。|你超过目标人气值的部分会转换为评级分数，当你拥有足够的评级分数之后你可以升级你的动物园。|升级动物园会永久提升你的工人点数，给你带来新的永久工人，解锁更高级更强的卡牌。|注意季度结束时，你需要给你每个工人提供一个食物，否则他们下个季度总是小的点数。|玩的开心！！！" default="欢迎来到动物园大亨。在这里你将经营你自己的动物园。你的任务就是在每个季度获得足够的目标人气值。"/>
+    </text>
+    <component id="n9_bbv2" name="card2" src="rd081a" fileName="Components/Card.xml" xy="988,719" scale="0.8,0.8">
+      <gearDisplay controller="step" pages="6"/>
+    </component>
+    <text id="n10_bbv2" name="n10" xy="1485,899" size="150,72" fontSize="46" align="center" vAlign="middle" autoSize="shrink" text="5/14">
+      <gearXY controller="step" pages="8,5,6" values="1543,300|1543,301|1543,301" default="1485,899"/>
+      <gearText controller="step" pages="1,2,3,4,8,5,6,7,9,10,11,12,13" values="2/14|3/14|4/14|5/14|6/14|7/14|8/14|9/14|10/14|11/14|12/14|13/14|14/14" default="1/14"/>
+    </text>
+    <component id="n11_bbv2" name="explain" src="d2b23c" fileName="Panel/ExplainPanel.xml" xy="561,380">
+      <gearDisplay controller="step" pages="4"/>
     </component>
   </displayList>
   <transition name="t0">
-    <item time="0" type="XY" target="n6_pxbk" tween="true" startValue="986,266" endValue="1323,411" duration="22"/>
-    <item time="28" type="XY" target="n6_pxbk" value="1323,411"/>
+    <item time="0" type="XY" target="n6_pxbk" tween="true" startValue="339,172" endValue="385,400" duration="22"/>
+    <item time="28" type="XY" target="n6_pxbk" value="385,400"/>
   </transition>
   <transition name="t1">
-    <item time="0" type="XY" target="n6_pxbk" value="387,441"/>
+    <item time="0" type="XY" target="n6_pxbk" value="385,400"/>
   </transition>
   <transition name="t2">
     <item time="0" type="XY" target="n6_pxbk" tween="true" startValue="886,864" endValue="886,585" duration="17"/>

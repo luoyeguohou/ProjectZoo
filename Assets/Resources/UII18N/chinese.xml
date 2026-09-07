@@ -49,7 +49,7 @@
   <string name="zqdehm1vnkfbed-n80_z141" mz="n80">拖拽场馆来决定生效顺序。</string>
   <string name="zqdehm1vnkfbed-n81_z141" mz="btnSettle">结算</string>
   <string name="zqdehm1vnkfbed-n82_z141" mz="txtPopularity">目标值:{aim=500}</string>
-  <string name="zqdehm1vnkfbed-n85_w7gc" mz="n85"></string>
+  <string name="zqdehm1vnkfbed-n85_w7gc" mz="n85">本季度为冬季，所有场馆需要消耗1块木头来生效。</string>
   <!-- Main/Conts/ExpandPlotCont.xml -->
   <string name="zqdehm1vd2b23h-n74_z141" mz="txtTitle">扩建{num=3}个地块。</string>
   <string name="zqdehm1vd2b23h-n78_pz64" mz="btnFinish">完成</string>
@@ -66,6 +66,22 @@
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_0" mz="n1">显示：详细</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_def" mz="n1">显示：省略</string>
   <string name="zqdehm1vep2ze6-n127_fxtz" mz="n127">选择{num=5}张牌丢弃。</string>
+  <!-- Main/Conts/NewBieCont.xml -->
+  <string name="zqdehm1vpxbkeu-n8_bbv2" mz="n8">玩的开心！！！</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_0" mz="n8">你的合同持续6年，你可以随时在这里查看你每个季度的目标。注意，每个冬季你都会拥有一个随机的负面增益。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_1" mz="n8">这些是你动物园的工人，每个工人都有一个点数，就像骰子一样。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_2" mz="n8">这些是你的工作地点，你可以拖拽你的工人到这里执行各种不同的效果。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_3" mz="n8">比如这个地方可以让你抽牌。抽多少张牌取决于工人的点数。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_4" mz="n8">这张牌是一张动物场馆牌。会在每个季度结束给你提供人气值。向上滑动来打出牌。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_5" mz="n8">蓝色的牌是新的工作场所牌，打出它只会让你解锁这个场所的蓝图，你仍需要花费资源来建造它。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_6" mz="n8">黄色或者绿色的牌是一次性/永久卡牌，你会获得卡牌上描述的效果。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_7" mz="n8">这里显示了你的当前人气值/目标人气值。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_8" mz="n8">点击这里结束季节。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_9" mz="n8">你超过目标人气值的部分会转换为评级分数，当你拥有足够的评级分数之后你可以升级你的动物园。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_10" mz="n8">升级动物园会永久提升你的工人点数，给你带来新的永久工人，解锁更高级更强的卡牌。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_11" mz="n8">注意季度结束时，你需要给你每个工人提供一个食物，否则他们下个季度总是小的点数。</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_12" mz="n8">玩的开心！！！</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_def" mz="n8">欢迎来到动物园大亨。在这里你将经营你自己的动物园。你的任务就是在每个季度获得足够的目标人气值。</string>
   <!-- Main/Conts/PutActionSpaceCont.xml -->
   <string name="zqdehm1vw7gcfp-n74_z141" mz="txtTitle">选择建造地点</string>
   <string name="zqdehm1vw7gcfp-n82_ehbe" mz="btnConfirm">确认</string>

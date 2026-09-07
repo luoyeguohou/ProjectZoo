@@ -12,6 +12,7 @@ namespace Main
         protected override void OnUpdate()
         {
             base.OnUpdate();
+            if (!follow) return;
             float x = Input.mousePosition.x / Screen.width * GRoot.inst.width + offset.x;
             float y = GRoot.inst.height - Input.mousePosition.y / Screen.height * GRoot.inst.height + offset.y;
 
@@ -36,12 +37,15 @@ namespace Main
         private Vector2Int offset;
         private float duration = -1;
 
+        private bool follow = false;
+
         public void Init(string s, Vector2Int offset)
         {
             m_txtCont.text = s;
             this.offset = offset;
             duration = -1;
             parent.SetChildIndex(this, parent.numChildren-1);
+            follow = true;
         }
 
         public void SetInvisibleDur(float duration)

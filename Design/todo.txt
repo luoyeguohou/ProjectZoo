@@ -1,3 +1,7 @@
+odd number
+undo/condition check
+
+
 感觉要设计一些遗物或者季节奖励。
 描述直接程序生成。
 重做商店 

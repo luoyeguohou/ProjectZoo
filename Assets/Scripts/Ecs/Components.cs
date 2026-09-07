@@ -161,10 +161,6 @@ public class ActionSpace
         cfg = Cfg.actionSpaces[uid];
         wid = EcsUtil.GeneNextWorldID();
     }
-    public bool MaxLv()
-    {
-        return level == Consts.maxActionSpaceLv;
-    }
 }
 public class Plot
 {

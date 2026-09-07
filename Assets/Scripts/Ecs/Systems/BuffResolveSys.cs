@@ -37,7 +37,6 @@ public class BuffResolveSys : ISystem
     private void AfterResChanged(object[] p)
     {
         ResType t = (ResType)p[0];
-        int num = (int)p[1];
         if (t == ResType.Iron && EcsUtil.GetBuffNum("woodAfterGainIron") > 0)
             Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Wood, EcsUtil.GetBuffNum("woodAfterGainIron") });
         if (t == ResType.Iron && EcsUtil.GetBuffNum("foodAffterGainIron") > 0)

@@ -260,7 +260,7 @@ public class ResolveEffectSys : ISystem
                 Msg.Dispatch(MsgID.ChangeRes, new object[] { ResType.Food, EcsUtil.GetAdjacentMonkeyExhibitNum()* val1 });
                 break;
             case "GoShop":
-                Msg.Dispatch(MsgID.GoShop, new object[] { ResType.Food, EcsUtil.GetAdjacentMonkeyExhibitNum() });
+                Msg.Dispatch(MsgID.GoShop, new object[] { });
                 break;
             case "DemolishOnce":
                 Msg.Dispatch(MsgID.DemolitionExhibit, new object[] { });

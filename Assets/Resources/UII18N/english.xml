@@ -66,6 +66,38 @@ Click to cancel</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_0" mz="n1">Display:detailed</string>
   <string name="zqdehm1vep2ze6-n109_nkfb-texts_def" mz="n1">Display:omitted</string>
   <string name="zqdehm1vep2ze6-n127_fxtz" mz="n127">Choose {num=5} cards to discard.</string>
+  <!-- Main/Conts/NewBieCont.xml -->
+  <string name="zqdehm1vpxbkeu-n8_bbv2" mz="n8">Have Fun!!!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_0" mz="n8">Your contract lasts 6 years.
+You can check your seasonal targets here anytime.
+Heads up: every winter, you’ll face a random negative effect!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_1" mz="n8">These are the workers at your zoo.
+Each worker has a value—just like a rolled die!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_2" mz="n8">These are your action spaces.
+Drag your workers here to trigger various effects!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_3" mz="n8">For example, this action space lets you draw cards.
+The number of cards you draw depends on the worker’s value!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_4" mz="n8">This is an Animal Exhibit card.
+It grants you Popularity at the end of each season.
+Swipe up to play it!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_5" mz="n8">Blue cards are new action space cards.
+Playing one unlocks the blueprint for it.
+You’ll still need to spend resources to actually build it!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_6" mz="n8">Yellow and Green cards are one-time or permanent effect cards.
+Play them to gain the effect described on the card!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_7" mz="n8">Here you can see your current Popularity and the target you need to reach.</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_8" mz="n8">Tap here to end the season.</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_9" mz="n8">Any Popularity you earn beyond the target converts into Rating Points.
+Accumulate enough Rating Points, and you’ll be able to upgrade your zoo!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_10" mz="n8">Upgrading your zoo permanently boosts your workers’ values,
+grants you new permanent workers,
+and unlocks higher-level, more powerful cards!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_11" mz="n8">At the end of each season, make sure to feed every worker 1 food
+otherwise, their points will be reduced next season!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_12" mz="n8">Have Fun!!!</string>
+  <string name="zqdehm1vpxbkeu-n8_bbv2-texts_def" mz="n8">Welcome to Zoo Tycoon!
+Here, you’ll build and manage your very own zoo.
+Your mission: reach the target popularity each season to keep your zoo thriving!</string>
   <!-- Main/Conts/PutActionSpaceCont.xml -->
   <string name="zqdehm1vw7gcfp-n74_z141" mz="txtTitle">Choose place to build</string>
   <string name="zqdehm1vw7gcfp-n82_ehbe" mz="btnConfirm">Confirm</string>
